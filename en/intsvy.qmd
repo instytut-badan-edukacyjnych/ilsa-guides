@@ -1,1423 +1,442 @@
 ---
 title: |
-  Analysis of Data from International Educational Studies in R Using the Rrepest Package
-author: 
-- "Jakub Łobaszewski (j.lobaszewski@ibe.edu.pl)"
-- "Mateusz Kleczaj (m.kleczaj@ibe.edu.pl)" 
+  Analysis of data from International Educational Studies using the R `intsvy` package
+subtitle: "User Guide"
+author: "Mateusz Kleczaj (m.kleczaj@ibe.edu.pl)<br>
+Jan Szczypiński (j.szczypinski@ibe.edu.pl)"  
 format: 
   html:
     toc: true
     toc-depth: 4
     number-sections: true
     toc-expand: true
-  docx:
-    toc: true
-    toc-depth: 5
-    number-sections: true
-    toc-expand: true
   pdf:
     toc: true
     toc-depth: 5
     number-sections: true
-    toc-expand: true  
-lang: en 
+    toc-expand: true    
+  docx:
+    toc: true
+    toc-depth: 5
+    number-sections: true 
+    toc-expand: true 
 execute:
   eval: false
   echo: true
-
 ---
 
-# Introduction
+## Introduction
 
-The **Rrepest** package in R (Ilizaliturri et al., 2025)
-is an extension of the approach used in the **repest** module for Stata,
-originally developed for analysts at the Organisation for Economic
-Co-operation and Development (OECD) (Avvisati & Keslair, 2014). It was
-designed to facilitate the analysis of data from international
-educational studies conducted by OECD and the International
-Association for the Evaluation of Educational Achievement (IEA), such
-as:
+The `intsvy` R package was developed for data analysts, scientists, and students working on international educational studies such as: PISA, PIAAC, TIMSS, PIRLS and ICILS. `intsvy` simplifies the analysis of large datasets by automatically taking into account the methodology of studies conducted by OECD and IEA, such as weights, replication weights and plausible values (PVs). Using `intsvy`, you can easily calculate frequencies and estimate statistics such as mean, percentiles, and regression coefficients. It also comes with functionalities for visualizing results, using dedicated `plot()` functions.
 
--   **PISA**, **PIAAC**, **TALIS**, **SSES** (OECD),
--   **TIMSS**, **PIRLS**, **ICCS**, **ICILS** (IEA).
+::: {.callout-note}
 
-The package enables the accurate analysis of results in accordance with the
-methodology used in the aforementioned studies, supporting
-functionalities such as:
+## Additional resources
 
--   calculation of means, proportions, and grouped frequencies,
--   correlation and covariance analysis and linear regression,
--   comparative tests between groups and the calculation of dispersion
-    measures.
-
-`Rrepest` automates the complex aspects of analysing data from
-international educational surveys, taking into account the intricate
-sampling designs and scaling techniques used in those studies. The
-package incorporates sampling weights, replicate weights, and plausible
-values (PVs) in its calculations, ensuring the proper estimation of
-measurement uncertainty. As a result, it facilitates working with
-large-scale datasets and allows for faster analyses that are consistent
-with OECD and IEA methodological standards.
-
-::: callout-note
-## Additional Resources
-
--   [**Full Documentation**](https://cran.r-project.org/package=Rrepest/Rrepest.pdf) – a
-    PDF file containing detailed descriptions of the package’s functions
-    along with practical examples of its use in the analysis of
-    international educational survey data.
-
--   [**README on
-    CRAN**](https://cran.r-project.org/web/packages/Rrepest/readme/README.html) – a brief installation guide and an overview of the package's
-    main features, available on the package's CRAN page.
-
--   [**Repository/wiki with examples (OECD
-    GitLab)**](https://gitlab.algobank.oecd.org/edu_data/rrepest) – a
-    site maintained by the OECD where you can find package updates and
-    additional examples of analyses.
+- [Full documentation](https://github.com/eldafani/intsvy)
+- [CRAN documentation](https://cran.r-project.org/package=intsvy)
+- [Video tutorials](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/filmy-instruktazowe)
+- [Use examples](https://www.daniel-caro.com/intsvy)
 :::
 
-------------------------------------------------------------------------
+### Why should you consider intsvy?
 
-## Why use `Rrepest`?
+- **Automation**: simplifies data processing, by eliminating the necessity of dealing with weights and replications
+- **Accessibility**: easily accessible functions for analysis and plotting
+- **Flexibility**: supports data from multiple international studies
 
-::::::::::::::::::: callout-tip
-## Advantages of the `Rrepest` package
+### Package limitations
 
--   **Automation**: it simplifies the processing of complex data by
-    automatically accounting for OECD and IEA methodological
-    requirements, such as replicate weights and plausible values (PVs).
-    This eliminates the need to manually implement complex statistical
-    formulas.
--   **Convenience**: the `Rrepest()` function provides a clear and
-    user-friendly syntax for calculating descriptive statistics,
-    correlations, linear regressions, group comparisons, and generating
-    output tables.
--   **Flexibility**: the package supports the analysis of data from multiple
-    international educational studies.
--   **Support**: it is actively used and continuously developed by the
-    OECD.
--   **Speed**: the package utilizes parallel computing, distributing
-    tasks across multiple CPU cores, allowing for up to twice as fast
-    data processing compared to alternative solutions - especially when
-    working with large datasets.
-:::::::::::::::::::
-------------------------------------------------------------------------
+::: {.callout-warning}
 
-## Limitations of `Rrepest`
+## Important limitations
 
-::: callout-warning
-### Important limitations of the `Rrepest` package
+`intsvy` does not support all international educational studies (e.g., SSES). Moreover, it does not support hierarchical modelling or advanced correlation analysis. If you want to perform such analyses you should consider using other packages, such as: 
 
--   The package supports only basic types of analyses: means, frequency
-    distributions, group comparisons, correlations, and linear and
-    logistic regressions. It does not support such features as estimating skill levels (benchmarks), percentiles, or complex modeling
-    (e.g., multilevel models).
--   Logistic regression performed using the **`est("log", ...)`**
-    parameter is only supported for OECD studies (e.g., PISA, TALIS).
--   In linear regression performed using the `Rrepest()` function, all
-    predictors are treated as continuous variables – even if they have
-    been recoded as factors.
--   If SPSS value labels remain in the dataset, column names in the
-    output tables will reflect category labels and will be sorted
-    alphabetically, which may reduce the readability of results.
+- `lme4` for hierarchical linear models
+- `psych` for correlation analysis
+- `EdSurvey` offers support for a broad range of international educational studies
+
+Some functions from `intsvy` such as `select.merge` work only with `.sav` files (SPSS data file).
 :::
 
-------------------------------------------------------------------------
+### Supported studies
 
-## Supported Studies
-
-| Study (Organization) | Supported by `Rrepest` |
-|----------------------|------------------------|
-| PISA (OECD)          | ✔                      |
-| PIAAC (OECD)         | ✔                      |
-| TALIS (OECD)         | ✔                      |
-| SSES (OECD)          | ✔                      |
-| TIMSS (IEA)          | ✔                      |
-| PIRLS (IEA)          | ✔                      |
-| ICCS (IEA)           | ✔                      |
-| ICILS (IEA)          | ✔                      |
-
-------------------------------------------------------------------------
-
-# Installing Packages and Preparing Data for Analysis
-
-To get started, you need to install the package (this step is required
-only once):
-
-``` r
-# Install the Rrepest package
-install.packages("Rrepest")
-
-# Install additional packages for working with data
-install.packages(c("haven", "tidyverse"))
+| Study  (Organization)     |  Supported  |
+|---------------------------|-------------|
+| TIMSS (IEA)               | ✔           |
+| PIRLS (IEA)               | ✔           |
+| ICILS (IEA)               | ✔           |
+| ICCS (IEA)                | ✘           |
+| PIAAC (OECD)              | ✔           |
+| PISA (OECD)               | ✔           |
+| TALIS (OECD)              | ✘           |
+| SSES (OECD)               | ✘           |
 
 
-# haven: a package for importing .sav, .sas7bdat, and .dta files into R  
-# tidyverse: a collection of packages that streamline data analysis, 
-# including dplyr, purrr, readr, stringr, and others  
+## Package installation
+
+As with other R packages, you can install and load `intsvy` using following commands:
+
+```{r}
+#| eval: false
+install.packages("intsvy")
+library(intsvy)
 ```
 
-We present several best practices that can help you work more
-effectively with the `Rrepest` package below.
+You can also install the `haven` package in case you will need another way to work with `.sav` files (SPSS):
 
-------------------------------------------------------------------------
-
-::: callout-tip
-## Best Practices When Using the `Rrepest` Package:
-
--   **Standardize variable names**: Convert all variable names to
-    lowercase (e.g., `names(df) <- tolower(names(df))`) to avoid issues
-    with case sensitivity in the `Rrepest()` function. Some of its arguments 
-    (e.g., `over`) are case-sensitive with respect to the variable names provided as values.
-
-- **Check your data**: Verify the structure of the dataset and the presence of missing values:
-
-    - **Data structure**: `glimpse(df)`, `summary(df)`
-    - **Number of observations per category**: `count(df, variable)`
-    - **Number of missing values per column**: e.g., `colSums(is.na(df))`
-
--   **Reproducibility**: Keep your code in scripts and document file
-    paths and data transformations to ensure the reproducibility of your
-    analyses.
-
--   **Cross-check results**: Compare your outputs with official OECD/IEA
-    reports or the **IEA IDB Analyzer** tool to ensure alignment with
-    the survey methodology.
-:::
-
-------------------------------------------------------------------------
-
-# Syntax and Key Features of the `Rrepest()` Function
-
-**Basic function syntax with its main arguments:**
-
-``` r
-Rrepest(
-  data = <data frame>,
-  svy  = <name of the study ( "ALL"|"IALS"|"IELS"|"PIAAC"|
-  "PIRLS"|"PISA"|"PISAOOS"|"SSES"|"TALIS" ("TALISSCH"/"TALISTCH")|
-  "TALIS3S" ("TALISEC_STAFF"/ "TALISEC_LEADER")"|"TIMSS"| "ICCS" (ICCS_T)"| 
-  "ICILS" | "SVY" (custom survey))>,
-    est  = est(
-    <"mean"|"var"|"std"|"quant"|"iqr"|"freq"|"corr"|"lm"|"log"|"cov"|"gen">,
-    target = <variable>,
-    regressor = <variable | vector of variables>  
-    # the "regressor" argument is used for "lm" and "log" estimators;  
-    # when using the "gen" estimator, you can specify a custom model  
-    # without needing to provide "target" or "regressor"
-  ),
-  by   = <variable | vector of variables>,
-  over = <variable | vector of variables>,
-  test = TRUE/FALSE,
-  n.pvs      = <number of plausible values (PVs)>,        
-  cm.weights = c(<main weight>, <replicate weights_1:K>), 
-  var.factor = <variance scaling factor>,       
-  show_na    = TRUE/FALSE       
-)
+```{r}
+#| eval: false
+install.packages("haven")
+library(haven)
 ```
 
-**Key Arguments of the `Rrepest()` Function:**
+## Downloading data
 
--   `svy` – the name of the study being used in the analysis.
--   `est()` – built-in estimators include `"mean"`, `"var"`, `"std"`,
-    `"quant"`, `"iqr"`, `"freq"`, `"corr"`, `"lm"`, `"log"`, `"cov"`, and
-    the general `gen` option for running custom R models.
--   `target` – a single variable or multiple PV imputations using the `@`
-    symbol syntax (e.g., `PVREAD@`, `PVNUM@`, `ASMMAT0@`). This syntax
-    can also be used in `by`, `over`, and `regressor` arguments to
-    specify PV variables.
--   `by` – specifies grouping variable(s) to be used in
-    estimates/tables.
--   `over` + `test=TRUE` – combined group analysis with statistical
-    tests for differences between levels of the variable specified in
-    the `over` argument.
--   `n.pvs` – number of plausible values used when averaging results
-    across imputations (by default, `Rrepest()` uses 5 PVs).
--   `cm.weights` – the main weight and a set of replication weights
-    (e.g., `totwgt`, `jr1:jrK`). Setting this parameter is necessary for
-    some analyses where it's not possible to use the weights included by
-    default in the `Rrepest()` function.
--   `var.factor` – a variance scaling factor based on the sample design.
-    Setting this parameter is necessary for some analyses that do not
-    use the weights included by default in the `Rrepest()` function.
--   `show_na` – if set to TRUE, missing values will be treated as a
-    separate category in frequency tables.
+Data and documentation (e.g., codebooks with dataset and variable names) are available on the websites of the respective international studies:
 
-::: callout-note
-### `by` vs. `over`
+- **PISA**: [www.oecd.org/pisa/data](https://www.oecd.org/pisa/data)
+- **TIMSS**: [www.iea.nl/data-tools/repository/timss](https://www.iea.nl/data-tools/repository/timss)
+- **PIRLS**: [www.iea.nl/data-tools/repository/pirls](https://www.iea.nl/data-tools/repository/pirls)
+- **ICILS**: [www.iea.nl/data-tools/repository/icils](https://www.iea.nl/data-tools/repository/icils)
+- **PIAAC**: [www.oecd.org/skills/piaac/data](https://www.oecd.org/skills/piaac/data)
 
--   **`by`** – performs the analysis separately for each group, treating
-    them as independent datasets. It does not allow for the direct testing
-    of differences between groups.
--   **`over`** combined with **`test=TRUE`** – analyzes all groups jointly
-    and automatically computes differences between them, along with
-    standard errors.
+::: {.callout-tip}
+To use all functionalities of `intsvy`, you should download data in `.sav` format (SPSS) using the links above.
 :::
 
-## Data Structure in International Educational Studies
+### Data structure
 
-To ensure that Rrepest functions properly, key variables in the
-dataset—such as plausible values (PVs) and analytical weights—must
-follow specific naming conventions that match those used in a given
-study cycle.
+Before starting the analysis, data from international studies must be imported into the R environment, which requires understanding their complex file structure.
 
-### Variable Names for Plausible Values (PVs)
+#### IEA data structure
 
-Plausible values (PVs) are sets of multiple imputations of latent
-(unobservable) traits—such as mathematical ability—that cannot be
-directly measured. They are used to better estimate measurement error.
-The `Rrepest()` function recognizes PVs through variable names that
-include the \@ symbol (e.g., `pv@math`, `pv@read`, `pv@civ`). The
-function assumes that multiple imputations are available for each latent
-trait (e.g., pv1math, ..., pvKmath, where K is the number of PVs
-provided in a given study).
+IEA datasets (TIMSS, PIRLS, ICILS) are typically divided into many files grouped by country, grade level, and type of survey tool used for the measurement. After downloading the TIMSS 2023 data for grade 4, you will see over 500 files in the folder.
 
-::: callout-note
-### Setting the Number of Plausible Values (PVs)
+::: {.callout-note}
 
--   By default, the `Rrepest()` function assumes that 5 imputations are
-    available.
+## IEA file naming example
 
--   If the study includes a different number of plausible values (for
-    example, there are 10 PVs in PISA cycles from 2015 onward), you
-    should explicitly specify the correct number using the `n.pvs`
-    argument (e.g., n.pvs = 10).
-:::
+**Example:** File `asapolm8.sav` contains data for Polish students from TIMSS 2023 for grade 4 in `.sav` format.
 
-### Names of Analytical Weight Variables
+Where:<br>
+- `asa`: survey answers and tasks results of 4th graders<br>
+- `pol`: country code (Poland)<br>
+- `m8`: study cycle (TIMSS 2023)<br>
 
-Analytical weights are another type of key variable in international
-educational studies. For the `Rrepest()` function to work correctly, the
-names of these variables must match the expected format for a given
-study. Each study includes a `main (total/final) weight` variable (e.g.,
-`w_fstuwt`) and a set of replicate weights (e.g.,
-`w_fsturwt1, ..., w_fsturwt80`). The names and number of replicate weights
-differ between studies. In most cases, the `Rrepest()` function automatically
-identifies the correct weight variables in the dataset based on the
-study name specified in the `svy` argument.
+**First letter in the file name indicates the grade level:**<br>
+- `a` – 4th grade<br>
+- `b` – 8th grade<br>
 
-::: callout-note
-### Example Default Analytical Weight Settings in the `Rrepest()` function
-
--   **PISA** – main weight: `w_fstuwt`; 80 replicate weights:
-    `w_fsturwt1, ..., w_fsturwt80` (student-level weights).
--   **ICCS/ICILS** – main weight: `totwgts`; 75 replicate weights:
-    `srwgt1, ..., srwgt75` (student-level weights).
-:::
-
-::: callout-important
--   For studies such as TIMSS and PIRLS (as well as other studies
-    using the Jackknife Repeated Replication (JRR) weighting scheme),
-    replicate weights must be manually recalculated and added to the
-    dataset. Instructions for doing so are provided in the practical
-    section of this guide.
-
--   Some studies differentiate study designs based on the analyzed
-    respondent groups. For example, in the TALIS study, in the `svy`
-    argument, we can specify `"TALISTCH"` if we are analyzing
-    teacher data, or `"TALISSCH"` if we are analyzing school data.
-    Similarly, in the ICCS study, we can specify the
-    study name in the `svy` argument with the suffix `_T` (i.e., `"ICCS_T"`) if we are
-    analyzing teacher data. Depending on the value assigned to the `svy` argument, 
-    Rrepest will automatically apply the appropriate analytical weights.
-    
-- The methodology of TIMSS and PIRLS changed for study cycles conducted after 2011. In cycles prior to and including 2011, 150 replicate weights and one plausible value were used, whereas in subsequent cycles, 250 replicate weights and five plausible values were implemented.
-
-:::
-
-------------------------------------------------------------------------
-
-# Downloading Data
-
-Data and documentation (e.g., codebooks, questionnaires and guides) for
-the studies can be accessed through the following websites:
-
--   **PISA**: <https://www.oecd.org/pisa/data/>
--   **TIMSS/PIRLS/ICCS/ICILS**:
-    <https://www.iea.nl/data-tools/repository>
--   **PIAAC**: <https://www.oecd.org/skills/piaac/data/>
--   **TALIS**:
-    <https://www.oecd.org/en/about/programmes/talis.html#data>
--   **SSES**:
-    <https://www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data>
-
-In the case of OECD studies, you may be required to complete a short
-registration form before downloading the datasets.
-
-------------------------------------------------------------------------
-
-## Data Files Structure
-
-Before starting the analysis, data from the international studies must be imported into the R environment, which requires an understanding of the complex structure of the files containing them. This structure differs between OECD and IEA studies.
-
-### IEA Data Structure
-
-IEA datasets are typically divided into a large number of files, grouped
-by country, grade level, and the specific assessment instrument used.
-For example, after downloading the TIMSS 2023 Grade 4 data, you may find
-over 500 files in the extracted folder.
-
-::: callout-note
-## File Naming Conventions in IEA Studies, using the TIMSS study as an example
-
-**Example**: the `asapolm8.sav` file contains data from Polish students
-from the TIMSS 2023 study for grade 4 in `.sav` format. 
-
-Where: 
-
-- `asa`: student responses and achievement scores (Grade 4)
-- `pol`: country code (Poland)
-- `m8`: study cycle (here: cycle 8, conducted in 2023)
-
-**The first letter in the file name indicates the grade level:**
-
-- `a` – Grade 4
-- `b` – Grade 8
-
-**Subsequent letters specify the data type:**
-
-- `asa/bsa` – student results and plausible values (PVs)
-- `asp/bsp` – process data (e.g., response times) 
-- `ash` – home questionnaire data
-- `asg/bsg` – student questionnaire data
-- `acg/bcg` – school questionnaire data 
+**Next letters refer to the data type:**<br>
+- `asa/bsa` – students' results and plausible values (PVs)<br>
+- `asp/bsp` – process data (e.g., reaction times)<br>
+- `ash` – parent questionnaire data<br>
+- `asg/bsg` – student questionnaire data<br>
+- `acg/bcg` – school questionnaire data<br>
 - `atg/btg` – teacher questionnaire data
-
 :::
 
-### OECD Data Structure
 
-In OECD studies, data from all participating countries are typically
-combined into a single, large file, rather than being split by country.
-The files are organized by study cycle and data type.
 
-::: callout-note
-## File Naming Conventions in OECD Studies, using the PISA study as an example
+#### PISA data structure
+PISA study data is structured differently than those from IEA studies. Each country has its own file, and the data is divided into several files based on the type of survey tool (student, school, teacher) and the cycle of the study.
 
-**Example**: the file `CY08MSP_STU_QQQ.sav` contains student
-questionnaire data from all countries participating in the PISA 2022
-study. 
+::: {.callout-note}
 
-Where:
+## Examples of PISA file naming
+**Example**: File `CY08MSP_STU_QQQ.sav` contains data from student questionnaires from all countries in the study conducted in 2022.
 
-- `CY08` – study cycle (here: cycle 8, conducted in 2022)
-- `MSP` – Main Study 
-- `STU_QQQ` – student questionnaire data
+Where:<br>
+- `CY08` – study cycle (here: 2022)<br>
+- `MSP` – Main Study <br>
+- `STU_QQQ` – students' data <br>
 
-**Other file identifiers include:** 
-
-- `SCH_QQQ` – school questionnaire data 
-- `TCH_QQQ` – teacher questionnaire data
-- `STU_COG` – student cognitive test results (e.g., reading, mathematics,
-science, etc.)
-- `STU_FLT` – financial literacy test results
-- `STU_ICT` – ICT familiarity questionnaire
-- `STU_WBQ` – student well-being questionnaire
+**Other identifiers:**<br>
+- `SCH_QQQ` – school questionnaire<br>
+- `TCH_QQQ` – teacher questionnaire<br>
+- `STU_COG` – students' results in cognitive tests (reading, math, science etc.)<br>
+- `STU_FLT` – results of financial education tests<br>
+- `STU_ICT` – results of information and communication technology tests<br>
+- `STU_WBQ` – questionnaire on students' well-being<br>
 :::
 
-# PISA 2022 Data Analysis
+### Loading and merging data
 
-## Preparing the Data
+`intsvy` allows for the quick loading and merging of data from various countries and sources using the `*.select.merge()` function, where `*` is the prefix of the study (`timss4g`, `timssg8`, `pisa`, `pirls` or `intsvy` for ICILS).
 
-``` r
-
-# Step 1: Specify the folder containing the SPSS files
-dir_pisa_2022 <- "C:/DATA/PISA 2022/Data_SPSS"
-
-# Step 2: Load the student questionnaire data (STU_QQQ)
-data_students <- read_sav(paste0(dir_pisa_2022, "/CY08MSP_STU_QQQ.sav"))
-
-# Step 3: Select countries for the analysis (Australia, Canada, Peru, Poland) 
-# and filter the dataset
-countries <- c("AUS", "CAN", "PER", "POL")
-pisa_2022 <- filter(data_students, CNT %in% countries)
-
-# Step 4: Convert variable names to lowercase
-names(pisa_2022) <- tolower(names(pisa_2022))
-```
-
-## Example 1 – Mean and Standard Deviation of Reading Scores by Country and Gender
-
-``` r
-Analysis_01 <- Rrepest(
-  data = pisa_2022,
-  svy  = "PISA",
-  est  = est(c("mean", "std"), target = "pv@read"),
-  by   = c("cnt", "st004d01t"),
-  n.pvs = 10 # `Rrepest()` uses 5 PVs by default. For PISA 2022, 
-              # set `n.pvs = 10` to reflect the correct number 
-              # of plausible values.
-)
-print(Analysis_01)
-```
-
-## Example 2 – Frequency Table of Students' Gender
-
-``` r
-Analysis_02 <- Rrepest(
-  data = pisa_2022,
-  svy  = "PISA",
-  est  = est("freq", target = "st004d01t"),
-  by   = "cnt",
-  show_na = TRUE
-)
-print(Analysis_02, width = 200)
-```
-
-## Example 3 – Linear Regression: The Effect of Socio-Economic Status on Student Performance in Mathematics
-
-``` r
-Analysis_03 <- Rrepest(
-  data = pisa_2022,
-  svy  = "PISA",
-  by   = "cnt",
-  est  = est("lm", target = "pv@math", regressor = "escs"),
-  n.pvs = 10,
-  show_na = TRUE
-)
-print(Analysis_03, width = 200)
-```
-
-<details>
-
-<summary>An Example Code for Improving the Readability of the Output
-Table</summary>
-```r
-Table_03<- Analysis_03 %>%
-  transmute(
-    Country = cnt,
-    Intercept_Estimate   = rowMeans(select(., starts_with("b.reg_pv") & 
-                           ends_with("intercept"))),
-    Intercept_SE         = rowMeans(select(., starts_with("se.reg_pv") & 
-                           ends_with("intercept"))),
-    Intercept_t          = Intercept_Estimate / Intercept_SE,
-    
-    ESCS_Estimate        = rowMeans(select(., starts_with("b.reg_pv") & 
-                           ends_with("escs"))),
-    ESCS_SE              = rowMeans(select(., starts_with("se.reg_pv") & 
-                           ends_with("escs"))),
-    ESCS_t               = ESCS_Estimate / ESCS_SE,
-    
-    R2_Estimate          = rowMeans(select(., starts_with("b.reg_pv") & 
-                           ends_with("rsqr"))),
-    R2_SE                = rowMeans(select(., starts_with("se.reg_pv") & 
-                           ends_with("rsqr"))),
-    R2_t                 = R2_Estimate / R2_SE
-  )
-
-make_reg_table <- function(row) {
-  data.frame(
-    Estimate    = c(row$Intercept_Estimate,
-                    row$ESCS_Estimate,
-                    row$R2_Estimate),
-    `Std. Error` = c(row$Intercept_SE,
-                     row$ESCS_SE,
-                     row$R2_SE),
-    `t value`    = c(row$Intercept_t,
-                     row$ESCS_t,
-                     row$R2_t),
-    row.names = c("(Intercept)", "ESCS", "R-squared")
-  )
-}
-
-final_table_03 <- setNames(
-  lapply(1:nrow(Table_03), 
-         function(i) make_reg_table(Table_03[i, ])),
-  Table_03$Country
-)
-
-
-print(final_table_03)
-
-```
-
-</details>
-
-## Example 4 - Logistic Regression: The Impact of Family Socioeconomic Status on Student Achievement in Mathematics (Obtaining a Score of at least 626)
-
-``` r
-
-# To implement logistic regression, we first need to create a new binary 
-# variable taking the value "1" or "0", depending on whether a given 
-# student achieved a score equal to or higher than 626 points. A separate 
-# variable is created for each PV imputation.
-
-for (i in 1:10) {
-  varname <- paste0("pv", i, "math")
-  newvar  <- paste0("y", i)
-  pisa_2022[[newvar]] <- ifelse(pisa_2022[[varname]] >= 626, 1, 0)
-}
-
-Analysis_04 <- Rrepest(
-  data = pisa_2022,
-  svy  = "PISA",
-  est  = est("log", target = "y@", regressor = "escs"),
-  n.pvs = 10,
-  by   = "cnt"
-)
-print(Analysis_04, width = 200)
-```
-
-<details>
-
-<summary>An Example Code for Improving the Readability of the Output
-Table</summary>
-
-```r
-
-Table_04 <- Analysis_04 %>%
-  transmute(
-    Country   = cnt,
-    Coef      = rowMeans(select(., starts_with("b.log")  & 
-                ends_with("intercept"))),
-    Std_Error = rowMeans(select(., starts_with("se.log") & 
-                ends_with("intercept"))),
-    t_value   = round(Coef / Std_Error, 2),
-    ESCS      = rowMeans(select(., starts_with("b.log")  & 
-                ends_with("escs"))),
-    ESCS_SE   = rowMeans(select(., starts_with("se.log") & 
-                ends_with("escs"))),
-    ESCS_t    = round(ESCS / ESCS_SE, 2),
-    OR        = round(exp(Coef), 2),
-    CI95low   = round(exp(Coef - 1.96 * `Std_Error`), 2),
-    CI95up    = round(exp(Coef + 1.96 * `Std_Error`), 2),
-    OR_ESCS   = round(exp(ESCS), 2),
-    CI95low_ESCS = round(exp(ESCS - 1.96 * `ESCS_SE`), 2),
-    CI95up_ESCS  = round(exp(ESCS + 1.96 * `ESCS_SE`), 2)
-  )
-
-make_logreg_table <- function(row) {
-  data.frame(
-    Coef        = c(row$Coef, row$ESCS),
-    `Std. Error`= c(row$Std_Error, row$ESCS_SE),
-    `t value`   = c(row$t_value, row$ESCS_t),
-    OR          = c(row$OR, row$OR_ESCS),
-    CI95low     = c(row$CI95low, row$CI95low_ESCS),
-    CI95up      = c(row$CI95up,  row$CI95up_ESCS),
-    row.names = c("(Intercept)", "ESCS")
-  )
-}
-
-final_table_04 <- setNames(lapply(1:nrow(Table_04), 
-                           function(i) make_logreg_table(Table_04[i, ])),
-                           Table_04$Country)
-
-print(final_table_04)
-```
-
-------------------------------------------------------------------------
-
-# TIMSS 2023 (Grade 4) Data Analysis
-
-## Step-by-Step Data Preparation
-
-Preparing TIMSS data for analysis with the `Rrepest()` function is a
-multi-step process. This is due to both the structure of the data files
-and the specific methodological requirements of the TIMSS study.
-
-### Merging the Data
-
-``` r
-# Step 1: Specify the folder containing the SPSS files
-dir_timss_2023 <- "C:/DATA/TIMSS2023_IDB_SPSS_G4/2_Data Files/SPSS Data"
-
-# Step 2: Create lists of files for selected countries (Armenia, Australia, 
-# Bahrain, Poland) and specific datasets:
-
-# Student achievement files (ASA), containing test scores
-timss_2023_asa_files <- list.files(dir_timss_2023,
-  pattern = ".*ASA(POL|AUS|ARM|BHR).*\\.sav$", 
-  ignore.case = TRUE, full.names = TRUE)
-  
-# Student context files (ASG), containing student questionnaire data
-timss_2023_asg_files <- list.files(dir_timss_2023,
-  pattern = ".*ASG(POL|AUS|ARM|BHR).*\\.sav$", 
-  ignore.case = TRUE, full.names = TRUE)
-  
-# School context files (ACG), containing school questionnaire data
-timss_2023_acg_files <- list.files(dir_timss_2023,
-  pattern = ".*ACG(POL|AUS|ARM|BHR).*\\.sav$", 
-  ignore.case = TRUE, full.names = TRUE)
-
-# Home context files (ASH), containing parent questionnaire data
-timss_2023_ash_files <- list.files(dir_timss_2023,
-  pattern = ".*ASH(POL|AUS|ARM|BHR).*\\.sav$", 
-  ignore.case = TRUE, full.names = TRUE)
-
-# Step 3: Merge questionnaire data from selected countries
-# using the previously created file lists
-
-timss_2023_asa <- timss_2023_asa_files %>% map(read_sav) %>% 
-bind_rows()
-timss_2023_asg <- timss_2023_asg_files %>% map(read_sav) %>% 
-bind_rows()
-timss_2023_acg <- timss_2023_acg_files %>% map(read_sav) %>% 
-bind_rows()
-timss_2023_ash <- timss_2023_ash_files %>% map(read_sav) %>% 
-bind_rows()
-```
-
-::: callout-important
-When merging datasets from different questionnaires using the
-`left_join()` function, the `"by"` parameter should include all
-variables that are duplicated in the datasets being merged. Depending on
-the datasets, these may be variables such as school or student
-identifiers (e.g., "IDSCHOOL" and "IDSTUD"), but also variables
-containing PVs. Otherwise, the `left_join()` function will create
-duplicate columns for the overlapping variables, appending suffixes like
-.x and .y to the column names (e.g., "variable01.x", "variable01.y").
-This can lead to confusion and complicate your analysis later on.
+::: {.callout-important}
+This function is designed to work with `.sav` files (SPSS format). The package requires specifying the folder containing the data and defining the variables to be merged. Replication weights and final weights, as well as plausible values (PVs), are added automatically. For IEA studies, the variable `IDCNTRYL` with the full country name is also created.
 :::
 
-``` r
-# Step 4: Merging datasets from all questionnaires
-timss_2023 <- left_join(
-  timss_2023_asa,
-  select(timss_2023_acg, -any_of(names(timss_2023_asa)), 
-                                 CTY, 
-                                 IDSCHOOL),
-  by = c("CTY", "IDSCHOOL")
-) %>% left_join(
-  select(timss_2023_asg, -any_of(names(timss_2023_asa)), 
-                                 CTY, 
-                                 IDSCHOOL, 
-                                 IDSTUD),
-  by = c("CTY", "IDSCHOOL", "IDSTUD")
-) %>% left_join(
-  select(timss_2023_ash, -any_of(names(timss_2023_asa)), 
-                                CTY, 
-                                IDCNTRY, 
-                                IDSCHOOL, 
-                                IDSTUD),
-  by = c("CTY", "IDCNTRY", "IDSCHOOL", "IDSTUD")
+#### Data from IEA studies
+
+```{r}
+#| eval: false
+timss23 <- timssg4.select.merge(
+  folder = "C:/ILSA/TIMSS/T23_Data_SPSS_G4/SPSS Data",
+  countries = c("AUS", "BHR", "ARM", "POL"),
+  student = c("ITSEX", "ASDAGE", "ASBGSLM"),
+  home = c("ASBH01A", "ASBH01K"),
+  school = c("ACBGDAS")
 )
 ```
+In the example above, we are merging data from TIMSS 2023. Make sure that the path to the folder with the data (`folder` argument) leads to the location where the data downloaded from the IEA website has been saved. Remember that in R, backslashes `\` (used in Windows) should be replaced with forward slashes `/`.
 
-### Creation of 250 replicate weights using the Jackknife Repeated Replication (JRR) method applied in the TIMSS 2023 study
+Arguments `countries`, `student`, `home`, and `school` allow you to select specific countries and variables according to the type of survey tool. In the example, Australia, Bahrain, Armenia, and Poland were selected, along with variables from the student, parent, and school questionnaires. The
+`timss23` object contains selected data from the TIMSS 2023 study specified in the `student`, `home`, and `school` arguments, as well as default variables such as plausible values.
 
-``` r
-# Step 5: Creation of 250 replicate weights using the JRR method
-for (i in 1:125) {
-  j <- 125 + i
-  timss_2023 <- timss_2023 %>%
-    mutate(!!paste0("jr", i) := case_when(
-      JKZONE == i & JKREP == 1 ~ 2 * TOTWGT,
-      JKZONE == i & JKREP == 0 ~ 0,
-      TRUE ~ TOTWGT
-    )) %>%
-    mutate(!!paste0("jr", j) := case_when(
-      JKZONE == i & JKREP == 0 ~ 2 * TOTWGT,
-      JKZONE == i & JKREP == 1 ~ 0,
-      TRUE ~ TOTWGT
-    ))}
-```
-
-### Converting variable names to lowercase
-
-``` r
-# Step 6: Convert variable names to lowercase
-names(timss_2023) <- tolower(names(timss_2023))
-```
-
-::: callout-important
-In **TIMSS/PIRLS analyses** you should use the custom weights parameter
-**`cm.weights = c("totwgt", paste0("jr", 1:250))`**, specifying the main
-weight **totwgt** and the previously created replicate weights
-**`(jr1, ..., jr250)`**. To correctly calculate standard errors that account
-for the replicate weights, it is also necessary to specify the variance
-factor argument: **`var.factor = 125`**. The value of the variance
-factor depends on the sampling design applied. To ensure the validity of
-your analyses, make sure to review the documentation on the replicate
-weight construction method used in the given study cycle.
+::: {.callout-tip}
+`*var.label()` function can be used before importing data to review source files and decide which countries and variables to select.
 :::
 
-## Example 1 – Mean of Mathematics Scores by Country and Gender
+```{r}
+#| eval: false
+timssg4.var.label(folder = "C:/ILSA/TIMSS/T23_Data_SPSS_G4/SPSS Data")
+```
 
-``` r
-Analysis_01 <- Rrepest(
-  data = timss_2023,
-  svy  = "TIMSS",
-  cm.weights = c("totwgt", paste0("jr", 1:250)),
-  est  = est(c("mean", "std"), target = "asmmat0@"),
-  by   = c("cty", "itsex"),
-  var.factor = 125
+#### Data from OECD studies
+
+Loading data from a PISA study is similar, but requires specifying the names of the files containing the data.
+
+```{r}
+#| eval: false
+pisa22 <- pisa.select.merge(
+  folder = "C:/ILSA/PISA",
+  school.file = "CY08MSP_SCH_QQQ.SAV",
+  student.file = "CY08MSP_STU_QQQ.SAV",
+  student = c("ST250Q02JA", "ESCS", "ST004D01T"),
+  school = c("SC001Q01TA"),
+  countries = c("Australia", "Canada", "Peru", "Poland")
 )
-print(Analysis_01)
 ```
 
-## Example 2 – Mean of Mathematics Scores by Country and Gender, Using the `over` Parameter and Showing the Difference in Scores Between Genders (Boys - Girls) in Each Country
-
-``` r
-Analysis_02 <- Rrepest(
-  data = timss_2023,
-  svy  = "TIMSS",
-  cm.weights = c("totwgt", paste0("jr", 1:250)),
-  est  = est("mean", target = "asmmat0@"),
-  by   = "cty",
-  over = "itsex",
-  test = TRUE,
-  var.factor = 125
-)
-print(Analysis_02, width = 200)
-```
-
-## Example 3 – Frequency Table of Students' Gender
-
-``` r
-Analysis_03 <- Rrepest(
-  data = timss_2023,
-  svy  = "TIMSS",
-  cm.weights = c("totwgt", paste0("jr", 1:250)),
-  est  = est("freq", "itsex"),
-  by   = "cty",
-  show_na = TRUE,
-  var.factor = 125
-)
-print(Analysis_03)
-```
-
-## Example 4 – Linear Regression: The Effect of Student Gender and Lack of Early Counting Activities on Students’ Mathematics Achievement
-
-``` r
-Analysis_04 <- Rrepest(
-  data = timss_2023,
-  svy  = "TIMSS",
-  cm.weights = c("totwgt", paste0("jr", 1:250)),
-  by   = "cty",
-  est  = est("lm", target = "asmmat0@", regressor = c("itsex", "asbh01k")),
-  var.factor = 125
-)
-print(Analysis_04)
-```
-
-<details>
-
-<summary>An Example Code for Improving the Readability of the Output
-Table</summary>
-
-```r
-Table_04 <- Analysis_04 %>%
-  transmute(
-    Country = cty,
-    Intercept_Estimate = rowMeans(select(., starts_with("b.reg_asmmat") & 
-                         ends_with("intercept"))),
-    Intercept_SE       = rowMeans(select(., starts_with("se.reg_asmmat") & 
-                         ends_with("intercept"))),
-    Intercept_t        = Intercept_Estimate / Intercept_SE,
-    ITSEX_Estimate     = rowMeans(select(., starts_with("b.reg_asmmat") & 
-                         ends_with("itsex"))),
-    ITSEX_SE           = rowMeans(select(., starts_with("se.reg_asmmat") & 
-                         ends_with("itsex"))),
-    ITSEX_t            = ITSEX_Estimate / ITSEX_SE,
-    ASBH01K_Estimate   = rowMeans(select(., starts_with("b.reg_asmmat") & 
-                         ends_with("asbh01k"))),
-    ASBH01K_SE         = rowMeans(select(., starts_with("se.reg_asmmat") & 
-                         ends_with("asbh01k"))),
-    ASBH01K_t          = ASBH01K_Estimate / ASBH01K_SE,
-    R2_Estimate        = rowMeans(select(., starts_with("b.reg_asmmat") & 
-                         ends_with("rsqr"))),
-    R2_SE              = rowMeans(select(., starts_with("se.reg_asmmat") & 
-                          ends_with("rsqr"))),
-    R2_t               = R2_Estimate / R2_SE
-  )
-
-make_reg_table <- function(row) {
-  data.frame(
-    Estimate     = c(row$Intercept_Estimate, 
-                     row$ITSEX_Estimate, 
-                     row$ASBH01K_Estimate, 
-                     row$R2_Estimate),
-    `Std. Error` = c(row$Intercept_SE,       
-                     row$ITSEX_SE,       
-                     row$ASBH01K_SE,
-                     row$R2_SE),
-    `t value`    = c(row$Intercept_t,
-                     row$ITSEX_t,        
-                     row$ASBH01K_t,
-                     row$R2_t),
-    row.names = c("(Intercept)", "ITSEX", "ASBH01K", "R-squared")
-  )
-}
-
-final_table_04 <- setNames(lapply(1:nrow(Table_04), 
-                           function(i) make_reg_table(Table_04[i, ])),
-                           Table_04$Country)
-                           
-print(final_table_04)
-```
-
-</details>
-
-## Analyses of Mathematics Teachers' Data (TIMSS 2023)
-
-To analyze teacher data, we need to merge files with the prefix ATG
-(teacher context), containing data from the teacher questionnaire, with
-files prefixed AST (student-teacher linkage), because this dataset
-includes variables with main weights assigned to teachers ("TCHWGT" –
-all teachers, "MATWGT" – mathematics teachers, "SCIWGT" – science
-teachers).
-
-### Data Preparation and Construction of Replicate Weights for Teachers in Accordance with the Jackknife Repeated Replication (JRR) Method Used in the TIMSS 2023 Study
-
-``` r
-# Step 1: Create lists of files containing teacher and student-teacher linkage
-# data for selected countries
-
-
-# ATG files – teacher context 
-# AST files - student-teacher linkage
-
-timss_2023_atg_files <- list.files(dir_timss_2023,
-                                   pattern = ".*ATG(POL|AUS|ARM|BHR).*\\.sav$", 
-                                   ignore.case = TRUE, 
-                                   full.names = TRUE)
-
-timss_2023_ast_files <- list.files(dir_timss_2023,
-                                   pattern = ".*AST(POL|AUS|ARM|BHR).*\\.sav$", 
-                                   ignore.case = TRUE, 
-                                   full.names = TRUE)
-
-timss_2023_atg <- timss_2023_atg_files %>% map(read_sav) %>% bind_rows()
-timss_2023_ast <- timss_2023_ast_files %>% map(read_sav) %>% bind_rows()
-
-# Step 2: Merge the data from selected countries using the previously 
-# created file lists
-
-timss_2023_teacher <- left_join(
-  timss_2023_atg,
-  select(timss_2023_ast, -any_of(names(timss_2023_atg)), 
-                                CTY, 
-                                IDCNTRY, 
-                                IDSCHOOL, 
-                                IDTEACH, 
-                                IDTEALIN),
-  by = c("CTY", "IDCNTRY", "IDSCHOOL", "IDTEACH", "IDTEALIN")
-)
-
-# Step 3: Create 250 replicate weights with the JRR method, 
-# using the main weight for mathematics teachers (MATWGT)
-
-for (i in 1:125) {
-  j <- 125 + i
-  timss_2023_teacher <- timss_2023_teacher %>%
-    mutate(!!paste0("jr", i) := case_when(
-      JKZONE == i & JKREP == 1 ~ 2 * MATWGT,
-      JKZONE == i & JKREP == 0 ~ 0,
-      TRUE ~ MATWGT
-    )) %>%
-    mutate(!!paste0("jr", j) := case_when(
-      JKZONE == i & JKREP == 0 ~ 2 * MATWGT,
-      JKZONE == i & JKREP == 1 ~ 0,
-      TRUE ~ MATWGT
-    ))
-}
-
-# Step 4: Keep only mathematics teachers in the dataset for further analysis
-# (remove all rows where the variable "MATWGT" has a missing value)
-
-timss_2023_teacher <- timss_2023_teacher %>% filter(!is.na(MATWGT))
-
-# Step 5: Convert variable names to lowercase
-names(timss_2023_teacher) <- tolower(names(timss_2023_teacher))
-```
-
-::: callout-important
-In analyzing mathematics teachers in the TIMSS 2023 study, you should
-use the custom weights parameter
-**`cm.weights = c("matwgt", paste0("jr", 1:250))`**, specifying the main
-weight **`matwgt`** and the previously created replicate weights
-**`(jr1, ..., jr250)`**. To correctly calculate standard errors that
-account for the applied weights, you must also set the
-variance factor argument: **`var.factor = 125`**.
+::: {.callout-note}
+Data from the PIAAC study are stored in separate files for each country (e.g., `PRGPOLPUF.sav` for Poland) and require merging for international analyses. This can be done using any function in R, such as `rbind`.
 :::
 
-### Example 5 – Percentage of Mathematics Teachers by Age Group
+## Functions in intsvy
 
-``` r
-# recoding age into a categorical variable
+Functions for data analysis have a prefix `*.function()`, where `*` corresponds to the study (`pisa`, `timss`, `pirls`, `piaac`, and `intsvy` for ICILS).
 
-timss_2023_teacher <- timss_2023_teacher %>%
-  dplyr::mutate(
-    atbg03 = factor(atbg03, levels = 1:6,
-                    labels = c(
-                    "Under 25",
-                    "25–29",
-                    "30–39",
-                    "40–49",
-                    "50–59",
-                    "60 or more"))
-  )
+### Functions for analysis:
 
-Analysis_05 <- Rrepest(
-  data = timss_2023_teacher,
-  svy  = "TIMSS",
-  cm.weights = c("matwgt", paste0("jr", 1:250)),
-  est  = est("freq", target = "atbg03"),
-  by   = "cty",
-  show_na = TRUE,
-  var.factor = 125
-)
+| Function | Description |
+|----------|-------------|
+| `*.mean.pv()` | Estimates mean(s) for variables with plausible values (PVs), takes weights into account |
+| `*.mean()` | Estimates mean(s) for variables without plausible values (PVs), e.g., questionnaire data |
+| `*.table()` | Creates frequency tables for categorical variables |
+| `*.reg.pv()` | Runs linear regression with PVs |
+| `*.reg()` | Runs linear regression without PVs |
+| `*.log.pv()` | Runs logistic regression with PVs |
+| `*.log()` | Runs logistic regression without PVs |
+| `*.per.pv()` | Estimates percentiles for variables with PVs |
+| `*.ben.pv()` | Calculates percentage of students who exceeded a given cut-off (also known as benchmarks) |
 
-print(Analysis_05)
-```
-
-### Example 6 – Mean Years of Service for Mathematics Teachers
-
-``` r
-Analysis_06 <- Rrepest(
-  data = timss_2023_teacher,
-  svy  = "TIMSS",
-  cm.weights = c("matwgt", paste0("jr", 1:250)),
-  est  = est("mean", target = "atbg01"),
-  by   = "cty",
-  var.factor = 125
-)
-print(Analysis_06)
-```
-
-------------------------------------------------------------------------
-
-# ICCS 2022 Data Analysis
-
-::: callout-important
-Some countries participating in the ICCS 2022 study conducted it for the
-first time using computer-based testing. In these countries, an
-additional component of the study was implemented in the form of
-paper-based questionnaires, the so-called "bridge study". The data from
-the "bridge" sample are not included in the official ICCS 2022
-reporting. Therefore, in our analyses, we exclude them by selecting only
-files with the suffix "C4" in their name.
+::: {.callout-note}
+Functions return objects of classes (`intsvy.mean`, `intsvy.reg`, `intsvy.table`) that work with the `intsvy` `plot()` function.
 :::
 
-## Preparing the Data
+## Analyses examples
 
-``` r
-# Step 1: Specify the folder containing the SPSS files
-dir_iccs_2022 <- "C:/DATA/ICCS 2022/SPSS Data/ICCS_2022_G8"
+Below are examples of analyses conducted with previously created datasets from TIMSS (`timss23`) and PISA (`pisa22`).
 
-# Step 2: Create lists of files for selected countries (Croatia, Poland, 
-# Romania, Spain, Sweden) and specific datasets:
+### Means
 
-# Note: Exclude files from the "bridge" edition by selecting only files
-# with the "C4" suffix in the filename
+```{r}
+#| eval: false
+# Mean scores in mathematics by country and gender in TIMSS
+timss.mean.pv(
+  pvlabel = paste0("ASMMAT0", 1:5), 
+  by = c("IDCNTRYL", "ITSEX"), 
+  data = timss23
+)
 
-
-# Student Civic Knowledge files (ISA), containing scores relating 
-# to civic competence
-
-iccs_isa_files <- list.files(dir_iccs_2022,
-  pattern = ".*ISA(POL|HRV|ESP|SWE|ROU)C4.*\\.sav$", 
-  ignore.case = TRUE, full.names = TRUE)
-  
-# International Student Questionnaire files (ISG), containing student 
-# questionnaire data
-
-iccs_isg_files <- list.files(dir_iccs_2022,
-  pattern = ".*ISG(POL|HRV|ESP|SWE|ROU)C4.*\\.sav$", 
-  ignore.case = TRUE, full.names = TRUE)
-
-# School Questionnaire files (ICG), containing school questionnaire data
-iccs_icg_files <- list.files(dir_iccs_2022,
-  pattern = ".*ICG(POL|HRV|ESP|SWE|ROU)C4.*\\.sav$", 
-  ignore.case = TRUE, full.names = TRUE)
-
-# Teacher Questionnaire files (ITG), containing teacher questionnaire data
-iccs_itg_files <- list.files(dir_iccs_2022,
-  pattern = ".*ITG(POL|HRV|ESP|SWE|ROU)C4.*\\.sav$", 
-  ignore.case = TRUE, full.names = TRUE)
-
-# Step 3: Merge questionnaire data from selected countries
-# using the previously created file lists
-iccs_2022_isa <- iccs_isa_files %>% map(read_sav) %>% bind_rows()
-iccs_2022_isg <- iccs_isg_files %>% map(read_sav) %>% bind_rows()
-iccs_2022_icg <- iccs_icg_files %>% map(read_sav) %>% bind_rows()
-iccs_2022_itg <- iccs_itg_files %>% map(read_sav) %>% bind_rows()
+# Mean scores in mathematics by country and gender in PISA
+pisa.mean.pv(
+  pvlabel = paste0("PV", 1:10, "MATH"), 
+  by = c("CNT", "ST004D01T"), 
+  data = pisa22
+)
 ```
 
-::: callout-important
-When merging datasets from the ICCS 2022 study containing student civic
-competence scores (files prefixed ISA) and student survey results (files prefixed ISG), we
-include plausible values, the main weight variable, and the
-student replicate weights) in the `by` argument of the `left_join()`
-function. This is necessary because these variables appear in both
-datasets.
+### Frequency tables
+
+```{r}
+#| eval: false
+# Frequency tables of students' gender (TIMSS)
+timss.table(variable = "ITSEX", by = "IDCNTRYL", data = timss23)
+
+# Frequency tables of students' gender (PISA)
+pisa.table(variable = "ST004D01T", by = "CNT", data = pisa22)
+```
+
+### Linear regression
+
+```{r}
+#| eval: false
+# The effect of student's gender and early activities relating to counting (ASBH01K) 
+# on mathematics scores in TIMSS
+timss.reg.pv(
+  pvlabel = paste0("ASMMAT0", 1:5), 
+  by = "IDCNTRYL", 
+  x = c("ITSEX", "ASBH01K"), 
+  data = timss23
+)
+
+# The effect of socioeconomic status (ESCS) on mathematics scores in PISA
+pisa.reg.pv(
+  pvlabel = paste0("PV", 1:10, "MATH"), 
+  by = "CNT", 
+  x = c("ESCS"), 
+  data = pisa22
+)
+```
+
+### Logistic regression
+
+```{r}
+#| eval: false
+# Probability of achieving ≥550 points in mathematics in TIMSS based on
+# gender and attitude towards mathematics (ASBGSLM)
+timss.log.pv(
+  pvlabel = paste0("ASMMAT0", 1:5), 
+  cutoff = 550, 
+  x = c("ITSEX", "ASBGSLM"), 
+  by = "IDCNTRYL", 
+  data = timss23
+)
+
+# Probability of having a computer at home depending on socioeconomic status (ESCS) in PISA
+pisa.log(y = "ST250Q02JA", x = "ESCS", by = "CNT", data = pisa22)
+```
+
+### Percentiles
+
+```{r}
+#| eval: false
+# Percentiles of mathematics achievement in TIMSS (e.g., 5, 25, 50, 75, 95)
+timss.per.pv(
+  pvlabel = paste0("ASMMAT0", 1:5), 
+  per = c(5, 25, 50, 75, 95), 
+  by = "IDCNTRYL", 
+  data = timss23
+)
+
+# Percentiles of mathematics achievement in PISA (e.g., 10, 25, 75, 90)
+pisa.per.pv(
+  pvlabel = paste0("PV", 1:10, "MATH"), 
+  per = c(10, 25, 75, 90), 
+  by = "CNT", 
+  data = pisa22
+)
+```
+
+### Calculating the percentage of students at each skill level
+```{r}
+#| eval: false
+# The percentage of students in TIMSS achieving scores equal to or above 
+# the benchmarks: 400, 475, 550, 625 points
+timss.ben.pv(
+  pvlabel = paste0("ASMMAT0", 1:5), 
+  by = "IDCNTRYL", 
+  cutoff = c(400, 475, 550, 625), 
+  data = timss23
+)
+
+# The percentage of students in PISA achieving scores equal to or above
+# the benchmarks: levels 1–6 (355–698 points)
+pisa.ben.pv(
+  pvlabel = paste0("PV", 1:10, "MATH"), 
+  by = "CNT", 
+  cutoff = c(355, 407, 480, 553, 626, 698), 
+  data = pisa22
+)
+```
+
+## Graphical presentation of results
+
+The results of analyses conducted using `intsvy` package functions (means, regressions, frequency distributions) can be visualized using dedicated `plot()` functions.
+
+::: {.callout-tip}
+## Additional export functionalities
+
+The results of the analyses can be:
+- printed to console using the `summary()` function from `base` R,
+- exported to a `.csv` file, using `export = TRUE` argument of analytical functions (means, regressions, frequencies).
+
+`na.omit()` can be used to remove missing data from the analysis results before visualization, preventing errors in generating plots.
 :::
 
-``` r
-# Step 4:  Merge student datasets (civic competence results and student 
-# survey data) with the school questionnaire dataset
+### Plotting means
 
-iccs_2022 <- left_join(
-  iccs_2022_isa,
-  iccs_2022_isg,
-  by = c("COUNTRY", "IDSCHOOL", "IDSTUD", "std_GENDER",
-         "TOTWGTS", paste0("PV", 1:5, "CIV"), paste0("SRWGT0", 1:9), 
-         paste0("SRWGT", 10:75))
-) %>% left_join(
-  iccs_2022_icg,
-  by = c("COUNTRY", "IDSCHOOL")
+```{r}
+#| eval: false
+# A scatter plot with confidence intervals showing mean scores in mathematics
+# by country and gender (TIMSS)
+plot.intsvy.mean(
+  na.omit(
+    timss.mean.pv(
+      pvlabel = paste0("ASMMAT0", 1:5), 
+      by = c("IDCNTRYL", "ITSEX"), 
+      data = timss23
+    )
+  )
+)
+
+
+```
+
+![](img/srednie.png){fig-align="center"}
+
+### Plotting regression results
+
+```{r}
+#| eval: false
+# A plot of the relationship between socioeconomic status (ESCS)
+# and student achievement in mathematics by country (PISA)
+plot.intsvy.reg(
+  na.omit(
+    pisa.reg.pv(
+      pvlabel = paste0("PV", 1:10, "MATH"), 
+      x = "ESCS", 
+      by = "CNT", 
+      data = pisa22
+    )
+  )
 )
 ```
 
-::: callout-important
-The ICCS study allows us to treat the teacher dataset as independent from
-the student dataset and analyze teachers using the teacher weights.
+![](img/regresje.png){fig-align="center"}
+
+### Plotting frequencies
+
+```{r}
+#| eval: false
+# A stacked bar plot showing the distribution of students' gender
+# in each country (TIMSS)
+plot.intsvy.table(
+  na.omit(
+    timss.table(
+      variable = "ITSEX", 
+      by = "IDCNTRYL", 
+      data = timss23
+    )
+  ), 
+  stacked = TRUE
+)
+```
+
+![](img/czestosci.png){fig-align="center"}
+
+## Summary
+
+The `intsvy` package automatically handles analyses of educational data containing plausible values (PVs) and replication weights, automatically selecting the weighting scheme and supporting the specific nature of data from international educational studies.
+
+::: {.callout-important}
+## Take home messages
+
+1. **Documentation**: It is crucial to familiarize yourself with the documentation of the specific study to correctly determine the data structure, variable names, and to use appropriate functions from the `intsvy` package
+2. **Verification**: It is recommended to verify the results of analyses with official international or national reports to confirm their correctness
 :::
-
-``` r
-# We do not merge the teacher data with other datasets because 
-# it is not needed in our example analyses.
-iccs_2022_teacher <- iccs_2022_itg
-
-# Step5: Convert variable names to lowercase
-names(iccs_2022) <- tolower(names(iccs_2022))
-names(iccs_2022_teacher) <- tolower(names(iccs_2022_teacher))
-```
-
-::: callout-important
-In the case of the ICCS study, the `Rrepest()` function expects that the
-replicate weight variables take names without leading zeros for
-replicates numbered from 1 to 9 (e.g., "srwgt1,..., srwgt9" or
-"trwgt1,..., trwgt9"). However, in the ICCS 2022 dataset provided by the
-IEA, the names of the replicate weight variables include leading zeros,
-appearing as "srwgt01,..., srwgt09", "trwgt01,..., trwgt09". These variables must be manually renamed for the function to work correctly.
-:::
-
-``` r
-# Step 6: Remove leading zeros from replicate weight variable names in the 
-# student and teacher datasets
-colnames(iccs_2022) <- gsub("^srwgt0([1-9])$", "srwgt\\1", colnames(iccs_2022))
-colnames(iccs_2022_teacher) <- gsub(
-                               "^trwgt0([1-9])$", 
-                               "trwgt\\1", 
-                               colnames(iccs_2022_teacher))
-```
-
-## Example 1 – Mean Student Scores in Civic Knowledge and Understanding of Civic Issues, Broken Down by Gender
-
-``` r
-Analysis_01 <- Rrepest(
-  data = iccs_2022,
-  svy  = "ICCS",
-  est  = est(c("mean", "std"), target = "pv@civ"),
-  by   = c("country", "std_gender")
-)
-print(Analysis_01)
-```
-
-## Example 2 - Linear Regression: The Effect Of Student Gender on Scores in Civic Knowledge and Understanding of Civic Issues
-
-``` r
-Analysis_02 <- Rrepest(
-  data = iccs_2022,
-  svy  = "ICCS",
-  by   = "country",
-  est  = est("lm", target = "pv@civ", regressor = c("std_gender"))
-)
-print(Analysis_02, width = 200)
-```
-
-<details>
-
-<summary>An Example Code for Improving the Readability of the Output
-Table</summary>
-
-``` r
-Table_02 <- Analysis_02 %>%
-  transmute(
-    country,
-    Intercept_Estimate = rowMeans(select(., starts_with("b.reg_pv@civ") & 
-                         ends_with("intercept"))),
-    Intercept_SE       = rowMeans(select(., starts_with("se.reg_pv@civ") & 
-                         ends_with("intercept"))),
-    Intercept_t        = Intercept_Estimate / Intercept_SE,
-    gender_Estimate    = rowMeans(select(., starts_with("b.reg_pv@civ") & 
-                         ends_with("std_gender"))),
-    gender_SE          = rowMeans(select(., starts_with("se.reg_pv@civ") & 
-                         ends_with("std_gender"))),
-    gender_t           = gender_Estimate / gender_SE,
-    R2_Estimate        = rowMeans(select(., starts_with("b.reg_pv@civ") & 
-                         ends_with("rsqr"))),
-    R2_SE              = rowMeans(select(., starts_with("se.reg_pv@civ") & 
-                         ends_with("rsqr"))),
-    R2_t               = R2_Estimate / R2_SE
-  )
-
-make_reg_table <- function(row) {
-  data.frame(
-    Estimate     = c(row$Intercept_Estimate, 
-                    row$gender_Estimate, 
-                    row$R2_Estimate),
-    `Std. Error` = c(row$Intercept_SE,       
-                     row$gender_SE,       
-                     row$R2_SE),
-    `t value`    = c(row$Intercept_t,        
-                     row$gender_t,        
-                     row$R2_t),
-    row.names = c("(Intercept)", "gender", "R-squared")
-  )
-}
-
-Table_02 <- setNames(lapply(1:nrow(Table_02), 
-                     function(i) make_reg_table(Table_02[i, ])),
-                     Table_02$country)
-
-print(Table_02)
-```
-
-</details>
-
-## Example 3 – Student Participation in School Life According to School Principals
-
-### Example 3A - How Often Are Students Encouraged to Contribute to Activities Planning? Percentage of Students in Schools Where Principals Responded in a Specified Way
-
-``` r
-Analysis_03a <- Rrepest(
-  data = iccs_2022,
-  svy  = "ICCS",
-  est  = est("freq", target = "ic4g03d"),
-  by   = "country"
-)
-print(Analysis_03a, width = 200)
-```
-
-### Example 3B – How Often Are Students Involved in Creating Rules and Regulations? Percentage of Students in Schools Where Principals Responded in a Specified Way
-
-``` r
-Analysis_03b <- Rrepest(
-  data = iccs_2022,
-  svy  = "ICCS",
-  est  = est("freq", target = "ic4g03b"),
-  by   = "country"
-)
-print(Analysis_03b, width = 200)
-```
-
-## Example 4 - Teachers’ Responses to the Question: “How Important Are the Following Behaviors for Being a Good Citizen in Adult Life: Engaging in Political Discussions”
-
-::: callout-important
-In order for the `Rrepest()` function to automatically retrieve the
-weights assigned to teachers, set the argument **'svy = "ICCS_T"'**. If
-we set the argument 'svy = "ICCS"', it is **necessary** to specify the
-custom weights using the argument:
-**`cm.weights = c("totwgtt", paste0("trwgt", 1:75))`**.
-:::
-
-``` r
-Analysis_04 <- Rrepest(
-  data = iccs_2022_teacher,
-  svy  = "ICCS_T",
-  est  = est("freq", target = "it4g17e"),
-  by   = "country"
-)
-print(Analysis_04, width = 300)
-```
-
-------------------------------------------------------------------------
-
-# TALIS 2018 Data Analysis
-
-In the case of the TALIS study, analyses can be conducted at two
-independent levels:
-
--   **TALISTCH** – Teachers (default weights: **`TCHWGT`** as the main
-    weight and **100** replicate weights **`TRWGT1, ..., TRWGT100`**).
-
--   **TALISSCH** – School principals/Schools (default weights:
-    **SCHWGT** as the main weight and **100** replicate weights
-    **`SRWGT1, ..., SRWGT100`**).
-
-In order for the `Rrepest()` function to use the correct weight
-variables, it is necessary to set the `svy` argument correctly:
-**`svy = "TALISTCH"`** for analyses performed on the teachers' dataset,
-or **`svy = "TALISSCH"`** for analyses performed on the school dataset
-(data from the school principals' questionnaire).
-
-## Preparing the Data
-
-``` r
-
-# Step 1: Specify the folder containing the SPSS files
-dir_talis_2018 <- "C:/DATA/TALIS 2018/SPSS Data/SPSS_2018_international"
-
-# Step 2: Load the datasets:
-
-# Teacher Data – Files with the Prefix BTG:
-talis_2018_tch <- read_sav(file.path(dir_talis_2018, "BTGINTT3.sav"))
-
-# School Data – Files with the Prefix BCG:
-talis_2018_sch <- read_sav(file.path(dir_talis_2018, "BCGINTT3.sav"))
-
-# Step 3: Select countries for the analysis (Colombia, Czech Republic,
-# Japan, Kazakhstan) and filter the dataset
-
-countries <- c("JPN", "CZE", "COL", "KAZ")
-
-talis_2018_tch <- talis_2018_tch %>% filter(CNTRY %in% countries)
-talis_2018_sch <- talis_2018_sch %>% filter(CNTRY %in% countries)
-
-# Step 4: Convert variable names to lowercase
-names(talis_2018_tch) <- tolower(names(talis_2018_tch))
-names(talis_2018_sch) <- tolower(names(talis_2018_sch))
-```
-
-## Analyses (TALISTCH – Teacher Level)
-
-### Example 1 - Frequency Table of Teachers' Gender
-
-``` r
-Analysis_01 <- Rrepest(
-  data = talis_2018_tch,
-  svy  = "TALISTCH",
-  est  = est("freq", target = "tt3g01"),
-  by   = "cntry"
-)
-print(Analysis_01)
-```
-
-### Example 2 - Mean Number of Hours Teachers Spend Weekly on Communication and Cooperation with Parents
-
-``` r
-Analysis_02 <- Rrepest(
-  data = talis_2018_tch,
-  svy  = "TALISTCH",
-  est  = est(c("mean","std"), target = "tt3g18h"),
-  by   = "cntry"
-)
-print(Analysis_02)
-```
-
-### Example 3 - Mean Number of Hours Teachers Spend Weekly on Professional Development Activities
-
-``` r
-Analysis_03 <- Rrepest(
-  data = talis_2018_tch,
-  svy  = "TALISTCH",
-  est  = est(c("mean","std"), target = "tt3g18g"),
-  by   = "cntry"
-)
-print(Analysis_03)
-```
-
-### Example 4 - Linear Regression: The Effect of the Opportunity to Actively Participate in School Decisions on Teachers' Overall Job Satisfaction
-
-``` r
-Analysis_04 <- Rrepest(
-  data = talis_2018_tch,
-  svy  = "TALISTCH",
-  by   = "cntry",
-  est  = est("lm", target = "t3jobsa", regressor = c("tt3g48a"))
-)
-print(Analysis_04, width = 200)
-```
-
-<details>
-
-<summary>An Example Code for Improving the Readability of the Output
-Table</summary>
-
-``` r
-Table_04 <- Analysis_04 %>%
-  transmute(
-    Country = cntry,
-    Intercept_Estimate = rowMeans(select(., starts_with("b.reg_t3jobsa") & 
-                         ends_with("intercept"))),
-    Intercept_SE       = rowMeans(select(., starts_with("se.reg_t3jobsa") & 
-                         ends_with("intercept"))),
-    Intercept_t        = Intercept_Estimate / Intercept_SE,
-    tt3g48a_Estimate   = rowMeans(select(., starts_with("b.reg_t3jobsa") & 
-                         ends_with("tt3g48a"))),
-    tt3g48a_SE         = rowMeans(select(., starts_with("se.reg_t3jobsa") & 
-                         ends_with("tt3g48a"))),
-    tt3g48a_t          = tt3g48a_Estimate / tt3g48a_SE,
-    R2_Estimate        = rowMeans(select(., starts_with("b.reg_t3jobsa") & 
-                         ends_with("rsqr"))),
-    R2_SE              = rowMeans(select(., starts_with("se.reg_t3jobsa") & 
-                         ends_with("rsqr"))),
-    R2_t               = R2_Estimate / R2_SE
-  )
-
-make_reg_table <- function(row) {
-  data.frame(
-    Estimate     = c(row$Intercept_Estimate, 
-                     row$tt3g48a_Estimate, 
-                     row$R2_Estimate),
-    `Std. Error` = c(row$Intercept_SE,
-                     row$tt3g48a_SE,      
-                     row$R2_SE),
-    `t value`    = c(row$Intercept_t,        
-                     row$tt3g48a_t,        
-                     row$R2_t),
-    row.names    = c("(Intercept)", "tt3g48a", "R-squared")
-  )
-}
-
-Final_04 <- setNames(lapply(1:nrow(Table_04), 
-                    function(i) make_reg_table(Table_04[i, ])), 
-                    Table_04$Country)
-
-print(Final_04)
-```
-
-</details>
-
-## Analyses (TALISSCH – School Level)
-
-### Example 5 - Mean Number of Years of Work Experience as a Principal at the Current School
-
-``` r
-Analysis_05 <- Rrepest(
-  data = talis_2018_sch,
-  svy  = "TALISSCH",
-  est  = est(c("mean","std"), target = "tc3g04a"),
-  by   = "cntry"
-)
-print(Analysis_05)
-```
-
-### Example 6 - Percentage of School Principals Who Reported Collaborating with Teachers to Solve Classroom Discipline Problems
-
-``` r
-Analysis_06 <- Rrepest(
-  data = talis_2018_sch,
-  svy  = "TALISSCH",
-  est  = est("freq", target = "tc3g22a"),
-  by   = "cntry"
-)
-print(Analysis_06, width = 200)
-```
-
-------------------------------------------------------------------------
-
-# Summary
-
-The **Rrepest** package can be considered a convenient alternative to
-the **IEA IDB Analyzer** program for conducting analyses of data from
-international educational surveys, especially for those working
-primarily in the R environment. Rrepest enables the automation of many
-repetitive procedures, ensuring support for multiple studies and
-compliance of the conducted analyses with OECD and IEA research
-methodology. At the same time, it should be noted that the package does
-not cover the full range of analyses available, for example, in the
-[**IEA IDB Analyzer**](https://ibe.edu.pl/pl/dane/instrukcje/idb-analyzer)
-or in the [**intsvy**
-package](https://ibe.edu.pl/pl/dane/instrukcje/intsvy).
-
-We encourage you to use the package in your own research projects, test
-its functionality in the analysis of data from international educational
-research, and to submit comments and improvement proposals directly to
-the package authors via the [**GitLab
-repository**](https://gitlab.algobank.oecd.org/edu_data/rrepest).
-
-# Bibliography
-
--   Avvisati, F., & Keslair, F. (2014). *REPEST: Stata module to run
-    estimations with weighted replicate samples and plausible values*
-    (Statistical Software Components S457918). Boston College Department
-    of Economics. (Revised December 11, 2024).
-
--   Ilizaliturri, R., Avvisati, F., & Keslair, F. (2025). *Rrepest: An
-analyzer of international large-scale assessments in education* (Version
-1.5.4) \[R package\]. CRAN. https://CRAN.R-project.org/package=Rrepest
-

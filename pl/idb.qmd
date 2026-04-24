@@ -6,14 +6,19 @@ author:
 format: 
   html:
     toc: true
-    toc-depth: 4
+    toc-depth: 5
     number-sections: true
     toc-expand: true
   docx:
     toc: true
-    toc-depth: 4
+    toc-depth: 5
     number-sections: true 
     toc-expand: true 
+  pdf:
+    toc: true
+    toc-depth: 4
+    number-sections: true 
+    toc-expand: true  
 lang: pl 
 execute:
   eval: false
