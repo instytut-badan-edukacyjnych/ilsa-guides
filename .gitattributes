@@ -1,1 +1,3 @@
 *.qmd linguist-language=R
+en/repest.qmd linguist-language=Stata
+pl/repest.qmd linguist-language=Stata
