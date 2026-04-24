@@ -20,6 +20,7 @@ format:
     toc-depth: 5
     number-sections: true
     toc-expand: true  
+lang: pl      
 execute:
   eval: false
   echo: true

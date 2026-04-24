@@ -1,9 +1,9 @@
 ---
 title: |
   Analysis of data from International Educational Studies using the R `intsvy` package
-subtitle: "User Guide"
-author: "Mateusz Kleczaj (m.kleczaj@ibe.edu.pl)<br>
-Jan Szczypiński (j.szczypinski@ibe.edu.pl)"  
+author: 
+- "Mateusz Kleczaj (m.kleczaj@ibe.edu.pl)" 
+- "Jan Szczypiński (j.szczypinski@ibe.edu.pl)"
 format: 
   html:
     toc: true
