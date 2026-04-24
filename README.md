@@ -3,6 +3,8 @@
 EN: Practical guides for analysing data from international large-scale assessments (PISA, TIMSS, PIRLS, ICILS, PIAAC).  
 PL: Praktyczne poradniki do analizy danych z międzynarodowych badań edukacyjnych.
 
+## 👉 [Open the guides / Otwórz poradniki](https://instytut-badan-edukacyjnych.github.io/ilsa-guides/)
+
 ---
 
 ## 🇬🇧 English
