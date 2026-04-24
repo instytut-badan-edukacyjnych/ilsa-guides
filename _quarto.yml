@@ -1,0 +1,30 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "ILSA Guides – IBE"
+  navbar:
+    left:
+      - text: "🇵🇱 Polski"
+        menu:
+          - href: pl/intsvy.qmd
+            text: "intsvy (R)"
+          - href: pl/rrepest.qmd
+            text: "Rrepest (R)"
+          - href: pl/repest.qmd
+            text: "repest (Stata)"
+          - href: pl/idb.qmd
+            text: "IDB Analyzer"
+      - text: "🇬🇧 English"
+        menu:
+          - href: en/intsvy.qmd
+            text: "intsvy (R)"
+          - href: en/rrepest.qmd
+            text: "Rrepest (R)"
+          - href: en/repest.qmd
+            text: "repest (Stata)"
+          - href: en/idb.qmd
+            text: "IDB Analyzer"
+  page-footer:
+    center: "Instytut Badań Edukacyjnych"

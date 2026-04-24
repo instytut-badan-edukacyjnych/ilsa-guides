@@ -1,0 +1,86 @@
+---
+title: "ILSA Guides – IBE"
+---
+
+::: {.lead}
+Practical guides for analysing data from international large-scale assessments (PISA, TIMSS, PIRLS, ICILS, PIAAC).  
+Praktyczne poradniki do analizy danych z międzynarodowych badań edukacyjnych.
+:::
+
+---
+
+## 🇬🇧 English
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### 📦 intsvy (R)
+The `intsvy` package simplifies analysis of large-scale assessment data in R. It automatically handles weights, replication weights and plausible values, letting you quickly compute means, percentiles, regression coefficients and plots.
+
+[Open guide →](en/intsvy.qmd){.btn .btn-outline-primary}
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📦 Rrepest (R)
+`Rrepest` is an R package based on the Stata module Repest. It was designed to streamline the analysis of OECD and IEA large-scale assessment data, automatically handling sampling weights and measurement uncertainty.
+
+[Open guide →](en/rrepest.qmd){.btn .btn-outline-primary}
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📦 repest (Stata)
+`repest` is a Stata module developed by OECD analysts. It automates many steps needed to obtain correct results from large-scale assessment data, making it a good choice for analysts who prefer Stata or are just starting out.
+
+[Open guide →](en/repest.qmd){.btn .btn-outline-primary}
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 🖥️ IDB Analyzer
+IDB Analyzer is a free tool developed by IEA for working with international large-scale assessment data. No programming knowledge is required — the software generates SPSS, SAS or R scripts automatically through a point-and-click interface.
+
+[Open guide →](en/idb.qmd){.btn .btn-outline-primary}
+:::
+
+:::
+
+---
+
+## 🇵🇱 Polski
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+### 📦 intsvy (R)
+Pakiet `intsvy` w R ułatwia pracę z dużymi zbiorami danych z badań edukacyjnych. Automatycznie obsługuje wagi, wagi replikacyjne i wartości wiarygodne (PV), pozwalając szybko obliczać średnie, percentyle, współczynniki regresji i wykresy.
+
+[Otwórz poradnik →](pl/intsvy.qmd){.btn .btn-outline-primary}
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📦 Rrepest (R)
+Pakiet `Rrepest` w R powstał na podstawie modułu Repest ze Stata. Został zaprojektowany tak, aby ułatwić analizę danych z badań OECD i IEA, automatycznie uwzględniając ważenie wyników i niepewność pomiarową.
+
+[Otwórz poradnik →](pl/rrepest.qmd){.btn .btn-outline-primary}
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 📦 repest (Stata)
+`repest` to moduł do Stata opracowany przez analityków OECD. Automatyzuje wiele kroków potrzebnych do uzyskania poprawnych wyników z danych z badań edukacyjnych — dobre rozwiązanie zarówno dla doświadczonych analityków, jak i dla osób zaczynających pracę z tymi danymi.
+
+[Otwórz poradnik →](pl/repest.qmd){.btn .btn-outline-primary}
+:::
+
+::: {.g-col-12 .g-col-md-6}
+### 🖥️ IDB Analyzer
+IDB Analyzer to bezpłatne narzędzie opracowane przez IEA. Korzystanie z niego nie wymaga znajomości programowania — program automatycznie tworzy skrypty w SPSS, SAS lub R za pomocą kilku kliknięć.
+
+[Otwórz poradnik →](pl/idb.qmd){.btn .btn-outline-primary}
+:::
+
+:::
+
+---
+
+::: {.text-muted .small}
+Instytut Badań Edukacyjnych · [GitHub](https://github.com/instytut-badan-edukacyjnych/ilsa-guides)
+:::

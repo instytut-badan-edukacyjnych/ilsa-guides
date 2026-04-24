@@ -1,0 +1,1256 @@
+---
+title: "Analyzing International Research Data in Stata Using the `repest` Package"
+author: "Michał Sitek, IBE PIB, m.sitek@ibe.edu.pl"
+format:
+  html:
+    toc: true
+    toc-depth: 4
+    number-sections: true
+    toc-expand: true
+    code-fold: false
+    code-tools: true
+  pdf:
+    toc: true
+    toc-depth: 5
+    number-sections: true
+    toc-expand: true
+  docx:
+    toc: true
+    toc-depth: 5
+    number-sections: true
+    toc-expand: true
+lang: en
+execute:
+  eval: false
+  echo: true
+---
+
+
+# Introduction
+
+The **`repest`** package in Stata is a module created by OECD analysts (*Avvisati, F. and F. Keslair (2014), REPEST: Stata module to run estimations with weighted replicate samples and plausible values, Statistical Software Components S457918, Boston College Department of Economics.*), to support analyses using plausible values (PVs) and complex surveys implemented in major international large-scale assessments, such as. **PISA**, **TIMSS**, **PIRLS**, and **PIAAC**.
+
+These studies use complex sampling designs and advanced techniques for scaling results. Correct analysis requires incorporating **analytical weights** and **plausible values (PVs)** in the model to correct for measurement uncertainty and study design. In practice, this involves repeatedly performing analyses and averaging results. `repest` automates this process.
+
+---
+
+## Why use the `repest` package?
+
+::: {.callout-tip}
+## Advantages of the `repest` package
+
+* **Automation**: Simplifies the processing of complex data, automatically incorporating OECD and IEA survey designs such as replicate weights and plausible values (PV). This eliminates the need to manually account for weights and replications in analyses.
+* **Convenience**: The package offers easily accessible functions for analyzing basic statistics (means, frequencies, correlations), statistical tests, and creating and exporting summaries.
+* **Flexibility**: Enables analysis of data from multiple international educational studies.
+:::
+
+
+---
+
+### Limitations of `repest`
+
+::: {.callout-warning}
+## Important limitations
+
+Despite its advantages, `repest` has certain limitations. The package facilitates handling complex data, but it is not a comprehensive tool for all types of analyses. For **more advanced analyses** (e.g., multilevel models), other solutions will be more convenient – we mention them at the end of this guide.
+
+The second limitation concerns data merging. `repest` assumes that the user already has a file ready to load. In practice, preparing such a file is one of the biggest challenges, especially in IEA studies (TIMSS, PIRLS, ICCS, ICILS). Although data can be merged directly in Stata, the process is complex and prone to errors. A better alternative is the free `IEA IDB Analyzer` program, which automates this workflow. We describe it in a separate guide. `IEA IDB Analyzer` makes it easier to select countries, merge different file types (student, school, and parent data), and restrict the dataset to the variables actually needed. The resulting smaller .sav (SPSS)  file can then be loaded into Stata.
+:::
+
+---
+
+### Supported studies
+
+| Study (Organization)      | Supported   |
+|---------------------------|-------------|
+| TIMSS (IEA)               | ✔           |
+| PIRLS (IEA)               | ✔           |
+| ICILS (IEA)               | ✔           |
+| ICCS (IEA)                | ✔           |
+| PIAAC (OECD)              | ✔           |
+| PISA (OECD)               | ✔           |
+| TALIS (OECD)              | ✔           |
+| SSES (OECD)               | ✔           |
+
+
+---
+
+## Package installation
+
+To get started, you need to install the `repest` package once. In the Stata command window, type:
+
+
+```stata
+
+ssc install repest, replace
+```
+-----
+
+# Syntax description and repest options
+
+In this section, we take a closer look atf `repest` syntax and its options. Some of them are illustrated in the examples in later sections of the guide.
+
+## `repest` command syntax
+
+The basic syntax of the `repest` command is as follows:
+
+```stata
+
+repest svyname [if warunek] [in zakres] , estimate(cmd [,cmd_options]) [options]
+```
+
+  * **`svyname`**: Must be one of the study names supported by (e,g., `PISA`, `TIMSS`, `PIRLS`).
+  * **`estimate(cmd)`**: ey option where you specify the type of analysis.
+
+
+-----
+
+## `estimate()` option
+
+### Built-in repest commands `repest`
+
+  * **`means`**: Calculates means.
+
+
+```stata
+    repest PISA, estimate(means pv@math) by(cnt) over(gender) display
+```
+  * **`summarize`**: Calculates descriptive statistics. Requires the `stats()` option.
+
+
+```stata
+
+    repest PISA, estimate(summarize escs, stats(p5 p25 median p75 p95))
+```
+  * **`corr`**: Calculates correlation matrix.
+
+
+```stata
+
+    repest PISA, estimate(corr pv@math pv@read) by(cnt)
+```
+  * **`quantiletable`**: Creates quantile tables similar to those in PISA reports.
+
+```stata
+
+    repest PISA, estimate(quantiletable escs pv@math, nquantiles(5))
+```
+
+### Stata commands
+
+You can use any standard Stata command that accepts weights (`pweights` or `aweights`) by prefixing it with `stata`:
+
+  * **Linear regression (`reg`)**:
+
+```stata
+
+    repest PISA, estimate(stata: reg pv@math escs i.gender)
+```
+  * **Logistic regression (`logit`)**:
+
+
+```stata
+    repest PIAAC, estimate(stata: logit zmienna_binarna pvnum@ age)
+```
+
+-----
+
+## Key `repest` options
+
+  * **`by(varname [, by_options])`**: Performs analysis separately for each category of variable `varname` (e.g. country).
+      * `levels(string)`: Restricts analysis to listed groups (e.g. `levels(POL FRA DEU)`).
+      * `average(string)`: Calculates averaged results for pre-defined groups of countries (e.g. `average(OECD EU)`).
+  * **`over(varlist [, test])`**: Estimates statistics in subgroups within each country or overall.
+  * **`outfile(filename, replace)`**: Saves results to a stata file (`.dta`).
+  * **`display`**: Displays results in the console window.
+  * **`store(name)`**: Saves regression results to memory for later export via `esttab`.
+  * **`results(results_options)`**: Controls which results are displayed.
+      * `add(addlist)`: Adds scalars (e.g. `r2`, `N`).
+      * `combine(name: expression)`: Estimates new statistics based on results.
+  * **`fast`**: Speeds up calculations for large data files (useful in preliminary analyses).
+  * **`flag`**: Replaces results based on a small number of observations with special missing code.
+  * **`coverage`**: Calculates the percentage of cases included in the analysis.
+  * **`svyparms(svy_options)`**: Allows overriding default study parameters (required for `svyname` = `SVY`).
+
+-----
+
+## Best practices
+
+::: {.callout-tip}
+
+## Things to remember
+
+  * **Data verification**: Always use command `describe`, `summarize`, `tabulate`, `codebook`.
+  * **Script documentation**: Always document your scripts in `.do` or `.qmd`, files to ensure replicability.
+  * **Results verification**: Always compare obtained results with official international reports.
+  * **Handling of missing data**: Remember that `repest` by defaults omits observations with missing data.
+
+:::
+
+-----
+
+## Limitations and alternatives
+`Repest` is great for generating descriptive statistics summaries from many countries. It has simple and logical syntax and supports many studies. It is also used by OECD and actively maintained by analysts associated with OECD.
+
+  * **`pv`** : Another package (`ssc install pv`). Works slower than `repest`, but it is more flexible. Allows manual definition of weight names, eliminating the needs to generate weights for TIMSS/PIRLS. It can be also combined with frequently used Stata commands (e.g. `estimates store`, `margins`, etc.).
+
+  * **`mi` i `svyset`**: Suitable for more advanced users. Its main advantage is the ability to use Stata's built-in commands for analyzing multiply imputed data.
+
+-----
+
+## Downloading data
+
+Data from international studies are available on the following pages:
+
+  * **PISA**: [www.oecd.org/pisa/data](https://www.oecd.org/pisa/data){target="_blank"}
+  * **PIAAC**: [https://www.oecd.org/skills/piaac/data/](https://www.oecd.org/skills/piaac/data/){target="_blank"}
+  * **TALIS**: [https://www.oecd.org/en/about/programmes/talis.html#data](https://www.oecd.org/en/about/programmes/talis.html#data){target="_blank"}
+  * **SSES**: [https://www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data](https://www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data){target="_blank"}
+  * **TIMSS, PIRLS, ICCS, ICILS**: [https://www.iea.nl/data-tools/repository](https://www.iea.nl/data-tools/repository){target="_blank"}
+
+
+For some OECD studies, you need to complete a short questionnaire before downloading the dataset.
+
+
+## Additional information about data
+
+### IEA data structure
+
+IEA datasets (TIMSS, PIRLS, and ICILS) are usually divided into a large number of files, grouped by country, grade level, and research instrument used. After downloading TIMSS 2023 data for Grade 4, we will see over 500 files in the folder.
+
+::: {.callout-note}
+
+## IEA file naming
+
+**Example:** File `asapolm8.sav` contains data for Polish students from TIMSS 2023 for grade 4 in `.sav` format.
+
+Where:<br>
+- `asa`: survey answers and tasks results of 4th graders<br>
+- `pol`: country code (Poland)<br>
+- `m8`: study cycle (TIMSS 2023)<br>
+
+**First letter in the file name indicates the grade level:**<br>
+- `a` – 4th grade<br>
+- `b` – 8th grade<br>
+
+**Next letters refer to the data type:**<br>
+- `asa/bsa` – students' results and plausible values (PVs)<br>
+- `asp/bsp` – process data (e.g. reaction times)<br>
+- `ash` – parent questionnaire data<br>
+- `asg/bsg` – student questionnaire data<br>
+- `acg/bcg` – school questionnaire data<br>
+- `atg/btg` – teacher questionnaire data
+:::
+
+### PISA data structure
+
+In PISA study data is structured differently than in IEA studies. Each country has its own file, and the data is divided into several files based on the type of survey tool (student, school, teacher) and the cycle of the study.
+
+::: {.callout-note}
+
+## PISA file naming
+**Example**: File `CY08MSP_STU_QQQ.sav` contains data from student questionnaires from all countries in the study conducted in 2022.
+
+Where:<br>
+- `CY08` – study cycle (here: 2022)<br>
+- `MSP` – Main Study <br>
+- `STU_QQQ` – students' data <br>
+
+**Other identifiers:**<br>
+- `SCH_QQQ` – school questionnaire<br>
+- `TCH_QQQ` – teacher questionnaire<br>
+- `STU_COG` – students' results in cognitive tests (reading, math, science etc.)<br>
+- `STU_FLT` – results of tests of financial education<br>
+- `STU_ICT` – results of tests of information and communication technology<br>
+- `STU_WBQ` – questionnaire on students' well-being<br>
+:::
+
+---
+
+
+## Appending (adding observations from other datasets)
+
+The `repest` package requires all data to be in one active dataset.
+
+
+
+```stata
+
+use "path/country_A.dta", clear
+append using "path/country_B.dta"
+append using "path/country_C.dta"
+````
+
+-----
+
+### Merging data (adding variables from other datasets) (merge)
+
+To merge student data with school data (`m:1`) or parent data(`1:1`):
+
+
+
+```stata
+
+* Load student data
+use "path/student_data.dta", clear
+
+* Merge school data (many students to one school)
+merge m:1 schoolid using "path/school_data.dta"
+tab _merge
+drop _merge
+
+* Merge parent data (one student to one parent)
+merge 1:1 studid using "C:/path/parent_data.dta"
+tab _merge
+drop _merge
+```
+
+-----
+
+## Understanding data structure
+
+For `repest` to work correctly, variables in the dataset must have a specific name structure corresponding to conventions in individual studies.
+
+-----
+
+### Plausible values 
+
+Plausible values are a set of multiple imputations of latent traits (e.g., abilities) that allow obtaining unbiased measurement errors. When `repest` encounters `@` symbol in a variable name (e.g. `pv@math`), it assumes that multiple imputations are available for this variable (e.g. `pv1math`, ..., `pv10math`, in case of PISA 2022).
+
+  * **PISA**:
+      * mathematics `pv1math`, `pv2math`, ..., `pv10math`;
+      * rreading comprehension: `pv1scie`, `pv2scie`, ..., `pv10scie`
+  * **TIMSS**
+      * mathematics: `BSMMAT01`, ..., `BSMMAT05` (plausible values of mathematics scores; each variable corresponds to one impuatation of PV)
+      * science: `BSMSCI01`, ..., `BSMSCI05` (plausible values of science scores)
+  * **ICCS** civic knowledge and skills
+  * **PIRLS**: `BSRRD01`, ..., `BSRRD05`
+  * **PIAAC**:
+      * reading comprehension: `PVLIT1`, ..., `PVLIT10`
+      * mathematical skills: `PVNUM1`, ..., `PVNUM10`
+      * adaptive problem solving (in round II): `PVAPS1`, ..., `PVAPS10`
+
+-----
+
+## Analytical weights
+
+The second important type of variables are **analytical weights**. `repest` requires, specific weight variables to be available in the active dataset. Their names are automatically set by `repest` when specifying the study name.
+
+  * **Final weights**: E.g. `w_fstuwt` (for PISA students), `TOTWGTS` (for ICCS/ICILS), `WGT` (for PIRLS/TIMSS).
+  * **Replicate weights**: E.g. `w_fstr1` to `w_fstr80` (PISA), `SRWGT1` to `SRWGT75` (ICCS/ICILS), `JR1` to `JR150` (PIRLS/TIMSS).
+
+For some studies, e.g. **TIMSS** and **PIRLS**, it is necessary to create weights. We describe how to do this in the practical section.
+
+In some studies, different study schemes are distinguished depending on the type of respondents, e.g., in the **TALIS** study there are several options: `TALISSCH`, `TALISTCH`, `TALISEC_STAFF`, `TALISEC_LEADER`, which are used depending on which group one wants to analyze.
+
+
+To analyze teacher or school data in ICCS/ICILS studies, you need to appropriately set the study name in the `repest` command:
+
+  * **Teacher data:** use `ICCS_T` or `ICILS_T` as `svyname` in `repest` command. This will automatically use appropriate teacher weights.
+  * **Schools data:** use `ICCS_C` or `ICILS_C` as `svyname`, to use school weights.
+
+
+-----
+
+The third important piece of information is the variable describing the country, usually referring to ISO codes.
+
+::: {.callout-note}
+
+## Case sensitivity in Stata
+
+Stata is **case sensitive**. Variable names for PV should have a case consistent with the definition in `repest`.  You can change them with the `rename` command, e.g.:
+
+
+```stata
+
+* Changes names of all pv*math variables to uppercase
+rename pv*math, upper
+
+* Changes names of all variables to lowercase
+rename *, lower
+```
+:::
+
+# Analyzing PISA 2022 data
+
+For hands-on examples we'll start with the PISA study.
+
+## Downloading data
+
+  * Go to the OECD page with PISA 2022 data: [https://www.oecd.org/pisa/data/2022database/](https://www.oecd.org/pisa/data/2022database/)
+  * After completing a short survey, you’ll see a list of files in SAS and SPSS format. These are data from different study modules. We need the student survey data, which also include test scores.
+  * Stata has built-in capability to import SAS files (but without the provided label file). SPSS files (.sav) can be imported with `import spss` command, but this command struggles with very large datasets and doesn't handle longer variable and value labels well.
+
+Create a folder on your computer for data, e.g., C:/pisa_data/.
+
+ `C:/pisa_data/`.
+
+Download the international database. This is a compressed (zip) file containing data in SPSS format. The unzipped file is called **`CY08MSP_STU_QQQ.SAV`**. Save it in your working directory
+
+We’ll use the import spss command to load the file. The command is available from Stata 16 onward. If you're using an earlier version, install the `usespss` package instead.
+
+
+----
+
+## Loading data in Stata
+
+
+```stata
+* Set the path to our working folder
+* Remember to provide your own path here!
+cd "C:/pisa_data/"
+
+* Load PISA 2022 dataset in SPSS format.
+import spss using CY08MSP_STU_QQQ.SAV, clear
+```
+
+The file is large: it contains 1278 variables for 613,744 students.
+
+::: {.callout-important}
+
+## Issue with importing large SPSS files in Stata
+
+Unfortunately, Stata doesn't handle importing very large SPSS files (`.sav`) very well,  even if one has enough RAM. The import may fail on some systems. 
+
+You can import data from a SAS file (`*.sas7bdat`), however **you'll lose value labels** (e.g. `gender` variable will contain values `1`, `2`, but without labels). OECD provides  a `*.SAS file`, containing label definitions, but Stata doesn’t support it.
+
+In this case, we can use **R (package `haven`)**. This allows you to import the file and save it as `.dta` format with full metadata preserved.
+
+If you only need a subset of the data, consider using the **`IEA IDB Analyzer`**.  This tool supports files in various formats, but not in Stata one. Still, using `IEA IDB Analyzer`  can be helpful in managing files – e.g., when we want to create a dataset from several countries or combine data from different instruments (e.g., student and teacher surveys).
+:::
+
+After loading the file, let's check if we have the most important variables that `repest` uses. For simplicity, we'll ask for the first 3 PV and 5 replicate weights.
+
+
+```stata
+
+. describe PV1MATH-PV3MATH W_FSTUWT W_FSTURWT1- W_FSTURWT5 CNT
+
+Variable        Storage   Display    Value
+  name            type    format     label      Variable label
+-------------------------------------------------------------------------------------------------------------------------
+PV1MATH         double  %10.0g                  Plausible Value 1 in Mathematics
+PV2MATH         double  %10.0g                  Plausible Value 2 in Mathematics
+PV3MATH         double  %10.0g                  Plausible Value 3 in Mathematics
+W_FSTUWT        double  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT WEIGHT
+W_FSTURWT1      double  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 1
+W_FSTURWT2      double  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 2
+W_FSTURWT3      double  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 3
+W_FSTURWT4      double  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 4
+W_FSTURWT5      double  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 5
+CNT             str3    %7s                     Country code 3-character
+```
+
+-----
+
+## PISA Analyses Step by Step - Examples
+
+### Calculating Mean Score for Poland and Czech Republic
+
+Let's limit our dataset to data for Poland and Czech Republic only. In Stata, we can use the `keep if` command (keep only) or the `drop if` command (delete if). In our case, we want to keep only data where the country acronym (consistent with ISO) is `POL` (Poland) or `CZE` (Czech Republic).
+
+```stata-output
+. keep if CNT=="POL" | CNT=="CZE"
+(599,273 observations deleted)
+
+```
+## Case sensitivity
+
+In Stata, variable names are case-sensitive. A common problem with `repest` is inconsistent variable naming. For PISA data, `repest` expects key variables to be in lowercase. If `repest` cannot find a required variable, e.g., cnt, it will display an error message..
+
+In our case, it is necessary to change the case of key variables defining the study. In this example, these are: `CNT (country)`, `CNTRYID (country id)`, `CNTSCHID (school id)`, and `CNTSTUID (student id)`.
+
+:::
+
+
+```stata
+
+rename CNT W_FSTUWT W_FSTURWT* CNTSCHID, lower
+```
+
+Now we can run the t analyses. Let’s first look at some descriptive statistics for mathematics in Poland.
+
+
+```stata
+
+. repest PISA if cnt == "POL", estimate(means PV@MATH)
+
+Survey parameters have been changed to PISA2015
+
+_pooled..........
+: _pooled
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+  PV_MATH_m |  488.9601   2.27485   214.94   0.000     484.5014   493.4187
+------------------------------------------------------------------------------
+```
+
+The results of this command show the estimated mean, its standard error, and 95% confidence interval.
+
+Note that a comment `Survey parameters have been changed to PISA2015 also appears`. This indicates that analyses are being conducted for 10`pv` (since PISA 2015, 10 `pv` are used in the study – in earlier editions 5 `pv` were used).
+
+
+-----
+
+## Gender differences reand significance test
+
+Are there differences in mathematics scores between boys and girls?
+
+To check this, we will use the `over()` option, which. This repeats the analysis for each group defined by the specified variable — in this case, gender: `ST004D01T`. 
+
+Adding the `test` option "tells" `repest` to calculate the difference estimate and test whether the difference between group means is statistically significant.
+
+```stata
+
+. repest PISA if cnt == "POL", estimate(means PV@MATH) over(ST004D01T, test) display
+Survey parameters have been changed to PISA2015
+over ST004D01T = 1 2
+
+over var is ST004D01T
+
+_pooled - ST004D01T = 1 ..........
+_pooled - ST004D01T = 2 ..........
+_pooled : _pooled
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+ST004D01T=1 |
+  PV_MATH_m |  486.1626   2.946798   164.98   0.000      480.387   491.9382
+------------+----------------------------------------------------------------
+ST004D01T=2 |
+  PV_MATH_m |  491.6791   2.672776   183.96   0.000     486.4405   496.9176
+------------+----------------------------------------------------------------
+ST004D01T=d |
+  PV_MATH_m |  5.51646   3.326107     1.66   0.097   -1.002589   12.03551
+------------------------------------------------------------------------------
+```
+
+The results show that, the average mathematics results (`PV_MATH_m`) separately for boys (`ST004D01T=1`: 486.16) and girls (`ST004D01T=2`: 491.68). The row `ST004D01T=d` presents **the difference** between girls' and boys' (5.52 points). `P>|z|` is the p-value, which indicates statistical significance. In this case, the p-value (0.097) is above the chosen threshold of 0.05, which means that the difference in mean results **is not statistically significant**.
+
+## Differences in percentiles
+When interpreting results, means alone don't tell the whole story. It’s always worth looking at the variation in results. Let's look at selected percentiles for Poland.
+
+```stata
+
+.
+. repest PISA if cnt == "POL", estimate(summarize PV@MATH, stats(p5 p25 p50 p75 p95))
+Survey parameters have been changed to PISA2015
+
+_pooled..........
+: _pooled
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+  PV_MATH_p5 |  340.3515   3.870307    87.94   0.000     332.7658   347.9372
+ PV_MATH_p25 |  426.3688   3.188472   133.72   0.000     420.1195   432.6181
+ PV_MATH_p50 |  490.4081   2.941234   166.74   0.000     484.6434   496.1728
+ PV_MATH_p75 |    551.97   2.612002   211.32   0.000     546.8506   557.0894
+ PV_MATH_p95 |  634.7251   3.701408   171.48   0.000     627.4705   641.9797
+------------------------------------------------------------------------------
+
+
+. repest PISA if cnt == "POL", estimate(summarize PV@MATH, stats(p10 p25 p50 p75 p90)) over(ST004D01T, test)
+Survey parameters have been changed to PISA2015
+over ST004D01T = 1 2
+
+over var is ST004D01T
+
+_pooled - ST004D01T = 1 ..........
+_pooled - ST004D01T = 2 ..........
+_pooled : _pooled
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+ST004D01T=1 |
+ PV_MATH_p10 |  374.9559   4.83756    77.51   0.000     365.4745   384.4373
+ PV_MATH_p25 |  428.5824   3.732784   114.82   0.000     421.2663   435.8985
+ PV_MATH_p50 |  487.2313   3.528813   138.07   0.000      480.315   494.1476
+ PV_MATH_p75 |  544.6233   3.83937    141.85   0.000     537.0983   552.1483
+ PV_MATH_p90 |  593.7016   4.100419   144.79   0.000     585.6649   601.7383
+------------+----------------------------------------------------------------
+ST004D01T=2 |
+ PV_MATH_p10 |  365.8842   4.476712    81.73   0.000       357.11   374.6584
+ PV_MATH_p25 |  423.8901   4.072185   104.09   0.000     415.9088   431.8714
+ PV_MATH_p50 |  494.1357   3.850228   128.34   0.000     486.5894    501.682
+ PV_MATH_p75 |  559.0357   3.361573   166.30   0.000     552.4471   565.6243
+ PV_MATH_p90 |  613.7861   4.009809   153.07   0.000      605.927   621.6452
+------------+----------------------------------------------------------------
+ST004D01T=d |
+ PV_MATH_p10 |  -9.0717   6.414851    -1.41   0.157   -21.64458   3.501176
+ PV_MATH_p25 |  -4.6923   4.729754    -0.99   0.321   -13.96245   4.577848
+ PV_MATH_p50 |  6.9044   4.563641     1.51   0.130   -2.040172   15.84897
+ PV_MATH_p75 |  14.4124   4.640495     3.11   0.002   5.317198   23.5076
+ PV_MATH_p90 |  20.0845   5.090743     3.95   0.000   10.10683   30.06217
+------------------------------------------------------------------------------
+```
+
+-----
+
+The table shows percentiles for each group (boys and girls). For example, `PV_MATH_p10` for the 10th percentile, `PV_MATH_p50` for the median and so on. 
+Rows labeled `ST004D01T=d` show the differences in percentiles between girls and boys. Note the p-values: differences at lower percentiles (p10, p25) are **not statistically significant**, but at higher percentiles (p75, p90) they are. The p-values are `0.002` and `0.000` respectively.
+
+
+-----
+
+Below are additional functions of the `repest` package for managing analysis results: displaying, saving, and reusing them:
+
+* `display`: This is the default setting. `Repest` shows results directly in the Stata results window.
+
+* `outfile("filename.dta", [suboptions])`:  Saves results to a `.dta` file, facilitating its further processing. You can add suboptions: `(p-values)` or `se` (standard errors), to include more statistical details.
+
+* `store(object_name)`: Saves results as objects in Stata that can be recalled later. A separate object is created for each level in `by()`.
+
+## How to compare results between countries and test for significant differences?
+
+To compare results between countries, we use the **`by`** option.
+
+```stata
+
+* Analysis for Poland and Czech Republic with country breakdown
+
+repest PISA, estimate(means PV@MATH) by(cnt, levels(POL CZE))
+
+Survey parameters have been changed to PISA2015
+
+POL..........
+cnt : POL
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+  PV_MATH_m |  488.9601   2.27485   214.94   0.000     484.5014   493.4187
+------------------------------------------------------------------------------
+
+CZE..........
+cnt : CZE
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+  PV_MATH_m |  486.9992   2.093645   232.61   0.000     482.8957   491.1027
+------------------------------------------------------------------------------
+```
+
+Is the mean in Poland higher than in Czech Republic in 2022?
+
+```stata
+
+* Analysis for Poland and Czech Republic by country
+---------------------------------------------------------------------
+
+. repest PISA, estimate(means PV@MATH) over(cnt, test)
+Survey parameters have been changed to PISA2015
+option over() only allows numeric variables
+
+over var is cnt
+__00000U not found
+r(111);
+```
+::: {.callout-important}
+
+## Error `option over() only allows numeric variables`
+In the above command, `repest` reported an error. The variable used in `over` cannot be a string variable. You should then use the second identifier available in the dataset, the `CNTRYID` variable, which is the numerical ISO country code (Poland is 616, and Czech Republic is 203). 
+:::
+
+```stata
+. repest PISA, estimate(means PV@MATH) over(CNTRYID , test)
+```
+Survey parameters have been changed to PISA2015
+ over CNTRYID  = 203 616
+
+over var is CNTRYID
+
+_pooled - CNTRYID  = 203 ..........
+_pooled - CNTRYID  = 616 ..........
+_pooled : _pooled
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+=203        |
+  PV_MATH_m |  486.9992   2.093645   232.61   0.000      482.8957   491.1027
+------------+----------------------------------------------------------------
+=616        |
+  PV_MATH_m |  488.9601   2.27485   214.94   0.000      484.5014   493.4187
+------------+----------------------------------------------------------------
+=d          |
+  PV_MATH_m |  1.960846   2.944474     0.67   0.505    -3.810218   7.731909
+------------------------------------------------------------------------------
+```
+
+The average results of students from Poland and Czech Republic **do not differ significantly**. The confidence intervals (Poland: 483–491, Czech Republic: 484–493) overlap, and the difference test (last row) shows that the 2-point difference is not significant (p = 0.505). Since data come from a sample, we account for estimation uncertainty.  Here there is no basis to conclude that there is a significant difference between countries.
+
+::: {.callout-note}
+
+## Differences between `by` and `over`
+It's worth noting the differences between `by` and `over`.
+
+The `by` prefix performs the analysis separately for each group, treating them as independent datasets. It does not allow direct testing of differences between groups – this must be done separately.
+However, the `over(*variable*, test)` option in `repest` analyzes all groups simultaneously within one model. It automatically calculates differences between them and ensuring that standard errors are correct. 
+:::
+
+### Proportions of Students by Proficiency Levels
+PISA reports often present data in the form of proficiency levels - usually as percentages of students achieving successive thresholds, defined in PISA points. The PISA dataset does not have an appropriate variable – we need to create it.
+
+While you could run the previous analyses by copying individual lines into the command window,, in practice it is more convenient to use **command files** (`do-file`). This is a text file (`.do`) containing a sequence of commands, functioning as a script. 
+
+Do-files are essential for reproducibility, transparency, and efficient organization of any statistical analysis. It enables easy code execution, making changes, and documenting all steps of working with data.
+
+To calculate proportions of students, we need to transform PV (for mathematics these are variables `PV1MATH` to `PV10MATH`) into a categorical variable corresponding to proficiency levels. Below, values have are recoded to levels defined in the PISA international report, which distinguishes levels 1a, 1b, 1c, level 2, 3, up to level 6, totaling 9 categories.
+
+```stata
+
+
+* Define value labels for the new variable
+label define math_level_labels 0 "Below 1c" ///
+                              1 "Level 1c" ///
+                              2 "Level 1b" ///
+                              3 "Level 1a" ///
+                              4 "Level 2" ///
+                              5 "Level 3" ///
+                              6 "Level 4" ///
+                              7 "Level 5" ///
+                              8 "Level 6"
+
+foreach i of numlist 1/10 {
+
+* Recode math PVs into proficiency levels
+recode PV`i'MATH   (min/233.169 = 0 "Below 1c") ///
+                   (233.17/295.469 = 1 "Level 1c") ///
+                   (295.47/357.769 = 2 "Level 1b") ///
+                   (357.77/420.069 = 3 "Level 1a") ///
+                   (420.07/482.379 = 4 "Level 2") ///
+                   (482.38/544.679 = 5 "Level 3") ///
+                   (544.68/606.989 = 6 "Level 4") ///
+                   (606.99/669.299 = 7 "Level 5") ///
+                   (669.30/max = 8 "Level 6"), gen(math`i'level)
+
+* Apply value labels to the new variable
+label values math`i'level math_level_labels
+
+}
+
+```
+
+::: {.callout-note}
+
+## Explanation of the PV recoding script
+
+Explanation of the PV recoding script
+
+  * **`label define math_level_labels ...`**:  Defines descriptive labels (e.g., "Level 1c", "Level 6") for numeric values that will be assigned to levels. This ensures that results display readable names, instead of just numbers.
+  * **`foreach i of numlist 1/10 { ... }`**: This is a loop that performs the same command set ten times (for each of ten PVs, i.e., `PV1MATH`, `PV2MATH`, ..., `PV10MATH`). This prevents code repetition.
+  * **`recode PV`i`MATH (min/233.169 = 0 ...) ..., gen(math`i`level)`**: The recode command transforms each raw PISA score (`PV1MATH`, `PV2MATH` etc.) into a new variable (`math1level`, `math2level` etc.) by assigning a value (0 to 8) based on defined score bands (e.g., score from 233.17 to 295.469 becomes 1). The `gen()` option creates a new variable, keeping the original data intact.
+  * **`label values math`i`level math_level_labels`**: : Finally, the pre-defined labels are applied to the new variable (`math1level`, `math2level`, etc.), so that the numeric values (0, 1, 2, etc.) are displayed as meaningful level descriptions (like "Below 1c", "Level 1c").
+:::
+
+The above commands recode PV values into all levels, but we can also simplify, e.g., by distinguishing only students below level 2 (value 1) and those at level 2 or above (value 0).
+
+With these variables, we can calculate the percentages of students at different levels. Let's compute this for Poland.
+
+```stata
+
+
+. repest PISA if cnt=="POL" , estimate(freq math@level)
+Survey parameters have been changed to PISA2015
+
+_pooled..........
+ : _pooled
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+math_level_0 |   .0740546   .0629373     1.18   0.239    -.0493001   .1974094
+math_level_1 |   1.129739   .2436488     4.64   0.000     .6521962   1.607282
+math_level_2 |   6.367772   .5078255    12.54   0.000     5.372453   7.363092
+math_level_3 |    15.4304   .7576769    20.37   0.000    13.94538   16.91542
+math_level_4 |   23.75994   .9219499    25.77   0.000    21.95295   25.56692
+math_level_5 |   25.58255   .8678128    29.48   0.000    23.88167   27.28344
+math_level_6 |   18.24058   .6846419    26.64   0.000    16.89871   19.58245
+math_level_7 |   7.499555   .4674799    16.04   0.000    6.583311   8.415799
+math_level_8 |   1.915414   .2991674     6.40   0.000    1.329057   2.501771
+------------------------------------------------------------------------------
+
+```
+
+-----
+
+### Linear regression
+
+In this example, we'll analyze the association between students' socio-economic status (ESCS) and their math scores (`PV@MATH`).
+
+The **`results(add(r2 N))`** option: This option allows you to add extra statistics to the results table, which Stata stores by default. Here, we add **R-squared** (`e_r2`) - a measure of model fit, and **number of observations** (`e_N`).
+
+We'll conduct the analyses separately for Poland and the Czech Republic.
+
+```stata
+
+
+* Linear regression model
+
+* Standard, linear effect
+
+. repest PISA,  estimate(stata: reg PV@MATH ESCS) by(cnt) results(add(r2 N))
+Survey parameters have been changed to PISA2015
+`"CZE"' `"POL"'
+
+CZE..........
+cnt : CZE
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+       ESCS |   50.58072   1.800561    28.09   0.000     47.05168   54.10975
+      _cons |   492.6841   1.810705   272.10   0.000     489.1352   496.2331
+       e_r2 |   .2204457   .0121808    18.10   0.000     .1965719   .2443196
+        e_N |      8301         .         .       .           .          .
+------------------------------------------------------------------------------
+
+POL..........
+cnt : POL
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+       ESCS |   40.34929   1.857624    21.72   0.000     36.70842   43.99017
+      _cons |   494.8693   1.851499   267.28   0.000     491.2404   498.4981
+       e_r2 |   .1625078   .0129805    12.52   0.000     .1370666    .187949
+        e_N |      5875         .         .       .           .          .
+------------------------------------------------------------------------------
+
+* Nonlinear ESCS effect
+
+. repest PISA,  estimate(stata: reg PV@MATH c.ESCS##c.ESCS) by(cnt) results(add(r2 N))
+Survey parameters have been changed to PISA2015
+`"CZE"' `"POL"'
+
+CZE..........
+cnt : CZE
+-------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+         ESCS |    49.8014   1.80252    27.63   0.000     46.26852   53.33427
+c_ESCS_c_ESCS |  -5.542008   1.618431   -3.42   0.001    -8.714074  -2.369941
+       _cons |   496.8342   2.284468   217.48   0.000     492.3567   501.3117
+        e_r2 |   .2233969   .0118917   18.79   0.000     .2000896   .2467041
+         e_N |      8301         .        .      .          .           .
+-------------------------------------------------------------------------------
+
+POL..........
+cnt : POL
+-------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+         ESCS |   40.10634   1.979861   20.26   0.000     36.22588   43.98679
+c_ESCS_c_ESCS |  -1.108514   2.206676   -0.50   0.615    -5.433519   3.216491
+       _cons |   495.7264   2.62605   188.77   0.000     490.5794   500.8733
+        e_r2 |   .1627424   .0128378   12.68   0.000     .1375808    .187904
+         e_N |      5875         .        .      .          .           .
+-------------------------------------------------------------------------------
+
+* Linear regression model
+
+* Standard, linear effect
+
+. repest PISA,  estimate(stata: reg PV@MATH ESCS) by(cnt) results(add(r2 N))
+Survey parameters have been changed to PISA2015
+`"CZE"' `"POL"'
+
+CZE..........
+cnt : CZE
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+       ESCS |   50.58072   1.800561    28.09   0.000     47.05168   54.10975
+      _cons |   492.6841   1.810705   272.10   0.000     489.1352   496.2331
+       e_r2 |   .2204457   .0121808    18.10   0.000     .1965719   .2443196
+        e_N |      8301         .         .       .           .          .
+------------------------------------------------------------------------------
+
+POL..........
+cnt : POL
+------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+------------+----------------------------------------------------------------
+       ESCS |   40.34929   1.857624    21.72   0.000     36.70842   43.99017
+      _cons |   494.8693   1.851499   267.28   0.000     491.2404   498.4981
+       e_r2 |   .1625078   .0129805    12.52   0.000     .1370666    .187949
+        e_N |      5875         .         .       .           .          .
+------------------------------------------------------------------------------
+
+* Nonlinear ESCS effect
+
+. repest PISA,  estimate(stata: reg PV@MATH c.ESCS##c.ESCS) by(cnt) results(add(r2 N))
+Survey parameters have been changed to PISA2015
+`"CZE"' `"POL"'
+
+CZE..........
+cnt : CZE
+-------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+         ESCS |    49.8014   1.80252    27.63   0.000     46.26852   53.33427
+c_ESCS_c_ESCS |  -5.542008   1.618431   -3.42   0.001    -8.714074  -2.369941
+       _cons |   496.8342   2.284468   217.48   0.000     492.3567   501.3117
+        e_r2 |   .2233969   .0118917   18.79   0.000     .2000896   .2467041
+         e_N |      8301         .        .      .          .           .
+-------------------------------------------------------------------------------
+
+POL..........
+cnt : POL
+-------------------------------------------------------------------------------
+            | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+         ESCS |   40.10634   1.979861   20.26   0.000     36.22588   43.98679
+c_ESCS_c_ESCS |  -1.108514   2.206676   -0.50   0.615    -5.433519   3.216491
+       _cons |   495.7264   2.62605   188.77   0.000     490.5794   500.8733
+        e_r2 |   .1627424   .0128378   12.68   0.000     .1375808    .187904
+         e_N |      5875         .        .      .          .           .
+-------------------------------------------------------------------------------
+```
+
+::: {.callout-note}
+
+## Interpretation of linear regression results
+
+Results of the first regression model show a **linear relationship** between ESCS and math results in both countries.
+
+  * **For the Czech Republic**: An increase in ESCS by one unit is associated with an increase in math score of about **50.58 points**. The model explains about **22%** of the variance (`e_r2 = 0.22`).
+
+  * **For Poland**: The same ESCS increase results in about **40.35 points**, and the model explains about **16%** of variance (`e_r2 = 0.16`).
+
+In both cases, the ESCS effect is statistically significant (p-values near 0.000). The association between socio-economic status and educational results is stronger in the Czech Republic than in Poland.
+:::
+
+
+::: {.callout-note}
+
+## Nonlinear ESCS effect (self-interaction of variable)
+
+In Stata, to model **nonlinear effects** for continuous variables (like ESCS), powers of that variable can be added to the model. Most often, the square of the variable is included. Stata facilitates this with **factor variable notation** `c.` denotes continuous variables, and `i.` categorical ones (like gender). The fragment `c.variable##c.variable` creates an interaction of a continuous variable with itself, which is an equivalent to including a quadratic term `(variable^2)`. Stata will automatically create both the main effect (ESCS) and the square effect (`c.ESCS#c.ESCS`, often displayed as `c.ESCS_c_ESCS`). This is a convenient way to check if the effect is strictly linear.
+
+In our example, the quadratic coefficient is **statistically significant in the Czech Republic** (p-value = 0.001), indicating that the association between ESCS and math results is nonlinear. The negative quadratic coefficient suggests that ESCS's positive impact on math results is stronger at lower ESCS levels and gradually weakens at higher status. R-squared increases slightly to 0.2234, suggesting the nonlinear model is a better fit to the data.
+
+:::
+
+-----
+
+# Analysis of TIMSS (and PIRLS) data
+
+
+We'll now move on to the TIMSS survey. The main difference as compared to PISA is the necessity to **compute replicate weights manually**. Similar procedures apply to the PIRLS 2021 survey, so the scripts below will also work for PIRLS data.
+
+##  File structure
+
+Recall that IEA studies (TIMSS, PIRLS) often divide datasets into multiple files. A typical filename structure is as follows:
+**`asa` `pol` `m8` .sav**
+
+Where:
+
+* **`asa`**: Data type, e.g., `asa` - 4th grade student data (for 8th grade: `bsa`).
+
+* **`pol`**: Country code (Poland).
+
+* **`m8`**: Survey cycle (e.g., TIMSS 2019).
+
+
+Przypomnijmy, że w badaniach IEA (TIMSS, PIRLS) zbiory są często podzielone na wiele plików. Typowa struktura nazwy pliku wygląda następująco:
+**`asa` `pol` `m8` .sav**
+
+Gdzie:
+
+  * **`asa`**: Typ danych, np. `asa` - dane uczniów Klasy 4 (dla Klasy 8: `bsa`).
+  * **`pol`**: Kod kraju (Polska).
+  * **`m8`**: Cykl badania (np. TIMSS 2019).
+
+-----
+
+## Preparing TIMSS data
+
+### Downloading and combining data
+
+TIMSS data are available from the IEA repository: [https://www.iea.nl/data-tools/repository](https://www.iea.nl/data-tools/repository). Choose the TIMSS section, accept the terms, and you can download the data. TIMSS is conducted in grades 4 and 8. We're interested in grade 4. Data can be downloaded in three formats: SAS, SPSS, and R. Choose **SPSS**.
+
+After downloading, copy the files to your working directory, The downloaded package contains multiple data files and documentation in separate folders. This is is very helpful.
+
+Let's see what the directory looks like from Stata's window:
+
+```stata
+
+ cd C:\timss_data\TIMSS2023_IDB_SPSS_G4
+C:\timss_data\TIMSS2023_IDB_SPSS_G4
+
+. dir
+  <dir>   6/14/25 13:48  .
+  <dir>   6/14/25 13:48  ..
+  <dir>   6/14/25 13:48  1_User Guide
+  <dir>   6/14/25 13:48  2_Data Files
+  <dir>   6/14/25 13:48  3_Supplemental Material
+  <dir>   6/14/25 13:48  4_Reports and Encyclopedia
+  0.1k    6/14/25 13:48  timss2023.org.url
+```
+
+We're interested in the Polish data. You'll find it in the "2_Data Files" folder, with a subfolder "SPSS Data".
+
+```stata
+
+. cd "C:\timss_data\TIMSS2023_IDB_SPSS_G4\2_Data Files\SPSS Data\"
+C:\timss_data\TIMSS2023_IDB_SPSS_G4\2_Data Files\SPSS Data
+
+. dir *pol*
+ 67.3k   6/14/25 13:48  acgpolm8.sav
+8426.9k  6/14/25 13:48  asapolm8.sav
+5005.8k  6/14/25 13:48  asgpolm8.sav
+1049.6k  6/14/25 13:48  ashpolm8.sav
+ 12.0M   6/14/25 13:48  asppolm8.sav
+3152.6k  6/14/25 13:48  asrpolm8.sav
+7076.1k  6/14/25 13:48  astpolm8.sav
+ 283.6k  6/14/25 13:48  atgpolm8.sav
+
+
+```
+
+We're interested in the datasets starting with `asa`, which we'll load and save in Stata format. In this example, we only use Polish data, but it's worth showing how to convert data for other countries as well.
+
+```stata
+
+usespss asapolm8.sav
+save    asapolm8.dta, replace
+}
+```
+
+
+## Preparing weights for repest (Essential step!)
+
+
+Unlike PISA, IEA studies (TIMSS/PIRLS) use the Jackknife replication method. Here, "sampling zones" (JKZONE variable) are crucial, because they determine how many replicate weights are generated for proper analysis.
+
+IEA uses `Jackknife Repeated Replication` instead of `Balanced Repeated Replication` because samples in TIMSS and PIRLS have more varied structures across countries. In many education systems, it is not possible to obtain symmetrical, balanced subsamples required by BRR. JRR is simpler and more flexible - each country gets as many replicate weights as actual sampling zones.
+
+Compared to previous editions, TIMSS 2023 increased the number of zones (from 75 to 125), but the number of zones differs by country. At the time of writing this guide, this is not yet reflected in the `repest` script.
+
+First, it's crucial to use a flexible script for the data structure. The following script must be run only once after loading and joining the files.
+
+
+```stata
+
+
+* -----------------------------------------------------------------------------
+* Generating weights for data with different JKZONE
+* -----------------------------------------------------------------------------
+
+* Main weight expected by repest
+gen double WGT = TOTWGT
+
+* Renumber zones 1..k (when JKZONE isn’t 1..k)
+tempvar z_zone
+egen long `z_zone' = group(JKZONE)
+
+* Number of zones k and number of replicates r = 2*k
+quietly levelsof `z_zone', local(zs)
+local k : word count `zs'
+local r = 2*`k'
+
+* JRR-paired replicate weights — exactly 2*k
+capture drop JR*
+forvalues i = 1/`k' {
+    local j = `k' + `i'
+    gen double JR`i' = WGT
+    replace    JR`i' = 2*WGT if `z_zone'==`i' & JKREP==1
+    replace    JR`i' = 0      if `z_zone'==`i' & JKREP==0
+
+    gen double JR`j' = WGT
+    replace    JR`j' = 2*WGT if `z_zone'==`i' & JKREP==0
+    replace    JR`j' = 0      if `z_zone'==`i' & JKREP==1
+}
+
+* How many replicates? — Enter THIS NUMBER manually in NREP()
+di as res "Zones (k): " `k'
+di as res "Replicates (r=2*k): " `r'
+ds JR*, has(type numeric)
+
+```
+This script creates the correct number of replicate weights (e.g., 150 for TIMSS 2019, or an appropriate number for TIMSS 2023) using Jackknife Repeated Replication.
+
+The inconvenience is that analyses can only be conducted for a specific country, because repest requires precise specification of the number of replicates (omitting this produces incorrect standard errors). The end of the above script displays this information.
+
+
+```stata
+ 
+ * How many replicates? — Enter THIS NUMBER manually in NREP()
+ di as res "Zones (k): " `k'
+Zones (k): 76
+
+ di as res "Replicates (r=2*k): " `r'
+Replicates (r=2*k): 152
+
+```
+
+We can see, that for Poland, there are 76 zones, and the script above created 152 replicate weights.
+
+::: {.callout-note}
+If you want to analyze teacher survey data, compute weights in the same way. Load the teacher file and generate weights using teacher weights `gen double WGT = MATWGT`. Proceed identically (JKZONE/JKREP variables are in the teacher data file).
+:::
+
+
+-----
+
+## TIMSS step-by-step analysis – examples
+
+The basic commands are very similar to those shown above for PISA data analysis. Differences come down to variable names and the number of replicate weights.
+
+Let’s first compute mean results.
+
+
+```stata
+
+. . repest TIMSS , estimate(means ASMMAT0@ ) svyparms(NREP(152))
+
+_pooled.....
+ : _pooled
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+  ASMMAT0__m |   546.0228   2.033083   268.57   0.000     542.038    550.0076
+------------------------------------------------------------------------------
+
+```
+
+### Gender differences in Poland
+
+Now, let’s compute the differences between boys and girls in Poland. Computing mean differences is simple and does not differ from previous examples. We’ll use **`estimate(means ASMMAT0@ ) over(ITSEX , test)`**, substituting the `IDCNTRY` variable for the gender variable ITSEX.
+
+Below, we examine estimates for selected percentiles and differences between boys and girls.
+
+```stata
+
+repest TIMSS , estimate(summarize ASMMAT0@, stats(mean p10 p25 p50 p75 p90)) over(ITSEX, test) svyparms(NREP(152))
+ over ITSEX = 1 2 
+(file C:\Users\IBE-2660\AppData\Local\Temp\ST_2150_000005.tmp not found)
+file C:\Users\IBE-2660\AppData\Local\Temp\ST_2150_000005.tmp saved
+over var is ITSEX
+
+_pooled - ITSEX = 1 .....
+_pooled - ITSEX = 2 .....
+_pooled : _pooled
+-------------------------------------------------------------------------------
+              | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+--------------+----------------------------------------------------------------
+ITSEX=1       |
+ASMMAT0__mean |   540.6729   2.446792   220.97   0.000     535.8772    545.4685
+ ASMMAT0__p10 |   442.7281   3.944585   112.24   0.000     434.9968    450.4593
+ ASMMAT0__p25 |   493.9585   3.532112   139.85   0.000     487.0357    500.8814
+ ASMMAT0__p50 |   545.2986   3.510619   155.33   0.000     538.4179    552.1793
+ ASMMAT0__p75 |   591.5121   3.101972   190.69   0.000     585.4324    597.5919
+ ASMMAT0__p90 |    632.209   5.778426   109.41   0.000     620.8835    643.5345
+--------------+----------------------------------------------------------------
+ITSEX=2       |
+ASMMAT0__mean |     551.32   2.724234   202.38   0.000     545.9806    556.6594
+ ASMMAT0__p10 |   447.9956    6.53938    68.51   0.000     435.1787    460.8126
+ ASMMAT0__p25 |   503.0338   3.998141   125.82   0.000     495.1976      510.87
+ ASMMAT0__p50 |   557.1689   4.501254   123.78   0.000     548.3466    565.9912
+ ASMMAT0__p75 |   604.0593   3.711391   162.76   0.000     596.7851    611.3335
+ ASMMAT0__p90 |   646.2404    4.36668   147.99   0.000     637.6819    654.7989
+--------------+----------------------------------------------------------------
+ITSEX=d       |
+ASMMAT0__mean |   10.64712   3.188914     3.34   0.001     4.396965    16.89728
+ ASMMAT0__p10 |   5.267572   7.480926     0.70   0.481   -9.394773    19.92992
+ ASMMAT0__p25 |   9.075292   5.415111     1.68   0.094   -1.538131    19.68872
+ ASMMAT0__p50 |   11.87034   5.404963     2.20   0.028    1.276807    22.46387
+ ASMMAT0__p75 |   12.54714    4.43619     2.83   0.005    3.852365    21.24191
+ ASMMAT0__p90 |   14.03136   6.960439     2.02   0.044    .3891518    27.67357
+-------------------------------------------------------------------------------
+```
+
+The table shows **math percentile scores for girls (`ITSEX=1`) and boys (`ITSEX=2`) in Poland and their differences (`ITSEX=d`)**. 
+
+The mean difference is 10.6 points and it is statistically significant, with a standard error of 3.2 points, and the 95% confidence interval for this difference is 4.4 to 16.9 points. 
+
+Percentile values suggest that boys' advantage is more pronounced at the top of the distribution. For example, the boys’ median (p50) is higher by about 12 points and this difference is statistically significant. In the lower part of the distribution (p10, p25), differences are smaller and often not significant.
+
+-----
+
+### Proficiency levels
+
+The TIMSS dataset contains a variable describing proficiency levels (actually five separate variables calculated for each `pv`). Using the `fre command (ssc install fre)`, we inspect the first variable in this group:
+
+
+```stata
+
+. fre ASMIBM01
+
+ASMIBM01 -- INTERN. MATH BENCH REACHED WITH 1ST PV
+-------------------------------------------------------------------------------------
+                                            |      Freq.    Percent      Valid      Cum.
+----------------------------------------+--------------------------------------------
+Valid   1 Below 400                       |        170      3.64        3.64        3.64
+        2 At or above 400 but below 475   |        622     13.33       13.33       16.97
+        3 At or above 475 but below 550   |       1509     32.34       32.34       49.31
+        4 At or above 550 but below 625   |       1695     36.33       36.33       85.64
+        5 At or above 625                 |        670     14.36       14.36      100.00
+        Total                             |       4666    100.00      100.00
+-------------------------------------------------------------------------------------
+
+```
+
+This variable is a recoded `pv` variable, based on the study's defined level cutoffs. The above distribution is unweighted. To get a population distribution, we must use weights and average across all `pv` values. Here, `repest` helps:
+
+```stata
+
+. repest TIMSS , estimate(freq ASMIBM0@) svyparms(NREP(152))
+
+_pooled.....
+ : _pooled
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+ ASMIBM0__1 |   3.818529    .453191     8.43   0.000     2.930291    4.706767
+ ASMIBM0__2 |   13.21859   .7538217    17.54   0.000    11.74113    14.69606
+ ASMIBM0__3 |   32.43265   .9518056    34.07   0.000    30.56714    34.29815
+ ASMIBM0__4 |   36.15421   1.047753    34.51   0.000    34.10065    38.20777
+ ASMIBM0__5 |   14.37602   .8519447    16.87   0.000    12.70624     16.0458
+------------------------------------------------------------------------------
+```
+
+The **`Coefficient`** column gives the percent of students at each level; for example, the first row is for those scoring below 400 points on the TIMSS scale. In Poland, that's about **4% of students** (95% CI: 2.9–4.7%).
+
+You can also compute more detailed comparisons. Let's return to the example with gender differences:
+
+
+Możemy też wyliczyć bardziej rozbudowane porównania. Wróćmy do przykładu z różnicami ze względu na płeć:
+
+
+```stata
+
+
+. repest TIMSS  , estimate(freq ASMIBM0@) over(ITSEX, test) svyparms(NREP(152))
+ over ITSEX = 1 2 
+
+_pooled - ITSEX = 1 .....
+_pooled - ITSEX = 2 .....
+_pooled : _pooled
+------------------------------------------------------------------------------
+             | Coefficient  Std. err.      z    P>|z|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+ITSEX=1      |
+ ASMIBM0__1 |   3.807798   .6125007     6.22   0.000     2.607318    5.008277
+ ASMIBM0__2 |   14.41528   .9742022    14.80   0.000    12.50588    16.32468
+ ASMIBM0__3 |   34.56772   1.225612    28.20   0.000    32.16556    36.96988
+ ASMIBM0__4 |   35.13991   1.570727    22.37   0.000    32.06135    38.21848
+ ASMIBM0__5 |   12.06929   1.349484     8.94   0.000    9.424351    14.71423
+-------------+----------------------------------------------------------------
+ITSEX=2      |
+ ASMIBM0__1 |   3.829155   .5573351     6.87   0.000     2.736798    4.921511
+ ASMIBM0__2 |    12.0337   1.033463    11.64   0.000    10.00815    14.05925
+ ASMIBM0__3 |   30.31861   1.280613    23.68   0.000    27.80865    32.82856
+ ASMIBM0__4 |   37.15851   1.629268    22.81   0.000     33.9652    40.35182
+ ASMIBM0__5 |   16.66003   1.167054    14.28   0.000    14.37265    18.94741
+-------------+----------------------------------------------------------------
+ITSEX=d      |
+ ASMIBM0__1 |   .0213571   .7412523     0.03   0.977   -1.431471    1.474185
+ ASMIBM0__2 |  -2.381582   1.325725    -1.80   0.072   -4.979955    .2167903
+ ASMIBM0__3 |   -4.24911   1.629858    -2.61   0.009   -7.443573   -1.054647
+ ASMIBM0__4 |   2.018596   2.418225     0.83   0.404   -2.721038     6.75823
+ ASMIBM0__5 |   4.590739   1.858332     2.47   0.013    .9484761    8.233002
+------------------------------------------------------------------------------
+
+```
+
+Comparing the percentages of students at different proficiency levels shows that boys more often attain the highest level (625+) and less often the lower levels. For example, 16.7% of boys reach the highest level, compared to 12.1% of girls. This difference is statistically significant.
+
+The largest differences appear at levels 3 and 5—boys are less often at level 3 (30.3% vs 34.6%) and more often at the highest level (16.7% vs 12.1%). This suggests that there are more high-achieving boys than girls, although differences in means were moderate.
