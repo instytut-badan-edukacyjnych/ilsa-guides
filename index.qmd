@@ -15,7 +15,7 @@ Praktyczne poradniki do analizy danych z międzynarodowych badań edukacyjnych.
 
 ::: {.g-col-12 .g-col-md-6}
 ### 📦 intsvy (R)
-The `intsvy` package simplifies analysis of large-scale assessment data in R. It automatically handles weights, replication weights and plausible values, letting you quickly compute means, percentiles, regression coefficients and plots.
+The `intsvy` package simplifies analysis of large-scale assessment data in R. It automatically handles weights, replication weights and plausible values, letting you quickly compute means, percentiles, regression coefficients and plots. 
 
 [Open guide →](en/intsvy.qmd){.btn .btn-outline-primary}
 :::
