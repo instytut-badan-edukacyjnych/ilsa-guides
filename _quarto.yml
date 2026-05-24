@@ -16,6 +16,8 @@ website:
             text: "repest (Stata)"
           - href: pl/idb.qmd
             text: "IDB Analyzer"
+          - href: pl/spss.qmd
+            text: "SPSS"            
       - text: "🇬🇧 English"
         menu:
           - href: en/intsvy.qmd
@@ -26,5 +28,7 @@ website:
             text: "repest (Stata)"
           - href: en/idb.qmd
             text: "IDB Analyzer"
+          - href: en/spss.qmd
+            text: "SPSS"            
   page-footer:
     center: "Instytut Badań Edukacyjnych "

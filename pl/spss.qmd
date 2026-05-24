@@ -11,16 +11,16 @@ format:
     highlight-style: github
     code-block-bg: "#eef3f9"
     code-block-border-left: "#1f4e79"
-  docx:
-    toc: true
-    toc-depth: 4
-    number-sections: true
-    toc-expand: true
-  pdf:
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    toc-expand: true
+#  docx:
+#    toc: true
+#    toc-depth: 4
+#    number-sections: true
+#    toc-expand: true
+#  pdf:
+#    toc: true
+#    toc-depth: 3
+#    number-sections: true
+#    toc-expand: true
 lang: pl
 execute:
   eval: false

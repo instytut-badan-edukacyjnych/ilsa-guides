@@ -77,6 +77,12 @@ IDB Analyzer to bezpłatne narzędzie opracowane przez IEA. Korzystanie z niego 
 [Otwórz poradnik →](pl/idb.qmd){.btn .btn-outline-primary}
 :::
 
+::: {.g-col-12 .g-col-md-6}
+### 🖥️ SPSS
+SPSS dobrze sprawdza się jako pierwsze narzędzie w pracy z danymi z badań edukacyjnych – pozwala wczytać pliki, połączyć kwestionariusze, sprawdzić rozkłady zmiennych i przygotować dane do właściwych analiz. Poradnik oparty na przykładach z PIRLS 2021.
+[Otwórz poradnik →](pl/spss.qmd){.btn .btn-outline-primary}
+:::
+
 :::
 
 ---
