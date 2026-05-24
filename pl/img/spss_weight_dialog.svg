@@ -1,0 +1,219 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 835 345"
+     font-family="'Segoe UI', Arial, sans-serif" font-size="11">
+
+  <defs>
+    <linearGradient id="tb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2E82CF"/>
+      <stop offset="100%" stop-color="#1A60A8"/>
+    </linearGradient>
+    <filter id="ds" x="-5%" y="-5%" width="120%" height="120%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4"
+                   flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#444"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas -->
+  <rect width="835" height="345" fill="#BFBFBF" rx="4"/>
+
+  <!-- Step badges -->
+  <rect x="102" y="8" width="84" height="22" fill="#1D5B96" rx="3"/>
+  <text x="109" y="23" fill="white" font-size="12" font-weight="bold">Krok 1</text>
+  <text x="192" y="23" fill="#1A1A1A" font-size="11">Data → Weight Cases...</text>
+
+  <rect x="549" y="8" width="84" height="22" fill="#1D5B96" rx="3"/>
+  <text x="556" y="23" fill="white" font-size="12" font-weight="bold">Krok 2</text>
+  <text x="639" y="23" fill="#1A1A1A" font-size="11">Skonfiguruj wagę</text>
+
+  <!-- Diagonal arrow from highlighted menu item to dialog -->
+  <line x1="274" y1="248" x2="360" y2="181"
+        stroke="#333" stroke-width="2.5" marker-end="url(#ah)"/>
+
+
+  <!-- ════════════════════════
+       DATA MENU (truncated)
+       ════════════════════════ -->
+
+  <!-- Menu bar -->
+  <rect x="15" y="36" width="258" height="24"
+        fill="#EBF3FB" stroke="#9AABB8" stroke-width="1"/>
+  <rect x="16" y="37" width="44" height="22" fill="#C5DCF0"/>
+  <text x="20" y="52" fill="#111" font-size="11" font-weight="bold">Data</text>
+  <text x="67" y="52" fill="#333" font-size="11">Transform</text>
+  <text x="137" y="52" fill="#333" font-size="11">Analyze</text>
+  <text x="193" y="52" fill="#333" font-size="11">Graphs</text>
+  <text x="240" y="52" fill="#333" font-size="11">Utilities</text>
+
+  <!-- Dropdown box -->
+  <rect x="15" y="59" width="258" height="202"
+        fill="#EBF3FB" stroke="#9AABB8" stroke-width="1" filter="url(#ds)"/>
+
+  <!-- Ellipsis (more items above) -->
+  <text x="38" y="73" fill="#A0A0A0" font-size="10" font-style="italic">... więcej pozycji</text>
+  <line x1="16" y1="79" x2="272" y2="79" stroke="#C8C8C8" stroke-width="1"/>
+
+  <!-- Sort Cases -->
+  <rect x="19" y="81" width="14" height="14" fill="#C55A11" rx="1"/>
+  <text x="38" y="92" fill="#111" font-size="11">Sort Cases...</text>
+  <!-- Sort Variables -->
+  <rect x="19" y="99" width="14" height="14" fill="#C55A11" rx="1"/>
+  <text x="38" y="110" fill="#111" font-size="11">Sort Variables...</text>
+
+  <line x1="16" y1="118" x2="272" y2="118" stroke="#C8C8C8" stroke-width="1"/>
+
+  <!-- Merge Files -->
+  <rect x="19" y="120" width="14" height="14" fill="#0070C0" rx="1"/>
+  <text x="38" y="131" fill="#111" font-size="11">Merge Files</text>
+  <text x="248" y="131" fill="#555" font-size="11">▶</text>
+  <!-- Restructure -->
+  <rect x="19" y="138" width="14" height="14" fill="#0070C0" rx="1"/>
+  <text x="38" y="149" fill="#111" font-size="11">Restructure...</text>
+  <!-- Aggregate -->
+  <rect x="19" y="156" width="14" height="14" fill="#107C10" rx="1"/>
+  <text x="38" y="167" fill="#111" font-size="11">Aggregate...</text>
+
+  <line x1="16" y1="175" x2="272" y2="175" stroke="#C8C8C8" stroke-width="1"/>
+
+  <!-- Copy Dataset -->
+  <rect x="19" y="177" width="14" height="14" fill="#0070C0" rx="1"/>
+  <text x="38" y="188" fill="#111" font-size="11">Copy Dataset</text>
+
+  <line x1="16" y1="196" x2="272" y2="196" stroke="#C8C8C8" stroke-width="1"/>
+
+  <!-- Split File -->
+  <rect x="19" y="198" width="14" height="14" fill="#0070C0" rx="1"/>
+  <text x="38" y="209" fill="#111" font-size="11">Split File...</text>
+  <!-- Select Cases -->
+  <rect x="19" y="216" width="14" height="14" fill="#0070C0" rx="1"/>
+  <text x="38" y="227" fill="#111" font-size="11">Select Cases...</text>
+
+  <line x1="16" y1="235" x2="272" y2="235" stroke="#C8C8C8" stroke-width="1"/>
+
+  <!-- Weight Cases — HIGHLIGHTED (yellow) -->
+  <rect x="16" y="237" width="256" height="24" fill="#FFEB9C"/>
+  <!-- Balance scale icon (simplified as purple rect) -->
+  <rect x="19" y="240" width="14" height="14" fill="#7030A0" rx="1"/>
+  <!-- Small scale detail -->
+  <line x1="26" y1="242" x2="26" y2="252" stroke="white" stroke-width="1"/>
+  <line x1="21" y1="246" x2="31" y2="246" stroke="white" stroke-width="1"/>
+  <text x="38" y="252" fill="#111" font-size="11" font-weight="bold">Weight Cases...</text>
+
+
+  <!-- ════════════════════════
+       WEIGHT CASES DIALOG
+       ════════════════════════ -->
+
+  <rect x="362" y="36" width="458" height="286"
+        fill="#F0F0F0" stroke="#888" stroke-width="1" filter="url(#ds)"/>
+
+  <!-- Title bar (dialog: no min/max, only close) -->
+  <rect x="362" y="36" width="458" height="26" fill="url(#tb)"/>
+  <rect x="800" y="39" width="16" height="16" fill="#C42B1C" rx="1"/>
+  <line x1="803" y1="42" x2="813" y2="52" stroke="white" stroke-width="1.5"/>
+  <line x1="813" y1="42" x2="803" y2="52" stroke="white" stroke-width="1.5"/>
+  <text x="370" y="53" fill="white" font-size="11" font-weight="bold">Weight Cases</text>
+
+  <!-- Left: Variable list box (with scrollbar on right) -->
+  <rect x="370" y="67" width="175" height="193"
+        fill="white" stroke="#888" stroke-width="1"/>
+  <!-- Scrollbar track -->
+  <rect x="533" y="68" width="11" height="191" fill="#F0F0F0" stroke="#AAAAAA" stroke-width="1"/>
+  <!-- Scrollbar thumb -->
+  <rect x="534" y="86"  width="9" height="46" fill="#AAAAAA" rx="3"/>
+
+  <!-- Variable rows: red + green balls, 18px per row -->
+  <!-- IDCNTRY — selected/highlighted row -->
+  <rect x="371" y="68" width="162" height="18" fill="#FFFACD"/>
+  <circle cx="380" cy="77"  r="4" fill="#E74C3C"/>
+  <circle cx="388" cy="77"  r="4" fill="#27AE60"/>
+  <text    x="396" y="81"       fill="#111" font-size="11">IDCNTRY</text>
+  <!-- IDSCHOOL -->
+  <circle cx="380" cy="95"  r="4" fill="#E74C3C"/>
+  <circle cx="388" cy="95"  r="4" fill="#27AE60"/>
+  <text    x="396" y="99"       fill="#111" font-size="11">IDSCHOOL</text>
+  <!-- IDPOP -->
+  <circle cx="380" cy="113" r="4" fill="#E74C3C"/>
+  <circle cx="388" cy="113" r="4" fill="#27AE60"/>
+  <text    x="396" y="117"      fill="#111" font-size="11">IDPOP</text>
+  <!-- IDGRADER -->
+  <circle cx="380" cy="131" r="4" fill="#E74C3C"/>
+  <circle cx="388" cy="131" r="4" fill="#27AE60"/>
+  <text    x="396" y="135"      fill="#111" font-size="11">IDGRADER</text>
+  <!-- IDGRADE -->
+  <circle cx="380" cy="149" r="4" fill="#E74C3C"/>
+  <circle cx="388" cy="149" r="4" fill="#27AE60"/>
+  <text    x="396" y="153"      fill="#111" font-size="11">IDGRADE</text>
+  <!-- WAVE -->
+  <circle cx="380" cy="167" r="4" fill="#E74C3C"/>
+  <circle cx="388" cy="167" r="4" fill="#27AE60"/>
+  <text    x="396" y="171"      fill="#111" font-size="11">WAVE</text>
+  <!-- IDCLASS -->
+  <circle cx="380" cy="185" r="4" fill="#E74C3C"/>
+  <circle cx="388" cy="185" r="4" fill="#27AE60"/>
+  <text    x="396" y="189"      fill="#111" font-size="11">IDCLASS</text>
+  <!-- IDSTUD -->
+  <circle cx="380" cy="203" r="4" fill="#E74C3C"/>
+  <circle cx="388" cy="203" r="4" fill="#27AE60"/>
+  <text    x="396" y="207"      fill="#111" font-size="11">IDSTUD</text>
+  <!-- ITSEX -->
+  <circle cx="380" cy="221" r="4" fill="#E74C3C"/>
+  <circle cx="388" cy="221" r="4" fill="#27AE60"/>
+  <text    x="396" y="225"      fill="#111" font-size="11">ITSEX</text>
+  <!-- ITADMINI -->
+  <circle cx="380" cy="239" r="4" fill="#E74C3C"/>
+  <circle cx="388" cy="239" r="4" fill="#27AE60"/>
+  <text    x="396" y="243"      fill="#111" font-size="11">ITADMINI</text>
+
+  <!-- Arrow button (standard Windows gray, right-pointing → toward field) -->
+  <rect x="552" y="121" width="32" height="28"
+        fill="#E0E0E0" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <!-- Right-pointing arrow → -->
+  <polygon points="558,132  558,138  572,138  572,141  580,135  572,129  572,132"
+           fill="#444"/>
+
+  <!-- Right panel -->
+  <!-- Radio 1: Do not weight cases (not selected) -->
+  <circle cx="598" cy="80"  r="7" fill="white" stroke="#808080" stroke-width="1.5"/>
+  <text    x="611" y="84"       fill="#444" font-size="11">Do not weight cases</text>
+
+  <!-- Radio 2: Weight cases by (SELECTED) -->
+  <circle cx="598" cy="102" r="7" fill="white" stroke="#0063B1" stroke-width="1.5"/>
+  <circle cx="598" cy="102" r="4" fill="#0063B1"/>
+  <text    x="611" y="106"      fill="#111" font-size="11" font-weight="bold">Weight cases by</text>
+
+  <!-- Frequency Variable label + field -->
+  <text x="622" y="127" fill="#333" font-size="11">Frequency Variable:</text>
+  <!-- TOTWGT field (blue-gray selected field) -->
+  <rect x="612" y="134" width="194" height="24"
+        fill="#C8D8E8" stroke="#7090B0" stroke-width="1"/>
+  <!-- Pencil/ruler icon (orange) -->
+  <rect x="616" y="138" width="14" height="14" fill="#E8A020" rx="1"/>
+  <line x1="619" y1="151" x2="624" y2="139"
+        stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="635" y="150" fill="#111" font-size="11" font-weight="bold">TOTWGT</text>
+
+  <!-- Current Status text -->
+  <text x="591" y="248" fill="#444" font-size="10">Current Status: Weight cases by TOTWGT</text>
+
+  <!-- Separator + buttons -->
+  <line x1="362" y1="263" x2="820" y2="263" stroke="#C8C8C8" stroke-width="1"/>
+
+  <!-- 5 buttons spanning dialog width (each 76px, gap 8px, start x=371) -->
+  <rect x="371" y="271" width="76" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="409" y="288" fill="#111" font-size="11" font-weight="bold" text-anchor="middle">OK</text>
+
+  <rect x="455" y="271" width="76" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="493" y="288" fill="#333" font-size="11" text-anchor="middle">Paste</text>
+
+  <rect x="539" y="271" width="76" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="577" y="288" fill="#333" font-size="11" text-anchor="middle">Reset</text>
+
+  <rect x="623" y="271" width="76" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="661" y="288" fill="#333" font-size="11" text-anchor="middle">Cancel</text>
+
+  <rect x="707" y="271" width="76" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="745" y="288" fill="#333" font-size="11" text-anchor="middle">Help</text>
+
+</svg>
