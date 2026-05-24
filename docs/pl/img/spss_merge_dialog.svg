@@ -1,0 +1,211 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 345"
+     font-family="'Segoe UI', Arial, sans-serif" font-size="11">
+
+  <defs>
+    <linearGradient id="tb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2E82CF"/>
+      <stop offset="100%" stop-color="#1A60A8"/>
+    </linearGradient>
+    <filter id="ds" x="-4%" y="-3%" width="114%" height="114%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4"
+                   flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#444"/>
+    </marker>
+  </defs>
+
+  <!-- Canvas background -->
+  <rect width="1040" height="345" fill="#BFBFBF" rx="4"/>
+
+  <!-- Step badges -->
+  <rect x="12"  y="8" width="84" height="22" fill="#1D5B96" rx="3"/>
+  <text x="19"  y="23" fill="white" font-size="12" font-weight="bold">Krok 1</text>
+  <text x="102" y="23" fill="#1A1A1A" font-size="11">Wybór pliku do scalenia</text>
+
+  <rect x="534" y="8" width="84" height="22" fill="#1D5B96" rx="3"/>
+  <text x="541" y="23" fill="white" font-size="12" font-weight="bold">Krok 2</text>
+  <text x="624" y="23" fill="#1A1A1A" font-size="11">Konfiguracja metody scalania</text>
+
+  <!-- Connecting arrow -->
+  <line x1="468" y1="157" x2="527" y2="157"
+        stroke="#333" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="470" y="149" fill="#444" font-size="9.5" font-style="italic">Continue</text>
+
+
+  <!-- ════════════════════════════════════════
+       DIALOG 1 – wybór pliku zewnętrznego
+       ════════════════════════════════════════ -->
+  <rect x="12" y="36" width="452" height="242"
+        fill="#F0F0F0" stroke="#888" stroke-width="1" filter="url(#ds)"/>
+
+  <!-- Title bar -->
+  <rect x="12" y="36" width="452" height="26" fill="url(#tb)"/>
+  <rect x="408" y="39" width="16" height="16" fill="#6B6B6B" rx="1"/>
+  <line x1="411" y1="47" x2="421" y2="47" stroke="white" stroke-width="1.5"/>
+  <rect x="426" y="39" width="16" height="16" fill="#6B6B6B" rx="1"/>
+  <polyline points="429,42 439,42 439,52 429,52 429,42"
+            fill="none" stroke="white" stroke-width="1.2"/>
+  <rect x="444" y="39" width="16" height="16" fill="#C42B1C" rx="1"/>
+  <line x1="447" y1="42" x2="457" y2="52" stroke="white" stroke-width="1.5"/>
+  <line x1="457" y1="42" x2="447" y2="52" stroke="white" stroke-width="1.5"/>
+  <text x="20" y="53" fill="white" font-size="11" font-weight="bold">
+    Add Variables to student_sorted.sav [DataSet1]</text>
+
+  <!-- Description text -->
+  <text x="20" y="77" fill="#1A1A1A" font-size="10.5">Select a dataset from the list of open datasets or from a file to merge</text>
+  <text x="20" y="91" fill="#1A1A1A" font-size="10.5">with the active dataset</text>
+
+  <!-- Radio 1: An open dataset (disabled) -->
+  <circle cx="28" cy="106" r="7" fill="white" stroke="#C0C0C0" stroke-width="1.5"/>
+  <text x="41" y="110" fill="#AAAAAA" font-size="11">An open dataset</text>
+  <!-- Empty grayed listbox -->
+  <rect x="20" y="117" width="302" height="36"
+        fill="#F4F4F4" stroke="#CCCCCC" stroke-width="1"/>
+
+  <!-- Radio 2: External file (SELECTED) -->
+  <circle cx="28" cy="166" r="7" fill="white" stroke="#0063B1" stroke-width="1.5"/>
+  <circle cx="28" cy="166" r="4"  fill="#0063B1"/>
+  <text x="41" y="170" fill="#111" font-size="11">An external SPSS Statistics data file</text>
+
+  <!-- File path field + Browse -->
+  <rect x="20"  y="178" width="362" height="22" fill="white" stroke="#999" stroke-width="1"/>
+  <text x="25"  y="193" fill="#333" font-size="9.5"
+        font-family="'Courier New', Courier, monospace"
+        >C:\PIRLS2021\working\parent_sorted.sav</text>
+  <rect x="388" y="178" width="62"  height="22"
+        fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="402" y="193" fill="#222" font-size="11">Browse...</text>
+
+  <!-- Info note (italic, gray) -->
+  <text x="20" y="215" fill="#666" font-size="9" font-style="italic"
+        >Non-SPSS Statistics data files must be opened in SPSS Statistics before</text>
+  <text x="20" y="227" fill="#666" font-size="9" font-style="italic"
+        >they can be used as part of a merge.</text>
+
+  <!-- Separator + buttons -->
+  <line x1="13" y1="237" x2="463" y2="237" stroke="#C8C8C8" stroke-width="1"/>
+  <rect x="20"  y="245" width="82" height="26"
+        fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="38"  y="262" fill="#111" font-size="11" font-weight="bold">Continue</text>
+  <rect x="110" y="245" width="68" height="26"
+        fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="126" y="262" fill="#333" font-size="11">Cancel</text>
+  <rect x="186" y="245" width="58" height="26"
+        fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="203" y="262" fill="#333" font-size="11">Help</text>
+
+
+  <!-- ════════════════════════════════════════
+       DIALOG 2 – Merge Method (bez Lookup Table)
+       ════════════════════════════════════════ -->
+  <rect x="534" y="36" width="454" height="294"
+        fill="#F0F0F0" stroke="#888" stroke-width="1" filter="url(#ds)"/>
+
+  <!-- Title bar -->
+  <rect x="534" y="36" width="454" height="26" fill="url(#tb)"/>
+  <rect x="930" y="39" width="16" height="16" fill="#6B6B6B" rx="1"/>
+  <line x1="933" y1="47" x2="943" y2="47" stroke="white" stroke-width="1.5"/>
+  <rect x="948" y="39" width="16" height="16" fill="#6B6B6B" rx="1"/>
+  <polyline points="951,42 961,42 961,52 951,52 951,42"
+            fill="none" stroke="white" stroke-width="1.2"/>
+  <rect x="966" y="39" width="16" height="16" fill="#C42B1C" rx="1"/>
+  <line x1="969" y1="42" x2="979" y2="52" stroke="white" stroke-width="1.5"/>
+  <line x1="979" y1="42" x2="969" y2="52" stroke="white" stroke-width="1.5"/>
+  <text x="542" y="53" fill="white" font-size="11" font-weight="bold"
+        >Add Variables to student_sorted.sav [DataSet1]</text>
+
+  <!-- Tab panel (white content area) -->
+  <rect x="534" y="89" width="454" height="197"
+        fill="white" stroke="#999" stroke-width="1"/>
+  <!-- Active tab: Merge Method -->
+  <rect x="535" y="64" width="120" height="27"
+        fill="#F0F0F0" stroke="#999" stroke-width="1"/>
+  <rect x="536" y="89" width="118" height="2" fill="#F0F0F0"/><!-- hide bottom border -->
+  <text x="549" y="82" fill="#111" font-size="11" font-weight="bold">Merge Method</text>
+  <!-- Inactive tab: Variables -->
+  <rect x="657" y="67" width="82" height="24"
+        fill="#DEDEDE" stroke="#AAAAAA" stroke-width="1"/>
+  <text x="672" y="83" fill="#555" font-size="11">Variables</text>
+
+  <!-- Radio 1: file order (not selected) -->
+  <circle cx="553" cy="102" r="7" fill="white" stroke="#808080" stroke-width="1.5"/>
+  <text x="566" y="106" fill="#444" font-size="11">One-to-one merge based on file order</text>
+
+  <!-- Radio 2: key values (SELECTED) -->
+  <circle cx="553" cy="121" r="7" fill="white" stroke="#0063B1" stroke-width="2"/>
+  <circle cx="553" cy="121" r="4"  fill="#0063B1"/>
+  <text x="566" y="125" fill="#111" font-size="11" font-weight="bold"
+        >One-to-one merge based on key values</text>
+
+  <!-- Radio 3: one-to-many (not selected) -->
+  <circle cx="553" cy="140" r="7" fill="white" stroke="#808080" stroke-width="1.5"/>
+  <text x="566" y="144" fill="#444" font-size="11">One-to-many merge based on key values</text>
+
+  <!-- Info icon + sorting note (2 lines) -->
+  <circle cx="553" cy="157" r="7" fill="#0078D7"/>
+  <text x="550" y="161" fill="white" font-size="9.5" font-weight="bold">i</text>
+  <text x="567" y="154" fill="#444" font-size="9.5"
+        >For a merge based on key values, files must be sorted</text>
+  <text x="567" y="165" fill="#444" font-size="9.5">in order of the key values</text>
+
+  <!-- Checkbox: Sort files (CHECKED) -->
+  <rect x="543" y="176" width="14" height="14"
+        fill="white" stroke="#666" stroke-width="1.5" rx="1"/>
+  <polyline points="546,183 550,189 557,177"
+            stroke="#0063B1" stroke-width="2" fill="none"
+            stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="563" y="188" fill="#222" font-size="11">Sort files by key values before merging</text>
+
+  <!-- Key Variables label -->
+  <text x="544" y="210" fill="#222" font-size="11" font-weight="bold">Key Variables:</text>
+
+  <!-- Key Variables listbox (2 rows: IDCNTRY + IDSCHOOL) -->
+  <rect x="544" y="218" width="214" height="44"
+        fill="white" stroke="#888" stroke-width="1"/>
+
+  <!-- Row 1: IDCNTRY (highlighted blue) -->
+  <rect x="545" y="219" width="212" height="19" fill="#CCE4F7"/>
+  <circle cx="557" cy="228.5" r="5"   fill="none"   stroke="#C8A000" stroke-width="1.5"/>
+  <circle cx="557" cy="228.5" r="2.5" fill="#C8A000"/>
+  <rect   x="561"  y="227"   width="10" height="3"  fill="#C8A000"/>
+  <rect   x="568"  y="226"   width="3"  height="5"  fill="#C8A000"/>
+  <text x="574" y="233" fill="#111" font-size="11">IDCNTRY</text>
+
+  <!-- Row 2: IDSTUD -->
+  <circle cx="557" cy="247.5" r="5"   fill="none"   stroke="#C8A000" stroke-width="1.5"/>
+  <circle cx="557" cy="247.5" r="2.5" fill="#C8A000"/>
+  <rect   x="561"  y="246"   width="10" height="3"  fill="#C8A000"/>
+  <rect   x="568"  y="245"   width="3"  height="5"  fill="#C8A000"/>
+  <text x="574" y="252" fill="#111" font-size="11">IDSTUD</text>
+
+  <!-- Info icon + Variables tab hint -->
+  <circle cx="553" cy="277" r="7" fill="#0078D7"/>
+  <text x="550" y="281" fill="white" font-size="9.5" font-weight="bold">i</text>
+  <text x="567" y="280" fill="#444" font-size="9.5"
+        >Use the Variables tab to add or remove key variables</text>
+
+  <!-- Separator + buttons -->
+  <line x1="534" y1="292" x2="988" y2="292" stroke="#C8C8C8" stroke-width="1"/>
+
+  <rect x="543" y="299" width="48" height="26"
+        fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="557" y="316" fill="#111" font-size="11" font-weight="bold">OK</text>
+
+  <rect x="599" y="299" width="56" height="26"
+        fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="613" y="316" fill="#333" font-size="11">Paste</text>
+
+  <rect x="663" y="299" width="56" height="26"
+        fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="677" y="316" fill="#333" font-size="11">Reset</text>
+
+  <rect x="727" y="299" width="62" height="26"
+        fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="738" y="316" fill="#333" font-size="11">Cancel</text>
+
+  <rect x="797" y="299" width="50" height="26"
+        fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="811" y="316" fill="#333" font-size="11">Help</text>
+
+</svg>

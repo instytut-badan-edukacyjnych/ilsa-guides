@@ -1,0 +1,182 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 345"
+     font-family="'Segoe UI', Arial, sans-serif" font-size="11">
+
+  <defs>
+    <linearGradient id="tb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2E82CF"/>
+      <stop offset="100%" stop-color="#1A60A8"/>
+    </linearGradient>
+    <filter id="ds" x="-4%" y="-3%" width="114%" height="114%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4"
+                   flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#444"/>
+    </marker>
+  </defs>
+
+  <rect width="1040" height="345" fill="#BFBFBF" rx="4"/>
+
+  <!-- Step badges -->
+  <rect x="12"  y="8" width="84" height="22" fill="#1D5B96" rx="3"/>
+  <text x="19"  y="23" fill="white" font-size="12" font-weight="bold">Krok 1</text>
+  <text x="102" y="23" fill="#1A1A1A" font-size="11">Konfiguracja analizy</text>
+
+  <rect x="536" y="8" width="84" height="22" fill="#1D5B96" rx="3"/>
+  <text x="543" y="23" fill="white" font-size="12" font-weight="bold">Krok 2</text>
+  <text x="626" y="23" fill="#1A1A1A" font-size="11">Wynik w oknie Output Viewer</text>
+
+  <!-- Arrow -->
+  <line x1="466" y1="185" x2="532" y2="185"
+        stroke="#333" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="468" y="177" fill="#444" font-size="9.5" font-style="italic">OK</text>
+
+  <!-- LEFT DIALOG: Means -->
+  <rect x="12" y="36" width="452" height="298"
+        fill="#F0F0F0" stroke="#888" stroke-width="1" filter="url(#ds)"/>
+
+  <rect x="12"  y="36" width="452" height="26" fill="url(#tb)"/>
+  <rect x="408" y="39" width="16" height="16" fill="#6B6B6B" rx="1"/>
+  <line x1="411" y1="47" x2="421" y2="47" stroke="white" stroke-width="1.5"/>
+  <rect x="426" y="39" width="16" height="16" fill="#6B6B6B" rx="1"/>
+  <polyline points="429,42 439,42 439,52 429,52 429,42" fill="none" stroke="white" stroke-width="1.2"/>
+  <rect x="444" y="39" width="16" height="16" fill="#C42B1C" rx="1"/>
+  <line x1="447" y1="42" x2="457" y2="52" stroke="white" stroke-width="1.5"/>
+  <line x1="457" y1="42" x2="447" y2="52" stroke="white" stroke-width="1.5"/>
+  <text x="20" y="53" fill="white" font-size="11" font-weight="bold">Means [DataSet1]</text>
+
+  <!-- Source list -->
+  <rect x="20" y="70" width="155" height="210" fill="white" stroke="#888" stroke-width="1"/>
+  <text x="26" y="86"  fill="#333" font-size="10.5">IDCNTRY</text>
+  <text x="26" y="102" fill="#333" font-size="10.5">IDSCHOOL</text>
+  <text x="26" y="118" fill="#333" font-size="10.5">IDSTUD</text>
+  <text x="26" y="134" fill="#333" font-size="10.5">ITSEX</text>
+  <text x="26" y="150" fill="#333" font-size="10.5">TOTWGT</text>
+  <text x="26" y="166" fill="#333" font-size="10.5">ASBH05AA</text>
+  <text x="26" y="182" fill="#333" font-size="10.5">ASBGSLR</text>
+  <text x="26" y="198" fill="#333" font-size="10.5">ZLOBEK_BIN</text>
+  <text x="26" y="214" fill="#333" font-size="10.5">ASRREA01</text>
+  <text x="26" y="230" fill="#333" font-size="10.5">READ_MEAN</text>
+  <text x="26" y="246" fill="#AAA" font-size="10.5">...</text>
+  <rect x="162" y="70" width="13" height="210" fill="#E0E0E0" stroke="#C8C8C8" stroke-width="0.5"/>
+  <rect x="162" y="70" width="13" height="38"  fill="#ADADAD" stroke="#999" stroke-width="0.5"/>
+
+  <!-- Arrow buttons -->
+  <rect x="183" y="104" width="34" height="22" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <polygon points="187,115 204,108 204,122" fill="#555"/>
+  <rect x="183" y="184" width="34" height="22" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <polygon points="187,195 204,188 204,202" fill="#555"/>
+
+  <!-- Dependent List: READ_MEAN -->
+  <text x="224" y="83"  fill="#222" font-size="10.5" font-weight="bold">Dependent List:</text>
+  <rect x="224" y="88"  width="195" height="56" fill="white" stroke="#888" stroke-width="1"/>
+  <rect x="225" y="89"  width="193" height="18" fill="#CCE4F7"/>
+  <text x="229" y="101" fill="#111" font-size="10.5">READ_MEAN</text>
+
+  <!-- Independent List: ASBH05AA -->
+  <text x="224" y="159" fill="#222" font-size="10.5" font-weight="bold">Independent List:</text>
+  <text x="224" y="171" fill="#888" font-size="9">Layer 1 of 1</text>
+  <rect x="224" y="176" width="195" height="56" fill="white" stroke="#888" stroke-width="1"/>
+  <rect x="225" y="177" width="193" height="18" fill="#CCE4F7"/>
+  <text x="229" y="189" fill="#111" font-size="10.5">ZLOBEK_BIN</text>
+
+  <!-- Previous / Next -->
+  <rect x="224" y="238" width="72" height="22" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="238" y="253" fill="#ABABAB" font-size="10.5">Previous</text>
+  <rect x="302" y="238" width="52" height="22" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="315" y="253" fill="#555" font-size="10.5">Next</text>
+
+  <line x1="13" y1="270" x2="463" y2="270" stroke="#C8C8C8" stroke-width="1"/>
+
+  <rect x="20"  y="278" width="48" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="33"  y="295" fill="#111" font-size="11" font-weight="bold">OK</text>
+  <rect x="76"  y="278" width="56" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="89"  y="295" fill="#333" font-size="11">Paste</text>
+  <rect x="140" y="278" width="56" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="151" y="295" fill="#333" font-size="11">Reset</text>
+  <rect x="204" y="278" width="62" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="215" y="295" fill="#333" font-size="11">Cancel</text>
+  <rect x="274" y="278" width="50" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="287" y="295" fill="#333" font-size="11">Help</text>
+  <rect x="366" y="278" width="76" height="26" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="378" y="295" fill="#333" font-size="11">Options...</text>
+
+  <!-- RIGHT: Output Viewer -->
+  <rect x="536" y="36" width="492" height="298"
+        fill="#F0F0F0" stroke="#888" stroke-width="1" filter="url(#ds)"/>
+
+  <rect x="536"  y="36"  width="492" height="26" fill="url(#tb)"/>
+  <rect x="968"  y="39"  width="16"  height="16" fill="#6B6B6B" rx="1"/>
+  <line x1="971" y1="47" x2="981"   y2="47" stroke="white" stroke-width="1.5"/>
+  <rect x="986"  y="39"  width="16"  height="16" fill="#6B6B6B" rx="1"/>
+  <polyline points="989,42 999,42 999,52 989,52 989,42" fill="none" stroke="white" stroke-width="1.2"/>
+  <rect x="1004" y="39"  width="16"  height="16" fill="#C42B1C" rx="1"/>
+  <line x1="1007" y1="42" x2="1017" y2="52" stroke="white" stroke-width="1.5"/>
+  <line x1="1017" y1="42" x2="1007" y2="52" stroke="white" stroke-width="1.5"/>
+  <text x="544" y="53" fill="white" font-size="10.5" font-weight="bold">*Output1 [Document1] – IBM SPSS Statistics Viewer</text>
+
+  <rect x="536" y="62" width="492" height="272" fill="white"/>
+  <text x="553" y="80" fill="#555" font-size="10" font-style="italic">Means</text>
+
+  <!-- Raport table
+       col1 (row labels): x=553-680 (w=127)
+       col2 (Średnia):    x=680-778 (w=98)
+       col3 (N):          x=778-848 (w=70)
+       col4 (Błąd std):   x=848-983 (w=135)
+       Total w=430
+  -->
+  <text x="768" y="98" text-anchor="middle" font-weight="bold" font-size="12">Raport</text>
+
+  <!-- Outer border: y=103, h=130 (20+38+24+24+24) -->
+  <rect x="553" y="103" width="430" height="130" fill="none" stroke="#AEAAAA" stroke-width="1"/>
+
+  <!-- Subheader row (h=20) -->
+  <rect x="553" y="103" width="127" height="20" fill="#F2F2F2"/>
+  <rect x="680" y="103" width="303" height="20" fill="#F2F2F2"/>
+  <text x="831" y="117" text-anchor="middle" font-size="9.5" font-style="italic">Wynik czytania (średnia z 5 PV)</text>
+  <line x1="553" y1="123" x2="983" y2="123" stroke="#AEAAAA" stroke-width="1"/>
+
+  <!-- Column header row (h=38) -->
+  <rect x="553" y="123" width="430" height="38" fill="#F2F2F2"/>
+  <!-- Variable label: 2 lines -->
+  <text x="616" y="136" text-anchor="middle" font-weight="bold" font-size="10">Uczęszczanie</text>
+  <text x="616" y="149" text-anchor="middle" font-weight="bold" font-size="10">do żłobka</text>
+  <!-- Stat column headers -->
+  <text x="729" y="146" text-anchor="middle" font-weight="bold" font-size="10">Średnia</text>
+  <text x="813" y="146" text-anchor="middle" font-weight="bold" font-size="10">N</text>
+  <text x="915" y="137" text-anchor="middle" font-weight="bold" font-size="10">Błąd</text>
+  <text x="915" y="149" text-anchor="middle" font-weight="bold" font-size="10">standardowy</text>
+  <text x="915" y="161" text-anchor="middle" font-weight="bold" font-size="10">średniej</text>
+  <line x1="553" y1="161" x2="983" y2="161" stroke="#AEAAAA" stroke-width="1"/>
+
+  <!-- Nie row (ZLOBEK_BIN=0) -->
+  <rect x="553" y="161" width="127" height="24" fill="#4472C4"/>
+  <text x="616" y="177" text-anchor="middle" fill="white" font-weight="bold" font-size="10.5">Nie</text>
+  <text x="774" y="177" text-anchor="end" font-size="10.5">548,9626</text>
+  <text x="844" y="177" text-anchor="end" font-size="10.5">271 959</text>
+  <text x="979" y="177" text-anchor="end" font-size="10.5">,12829</text>
+  <line x1="553" y1="185" x2="983" y2="185" stroke="#AEAAAA" stroke-width="0.5"/>
+
+  <!-- Tak row (ZLOBEK_BIN=1) -->
+  <rect x="553" y="185" width="127" height="24" fill="#4472C4"/>
+  <text x="616" y="201" text-anchor="middle" fill="white" font-weight="bold" font-size="10.5">Tak</text>
+  <text x="774" y="201" text-anchor="end" font-size="10.5">560,0240</text>
+  <text x="844" y="201" text-anchor="end" font-size="10.5">35 935</text>
+  <text x="979" y="201" text-anchor="end" font-size="10.5">,37634</text>
+  <line x1="553" y1="209" x2="983" y2="209" stroke="#AEAAAA" stroke-width="0.5"/>
+
+  <!-- Ogółem row -->
+  <rect x="553" y="209" width="127" height="24" fill="#4472C4"/>
+  <text x="616" y="225" text-anchor="middle" fill="white" font-weight="bold" font-size="10.5">Ogółem</text>
+  <text x="774" y="225" text-anchor="end" font-size="10.5">550,2536</text>
+  <text x="844" y="225" text-anchor="end" font-size="10.5">307 894</text>
+  <text x="979" y="225" text-anchor="end" font-size="10.5">,12170</text>
+
+  <line x1="553" y1="233" x2="983" y2="233" stroke="#AEAAAA" stroke-width="1"/>
+
+  <!-- Vertical dividers -->
+  <line x1="680" y1="103" x2="680" y2="233" stroke="#AEAAAA" stroke-width="1"/>
+  <line x1="778" y1="123" x2="778" y2="233" stroke="#AEAAAA" stroke-width="1"/>
+  <line x1="848" y1="123" x2="848" y2="233" stroke="#AEAAAA" stroke-width="1"/>
+
+</svg>

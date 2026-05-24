@@ -137,10 +137,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="dropdown-item" href="../en/idb.html">
  <span class="dropdown-text">IDB Analyzer</span></a>
   </li>  
-        <li>
-    <a class="dropdown-item" href="../en/spss.qmd">
- <span class="dropdown-text">SPSS</span></a>
-  </li>  
     </ul>
   </li>
 </ul>
@@ -613,7 +609,7 @@ SAVE OUTFILE='C:\PIRLS2021\working\parent_sorted.sav'.</code></pre>
   /BY IDCNTRY IDSTUD.
 EXECUTE.
 SAVE OUTFILE='C:\PIRLS2021\working\student_parent.sav'.</code></pre>
-<p><img src="images/spss_merge_dialog.svg" class="img-fluid" alt="Okno dialogowe Merge Files : Add Variables. Klucze łączenia to IDCNTRY i IDSTUD"> Tak powstała baza – z danymi uczniowskimi uzupełnionymi o odpowiedzi rodziców – posłuży nam w dalszej pracy jako punkt wyjścia do przykładowych analiz w rozdziale 8.</p>
+<p><img src="img/spss_merge_dialog.svg" class="img-fluid" alt="Okno dialogowe Merge Files : Add Variables. Klucze łączenia to IDCNTRY i IDSTUD"> Tak powstała baza – z danymi uczniowskimi uzupełnionymi o odpowiedzi rodziców – posłuży nam w dalszej pracy jako punkt wyjścia do przykładowych analiz w rozdziale 8.</p>
 <div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -709,7 +705,7 @@ SAVE OUTFILE='C:\PIRLS2021\working\pirls_poland_full.sav'.</code></pre>
 <p><strong>Przez menu:</strong> Kliknij <em>Data → Weight Cases…</em>, zaznacz opcję <em>Weight cases by</em> i przesuń zmienną <code>TOTWGT</code> do pola <em>Frequency Variable</em>. Kliknij <em>OK</em>. W dolnym prawym rogu okna SPSS pojawi się napis <strong>Weight On</strong>, który potwierdza, że waga jest aktywna.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/spss_weight_dialog.svg" class="img-fluid figure-img"></p>
+<p><img src="img/spss_weight_dialog.svg" class="img-fluid figure-img"></p>
 <figcaption>Okno dialogowe Weight Cases : zaznacz Weight cases by i przesuń TOTWGT</figcaption>
 </figure>
 </div>
@@ -790,7 +786,7 @@ Warto sięgnąć po dane krajowe
 <p><strong>Przez menu:</strong> <em>Transform → Compute Variable…</em> W polu <em>Target Variable</em> wpisz <code>READ_MEAN</code>. W polu <em>Numeric Expression</em> wpisz <code>MEAN(ASRREA01, ASRREA02, ASRREA03, ASRREA04, ASRREA05)</code>. Kliknij <em>OK</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/spss_compute_pv.svg" class="img-fluid figure-img"></p>
+<p><img src="img/spss_compute_pv.svg" class="img-fluid figure-img"></p>
 <figcaption>Okno Compute Variable : obliczanie średniej z pięciu wartości prawdopodobnych</figcaption>
 </figure>
 </div>
@@ -824,7 +820,7 @@ Przybliżony wynik ucznia
 <p><strong>Przez menu:</strong> <em>Analyze → Compare Means and Proportions → Means…</em> Przesuń <code>READ_MEAN</code> do pola <em>Dependent List</em>, a <code>ITSEX</code> do pola <em>Independent List</em>. Kliknij <em>OK</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/spss_means_output.svg" class="img-fluid figure-img"></p>
+<p><img src="img/spss_means_output.svg" class="img-fluid figure-img"></p>
 <figcaption>Okno dialogowe Means i wynik procedury: wynik czytania według płci ucznia</figcaption>
 </figure>
 </div>
@@ -873,7 +869,7 @@ SAVE OUTFILE='C:\PIRLS2021\working\student_parent_pl.sav'.</code></pre>
 <p><strong>Przez menu:</strong> <em>Analyze → Compare Means and Proportions → Means…</em> Przesuń <code>READ_MEAN</code> do pola <em>Dependent List</em>, a <code>ZLOBEK_BIN</code> do pola <em>Independent List</em>. Kliknij <em>OK</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/spss_means_zlobek.svg" class="img-fluid figure-img"></p>
+<p><img src="img/spss_means_zlobek.svg" class="img-fluid figure-img"></p>
 <figcaption>Okno dialogowe Means i wynik procedury: wyniki czytania a uczęszczanie do żłobka</figcaption>
 </figure>
 </div>
@@ -893,7 +889,7 @@ WEIGHT OFF.</code></pre>
 <p><strong>Przez menu:</strong> <em>Analyze → Descriptive Statistics → Crosstabs…</em> Przesuń <code>ITSEX</code> do pola <em>Row(s)</em> i <code>ASDGSLR</code> do pola <em>Column(s)</em>. Kliknij <em>Cells…</em>, zaznacz <em>Row</em> w sekcji <em>Percentages</em>, następnie <em>Continue</em> i <em>OK</em>.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/spss_crosstabs_slr.svg" class="img-fluid figure-img"></p>
+<p><img src="img/spss_crosstabs_slr.svg" class="img-fluid figure-img"></p>
 <figcaption>Okno dialogowe Crosstabs i wynik: nastawienie do czytania według płci ucznia</figcaption>
 </figure>
 </div>
