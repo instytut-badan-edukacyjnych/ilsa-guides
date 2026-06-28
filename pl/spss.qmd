@@ -11,16 +11,16 @@ format:
     highlight-style: github
     code-block-bg: "#eef3f9"
     code-block-border-left: "#1f4e79"
-#  docx:
-#    toc: true
-#    toc-depth: 4
-#    number-sections: true
-#    toc-expand: true
 #  pdf:
 #    toc: true
-#    toc-depth: 3
+#    toc-depth: 5
 #    number-sections: true
 #    toc-expand: true
+#  docx:
+#    toc: true
+#    toc-depth: 5
+#    number-sections: true 
+#    toc-expand: true 
 lang: pl
 execute:
   eval: false
@@ -76,11 +76,12 @@ opisowe. Nie wymaga zaawansowanej znajomości statystyki. Jego celem
 jest pokazanie, co można zrobić w SPSS wygodnie i poprawnie na etapie
 przygotowania danych, a także wskazanie momentu, w którym warto sięgnąć
 po narzędzia zaprojektowane specjalnie do analizy danych z badań IEA
-i OECD.
+i OECD – przede wszystkim po IEA IDB Analyzer, który współpracuje z SPSS
+bezpośrednio i pozwala wykonać te analizy bez zmiany programu.
 
 ---
 
-# Dlaczego SPSS jest przydatny w tych danych?
+# Dlaczego SPSS jest przydatny w pracy z tymi danymi?
 
 Dane PIRLS, podobnie jak dane z innych międzynarodowych badań
 edukacyjnych, są dostępne w formacie `.sav`, natywnym formacie SPSS.
@@ -100,7 +101,7 @@ czy dodatkowej obróbki pliku.
 - sprawdzania braków danych i rozkładów zmiennych
 - rekodowania zmiennych i tworzenia prostych wskaźników
 - obliczania sum i średnich z kilku pozycji kwestionariuszowych
-- wstępnych tabel i wykresów eksploracyjnych
+- tworzenia wstępnych tabel i wykresów eksploracyjnych
 - przygotowania pliku wynikowego do dalszej analizy
 
 SPSS dobrze sprawdza się jako pierwsze narzędzie w pracy z tymi danymi –
@@ -130,13 +131,37 @@ lub **intsvy**. Poradniki do tych narzędzi znajdziesz na stronach IBE-PIB:
 | **Pełna analiza wyników testowych (PV)** | ✘ | ✔ |
 :::
 
-Aby świadomie korzystać z powyższego podziału ról, warto zrozumieć, skąd właściwie wynikają te ograniczenia. Specyfika międzynarodowych badań edukacyjnych opiera się na trzech filarach metodologicznych, które znacząco zmieniają sposób podejścia do analizy statystycznej.
+::: {.callout-tip}
+## SPSS nie działa w pojedynkę – ale IDB Analyzer go dopełnia
+
+Ograniczenia z tabeli powyżej nie oznaczają, że trzeba porzucić SPSS.
+IEA IDB Analyzer to bezpłatne narzędzie, które – inaczej niż pakiety
+Rrepest, repest czy intsvy (wymagające R lub Staty) – współpracuje
+bezpośrednio z SPSS:
+
+- działa na tych samych plikach `.sav`,
+- nie wymaga znajomości programowania (interfejs okienkowy),
+- generuje gotową składnię, którą uruchamiasz w SPSS, a wyniki dostajesz
+  w oknie outputów SPSS,
+- automatycznie uwzględnia wagi replikacyjne i wartości prawdopodobne (PV) –
+  czyli dokładnie to, czego brakuje standardowym procedurom SPSS.
+
+W praktyce przygotowanie danych wykonujesz w SPSS (łączenie plików,
+`RECODE`, `COMPUTE`, budowa wskaźników), a finalne obliczenia populacyjne
+zlecasz IDB Analyzerowi – nie wychodząc z ekosystemu SPSS. IDB Analyzer
+jest więc dopełnieniem SPSS, a nie jego zamiennikiem.
+
+Poradnik do IDB Analyzer znajdziesz na stronie IBE-PIB:
+[ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer){target="_blank"}
+:::
+
+Aby świadomie i bezpiecznie korzystać z SPSS, warto zrozumieć, skąd właściwie wynikają te ograniczenia. Specyfika międzynarodowych badań edukacyjnych opiera się na trzech filarach metodologicznych, które znacząco zmieniają sposób podejścia do analizy statystycznej.
 
 ---
 
 # Specyfika danych z badań międzynarodowych
 
-Dane z badań takich jak PIRLS, TIMSS czy PISA różnią się od typowych zbiorów ankietowych pod trzema istotnymi względami. Poniżej przedstawiamy te cechy skrótowo, żeby uzasadnić wybory pojawiające się w dalszej części poradnika: dlaczego stosujemy `WEIGHT BY`, dlaczego wyniki ze standardowych procedur SPSS wymagają ostrożnej interpretacji oraz skąd bierze się kilka wyników dla każdego ucznia.
+Dane z badań takich jak PIRLS, TIMSS czy PISA różnią się od typowych zbiorów ankietowych pod trzema istotnymi względami. Poniżej omawiamy je skrótowo, żeby uzasadnić wybory pojawiające się w dalszej części poradnika: dlaczego stosujemy `WEIGHT BY`, dlaczego wyniki ze standardowych procedur SPSS wymagają ostrożnej interpretacji oraz skąd bierze się kilka wyników dla każdego ucznia.
 
 ## Wagi analityczne: dlaczego stosujemy `WEIGHT BY`
 
@@ -171,7 +196,7 @@ Do poprawnego szacowania niepewności oszacowań stosuje się wagi replikacyjne,
 ::: {.callout-warning}
 ## Błędy standardowe i testy istotności wymagają narzędzi dedykowanych
 
-Standardowe procedury SPSS nie wspierają analizy danych opartej na wagach replikacyjnych, dlatego generowane przez nie błędy standardowe, przedziały ufności i wartości *p* w wynikach publikacyjnych należy zastępować wartościami z narzędzi dedykowanych badaniom międzynarodowym. W analizach eksploracyjnych wyniki SPSS mogą służyć jako punkt orientacyjny.
+Standardowe procedury SPSS nie wspierają analizy danych opartej na wagach replikacyjnych, dlatego generowane przez nie błędy standardowe, przedziały ufności i wartości *p* w wynikach publikacyjnych należy zastępować wartościami z narzędzi dedykowanych badaniom międzynarodowym – najprościej z IEA IDB Analyzer, który działa bezpośrednio na plikach `.sav` i zwraca wyniki w SPSS. W analizach eksploracyjnych wyniki SPSS mogą służyć jako punkt orientacyjny.
 :::
 
 ## Wartości prawdopodobne: skąd bierze się kilka zmiennych wynikowych
@@ -910,14 +935,24 @@ się do wczytywania danych, łączenia plików, dołączania pytań krajowych,
 sprawdzania rozkładów zmiennych, rekodowania oraz tworzenia prostych
 wizualizacji.
 
-Rekomendowane podejście polega na przygotowaniu i eksploracji danych
+Sam SPSS nie obsługuje jednak wag replikacyjnych ani wartości
+prawdopodobnych, dlatego do analiz raportowych – poprawnych błędów
+standardowych, testów istotności i pełnej analizy wyników testowych –
+jest niewystarczający. Nie znaczy to, że trzeba z niego rezygnować.
+Najprostszym, zgodnym z SPSS dopełnieniem jest IEA IDB Analyzer:
+działa na tych samych plikach `.sav`, nie wymaga programowania i zwraca
+wyniki w oknie outputów SPSS, jednocześnie poprawnie uwzględniając wagi
+replikacyjne i PV.
+
+Rekomendowane podejście polega więc na przygotowaniu i eksploracji danych
 w SPSS, a następnie wykonaniu właściwych analiz populacyjnych
-w narzędziach dedykowanych: IEA IDB Analyzer, Rrepest, repest
-lub intsvy. Taki dwuetapowy model pracy pozwala wykorzystać wygodę SPSS na etapie przygotowania danych, a jednocześnie zachować poprawność metodologiczną wyników końcowych. Dobrą praktyką jest weryfikowanie wyników opisowych przez
-porównanie z oficjalnymi raportami krajowymi lub wynikami z IDB Analyzer,
-co pozwala potwierdzić poprawność wczytania i przygotowania danych.
-Dzięki temu SPSS pozostaje wygodnym punktem startu, a narzędzia
-dedykowane zapewniają poprawność metodologiczną wyników końcowych.
+w IDB Analyzerze (lub – jeśli pracujesz w R albo Stacie – w pakietach
+Rrepest, repest czy intsvy). Taki dwuetapowy model pracy pozwala wykorzystać
+wygodę SPSS na etapie przygotowania danych, a jednocześnie zachować
+poprawność metodologiczną wyników końcowych. Dobrą praktyką jest
+weryfikowanie wyników opisowych przez porównanie z oficjalnymi raportami
+krajowymi lub wynikami z IDB Analyzer, co pozwala potwierdzić poprawność
+wczytania i przygotowania danych.
 
 # Zasoby i literatura
 
