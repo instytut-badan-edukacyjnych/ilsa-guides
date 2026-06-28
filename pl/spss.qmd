@@ -11,16 +11,19 @@ format:
     highlight-style: github
     code-block-bg: "#eef3f9"
     code-block-border-left: "#1f4e79"
-#  pdf:
-#    toc: true
-#    toc-depth: 5
-#    number-sections: true
-#    toc-expand: true
-#  docx:
-#    toc: true
-#    toc-depth: 5
-#    number-sections: true 
-#    toc-expand: true 
+    default-image-extension: svg
+  docx:
+    toc: true
+    toc-depth: 5
+    number-sections: true
+    toc-expand: true
+    default-image-extension: png
+  pdf:
+    toc: true
+    toc-depth: 5
+    number-sections: true
+    toc-expand: true
+    default-image-extension: png
 lang: pl
 execute:
   eval: false
@@ -422,7 +425,7 @@ EXECUTE.
 SAVE OUTFILE='C:\PIRLS2021\working\student_parent.sav'.
 ```
 
-![Okno dialogowe Merge Files : Add Variables. Klucze łączenia to IDCNTRY i IDSTUD](img/spss_merge_dialog.svg)
+![Okno dialogowe Merge Files : Add Variables. Klucze łączenia to IDCNTRY i IDSTUD](img/spss_merge_dialog)
 Tak powstała baza – z danymi uczniowskimi uzupełnionymi o odpowiedzi
 rodziców – posłuży nam w dalszej pracy jako punkt wyjścia do przykładowych
 analiz w rozdziale 8.
@@ -550,7 +553,7 @@ aby uzyskiwane wyniki odpowiadały wartościom populacyjnym.
 *Frequency Variable*. Kliknij *OK*. W dolnym prawym rogu okna SPSS
 pojawi się napis **Weight On**, który potwierdza, że waga jest aktywna.
 
-![Okno dialogowe Weight Cases : zaznacz Weight cases by i przesuń TOTWGT](img/spss_weight_dialog.svg)
+![Okno dialogowe Weight Cases : zaznacz Weight cases by i przesuń TOTWGT](img/spss_weight_dialog)
 
 
 ```
@@ -654,7 +657,7 @@ W polu *Target Variable* wpisz `READ_MEAN`. W polu *Numeric Expression*
 wpisz `MEAN(ASRREA01, ASRREA02, ASRREA03, ASRREA04, ASRREA05)`.
 Kliknij *OK*.
 
-![Okno Compute Variable : obliczanie średniej z pięciu wartości prawdopodobnych](img/spss_compute_pv.svg)
+![Okno Compute Variable : obliczanie średniej z pięciu wartości prawdopodobnych](img/spss_compute_pv)
 
 ```
 COMPUTE READ_MEAN = MEAN(ASRREA01, ASRREA02, ASRREA03, ASRREA04, ASRREA05).
@@ -706,7 +709,7 @@ czyli płeć ucznia: `1 = dziewczynka`, `2 = chłopiec`.
 Przesuń `READ_MEAN` do pola *Dependent List*, a `ITSEX` do pola
 *Independent List*. Kliknij *OK*.
 
-![Okno dialogowe Means i wynik procedury: wynik czytania według płci ucznia](img/spss_means_output.svg)
+![Okno dialogowe Means i wynik procedury: wynik czytania według płci ucznia](img/spss_means_output)
 
 ```
 WEIGHT BY TOTWGT.
@@ -780,7 +783,7 @@ Zmienną zależną jest `READ_MEAN`, zmienną niezależną – `ZLOBEK_BIN`.
 Przesuń `READ_MEAN` do pola *Dependent List*, a `ZLOBEK_BIN` do pola
 *Independent List*. Kliknij *OK*.
 
-![Okno dialogowe Means i wynik procedury: wyniki czytania a uczęszczanie do żłobka](img/spss_means_zlobek.svg)
+![Okno dialogowe Means i wynik procedury: wyniki czytania a uczęszczanie do żłobka](img/spss_means_zlobek)
 
 ```
 WEIGHT BY TOTWGT.
@@ -817,7 +820,7 @@ Przesuń `ITSEX` do pola *Row(s)* i `ASDGSLR` do pola *Column(s)*.
 Kliknij *Cells...*, zaznacz *Row* w sekcji *Percentages*,
 następnie *Continue* i *OK*.
 
-![Okno dialogowe Crosstabs i wynik: nastawienie do czytania według płci ucznia](img/spss_crosstabs_slr.svg)
+![Okno dialogowe Crosstabs i wynik: nastawienie do czytania według płci ucznia](img/spss_crosstabs_slr)
 
 ```
 WEIGHT BY TOTWGT.
