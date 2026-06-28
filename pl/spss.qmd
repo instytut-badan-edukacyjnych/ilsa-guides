@@ -18,12 +18,22 @@ format:
     number-sections: true
     toc-expand: true
     default-image-extension: png
+    reference-doc: reference-spss.docx
   pdf:
     toc: true
     toc-depth: 5
     number-sections: true
     toc-expand: true
     default-image-extension: png
+    include-in-header:
+      text: |
+        % nowy rozdział (sekcja) zawsze od nowej strony
+        \usepackage{etoolbox}
+        \pretocmd{\section}{\clearpage}{}{}
+        % ramki (callouty) nierozrywane między stronami
+        \makeatletter
+        \AtBeginDocument{\@ifpackageloaded{tcolorbox}{\tcbset{breakable/.code={}}}{}}
+        \makeatother
 lang: pl
 execute:
   eval: false

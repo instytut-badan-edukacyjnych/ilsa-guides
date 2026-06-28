@@ -55,3 +55,5 @@ rsconnect/
 # Word exports w katalogach źródłowych (artefakty); opublikowane wersje są w docs/
 /pl/*.docx
 /en/*.docx
+# ...ale szablon reference-doc do DOCX trzymamy w repo:
+!/pl/reference-spss.docx
