@@ -49,3 +49,8 @@ rsconnect/
 *.Rproj
 
 /.quarto/
+
+**/*.quarto_ipynb
+
+# Word exports (build artifacts)
+*.docx

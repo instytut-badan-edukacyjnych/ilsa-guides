@@ -26,6 +26,7 @@ PL: Praktyczne poradniki do analizy danych z międzynarodowych badań edukacyjny
 | [Rrepest (R)](https://instytut-badan-edukacyjnych.github.io/ilsa-guides/pl/rrepest.html) | Pakiet R oparty na module Repest ze Stata. Automatycznie uwzględnia ważenie wyników i niepewność pomiarową wymaganą w badaniach OECD i IEA, ułatwiając uzyskanie poprawnych rezultatów. |
 | [repest (Stata)](https://instytut-badan-edukacyjnych.github.io/ilsa-guides/pl/repest.html) | Moduł do Stata opracowany przez analityków OECD. Automatyzuje kroki potrzebne do poprawnej analizy danych z badań międzynarodowych — dobre rozwiązanie dla osób zaczynających pracę z tymi danymi. |
 | [IDB Analyzer](https://instytut-badan-edukacyjnych.github.io/ilsa-guides/pl/idb.html) | Bezpłatne narzędzie IEA. Nie wymaga znajomości programowania — automatycznie tworzy skrypty w SPSS, SAS lub R i ułatwia łączenie danych z różnych instrumentów (uczniowie, szkoły, nauczyciele). |
+| [SPSS](https://instytut-badan-edukacyjnych.github.io/ilsa-guides/pl/spss.html) | Pierwsze narzędzie do pracy z danymi z badań edukacyjnych — wczytywanie plików, łączenie kwestionariuszy, sprawdzanie rozkładów i przygotowanie danych do analiz. W połączeniu z IDB Analyzer pozwala też na poprawne analizy z wagami replikacyjnymi i wartościami prawdopodobnymi (PV). Poradnik oparty na przykładach z PIRLS 2021. |
 
 ---
 
