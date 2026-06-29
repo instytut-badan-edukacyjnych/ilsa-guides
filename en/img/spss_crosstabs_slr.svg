@@ -1,0 +1,209 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 345"
+     font-family="'Segoe UI', Arial, sans-serif" font-size="11">
+
+  <defs>
+    <linearGradient id="tb" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2E82CF"/>
+      <stop offset="100%" stop-color="#1A60A8"/>
+    </linearGradient>
+    <filter id="ds" x="-4%" y="-3%" width="114%" height="114%">
+      <feDropShadow dx="3" dy="3" stdDeviation="4"
+                   flood-color="#000000" flood-opacity="0.28"/>
+    </filter>
+    <marker id="ah" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#444"/>
+    </marker>
+  </defs>
+
+  <rect width="1040" height="345" fill="#BFBFBF" rx="4"/>
+
+  <!-- Step badges -->
+  <rect x="12"  y="8" width="84" height="22" fill="#1D5B96" rx="3"/>
+  <text x="19"  y="23" fill="white" font-size="12" font-weight="bold">Step 1</text>
+  <text x="102" y="23" fill="#1A1A1A" font-size="11">Analysis setup</text>
+
+  <rect x="536" y="8" width="84" height="22" fill="#1D5B96" rx="3"/>
+  <text x="543" y="23" fill="white" font-size="12" font-weight="bold">Step 2</text>
+  <text x="626" y="23" fill="#1A1A1A" font-size="11">Result in the Output Viewer</text>
+
+  <!-- Arrow -->
+  <line x1="466" y1="183" x2="532" y2="183"
+        stroke="#333" stroke-width="2.5" marker-end="url(#ah)"/>
+  <text x="468" y="175" fill="#444" font-size="9.5" font-style="italic">OK</text>
+
+  <!-- ═══════════════════════════
+       LEFT: Crosstabs dialog
+       ═══════════════════════════ -->
+  <rect x="12" y="36" width="452" height="298"
+        fill="#F0F0F0" stroke="#888" stroke-width="1" filter="url(#ds)"/>
+  <rect x="12"  y="36" width="452" height="26" fill="url(#tb)"/>
+  <rect x="408" y="39" width="16" height="16" fill="#6B6B6B" rx="1"/>
+  <line x1="411" y1="47" x2="421" y2="47" stroke="white" stroke-width="1.5"/>
+  <rect x="426" y="39" width="16" height="16" fill="#6B6B6B" rx="1"/>
+  <polyline points="429,42 439,42 439,52 429,52 429,42" fill="none" stroke="white" stroke-width="1.2"/>
+  <rect x="444" y="39" width="16" height="16" fill="#C42B1C" rx="1"/>
+  <line x1="447" y1="42" x2="457" y2="52" stroke="white" stroke-width="1.5"/>
+  <line x1="457" y1="42" x2="447" y2="52" stroke="white" stroke-width="1.5"/>
+  <text x="20" y="53" fill="white" font-size="11" font-weight="bold">Crosstabs [DataSet1]</text>
+
+  <!-- Source list -->
+  <rect x="20" y="70" width="140" height="200" fill="white" stroke="#888" stroke-width="1"/>
+  <text x="26" y="86"  fill="#333" font-size="10.5">IDCNTRY</text>
+  <text x="26" y="102" fill="#333" font-size="10.5">IDSTUD</text>
+  <text x="26" y="118" fill="#333" font-size="10.5">ITSEX</text>
+  <text x="26" y="134" fill="#333" font-size="10.5">TOTWGT</text>
+  <text x="26" y="150" fill="#333" font-size="10.5">ASBH05AA</text>
+  <text x="26" y="166" fill="#333" font-size="10.5">ASBGSLR</text>
+  <text x="26" y="182" fill="#333" font-size="10.5">ASDGSLR</text>
+  <text x="26" y="198" fill="#333" font-size="10.5">ASRREA01</text>
+  <text x="26" y="214" fill="#333" font-size="10.5">READ_MEAN</text>
+  <text x="26" y="230" fill="#AAA" font-size="10.5">...</text>
+  <rect x="147" y="70" width="13" height="200" fill="#E0E0E0" stroke="#C8C8C8" stroke-width="0.5"/>
+  <rect x="147" y="70" width="13" height="36"  fill="#ADADAD" stroke="#999" stroke-width="0.5"/>
+
+  <!-- Arrow buttons -->
+  <rect x="170" y="94"  width="32" height="22" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <polygon points="173,105 190,98 190,112" fill="#555"/>
+  <rect x="170" y="164" width="32" height="22" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <polygon points="173,175 190,168 190,182" fill="#555"/>
+
+  <!-- Row(s): ITSEX -->
+  <text x="210" y="83"  fill="#222" font-size="10.5" font-weight="bold">Row(s):</text>
+  <rect x="210" y="88"  width="172" height="52" fill="white" stroke="#888" stroke-width="1"/>
+  <rect x="211" y="89"  width="170" height="18" fill="#CCE4F7"/>
+  <text x="215" y="101" fill="#111" font-size="10.5">ITSEX</text>
+
+  <!-- Column(s): ASDGSLR -->
+  <text x="210" y="153" fill="#222" font-size="10.5" font-weight="bold">Column(s):</text>
+  <rect x="210" y="158" width="172" height="52" fill="white" stroke="#888" stroke-width="1"/>
+  <rect x="211" y="159" width="170" height="18" fill="#CCE4F7"/>
+  <text x="215" y="171" fill="#111" font-size="10.5">ASDGSLR</text>
+
+  <!-- Layer -->
+  <text x="210" y="222" fill="#222" font-size="10.5" font-weight="bold">Layer 1 of 1</text>
+  <rect x="210" y="228" width="172" height="28" fill="white" stroke="#888" stroke-width="1"/>
+
+  <!-- Right-side buttons -->
+  <rect x="392" y="88"  width="64" height="24" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="404" y="104" fill="#333" font-size="10.5">Statistics</text>
+  <rect x="392" y="118" width="64" height="24" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="413" y="134" fill="#111" font-size="10.5" font-weight="bold">Cells...</text>
+  <rect x="392" y="148" width="64" height="24" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="408" y="164" fill="#333" font-size="10.5">Format</text>
+  <rect x="392" y="178" width="64" height="24" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="401" y="194" fill="#333" font-size="10.5">Bootstrap</text>
+  <text x="392" y="216" fill="#555" font-size="8.5" font-style="italic">✓ Count</text>
+  <text x="392" y="227" fill="#555" font-size="8.5" font-style="italic">✓ Row %</text>
+
+  <line x1="13" y1="270" x2="463" y2="270" stroke="#C8C8C8" stroke-width="1"/>
+  <rect x="20"  y="278" width="48" height="24" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="33"  y="294" fill="#111" font-size="11" font-weight="bold">OK</text>
+  <rect x="76"  y="278" width="56" height="24" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="88"  y="294" fill="#333" font-size="11">Paste</text>
+  <rect x="140" y="278" width="56" height="24" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="152" y="294" fill="#333" font-size="11">Reset</text>
+  <rect x="204" y="278" width="62" height="24" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="215" y="294" fill="#333" font-size="11">Cancel</text>
+  <rect x="274" y="278" width="50" height="24" fill="#E8E8E8" stroke="#ADADAD" stroke-width="1" rx="2"/>
+  <text x="287" y="294" fill="#333" font-size="11">Help</text>
+
+  <!-- ═══════════════════════════
+       RIGHT: Output Viewer
+       ═══════════════════════════ -->
+  <rect x="536" y="36" width="492" height="298"
+        fill="#F0F0F0" stroke="#888" stroke-width="1" filter="url(#ds)"/>
+  <rect x="536"  y="36"  width="492" height="26" fill="url(#tb)"/>
+  <rect x="968"  y="39"  width="16"  height="16" fill="#6B6B6B" rx="1"/>
+  <line x1="971" y1="47" x2="981"   y2="47" stroke="white" stroke-width="1.5"/>
+  <rect x="986"  y="39"  width="16"  height="16" fill="#6B6B6B" rx="1"/>
+  <polyline points="989,42 999,42 999,52 989,52 989,42" fill="none" stroke="white" stroke-width="1.2"/>
+  <rect x="1004" y="39"  width="16"  height="16" fill="#C42B1C" rx="1"/>
+  <line x1="1007" y1="42" x2="1017" y2="52" stroke="white" stroke-width="1.5"/>
+  <line x1="1017" y1="42" x2="1007" y2="52" stroke="white" stroke-width="1.5"/>
+  <text x="544" y="53" fill="white" font-size="10.5" font-weight="bold">*Output1 [Document1] – IBM SPSS Statistics Viewer</text>
+  <rect x="536" y="62" width="492" height="272" fill="white"/>
+  <text x="553" y="78" fill="#555" font-size="10" font-style="italic">Crosstabs</text>
+
+  <!-- Title (2 lines) + subtitle -->
+  <text x="768" y="92"  text-anchor="middle" font-weight="bold" font-size="10.5">Crosstabulation Sex of Students * STUDENTS LIKE READING/IDX</text>
+  <text x="553" y="107" fill="#333" font-size="9.5" font-style="italic">% within Sex of Students</text>
+
+  <!-- Table column layout:
+       col1 (Sex of Students):  x=548-628 (w=80)
+       col2 (Girl/Boy/Total):  x=628-674 (w=46)
+       col3a (Very Much):        x=674-758 (w=84)
+       col3b (Somewhat):         x=758-842 (w=84)
+       col3c (Do Not Like):      x=842-922 (w=80)
+       col4  (Total):           x=922-978 (w=56)
+       Total: 430px, right edge=978
+  -->
+
+  <!-- Outer border: y=112, h=107, bottom=219 -->
+  <rect x="548" y="112" width="430" height="107" fill="none" stroke="#AEAAAA" stroke-width="1"/>
+
+  <!-- Header row 1 (h=17): "STUDENTS LIKE READING/IDX" spanning + "Total" -->
+  <rect x="548" y="112" width="126" height="17" fill="#F2F2F2"/>
+  <rect x="674" y="112" width="248" height="17" fill="#4472C4"/>
+  <text x="798" y="124" text-anchor="middle" fill="white" font-weight="bold" font-size="9">STUDENTS LIKE READING/IDX</text>
+  <!-- "Total" col header spanning both header rows (h=45) -->
+  <rect x="922" y="112" width="56" height="45" fill="#4472C4"/>
+  <text x="950" y="138" text-anchor="middle" fill="white" font-weight="bold" font-size="9.5">Total</text>
+  <line x1="548" y1="129" x2="978" y2="129" stroke="#AEAAAA" stroke-width="0.5"/>
+
+  <!-- Header row 2 (h=28): sub-column names, 2 lines each -->
+  <rect x="548" y="129" width="126" height="28" fill="#F2F2F2"/>
+  <rect x="674" y="129" width="84"  height="28" fill="#F2F2F2"/>
+  <rect x="758" y="129" width="84"  height="28" fill="#F2F2F2"/>
+  <rect x="842" y="129" width="80"  height="28" fill="#F2F2F2"/>
+  <text x="716" y="141" text-anchor="middle" font-weight="bold" font-size="8.5">Very Much</text>
+  <text x="716" y="154" text-anchor="middle" font-weight="bold" font-size="8.5">Like Reading</text>
+  <text x="800" y="141" text-anchor="middle" font-weight="bold" font-size="8.5">Somewhat</text>
+  <text x="800" y="154" text-anchor="middle" font-weight="bold" font-size="8.5">Like Reading</text>
+  <text x="882" y="141" text-anchor="middle" font-weight="bold" font-size="8.5">Do Not Like</text>
+  <text x="882" y="154" text-anchor="middle" font-weight="bold" font-size="8.5">Reading</text>
+  <line x1="548" y1="157" x2="978" y2="157" stroke="#AEAAAA" stroke-width="1"/>
+
+  <!-- "Sex of Students" merged label spanning Girl+Boy (col1, y=157-197, h=40) -->
+  <rect x="548" y="157" width="80" height="40" fill="#4472C4"/>
+  <text x="588" y="172" text-anchor="middle" fill="white" font-weight="bold" font-size="8.5">Sex of</text>
+  <text x="588" y="185" text-anchor="middle" fill="white" font-weight="bold" font-size="8.5">Students</text>
+
+  <!-- Girl row (y=157, h=20) -->
+  <rect x="628" y="157" width="46" height="20" fill="#4472C4"/>
+  <text x="651" y="171" text-anchor="middle" fill="white" font-weight="bold" font-size="10">Girl</text>
+  <text x="755" y="171" text-anchor="end" font-size="10">24.6%</text>
+  <text x="839" y="171" text-anchor="end" font-size="10">52.9%</text>
+  <text x="919" y="171" text-anchor="end" font-size="10">22.5%</text>
+  <text x="975" y="171" text-anchor="end" font-size="10">100.0%</text>
+  <line x1="548" y1="177" x2="978" y2="177" stroke="#AEAAAA" stroke-width="0.5"/>
+
+  <!-- Boy row (y=177, h=20) -->
+  <rect x="628" y="177" width="46" height="20" fill="#4472C4"/>
+  <text x="651" y="191" text-anchor="middle" fill="white" font-weight="bold" font-size="10">Boy</text>
+  <text x="755" y="191" text-anchor="end" font-size="10">21.6%</text>
+  <text x="839" y="191" text-anchor="end" font-size="10">44.9%</text>
+  <text x="919" y="191" text-anchor="end" font-size="10">33.5%</text>
+  <text x="975" y="191" text-anchor="end" font-size="10">100.0%</text>
+  <line x1="548" y1="197" x2="978" y2="197" stroke="#AEAAAA" stroke-width="1"/>
+
+  <!-- Total row (y=197, h=22) – merged col1+col2 -->
+  <rect x="548" y="197" width="126" height="22" fill="#4472C4"/>
+  <text x="611" y="212" text-anchor="middle" fill="white" font-weight="bold" font-size="10">Total</text>
+  <text x="755" y="212" text-anchor="end" font-size="10">23.0%</text>
+  <text x="839" y="212" text-anchor="end" font-size="10">48.7%</text>
+  <text x="919" y="212" text-anchor="end" font-size="10">28.3%</text>
+  <text x="975" y="212" text-anchor="end" font-size="10">100.0%</text>
+  <line x1="548" y1="219" x2="978" y2="219" stroke="#AEAAAA" stroke-width="1"/>
+
+  <!-- Vertical dividers -->
+  <line x1="628" y1="112" x2="628" y2="219" stroke="#AEAAAA" stroke-width="1"/>
+  <line x1="674" y1="112" x2="674" y2="219" stroke="#AEAAAA" stroke-width="1"/>
+  <line x1="758" y1="112" x2="758" y2="219" stroke="#AEAAAA" stroke-width="1"/>
+  <line x1="842" y1="112" x2="842" y2="219" stroke="#AEAAAA" stroke-width="1"/>
+  <line x1="922" y1="112" x2="922" y2="219" stroke="#AEAAAA" stroke-width="1"/>
+
+  <!-- Annotation below table -->
+  <text x="548" y="234" fill="#C00000" font-size="9" font-style="italic" font-weight="bold">Δ 11 pp</text>
+  <text x="580" y="234" fill="#C00000" font-size="9" font-style="italic">= difference in the Do Not Like Reading category: 33.5% (boys) − 22.5% (girls)</text>
+
+</svg>

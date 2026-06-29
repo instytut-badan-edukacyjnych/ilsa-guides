@@ -27,6 +27,8 @@ website:
           - href: en/repest.qmd
             text: "repest (Stata)"
           - href: en/idb.qmd
-            text: "IDB Analyzer"        
+            text: "IDB Analyzer"
+          - href: en/spss.qmd
+            text: "SPSS"
   page-footer:
     center: "Instytut Badań Edukacyjnych "

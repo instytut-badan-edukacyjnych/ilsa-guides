@@ -1,0 +1,1429 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Mateusz Kleczaj (m.kleczaj@ibe.edu.pl)">
+
+<title>Analysis of data from International Educational Studies in SPSS – ILSA Guides – IBE</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-acf12a64177840b8d86f2d4f01b2e9fb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-904fc66f03b8b328c15f652b31357879.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">ILSA Guides – IBE</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-polski" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">🇵🇱 Polski</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-polski">    
+        <li>
+    <a class="dropdown-item" href="../pl/intsvy.html">
+ <span class="dropdown-text">intsvy (R)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pl/rrepest.html">
+ <span class="dropdown-text">Rrepest (R)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pl/repest.html">
+ <span class="dropdown-text">repest (Stata)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pl/idb.html">
+ <span class="dropdown-text">IDB Analyzer</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../pl/spss.html">
+ <span class="dropdown-text">SPSS</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-english" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">🇬🇧 English</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-english">    
+        <li>
+    <a class="dropdown-item" href="../en/intsvy.html">
+ <span class="dropdown-text">intsvy (R)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../en/rrepest.html">
+ <span class="dropdown-text">Rrepest (R)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../en/repest.html">
+ <span class="dropdown-text">repest (Stata)</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../en/idb.html">
+ <span class="dropdown-text">IDB Analyzer</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../en/spss.html">
+ <span class="dropdown-text">SPSS</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="99">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#why-is-spss-useful-for-working-with-these-data" id="toc-why-is-spss-useful-for-working-with-these-data" class="nav-link" data-scroll-target="#why-is-spss-useful-for-working-with-these-data"><span class="header-section-number">2</span> Why is SPSS useful for working with these data?</a></li>
+  <li><a href="#the-specific-nature-of-international-assessment-data" id="toc-the-specific-nature-of-international-assessment-data" class="nav-link" data-scroll-target="#the-specific-nature-of-international-assessment-data"><span class="header-section-number">3</span> The specific nature of international assessment data</a>
+  <ul>
+  <li><a href="#sampling-weights-why-we-use-weight-by" id="toc-sampling-weights-why-we-use-weight-by" class="nav-link" data-scroll-target="#sampling-weights-why-we-use-weight-by"><span class="header-section-number">3.1</span> Sampling weights: why we use <code>WEIGHT BY</code></a></li>
+  <li><a href="#the-complex-sampling-design-why-spss-reports-different-standard-errors" id="toc-the-complex-sampling-design-why-spss-reports-different-standard-errors" class="nav-link" data-scroll-target="#the-complex-sampling-design-why-spss-reports-different-standard-errors"><span class="header-section-number">3.2</span> The complex sampling design: why SPSS reports different standard errors</a></li>
+  <li><a href="#plausible-values-where-the-several-outcome-variables-come-from" id="toc-plausible-values-where-the-several-outcome-variables-come-from" class="nav-link" data-scroll-target="#plausible-values-where-the-several-outcome-variables-come-from"><span class="header-section-number">3.3</span> Plausible values: where the several outcome variables come from</a></li>
+  </ul></li>
+  <li><a href="#pirls-2021-data-downloading-and-organising-files" id="toc-pirls-2021-data-downloading-and-organising-files" class="nav-link" data-scroll-target="#pirls-2021-data-downloading-and-organising-files"><span class="header-section-number">4</span> PIRLS 2021 data: downloading and organising files</a>
+  <ul>
+  <li><a href="#where-to-download-the-data" id="toc-where-to-download-the-data" class="nav-link" data-scroll-target="#where-to-download-the-data"><span class="header-section-number">4.1</span> Where to download the data</a></li>
+  <li><a href="#folder-structure" id="toc-folder-structure" class="nav-link" data-scroll-target="#folder-structure"><span class="header-section-number">4.2</span> Folder structure</a></li>
+  <li><a href="#iea-file-names" id="toc-iea-file-names" class="nav-link" data-scroll-target="#iea-file-names"><span class="header-section-number">4.3</span> IEA file names</a></li>
+  </ul></li>
+  <li><a href="#reading-and-reviewing-data-in-spss" id="toc-reading-and-reviewing-data-in-spss" class="nav-link" data-scroll-target="#reading-and-reviewing-data-in-spss"><span class="header-section-number">5</span> Reading and reviewing data in SPSS</a>
+  <ul>
+  <li><a href="#opening-a-file-and-a-first-look-at-the-data" id="toc-opening-a-file-and-a-first-look-at-the-data" class="nav-link" data-scroll-target="#opening-a-file-and-a-first-look-at-the-data"><span class="header-section-number">5.1</span> Opening a file and a first look at the data</a></li>
+  <li><a href="#checking-the-identification-variables" id="toc-checking-the-identification-variables" class="nav-link" data-scroll-target="#checking-the-identification-variables"><span class="header-section-number">5.2</span> Checking the identification variables</a></li>
+  </ul></li>
+  <li><a href="#merging-data-files" id="toc-merging-data-files" class="nav-link" data-scroll-target="#merging-data-files"><span class="header-section-number">6</span> Merging data files</a>
+  <ul>
+  <li><a href="#merging-the-student-file-with-the-home-parent-file" id="toc-merging-the-student-file-with-the-home-parent-file" class="nav-link" data-scroll-target="#merging-the-student-file-with-the-home-parent-file"><span class="header-section-number">6.1</span> Merging the student file with the home (parent) file</a></li>
+  <li><a href="#appending-teacher-data" id="toc-appending-teacher-data" class="nav-link" data-scroll-target="#appending-teacher-data"><span class="header-section-number">6.2</span> Appending teacher data</a></li>
+  <li><a href="#appending-national-questions" id="toc-appending-national-questions" class="nav-link" data-scroll-target="#appending-national-questions"><span class="header-section-number">6.3</span> Appending national questions</a></li>
+  </ul></li>
+  <li><a href="#preparing-variables" id="toc-preparing-variables" class="nav-link" data-scroll-target="#preparing-variables"><span class="header-section-number">7</span> Preparing variables</a>
+  <ul>
+  <li><a href="#checking-for-missing-data" id="toc-checking-for-missing-data" class="nav-link" data-scroll-target="#checking-for-missing-data"><span class="header-section-number">7.1</span> Checking for missing data</a></li>
+  <li><a href="#activating-the-sampling-weight" id="toc-activating-the-sampling-weight" class="nav-link" data-scroll-target="#activating-the-sampling-weight"><span class="header-section-number">7.2</span> Activating the sampling weight</a></li>
+  <li><a href="#recoding-variables" id="toc-recoding-variables" class="nav-link" data-scroll-target="#recoding-variables"><span class="header-section-number">7.3</span> Recoding variables</a></li>
+  <li><a href="#computing-the-read_mean-variable-mean-of-the-pvs" id="toc-computing-the-read_mean-variable-mean-of-the-pvs" class="nav-link" data-scroll-target="#computing-the-read_mean-variable-mean-of-the-pvs"><span class="header-section-number">7.4</span> Computing the READ_MEAN variable (mean of the PVs)</a></li>
+  </ul></li>
+  <li><a href="#worked-examples-step-by-step" id="toc-worked-examples-step-by-step" class="nav-link" data-scroll-target="#worked-examples-step-by-step"><span class="header-section-number">8</span> Worked examples, step by step</a>
+  <ul>
+  <li><a href="#reading-achievement-by-gender" id="toc-reading-achievement-by-gender" class="nav-link" data-scroll-target="#reading-achievement-by-gender"><span class="header-section-number">8.1</span> Reading achievement by gender</a></li>
+  <li><a href="#reading-achievement-and-nursery-attendance" id="toc-reading-achievement-and-nursery-attendance" class="nav-link" data-scroll-target="#reading-achievement-and-nursery-attendance"><span class="header-section-number">8.2</span> Reading achievement and nursery attendance</a></li>
+  <li><a href="#students-attitudes-to-reading-and-gender-distribution-of-categories" id="toc-students-attitudes-to-reading-and-gender-distribution-of-categories" class="nav-link" data-scroll-target="#students-attitudes-to-reading-and-gender-distribution-of-categories"><span class="header-section-number">8.3</span> Students’ attitudes to reading and gender — distribution of categories</a></li>
+  </ul></li>
+  <li><a href="#good-practices-for-working-with-data-in-spss" id="toc-good-practices-for-working-with-data-in-spss" class="nav-link" data-scroll-target="#good-practices-for-working-with-data-in-spss"><span class="header-section-number">9</span> Good practices for working with data in SPSS</a>
+  <ul>
+  <li><a href="#most-common-mistakes" id="toc-most-common-mistakes" class="nav-link" data-scroll-target="#most-common-mistakes"><span class="header-section-number">9.1</span> Most common mistakes</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">10</span> Summary</a></li>
+  <li><a href="#resources-and-references" id="toc-resources-and-references" class="nav-link" data-scroll-target="#resources-and-references"><span class="header-section-number">11</span> Resources and references</a>
+  <ul>
+  <li><a href="#where-to-download-data" id="toc-where-to-download-data" class="nav-link" data-scroll-target="#where-to-download-data"><span class="header-section-number">11.1</span> Where to download data</a></li>
+  <li><a href="#technical-documentation" id="toc-technical-documentation" class="nav-link" data-scroll-target="#technical-documentation"><span class="header-section-number">11.2</span> Technical documentation</a></li>
+  <li><a href="#dedicated-tools-for-analyses-with-pvs-and-replicate-weights" id="toc-dedicated-tools-for-analyses-with-pvs-and-replicate-weights" class="nav-link" data-scroll-target="#dedicated-tools-for-analyses-with-pvs-and-replicate-weights"><span class="header-section-number">11.3</span> Dedicated tools for analyses with PVs and replicate weights</a></li>
+  </ul></li>
+  </ul>
+<div class="quarto-alternate-formats"><h2>Other Formats</h2><ul><li><a href="spss.docx"><i class="bi bi-file-word"></i>MS Word</a></li><li><a href="spss.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Analysis of data from International Educational Studies in SPSS</h1>
+<p class="subtitle lead">Worked examples using PIRLS 2021</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Mateusz Kleczaj (m.kleczaj@ibe.edu.pl) </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+/* Styling of code blocks (SPSS syntax and others) */
+pre {
+  background-color: #eef3f9 !important;
+  border-left: 4px solid #1f4e79 !important;
+  border-radius: 0 4px 4px 0 !important;
+  padding: 0.85em 1.1em !important;
+  margin: 1em 0 1.2em 0 !important;
+  font-size: 0.88em !important;
+  line-height: 1.55 !important;
+  overflow-x: auto;
+}
+pre code {
+  background: none !important;
+  border: none !important;
+  padding: 0 !important;
+  font-family: "Consolas", "Courier New", monospace !important;
+  color: #1a1a2e !important;
+}
+/* Inline code: leave the box style untouched */
+p code, li code, td code, th code {
+  background-color: #e8edf5 !important;
+  border-radius: 3px !important;
+  padding: 0.1em 0.35em !important;
+  font-family: "Consolas", "Courier New", monospace !important;
+  font-size: 0.9em !important;
+  color: #1f4e79 !important;
+}
+</style>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>This guide shows how to use SPSS to work with data from international large-scale assessments. It is built around examples from <strong>PIRLS 2021</strong> (<em>Progress in International Reading Literacy Study</em>), which measures the reading comprehension of fourth-grade students. Studies of this kind are run by two main organisations: <strong>IEA</strong> (<em>International Association for the Evaluation of Educational Achievement</em>), responsible for TIMSS, PIRLS, ICCS and ICILS, among others, and <strong>OECD</strong>, which runs studies such as PISA, TALIS and PIAAC.</p>
+<p>The guide is intended for those who want to get to know the data efficiently, prepare variables for analysis and obtain first descriptive results. It does not require advanced statistical knowledge. Its aim is to show what can be done in SPSS conveniently and correctly at the data-preparation stage, and also to indicate the point at which it is worth turning to tools designed specifically for analysing IEA and OECD data — above all the IEA IDB Analyzer, which works directly with SPSS and lets you carry out these analyses without switching software.</p>
+<hr>
+</section>
+<section id="why-is-spss-useful-for-working-with-these-data" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Why is SPSS useful for working with these data?</h1>
+<p>PIRLS data, like data from other international large-scale assessments, are distributed in the <code>.sav</code> format, the native SPSS format. As soon as a file is opened, all variable and value labels are visible — one of the clear advantages of working in SPSS, which offers both a readable graphical interface and the ability to work with syntax. You can quickly review the structure of the dataset, check response distributions, merge files from different questionnaires and prepare variables for further analysis, without having to install additional packages or pre-process the file.</p>
+<p><strong>SPSS is particularly useful for:</strong></p>
+<ul>
+<li>opening and reviewing labelled <code>.sav</code> files</li>
+<li>merging files from different questionnaires (student, school, teacher)</li>
+<li>appending national (country-specific) questions to the international database</li>
+<li>checking missing data and variable distributions</li>
+<li>recoding variables and building simple indices</li>
+<li>computing sums and means from several questionnaire items</li>
+<li>producing preliminary exploratory tables and charts</li>
+<li>preparing an output file for further analysis</li>
+</ul>
+<p>SPSS works well as a first tool when working with these data — it lets you quickly get oriented in the structure of the dataset, assess data quality and prepare variables for the actual analyses. However, once you want to test whether differences between groups of students are statistically significant, the standard SPSS procedures have important limitations that follow from the specific nature of these data. Although OECD provides dedicated SPSS macros that allow correct computation, they are considerably more complex to use than dedicated tools or packages such as <strong>IEA IDB Analyzer</strong>, <strong>Rrepest</strong>, <strong>repest</strong> or <strong>intsvy</strong>. Guides to these tools are available on the IBE-PIB website: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data</a>.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>When SPSS is not enough
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Task</th>
+<th>SPSS</th>
+<th>Dedicated tool</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Reading and reviewing files</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td>Merging questionnaire files</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td>Recoding variables</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td>Exploratory tables and charts</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td>Computing weighted percentages</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td>Point estimates of means from PVs</td>
+<td>✔</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td><strong>Correct standard errors</strong></td>
+<td>✘</td>
+<td>✔</td>
+</tr>
+<tr class="even">
+<td><strong>Testing differences between groups</strong></td>
+<td>✘</td>
+<td>✔</td>
+</tr>
+<tr class="odd">
+<td><strong>Full analysis of achievement scores (PVs)</strong></td>
+<td>✘</td>
+<td>✔</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>SPSS does not work alone — but the IDB Analyzer completes it
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The limitations in the table above do not mean you have to abandon SPSS. The IEA IDB Analyzer is a free tool that — unlike the Rrepest, repest or intsvy packages (which require R or Stata) — works directly with SPSS:</p>
+<ul>
+<li>it operates on the same <code>.sav</code> files,</li>
+<li>it requires no programming knowledge (point-and-click interface),</li>
+<li>it generates ready-made syntax that you run in SPSS, and you get the results in the SPSS output window,</li>
+<li>it automatically accounts for replicate weights and plausible values (PVs) — exactly what the standard SPSS procedures lack.</li>
+</ul>
+<p>In practice you prepare the data in SPSS (merging files, <code>RECODE</code>, <code>COMPUTE</code>, building indices) and hand the final population estimates over to the IDB Analyzer — without leaving the SPSS ecosystem. The IDB Analyzer is therefore a complement to SPSS, not a replacement for it.</p>
+<p>A guide to the IDB Analyzer is available on the IBE-PIB website: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data/idb-analyzer</a></p>
+</div>
+</div>
+<p>To use SPSS knowingly and safely, it is worth understanding where these limitations actually come from. The specific nature of international large-scale assessments rests on three methodological pillars that substantially change the approach to statistical analysis.</p>
+<hr>
+</section>
+<section id="the-specific-nature-of-international-assessment-data" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> The specific nature of international assessment data</h1>
+<p>Data from studies such as PIRLS, TIMSS or PISA differ from typical survey datasets in three important respects. We discuss them briefly below to justify the choices that appear later in the guide: why we use <code>WEIGHT BY</code>, why results from the standard SPSS procedures require careful interpretation, and where the several scores per student come from.</p>
+<section id="sampling-weights-why-we-use-weight-by" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sampling-weights-why-we-use-weight-by"><span class="header-section-number">3.1</span> Sampling weights: why we use <code>WEIGHT BY</code></h2>
+<p>In PIRLS, schools are selected with probability proportional to their size, and then one or two classrooms take part in each sampled school. This way of sampling means that individual schools have different chances of being selected. Without applying weights, the results of analyses do not reflect the population values for fourth-grade students.</p>
+<p>To address this, each student is assigned a sampling weight indicating how many students in the population that person represents. In PIRLS 2021 this is the <strong><code>TOTWGT</code></strong> variable (the total student weight). The weight is activated with the <code>WEIGHT BY TOTWGT</code> command or through the <em>Data → Weight Cases…</em> menu.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Use <code>WEIGHT BY</code> so that results are representative
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Using <code>WEIGHT BY TOTWGT</code> is essential for the computed means and percentages to correspond to population values. Without the weight, results may be distorted by the over-representation of large or small schools, uneven questionnaire response rates and a range of other factors that follow from the sampling design.</p>
+</div>
+</div>
+</section>
+<section id="the-complex-sampling-design-why-spss-reports-different-standard-errors" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="the-complex-sampling-design-why-spss-reports-different-standard-errors"><span class="header-section-number">3.2</span> The complex sampling design: why SPSS reports different standard errors</h2>
+<p>Students in PIRLS are not sampled individually from the whole population. Schools are sampled first, then classrooms. Because students from the same school or classroom are usually more similar to one another than students from different schools, the standard SPSS procedures — which assume that observations are fully independent — underestimate standard errors, confidence intervals and <em>p</em>-values relative to the methods used in international assessments.</p>
+<p>To estimate the uncertainty of estimates correctly, replicate weights are used: sets of additional weights that reflect modified versions of the sample. They make it possible to account for the uncertainty arising from the complex sampling design. The lack of built-in support for replicate weights is one of the main limitations of SPSS when working with international assessment data.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Standard errors and significance tests require dedicated tools
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The standard SPSS procedures do not support analysis based on replicate weights, so the standard errors, confidence intervals and <em>p</em>-values they produce should, in published results, be replaced with values from tools dedicated to international assessments — most simply with the IEA IDB Analyzer, which works directly on <code>.sav</code> files and returns results in SPSS. In exploratory analyses, the SPSS results can serve as a rough reference point.</p>
+</div>
+</div>
+</section>
+<section id="plausible-values-where-the-several-outcome-variables-come-from" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="plausible-values-where-the-several-outcome-variables-come-from"><span class="header-section-number">3.3</span> Plausible values: where the several outcome variables come from</h2>
+<p>In a traditional test, every student answers all the questions and receives a single score. In studies such as PIRLS, however, there are far too many items for a single student to answer them all within the available testing time — so each student sees only a randomly assigned subset of items. To estimate a student’s score on the full scale nonetheless, statistical methods are used that, instead of a single number, produce several <strong>plausible values</strong> (PVs).</p>
+<p>For reading achievement in PIRLS 2021 there are five variables: <code>ASRREA01</code>, <code>ASRREA02</code>, <code>ASRREA03</code>, <code>ASRREA04</code> and <code>ASRREA05</code>. In other studies the number of PVs may differ — PISA and PIAAC use ten.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>For exploration only
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The mean of the PVs can be useful for exploring the data, but it should not be the basis for reporting analyses such as regression, correlations or statistical comparisons of groups. For such analyses you should use tools that handle PVs in line with international-assessment methodology — the IDB Analyzer, Rrepest, repest or intsvy.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="pirls-2021-data-downloading-and-organising-files" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> PIRLS 2021 data: downloading and organising files</h1>
+<p>Before starting work in SPSS, you need to download the appropriate files and organise them on disk. It is worth distinguishing two types of material from the outset. The first is the <strong>public international databases</strong> made available by IEA — they contain data from all countries participating in the study and are available free of charge in the IEA repository. The second is <strong>national material</strong>: each participating country may ask respondents additional questions that are not part of the international instrument. Some countries make the answers to such questions publicly available. IBE-PIB provides the Polish national questions as separate datasets that can be merged with the international database using shared identifiers.</p>
+<section id="where-to-download-the-data" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="where-to-download-the-data"><span class="header-section-number">4.1</span> Where to download the data</h2>
+<p>PIRLS 2021 data are available free of charge from the IEA repository: <a href="https://www.iea.nl/data-tools/repository/pirls" target="_blank">www.iea.nl/data-tools/repository/pirls</a></p>
+<p>Download the files in SPSS format (<code>.sav</code>). Together with the data, download the technical documentation, especially the <em>User Guide</em> and the <em>codebook</em>, which describe the variable names, response codes and identifiers needed to merge files.</p>
+<p>If you are interested in the Polish data supplemented with national questions, you will find them in the IBE-PIB repository: <a href="https://www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan" target="_blank">www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan</a></p>
+</section>
+<section id="folder-structure" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="folder-structure"><span class="header-section-number">4.2</span> Folder structure</h2>
+<p>Before you start, it is worth setting up a clear folder structure. This helps you keep control over the successive stages of the work and minimises the risk of accidentally overwriting the original data.</p>
+<pre><code>PIRLS2021/
+ ├─ raw/        # original files downloaded from IEA, do not modify
+ ├─ working/    # working files created in SPSS
+ ├─ syntax/     # saved .sps syntax
+ └─ output/     # tables and charts</code></pre>
+</section>
+<section id="iea-file-names" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="iea-file-names"><span class="header-section-number">4.3</span> IEA file names</h2>
+<p>PIRLS files are split by topic — each questionnaire is a separate file, distinct for each country. Files are named following the pattern <code>[type][country][cycle].sav</code>. For Poland in PIRLS 2021:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 37%">
+<col style="width: 62%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>File</th>
+<th>Contents</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>asgpolr5.sav</code></td>
+<td>Student questionnaire and achievement</td>
+</tr>
+<tr class="even">
+<td><code>ashpolr5.sav</code></td>
+<td>Home (parent) questionnaire</td>
+</tr>
+<tr class="odd">
+<td><code>acgpolr5.sav</code></td>
+<td>School (principal) questionnaire</td>
+</tr>
+<tr class="even">
+<td><code>atgpolr5.sav</code></td>
+<td>Teacher questionnaire</td>
+</tr>
+<tr class="odd">
+<td><code>asapolr5.sav</code></td>
+<td>Item-level responses</td>
+</tr>
+<tr class="even">
+<td><code>astpolr5.sav</code></td>
+<td>Student–teacher linkage</td>
+</tr>
+<tr class="odd">
+<td><code>asppolr5.sav</code></td>
+<td>Process data / paradata: response times and process data (digitalPIRLS only)</td>
+</tr>
+</tbody>
+</table>
+<p>The prefix indicates the data type: <code>asg</code> = student, <code>ash</code> = home (parent), <code>acg</code> = school, <code>atg</code> = teacher, <code>asa</code> = item responses, <code>ast</code> = student–teacher linkage, <code>asp</code> = paradata.</p>
+<p>The country code <code>pol</code> is Poland. The cycle code <code>r5</code> is PIRLS 2021.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Where to start?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>asgpolr5.sav</code> file contains both the student questionnaire data and the plausible values (PVs) as well as the <code>TOTWGT</code> weight — everything you need for basic analyses. This is the file to which we append the data from the remaining files.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="reading-and-reviewing-data-in-spss" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Reading and reviewing data in SPSS</h1>
+<section id="opening-a-file-and-a-first-look-at-the-data" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="opening-a-file-and-a-first-look-at-the-data"><span class="header-section-number">5.1</span> Opening a file and a first look at the data</h2>
+<p>PIRLS files are opened in the usual way through <em>File → Open → Data…</em> or with syntax:</p>
+<pre><code>GET FILE='C:\PIRLS2021\raw\asgpolr5.sav'.</code></pre>
+<p>Once opened, SPSS displays variable and value labels immediately in the <em>Data View</em> and <em>Variable View</em> tabs — with no extra steps required.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Save your syntax from the start
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It is worth saving every operation in a syntax file (<code>.sps</code>). You open a syntax window through <em>File → New → Syntax</em>. You run it by selecting a block of code and clicking the green <em>Run</em> arrow.</p>
+</div>
+</div>
+<p>It is good practice to inspect the structure of the file right after loading it. A quick way is to right-click the header of a column such as <code>IDCNTRY</code> and choose <em>Descriptive Statistics</em>.</p>
+<p>If the file contains data for Poland only, the result will show a single value (616) together with the number of observations — in the Polish PIRLS 2021 sample this is 4,179 students. For a multi-country file you will see a list of all the countries.</p>
+</section>
+<section id="checking-the-identification-variables" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="checking-the-identification-variables"><span class="header-section-number">5.2</span> Checking the identification variables</h2>
+<p>Every IEA file contains technical and identification variables used to merge data. The most important ones are listed below — not all of them appear in every file, but it is worth knowing them before merging datasets.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>IDCNTRY</code></td>
+<td>Country code (616 for Poland)</td>
+</tr>
+<tr class="even">
+<td><code>IDSCHOOL</code></td>
+<td>School identifier</td>
+</tr>
+<tr class="odd">
+<td><code>IDCLASS</code></td>
+<td>Class identifier</td>
+</tr>
+<tr class="even">
+<td><code>IDSTUD</code></td>
+<td>Student identifier</td>
+</tr>
+<tr class="odd">
+<td><code>IDTEALIN</code></td>
+<td>Teacher identifier (in the <code>ast</code> and <code>atg</code> files)</td>
+</tr>
+<tr class="even">
+<td><code>TOTWGT</code></td>
+<td>Total student weight</td>
+</tr>
+<tr class="odd">
+<td><code>JKZONE</code></td>
+<td>Jackknife zone (for estimating standard errors)</td>
+</tr>
+<tr class="even">
+<td><code>JKREP</code></td>
+<td>Replicate indicator (0 or 1)</td>
+</tr>
+</tbody>
+</table>
+<p>The <code>JKZONE</code> and <code>JKREP</code> variables are replication variables — as described in Section 3, we do not use them directly in the standard SPSS procedures. In dedicated analysis tools such as the IDB Analyzer or Rrepest, they are accounted for automatically.</p>
+<hr>
+</section>
+</section>
+<section id="merging-data-files" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Merging data files</h1>
+<p>PIRLS data are split into separate files for each questionnaire — as discussed in Section 4.3. To analyse, for example, the relationship between parental education and a student’s achievement, you need to merge the student file with the home (parent) file. Merging is done <strong>horizontally</strong> — we add new variables to existing rows. The number of observations (students) stays the same; the set of variables grows.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Before merging files
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Student, school and teacher identifiers are unique within a country, but not across the whole database — the same <code>IDSTUD</code> value can appear in the data of two different countries. That is why, in every merge, we always list <code>IDCNTRY</code> as the first key:</p>
+<ul>
+<li><strong>Student ↔︎ school:</strong> <code>IDCNTRY</code> + <code>IDSCHOOL</code></li>
+<li><strong>Student ↔︎ teacher (via AST):</strong> <code>IDCNTRY</code> + <code>IDTEALIN</code></li>
+<li><strong>Student ↔︎ home (parent) / national questions:</strong> <code>IDCNTRY</code> + <code>IDSTUD</code></li>
+</ul>
+</div>
+</div>
+<section id="merging-the-student-file-with-the-home-parent-file" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="merging-the-student-file-with-the-home-parent-file"><span class="header-section-number">6.1</span> Merging the student file with the home (parent) file</h2>
+<p>The merge procedure in SPSS requires both files to be sorted by the same key variables. In PIRLS, the keys for merging the student with the home (parent) file are <code>IDCNTRY</code> and <code>IDSTUD</code> — each parent questionnaire is assigned to a specific student. The student file is <code>asgpolr5.sav</code> and the home file is <code>ashpolr5.sav</code>.</p>
+<p><strong>Step 1: sort the student file and save it:</strong></p>
+<pre><code>GET FILE='C:\PIRLS2021\raw\asgpolr5.sav'.
+SORT CASES BY IDCNTRY IDSTUD.
+SAVE OUTFILE='C:\PIRLS2021\working\student_sorted.sav'.</code></pre>
+<p><strong>Step 2: sort the home (parent) file and save it:</strong></p>
+<pre><code>GET FILE='C:\PIRLS2021\raw\ashpolr5.sav'.
+SORT CASES BY IDCNTRY IDSTUD.
+SAVE OUTFILE='C:\PIRLS2021\working\parent_sorted.sav'.</code></pre>
+<p><strong>Step 3: merge the files:</strong></p>
+<p><strong>Through the menu:</strong> open <code>student_sorted.sav</code> as the active dataset, then: <em>Data → Merge Files → Add Variables…</em></p>
+<p>In the dialog, point to <code>parent_sorted.sav</code> as the external file. In the <em>Key Variables</em> field add <code>IDCNTRY</code> and <code>IDSTUD</code>. Tick the option <em>Match cases on key variables in sorted files</em>. Click <em>OK</em>.</p>
+<pre><code>MATCH FILES
+  /FILE='C:\PIRLS2021\working\student_sorted.sav'
+  /TABLE='C:\PIRLS2021\working\parent_sorted.sav'
+  /BY IDCNTRY IDSTUD.
+EXECUTE.
+SAVE OUTFILE='C:\PIRLS2021\working\student_parent.sav'.</code></pre>
+<p><img src="img/spss_merge_dialog.svg" class="img-fluid" alt="Merge Files : Add Variables dialog. The merge keys are IDCNTRY and IDSTUD"> The resulting dataset — the student data supplemented with the parents’ answers — will serve in the rest of the guide as the starting point for the worked examples in Section 8.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Check the result after merging
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After merging, check that the number of rows is the same as before the merge. If it has increased, this signals a problem with the merge keys, most often a mismatch in variable types (numeric vs.&nbsp;string). The home file (<code>ash</code>) contains one row per student, so after a correct merge the number of observations should stay unchanged (for Poland: 4,179 students).</p>
+</div>
+</div>
+</section>
+<section id="appending-teacher-data" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="appending-teacher-data"><span class="header-section-number">6.2</span> Appending teacher data</h2>
+<p>The student file (<code>asg</code>) and the teacher file (<code>atg</code>) have no shared identifier — they cannot be merged directly. The linkage file <code>ast</code> acts as the bridge: it contains both student and teacher identifiers. In Poland, each student has a single language-of-instruction teacher, so <code>ast</code> has the same number of rows as the student file and the merge proceeds just as with the other files.</p>
+<p>We start from <code>asg</code> and append <code>ast</code> on the <code>IDCNTRY</code> + <code>IDSTUD</code> key — this brings <code>IDTEALIN</code> into the dataset. Then we append <code>atg</code> to this file on the <code>IDCNTRY</code> + <code>IDTEALIN</code> key.</p>
+<pre><code>* Step 1: append the teacher identifier to the student file.
+GET FILE='C:\PIRLS2021\raw\asgpolr5.sav'.
+SORT CASES BY IDCNTRY IDSTUD.
+SAVE OUTFILE='C:\PIRLS2021\working\asg_sorted.sav'.
+
+GET FILE='C:\PIRLS2021\raw\astpolr5.sav'.
+SORT CASES BY IDCNTRY IDSTUD.
+SAVE OUTFILE='C:\PIRLS2021\working\ast_sorted.sav'.
+
+MATCH FILES /FILE='C:\PIRLS2021\working\asg_sorted.sav'
+  /TABLE='C:\PIRLS2021\working\ast_sorted.sav'
+  /BY IDCNTRY IDSTUD.
+EXECUTE.
+SAVE OUTFILE='C:\PIRLS2021\working\asg_ast.sav'.
+
+* Step 2: append the teacher questionnaire data.
+GET FILE='C:\PIRLS2021\working\asg_ast.sav'.
+SORT CASES BY IDCNTRY IDTEALIN.
+SAVE OUTFILE='C:\PIRLS2021\working\asg_ast_sorted.sav'.
+
+GET FILE='C:\PIRLS2021\raw\atgpolr5.sav'.
+SORT CASES BY IDCNTRY IDTEALIN.
+SAVE OUTFILE='C:\PIRLS2021\working\atg_sorted.sav'.
+
+MATCH FILES /FILE='C:\PIRLS2021\working\asg_ast_sorted.sav'
+  /TABLE='C:\PIRLS2021\working\atg_sorted.sav'
+  /BY IDCNTRY IDTEALIN.
+EXECUTE.
+SAVE OUTFILE='C:\PIRLS2021\working\student_teacher.sav'.</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>Merging teacher data is easier in the IDB Analyzer
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you plan analyses that use teacher variables, the IDB Analyzer will merge all the files automatically — without manual sorting or creating intermediate files. Manual merging in SPSS mainly makes sense when you want to stay in a single tool throughout the data-preparation stage.</p>
+</div>
+</div>
+</section>
+<section id="appending-national-questions" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="appending-national-questions"><span class="header-section-number">6.3</span> Appending national questions</h2>
+<p>Each country participating in PIRLS may ask respondents additional questions that are not part of the international instrument. IBE-PIB provides the Polish national questions as a separate dataset, which we merge with the international database on the <code>IDCNTRY</code> and <code>IDSTUD</code> keys: <a href="https://www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan" target="_blank">www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan</a></p>
+<pre><code>GET FILE='C:\PIRLS2021\working\student_parent.sav'.
+SORT CASES BY IDCNTRY IDSTUD.
+SAVE OUTFILE='C:\PIRLS2021\working\main_sorted.sav'.
+
+GET FILE='C:\PIRLS2021\raw\PIRLS2021_PL_National.sav'.
+SORT CASES BY IDCNTRY IDSTUD.
+SAVE OUTFILE='C:\PIRLS2021\working\national_sorted.sav'.
+
+MATCH FILES
+  /FILE='C:\PIRLS2021\working\main_sorted.sav'
+  /TABLE='C:\PIRLS2021\working\national_sorted.sav'
+  /BY IDCNTRY IDSTUD.
+EXECUTE.
+SAVE OUTFILE='C:\PIRLS2021\working\pirls_poland_full.sav'.</code></pre>
+<hr>
+</section>
+</section>
+<section id="preparing-variables" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Preparing variables</h1>
+<p>Before running the actual analyses, we need to prepare two working variables. In this section we activate the weight, show an example of recoding a variable from the Polish national database and compute the reading score <code>READ_MEAN</code>. The remaining variables used in Section 8 — <code>ASBH05AA</code> and <code>ASBGSLR</code> — are available directly in the <code>student_parent.sav</code> file and need no additional preparation.</p>
+<section id="checking-for-missing-data" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="checking-for-missing-data"><span class="header-section-number">7.1</span> Checking for missing data</h2>
+<p>In PIRLS files, missing data are usually already declared in the <code>.sav</code> format and visible in the <em>Missing</em> column of the <em>Variable View</em> tab. If, despite this, a value denoting a non-response is shown as a valid category, you can declare it manually:</p>
+<pre><code>MISSING VALUES ASBG05A (9).</code></pre>
+</section>
+<section id="activating-the-sampling-weight" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="activating-the-sampling-weight"><span class="header-section-number">7.2</span> Activating the sampling weight</h2>
+<p>Before starting analyses, you should activate the total student weight <code>TOTWGT</code> so that the results obtained correspond to population values.</p>
+<p><strong>Through the menu:</strong> click <em>Data → Weight Cases…</em>, tick the option <em>Weight cases by</em> and move the <code>TOTWGT</code> variable into the <em>Frequency Variable</em> field. Click <em>OK</em>. In the bottom-right corner of the SPSS window the label <strong>Weight On</strong> will appear, confirming that the weight is active.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/spss_weight_dialog.svg" class="img-fluid figure-img"></p>
+<figcaption>Weight Cases dialog: tick Weight cases by and move TOTWGT across</figcaption>
+</figure>
+</div>
+<pre><code>* Activate the sampling weight.
+WEIGHT BY TOTWGT.
+
+* ... your analyses here ...
+
+* Turn the weight off when finished.
+WEIGHT OFF.</code></pre>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>The weight stays active until you turn it off
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>After you run <code>WEIGHT BY</code>, SPSS applies the weight in all subsequent procedures until the file is closed or <code>WEIGHT OFF</code> is run. Always end a block of weighted analyses with the <code>WEIGHT OFF</code> command.</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Technical note: TOTWGT and the sample size
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><code>TOTWGT</code> sums to the population size (about 330,000 students in Poland), which makes SPSS treat a sample of 4,000 people as if it were a census of the whole population and produces drastically inflated F statistics and <em>p</em>-values. If you use the standard significance tests in SPSS, use the <strong><code>HOUWGT</code></strong> weight instead — it gives the same means and percentages but preserves the actual sample size, so the test results are less misleading. This does not mean, however, that <code>HOUWGT</code> is the correct weight for reporting analyses — it serves only to reduce the artefacts arising from the standard SPSS procedures.</p>
+</div>
+</div>
+</section>
+<section id="recoding-variables" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="recoding-variables"><span class="header-section-number">7.3</span> Recoding variables</h2>
+<p>Variables from the PIRLS databases often need to be transformed before analysis — for example, by collapsing several categories into one or creating a binary (0/1) variable. The IDB Analyzer does not allow you to create new variables or recode — operations of this kind must be done beforehand in SPSS or another environment, and only then is the finished file loaded into the IDB Analyzer. SPSS is particularly useful here thanks to its intuitive interface and direct support for <code>.sav</code> files.</p>
+<p>The example below shows recoding the variable <code>ASXH05A</code> from the Polish national database (<code>PIRLS2021_PL_National.sav</code>). The variable has six categories:</p>
+<ul>
+<li>1 = Did not attend</li>
+<li>2 = Less than one year</li>
+<li>3 = One year</li>
+<li>4 = Two years or more</li>
+<li>9 = Omitted or invalid response</li>
+<li>98 = Not administered</li>
+</ul>
+<p>We recode it into a binary variable — attended nursery (1) or not (0):</p>
+<p><strong>Through the menu:</strong> <em>Transform → Recode into Different Variables…</em> Set <code>ASXH05A</code> as the input variable, give the new variable the name <code>NURSERY_BIN</code> and define the value mapping in the <em>Old and New Values</em> window.</p>
+<pre><code>RECODE ASXH05A
+  (1=0) (2=1) (3=1) (4=1) (ELSE=SYSMIS)
+  INTO NURSERY_BIN.
+VARIABLE LABELS NURSERY_BIN 'Nursery attendance'.
+VALUE LABELS NURSERY_BIN 1 'Yes' 0 'No'.
+EXECUTE.</code></pre>
+<p>You can verify the result of the recode immediately by comparing the distributions of the two variables:</p>
+<pre><code>FREQUENCIES VARIABLES=ASXH05A NURSERY_BIN.</code></pre>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>It is worth reaching for the national data
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The counterpart of <code>ASXH05A</code> in the international database is <strong><code>ASBH05AA</code></strong>, which is already stored in dichotomous form (yes/no) and does not allow you to distinguish the duration of care. The Polish national question was expanded: instead of a single “yes” category, it distinguishes three variants by length of attendance, which allows a more detailed analysis — for example, examining whether the <em>length</em> of nursery attendance is associated with reading achievement.</p>
+<p>When reviewing the documentation of the national questions, it is worth checking each time whether the Polish data offer a richer measurement than the international version.</p>
+</div>
+</div>
+</section>
+<section id="computing-the-read_mean-variable-mean-of-the-pvs" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="computing-the-read_mean-variable-mean-of-the-pvs"><span class="header-section-number">7.4</span> Computing the READ_MEAN variable (mean of the PVs)</h2>
+<p>We compute the outcome variable <code>READ_MEAN</code> as the arithmetic mean of the five plausible values (<code>ASRREA01</code>–<code>ASRREA05</code>).</p>
+<p><strong>Through the menu:</strong> <em>Transform → Compute Variable…</em> In the <em>Target Variable</em> field enter <code>READ_MEAN</code>. In the <em>Numeric Expression</em> field enter <code>MEAN(ASRREA01, ASRREA02, ASRREA03, ASRREA04, ASRREA05)</code>. Click <em>OK</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/spss_compute_pv.svg" class="img-fluid figure-img"></p>
+<figcaption>Compute Variable window: computing the mean of the five plausible values</figcaption>
+</figure>
+</div>
+<pre><code>COMPUTE READ_MEAN = MEAN(ASRREA01, ASRREA02, ASRREA03, ASRREA04, ASRREA05).
+VARIABLE LABELS READ_MEAN 'Approximate reading score (mean of 5 PVs)'.
+EXECUTE.</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>An approximate student score
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Plausible values are not designed as exact scores for individual students — they are a tool for making inferences about the population, not about the individual. <code>READ_MEAN</code> is therefore, by design, an approximation of a particular student’s score: it reflects their likely level of proficiency, not a value “measured” with full precision.</p>
+<p>For simple group means, the limitation is not the point estimate itself but the standard errors and significance tests.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="worked-examples-step-by-step" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Worked examples, step by step</h1>
+<p>The section below presents a few typical analyses based on the PIRLS 2021 data for Poland. Each example includes: the aim of the analysis, the path through the SPSS graphical menu, the corresponding syntax and a note on interpreting the results. We use the <code>student_parent.sav</code> file (student merged with parent, Section 6.1) and the computed <code>READ_MEAN</code> variable, as described in the previous section. In Example 8.2 we additionally use the <code>NURSERY_BIN</code> variable recoded from the national question <code>ASXH05A</code> in Section 7.3.</p>
+<section id="reading-achievement-by-gender" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="reading-achievement-by-gender"><span class="header-section-number">8.1</span> Reading achievement by gender</h2>
+<p><strong>Aim of the analysis:</strong> Compare the reading achievement of girls and boys. The means match the figures presented in Table 5.5 of the <a href="https://pirls.ibe.edu.pl/wp-content/uploads/2023/05/PIRLS_2021_Wyniki-miedzynarodowego-badania-osiagniec-czwartoklasistow-w-czytaniu.pdf" target="_blank">PIRLS 2021 national report (p.&nbsp;65, in Polish)</a> and are reproduced in this example.</p>
+<p>The dependent variable is <code>READ_MEAN</code> — the reading score computed as the mean of the five PVs. The independent variable is <code>ITSEX</code>, the student’s gender: <code>1 = girl</code>, <code>2 = boy</code>.</p>
+<p><strong>Through the menu:</strong> <em>Analyze → Compare Means and Proportions → Means…</em> Move <code>READ_MEAN</code> into the <em>Dependent List</em> field and <code>ITSEX</code> into the <em>Independent List</em> field. Click <em>OK</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/spss_means_output.svg" class="img-fluid figure-img"></p>
+<figcaption>Means dialog and procedure output: reading achievement by student gender</figcaption>
+</figure>
+</div>
+<pre><code>WEIGHT BY TOTWGT.
+
+MEANS TABLES=READ_MEAN BY ITSEX
+  /CELLS=MEAN COUNT SEMEAN.
+
+WEIGHT OFF.</code></pre>
+<p><strong>How to read the results?</strong> The <code>MEANS</code> procedure returns a table with columns: mean, <code>N</code> and the standard error of the mean. The mean shows the reading score in a given group, and <code>N</code> corresponds to the weighted number of students in the population, not the sample size.</p>
+<p>The group means obtained with this method match the national report: girls score about 559.75 points and boys about 539.69 points. The difference is therefore about 20 points in favour of girls. This means that, in the PIRLS 2021 data, girls achieved on average higher reading scores than boys.</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Standard errors from SPSS are underestimated
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The standard errors shown in the SPSS table are much lower than the correct values from the national report. This happens because the standard <code>MEANS</code> procedure does not account for replicate weights and the complex sampling design. In addition, using <code>TOTWGT</code> makes SPSS treat the weighted sample as the population, which further inflates the precision of the estimates.</p>
+<p>The means can be treated as correct point estimates and used for exploring the data. To assess the significance of the difference between girls and boys, however, you should use dedicated tools such as the IEA IDB Analyzer, Rrepest, repest or intsvy.</p>
+</div>
+</div>
+</section>
+<section id="reading-achievement-and-nursery-attendance" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="reading-achievement-and-nursery-attendance"><span class="header-section-number">8.2</span> Reading achievement and nursery attendance</h2>
+<p><strong>Aim of the analysis:</strong> Check whether students who attended nursery achieve higher reading scores. As the independent variable we use <code>NURSERY_BIN</code> (1 = Yes, 0 = No) — the variable recoded in Section 7.3 from the national question <code>ASXH05A</code>.</p>
+<p>Because <code>NURSERY_BIN</code> comes from the Polish national database, not from the <code>student_parent.sav</code> file, before the analysis we need to append the national database to our working file. The procedure is analogous to the one described in Section 6.3: we open <code>student_parent.sav</code>, sort it by <code>IDCNTRY</code> and <code>IDSTUD</code>, and then append the variables from the <code>PIRLS2021_PL_National.sav</code> file sorted by the same keys.</p>
+<pre><code>GET FILE='C:\PIRLS2021\working\student_parent.sav'.
+SORT CASES BY IDCNTRY IDSTUD.
+SAVE OUTFILE='C:\PIRLS2021\working\student_parent_sorted.sav'.
+
+GET FILE='C:\PIRLS2021\raw\PIRLS2021_PL_National.sav'.
+SORT CASES BY IDCNTRY IDSTUD.
+SAVE OUTFILE='C:\PIRLS2021\working\national_sorted.sav'.
+
+MATCH FILES
+  /FILE='C:\PIRLS2021\working\student_parent_sorted.sav'
+  /TABLE='C:\PIRLS2021\working\national_sorted.sav'
+  /BY IDCNTRY IDSTUD.
+EXECUTE.
+SAVE OUTFILE='C:\PIRLS2021\working\student_parent_pl.sav'.</code></pre>
+<p>The dependent variable is <code>READ_MEAN</code>, the independent variable is <code>NURSERY_BIN</code>.</p>
+<p><strong>Through the menu:</strong> <em>Analyze → Compare Means and Proportions → Means…</em> Move <code>READ_MEAN</code> into the <em>Dependent List</em> field and <code>NURSERY_BIN</code> into the <em>Independent List</em> field. Click <em>OK</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/spss_means_zlobek.svg" class="img-fluid figure-img"></p>
+<figcaption>Means dialog and procedure output: reading achievement and nursery attendance</figcaption>
+</figure>
+</div>
+<pre><code>WEIGHT BY TOTWGT.
+
+MEANS TABLES=READ_MEAN BY NURSERY_BIN
+  /CELLS=MEAN COUNT SEMEAN.
+
+WEIGHT OFF.</code></pre>
+<p><strong>How to read the results?</strong> The output table will have two rows: one for students who attended nursery (<code>NURSERY_BIN = 1</code>) and one for those who did not (<code>NURSERY_BIN = 0</code>). The <em>Mean</em> column shows the reading score in each group.</p>
+<p>Students who attended nursery achieve, on average, higher reading scores. The difference should be interpreted with caution: nursery attendance is strongly associated with the family’s socio-economic status and other variables, so the raw difference in means need not reflect a causal effect of nursery care.</p>
+</section>
+<section id="students-attitudes-to-reading-and-gender-distribution-of-categories" class="level2" data-number="8.3">
+<h2 data-number="8.3" class="anchored" data-anchor-id="students-attitudes-to-reading-and-gender-distribution-of-categories"><span class="header-section-number">8.3</span> Students’ attitudes to reading and gender — distribution of categories</h2>
+<p><strong>Aim of the analysis:</strong> Compare the distribution of attitudes to reading between girls and boys. The variable <code>ASDGSLR</code> is a categorical index (<em>Students Like Reading Index</em>) taking three values: 1 = Very Much Like Reading, 2 = Somewhat Like Reading, 3 = Do Not Like Reading. The independent variable is <code>ITSEX</code> (student’s gender).</p>
+<p>The analysis uses the <code>student_parent.sav</code> dataset prepared in Section 6.1.</p>
+<p><strong>Through the menu:</strong> <em>Analyze → Descriptive Statistics → Crosstabs…</em> Move <code>ITSEX</code> into the <em>Row(s)</em> field and <code>ASDGSLR</code> into the <em>Column(s)</em> field. Click <em>Cells…</em>, tick <em>Row</em> in the <em>Percentages</em> section, then <em>Continue</em> and <em>OK</em>.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="img/spss_crosstabs_slr.svg" class="img-fluid figure-img"></p>
+<figcaption>Crosstabs dialog and output: attitudes to reading by student gender</figcaption>
+</figure>
+</div>
+<pre><code>WEIGHT BY TOTWGT.
+
+CROSSTABS
+  /TABLES=ITSEX BY ASDGSLR
+  /CELLS=COUNT ROW.
+
+WEIGHT OFF.</code></pre>
+<p><strong>How to read the results?</strong> The percentages in the table sum to 100% in each row (% of Sex of Students), which lets you compare the distribution of attitudes to reading between girls and boys regardless of the group sizes.</p>
+<p>The results reveal a clear difference: in the <em>Do Not Like Reading</em> category there were 22.5% of girls and as many as 33.5% of boys — a difference of 11 percentage points. Boys also less often declared that they very much like reading (21.6% vs 24.6%). Such large differences in attitudes to reading are consistent with the differences in test scores described in Section 8.1 and provide important interpretive context for these data.</p>
+<hr>
+</section>
+</section>
+<section id="good-practices-for-working-with-data-in-spss" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> Good practices for working with data in SPSS</h1>
+<ul>
+<li><p><strong>Do not modify the original files.</strong> Keep the raw data in a separate folder and never overwrite it. Carry out all operations on working copies.</p></li>
+<li><p><strong>Save your syntax.</strong> Tables and charts generated through the menu leave no trace. Saved syntax lets you reproduce every step.</p></li>
+<li><p><strong>Check the variable documentation.</strong> Variable names change between study cycles. Before each analysis, make sure you are using the current names.</p></li>
+<li><p><strong>Keep an eye on missing data.</strong> Before using a variable, check the range of values and the missing codes in <em>Variable View</em> or with <code>FREQUENCIES</code>.</p></li>
+<li><p><strong>Apply the weight deliberately.</strong> Use <code>WEIGHT BY</code> before an analysis and <code>WEIGHT OFF</code> after it. Check that the status bar shows <em>Weight On</em> before running a procedure.</p></li>
+<li><p><strong><em>p</em>-values and standard errors from SPSS are for orientation only.</strong> In exploratory analyses they can be treated as a signal of whether a phenomenon is worth investigating more deeply. In published results you should use values from the IDB Analyzer or Rrepest.</p></li>
+<li><p><strong>Verify your results.</strong> Compare the percentages and means you obtain with the official national reports to make sure the data have been read in correctly.</p></li>
+</ul>
+<section id="most-common-mistakes" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="most-common-mistakes"><span class="header-section-number">9.1</span> Most common mistakes</h2>
+<p>The problems below come up regularly when working with international assessment data in SPSS. It is worth knowing about them before they occur.</p>
+<p><strong>The number of rows increased after merging files.</strong> This signals an error in the merge keys. The most common cause is a mismatch in the types of the key variables (e.g.&nbsp;numeric in one file and string in the other) or omitting <code>IDCNTRY</code> in the merge — SPSS then matches students from different countries who share the same <code>IDSTUD</code>. Solution: check the variable types in <em>Variable View</em> and make sure both files are sorted by the same keys before <code>MATCH FILES</code>.</p>
+<p><strong>The weight was left on from a previous analysis.</strong> If <code>WEIGHT OFF</code> was omitted, every subsequent procedure still uses the weight. Check the SPSS status bar — the <em>Weight On</em> label means the weight is active. As a matter of good practice, every block of analysis should end with the <code>WEIGHT OFF</code> command.</p>
+<p><strong><code>TOTWGT</code> gives a huge N in the table.</strong> This is expected behaviour — the weight scales the results up to the population level (about 330,000 fourth-graders for Poland). The <em>N</em> column in a weighted table is not the sample size. To assess the actual sample size in exploratory analyses, you can use an unweighted <code>FREQUENCIES</code>.</p>
+<p><strong>A variable has missing values coded as numeric categories.</strong> Values such as 9, 99 or 998 may denote “no response”, but SPSS treats them as data if they have not been declared as <em>missing</em>. This leads to inflated or incorrect results. Before each analysis, check the codebook and declare the missing values in <em>Variable View → Missing</em>.</p>
+<p><strong>The files are not sorted before merging.</strong> <code>MATCH FILES</code> with the <code>BY</code> option requires both files to be sorted by the key variables in the same order. Failing to sort produces incorrect matches with no error message at all.</p>
+<p><strong>The <code>asg</code> file was confused with <code>asa</code> or another.</strong> In PIRLS, <code>asg</code> is the student file, <code>ash</code> the home (parent) file, <code>acg</code> the school file and <code>asa</code> the file with item-level responses. Loading the wrong file often produces no error — variables are simply missing or the data look odd. Always verify the contents of a newly opened file through <em>Data → Variable View</em>.</p>
+<p><strong>The standard error values do not match the report.</strong> Differences on the order of 10–20 times between the SE from SPSS and the SE from the national or international report are a normal effect of the lack of support for replicate weights and the inflated precision when using <code>TOTWGT</code> (see Section 3.2). In published results you should always report SEs computed with dedicated tools.</p>
+<hr>
+</section>
+</section>
+<section id="summary" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Summary</h1>
+<p>SPSS is a useful tool at the stage of preparing and initially exploring data from international large-scale assessments. Its intuitive graphical interface and native support for the <code>.sav</code> format mean that it works well for reading in data, merging files, appending national questions, checking variable distributions, recoding and creating simple visualisations.</p>
+<p>On its own, however, SPSS does not handle replicate weights or plausible values, so for reporting analyses — correct standard errors, significance tests and the full analysis of achievement scores — it is not sufficient. This does not mean you have to give it up. The simplest, SPSS-compatible complement is the IEA IDB Analyzer: it works on the same <code>.sav</code> files, requires no programming and returns results in the SPSS output window, while correctly accounting for replicate weights and PVs.</p>
+<p>The recommended approach is therefore to prepare and explore the data in SPSS, and then to carry out the actual population analyses in the IDB Analyzer (or — if you work in R or Stata — in the Rrepest, repest or intsvy packages). This two-stage way of working lets you take advantage of the convenience of SPSS at the data-preparation stage while preserving the methodological correctness of the final results. It is good practice to verify descriptive results by comparing them with the official national reports or with results from the IDB Analyzer, which confirms that the data have been read in and prepared correctly.</p>
+</section>
+<section id="resources-and-references" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Resources and references</h1>
+<section id="where-to-download-data" class="level2" data-number="11.1">
+<h2 data-number="11.1" class="anchored" data-anchor-id="where-to-download-data"><span class="header-section-number">11.1</span> Where to download data</h2>
+<ul>
+<li><strong>PIRLS and TIMSS</strong>: <a href="https://www.iea.nl/data-tools/repository" target="_blank">www.iea.nl/data-tools/repository</a></li>
+<li><strong>ICCS and ICILS</strong>: <a href="https://www.iea.nl/data-tools/repository" target="_blank">www.iea.nl/data-tools/repository</a></li>
+<li><strong>PISA</strong>: <a href="https://www.oecd.org/pisa/data" target="_blank">www.oecd.org/pisa/data</a></li>
+<li><strong>TALIS</strong>: <a href="https://www.oecd.org/en/about/programmes/talis.html#data" target="_blank">www.oecd.org/en/about/programmes/talis.html#data</a></li>
+<li><strong>PIAAC</strong>: <a href="https://www.oecd.org/skills/piaac/data" target="_blank">www.oecd.org/skills/piaac/data</a></li>
+<li><strong>SSES</strong> (<em>Survey on Social and Emotional Skills</em>): <a href="https://www.oecd.org/en/about/programmes/sses.html" target="_blank">www.oecd.org/en/about/programmes/sses.html</a></li>
+<li><strong>Polish national questions and IBE-PIB data</strong>: <a href="https://www.ibe.edu.pl/pl/dane" target="_blank">www.ibe.edu.pl/pl/dane</a></li>
+</ul>
+</section>
+<section id="technical-documentation" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="technical-documentation"><span class="header-section-number">11.2</span> Technical documentation</h2>
+<ul>
+<li>Fishbein, B., Yin, L., &amp; Foy, P. (2024). <em>PIRLS 2021 User Guide for the International Database</em> (2nd ed.). Boston College. <a href="https://pirls2021.org/data" target="_blank">pirls2021.org/data</a></li>
+<li>Fishbein, B., Taneva, M., &amp; Kowolik, K. (2025). <em>TIMSS 2023 User Guide for the International Database</em>. Boston College. <a href="https://timss2023.org/data" target="_blank">timss2023.org/data</a></li>
+<li>OECD (2023). <em>PISA 2022 Technical Report</em>. OECD Publishing. <a href="https://www.oecd.org/pisa/data/2022database" target="_blank">www.oecd.org/pisa/data/2022database</a></li>
+</ul>
+</section>
+<section id="dedicated-tools-for-analyses-with-pvs-and-replicate-weights" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="dedicated-tools-for-analyses-with-pvs-and-replicate-weights"><span class="header-section-number">11.3</span> Dedicated tools for analyses with PVs and replicate weights</h2>
+<p>For the correct estimation of standard errors, testing differences between groups and the full analysis of achievement scores with plausible values, tools designed specifically for working with IEA and OECD data are essential. For each of them, IBE-PIB has prepared a dedicated guide available at the link below.</p>
+<ul>
+<li><p><strong>IEA IDB Analyzer</strong> – a graphical, windowed program that generates SPSS, SAS or R syntax; it supports all IEA studies as well as PISA. It requires no programming knowledge.<br>
+Download: <a href="https://www.iea.nl/data-tools/tools" target="_blank">www.iea.nl/data-tools/tools</a><br>
+IBE-PIB guide: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data/idb-analyzer</a></p></li>
+<li><p><strong>Rrepest</strong> – an R package developed by OECD; it supports PISA, PIAAC, TALIS and SSES. It allows flexible analyses of regressions, means and percentiles with full support for PVs and replicate weights.<br>
+CRAN: <a href="https://cran.r-project.org/package=Rrepest" target="_blank">cran.r-project.org/package=Rrepest</a><br>
+IBE-PIB guide: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane/rrepest" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data/rrepest</a></p></li>
+<li><p><strong>intsvy</strong> – an R package supporting a wide range of studies (PIRLS, TIMSS, PISA, PIAAC, ICILS and others); it allows the computation of means, percentages, correlations and regression models with replicate weights.<br>
+CRAN: <a href="https://cran.r-project.org/package=intsvy" target="_blank">cran.r-project.org/package=intsvy</a><br>
+IBE-PIB guide: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane/intsvy" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data/intsvy</a></p></li>
+<li><p><strong>repest</strong> – a command for Stata developed by OECD; it supports PISA, PIAAC and TALIS. Avvisati, F., &amp; Keslair, F. (2014).<br>
+IBE-PIB guide: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane/stata-repest" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data/stata-repest</a></p></li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Instytut Badań Edukacyjnych</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

@@ -15,6 +15,7 @@ PL: Praktyczne poradniki do analizy danych z międzynarodowych badań edukacyjny
 | [Rrepest (R)](https://instytut-badan-edukacyjnych.github.io/ilsa-guides/en/rrepest.html) | R package based on Stata's Repest module. Automatically handles sampling weights and measurement uncertainty required by OECD and IEA studies, making it easier to obtain correct results. |
 | [repest (Stata)](https://instytut-badan-edukacyjnych.github.io/ilsa-guides/en/repest.html) | Stata module developed by OECD analysts. Automates the steps needed for correct analysis of large-scale assessment data — a good starting point for analysts new to international studies. |
 | [IDB Analyzer](https://instytut-badan-edukacyjnych.github.io/ilsa-guides/en/idb.html) | Free tool by IEA. No programming knowledge required — automatically generates SPSS, SAS or R scripts and simplifies merging data from different instruments (students, schools, teachers). |
+| [SPSS](https://instytut-badan-edukacyjnych.github.io/ilsa-guides/en/spss.html) | Statistical program with a graphical interface, convenient for working with international large-scale assessment data — reading in files, merging questionnaires, checking distributions and preparing data for analysis. Combined with the IDB Analyzer, it also enables correct analyses with replicate weights and plausible values (PVs). |
 
 ---
 

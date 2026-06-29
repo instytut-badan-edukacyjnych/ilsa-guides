@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Analysis of Data from International Educational Studies in R Using the Rrepest Package – ILSA Guides – IBE</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -73,10 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ece42c8223ec2bf36298a08f122c9a68.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -174,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">IDB Analyzer</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../en/spss.qmd">
+    <a class="dropdown-item" href="../en/spss.html">
  <span class="dropdown-text">SPSS</span></a>
   </li>  
     </ul>
@@ -327,7 +330,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Additional Resources
+<span class="screen-reader-only">Note</span>Additional Resources
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -347,7 +350,7 @@ Additional Resources
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Advantages of the <code>Rrepest</code> package
+<span class="screen-reader-only">Tip</span>Advantages of the <code>Rrepest</code> package
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -370,7 +373,7 @@ Advantages of the <code>Rrepest</code> package
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important limitations of the <code>Rrepest</code> package
+<span class="screen-reader-only">Warning</span>Important limitations of the <code>Rrepest</code> package
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -434,7 +437,7 @@ Important limitations of the <code>Rrepest</code> package
 <section id="installing-packages-and-preparing-data-for-analysis" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Installing Packages and Preparing Data for Analysis</h1>
 <p>To get started, you need to install the package (this step is required only once):</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the Rrepest package</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the Rrepest package</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"Rrepest"</span>)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Install additional packages for working with data</span></span>
@@ -443,7 +446,7 @@ Important limitations of the <code>Rrepest</code> package
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># haven: a package for importing .sav, .sas7bdat, and .dta files into R  </span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># tidyverse: a collection of packages that streamline data analysis, </span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># including dplyr, purrr, readr, stringr, and others  </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># including dplyr, purrr, readr, stringr, and others  </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We present several best practices that can help you work more effectively with the <code>Rrepest</code> package below.</p>
 <hr>
 <div class="callout callout-style-default callout-tip callout-titled">
@@ -452,7 +455,7 @@ Important limitations of the <code>Rrepest</code> package
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Best Practices When Using the <code>Rrepest</code> Package:
+<span class="screen-reader-only">Tip</span>Best Practices When Using the <code>Rrepest</code> Package:
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -474,7 +477,7 @@ Best Practices When Using the <code>Rrepest</code> Package:
 <section id="syntax-and-key-features-of-the-rrepest-function" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Syntax and Key Features of the <code>Rrepest()</code> Function</h1>
 <p><strong>Basic function syntax with its main arguments:</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">Rrepest</span>(</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> <span class="sc">&lt;</span>data frame<span class="sc">&gt;</span>,</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="sc">&lt;</span>name of the <span class="fu">study</span> ( <span class="st">"ALL"</span><span class="sc">|</span><span class="st">"IALS"</span><span class="sc">|</span><span class="st">"IELS"</span><span class="sc">|</span><span class="st">"PIAAC"</span><span class="sc">|</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"PIRLS"</span><span class="sc">|</span><span class="st">"PISA"</span><span class="sc">|</span><span class="st">"PISAOOS"</span><span class="sc">|</span><span class="st">"SSES"</span><span class="sc">|</span><span class="st">"TALIS"</span> (<span class="st">"TALISSCH"</span><span class="sc">/</span><span class="st">"TALISTCH"</span>)<span class="sc">|</span></span>
@@ -495,7 +498,7 @@ Best Practices When Using the <code>Rrepest</code> Package:
 <span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">cm.weights =</span> <span class="fu">c</span>(<span class="sc">&lt;</span>main weight<span class="sc">&gt;</span>, <span class="sc">&lt;</span>replicate weights_1<span class="sc">:</span>K<span class="sc">&gt;</span>), </span>
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.factor =</span> <span class="sc">&lt;</span>variance scaling factor<span class="sc">&gt;</span>,       </span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_na    =</span> <span class="cn">TRUE</span><span class="sc">/</span><span class="cn">FALSE</span>       </span>
-<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p><strong>Key Arguments of the <code>Rrepest()</code> Function:</strong></p>
 <ul>
 <li><code>svy</code> – the name of the study being used in the analysis.</li>
@@ -514,7 +517,7 @@ Best Practices When Using the <code>Rrepest</code> Package:
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<code>by</code> vs.&nbsp;<code>over</code>
+<span class="screen-reader-only">Note</span><code>by</code> vs.&nbsp;<code>over</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -536,7 +539,7 @@ Best Practices When Using the <code>Rrepest</code> Package:
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Setting the Number of Plausible Values (PVs)
+<span class="screen-reader-only">Note</span>Setting the Number of Plausible Values (PVs)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -556,7 +559,7 @@ Setting the Number of Plausible Values (PVs)
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Example Default Analytical Weight Settings in the <code>Rrepest()</code> function
+<span class="screen-reader-only">Note</span>Example Default Analytical Weight Settings in the <code>Rrepest()</code> function
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -611,7 +614,7 @@ Important
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-File Naming Conventions in IEA Studies, using the TIMSS study as an example
+<span class="screen-reader-only">Note</span>File Naming Conventions in IEA Studies, using the TIMSS study as an example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -648,7 +651,7 @@ File Naming Conventions in IEA Studies, using the TIMSS study as an example
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-File Naming Conventions in OECD Studies, using the PISA study as an example
+<span class="screen-reader-only">Note</span>File Naming Conventions in OECD Studies, using the PISA study as an example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -677,7 +680,7 @@ File Naming Conventions in OECD Studies, using the PISA study as an example
 <h1 data-number="5"><span class="header-section-number">5</span> PISA 2022 Data Analysis</h1>
 <section id="preparing-the-data" class="level2" data-number="5.1">
 <h2 data-number="5.1" class="anchored" data-anchor-id="preparing-the-data"><span class="header-section-number">5.1</span> Preparing the Data</h2>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Specify the folder containing the SPSS files</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>dir_pisa_2022 <span class="ot">&lt;-</span> <span class="st">"C:/DATA/PISA 2022/Data_SPSS"</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -690,11 +693,11 @@ File Naming Conventions in OECD Studies, using the PISA study as an example
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>pisa_2022 <span class="ot">&lt;-</span> <span class="fu">filter</span>(data_students, CNT <span class="sc">%in%</span> countries)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Convert variable names to lowercase</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pisa_2022) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(pisa_2022))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(pisa_2022) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(pisa_2022))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-1-mean-and-standard-deviation-of-reading-scores-by-country-and-gender" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="example-1-mean-and-standard-deviation-of-reading-scores-by-country-and-gender"><span class="header-section-number">5.2</span> Example 1 – Mean and Standard Deviation of Reading Scores by Country and Gender</h2>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Analysis_01 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>Analysis_01 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pisa_2022,</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"PISA"</span>,</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"std"</span>), <span class="at">target =</span> <span class="st">"pv@read"</span>),</span>
@@ -703,22 +706,22 @@ File Naming Conventions in OECD Studies, using the PISA study as an example
 <span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>              <span class="co"># set `n.pvs = 10` to reflect the correct number </span></span>
 <span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>              <span class="co"># of plausible values.</span></span>
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_01)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-2-frequency-table-of-students-gender" class="level2" data-number="5.3">
 <h2 data-number="5.3" class="anchored" data-anchor-id="example-2-frequency-table-of-students-gender"><span class="header-section-number">5.3</span> Example 2 – Frequency Table of Students’ Gender</h2>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Analysis_02 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>Analysis_02 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pisa_2022,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"PISA"</span>,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="st">"freq"</span>, <span class="at">target =</span> <span class="st">"st004d01t"</span>),</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"cnt"</span>,</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_na =</span> <span class="cn">TRUE</span></span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_02, <span class="at">width =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_02, <span class="at">width =</span> <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-3-linear-regression-the-effect-of-socio-economic-status-on-student-performance-in-mathematics" class="level2" data-number="5.4">
 <h2 data-number="5.4" class="anchored" data-anchor-id="example-3-linear-regression-the-effect-of-socio-economic-status-on-student-performance-in-mathematics"><span class="header-section-number">5.4</span> Example 3 – Linear Regression: The Effect of Socio-Economic Status on Student Performance in Mathematics</h2>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Analysis_03 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>Analysis_03 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pisa_2022,</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"PISA"</span>,</span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"cnt"</span>,</span>
@@ -726,12 +729,12 @@ File Naming Conventions in OECD Studies, using the PISA study as an example
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.pvs =</span> <span class="dv">10</span>,</span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_na =</span> <span class="cn">TRUE</span></span>
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_03, <span class="at">width =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_03, <span class="at">width =</span> <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details>
 <summary>
 An Example Code for Improving the Readability of the Output Table
 </summary>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Table_03<span class="ot">&lt;-</span> Analysis_03 <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Table_03<span class="ot">&lt;-</span> Analysis_03 <span class="sc">%&gt;%</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Country =</span> cnt,</span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Intercept_Estimate   =</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">starts_with</span>(<span class="st">"b.reg_pv"</span>) <span class="sc">&amp;</span> </span>
@@ -775,12 +778,12 @@ An Example Code for Improving the Readability of the Output Table
 <span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(final_table_03)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(final_table_03)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </section>
 <section id="example-4---logistic-regression-the-impact-of-family-socioeconomic-status-on-student-achievement-in-mathematics-obtaining-a-score-of-at-least-626" class="level2" data-number="5.5">
 <h2 data-number="5.5" class="anchored" data-anchor-id="example-4---logistic-regression-the-impact-of-family-socioeconomic-status-on-student-achievement-in-mathematics-obtaining-a-score-of-at-least-626"><span class="header-section-number">5.5</span> Example 4 - Logistic Regression: The Impact of Family Socioeconomic Status on Student Achievement in Mathematics (Obtaining a Score of at least 626)</h2>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># To implement logistic regression, we first need to create a new binary </span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># variable taking the value "1" or "0", depending on whether a given </span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># student achieved a score equal to or higher than 626 points. A separate </span></span>
@@ -799,12 +802,12 @@ An Example Code for Improving the Readability of the Output Table
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">n.pvs =</span> <span class="dv">10</span>,</span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"cnt"</span></span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_04, <span class="at">width =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_04, <span class="at">width =</span> <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details>
 <summary>
 An Example Code for Improving the Readability of the Output Table
 </summary>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>Table_04 <span class="ot">&lt;-</span> Analysis_04 <span class="sc">%&gt;%</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Country   =</span> cnt,</span>
@@ -842,7 +845,7 @@ An Example Code for Improving the Readability of the Output Table
 <span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>                           <span class="cf">function</span>(i) <span class="fu">make_logreg_table</span>(Table_04[i, ])),</span>
 <span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>                           Table_04<span class="sc">$</span>Country)</span>
 <span id="cb9-38"><a href="#cb9-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(final_table_04)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-39"><a href="#cb9-39" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(final_table_04)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </details></section>
 </section>
@@ -853,7 +856,7 @@ An Example Code for Improving the Readability of the Output Table
 <p>Preparing TIMSS data for analysis with the <code>Rrepest()</code> function is a multi-step process. This is due to both the structure of the data files and the specific methodological requirements of the TIMSS study.</p>
 <section id="merging-the-data" class="level3" data-number="6.1.1">
 <h3 data-number="6.1.1" class="anchored" data-anchor-id="merging-the-data"><span class="header-section-number">6.1.1</span> Merging the Data</h3>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Specify the folder containing the SPSS files</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Specify the folder containing the SPSS files</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>dir_timss_2023 <span class="ot">&lt;-</span> <span class="st">"C:/DATA/TIMSS2023_IDB_SPSS_G4/2_Data Files/SPSS Data"</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Create lists of files for selected countries (Armenia, Australia, </span></span>
@@ -889,7 +892,7 @@ An Example Code for Improving the Readability of the Output Table
 <span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>timss_2023_acg <span class="ot">&lt;-</span> timss_2023_acg_files <span class="sc">%&gt;%</span> <span class="fu">map</span>(read_sav) <span class="sc">%&gt;%</span> </span>
 <span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>()</span>
 <span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>timss_2023_ash <span class="ot">&lt;-</span> timss_2023_ash_files <span class="sc">%&gt;%</span> <span class="fu">map</span>(read_sav) <span class="sc">%&gt;%</span> </span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -903,7 +906,7 @@ Important
 <p>When merging datasets from different questionnaires using the <code>left_join()</code> function, the <code>"by"</code> parameter should include all variables that are duplicated in the datasets being merged. Depending on the datasets, these may be variables such as school or student identifiers (e.g., “IDSCHOOL” and “IDSTUD”), but also variables containing PVs. Otherwise, the <code>left_join()</code> function will create duplicate columns for the overlapping variables, appending suffixes like .x and .y to the column names (e.g., “variable01.x”, “variable01.y”). This can lead to confusion and complicate your analysis later on.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Merging datasets from all questionnaires</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Merging datasets from all questionnaires</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>timss_2023 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  timss_2023_asa,</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(timss_2023_acg, <span class="sc">-</span><span class="fu">any_of</span>(<span class="fu">names</span>(timss_2023_asa)), </span>
@@ -923,11 +926,11 @@ Important
 <span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>                                IDSCHOOL, </span>
 <span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>                                IDSTUD),</span>
 <span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"CTY"</span>, <span class="st">"IDCNTRY"</span>, <span class="st">"IDSCHOOL"</span>, <span class="st">"IDSTUD"</span>)</span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="creation-of-250-replicate-weights-using-the-jackknife-repeated-replication-jrr-method-applied-in-the-timss-2023-study" class="level3" data-number="6.1.2">
 <h3 data-number="6.1.2" class="anchored" data-anchor-id="creation-of-250-replicate-weights-using-the-jackknife-repeated-replication-jrr-method-applied-in-the-timss-2023-study"><span class="header-section-number">6.1.2</span> Creation of 250 replicate weights using the Jackknife Repeated Replication (JRR) method applied in the TIMSS 2023 study</h3>
-<div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Creation of 250 replicate weights using the JRR method</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Creation of 250 replicate weights using the JRR method</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">125</span>) {</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  j <span class="ot">&lt;-</span> <span class="dv">125</span> <span class="sc">+</span> i</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  timss_2023 <span class="ot">&lt;-</span> timss_2023 <span class="sc">%&gt;%</span></span>
@@ -940,12 +943,12 @@ Important
 <span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>      JKZONE <span class="sc">==</span> i <span class="sc">&amp;</span> JKREP <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="dv">2</span> <span class="sc">*</span> TOTWGT,</span>
 <span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>      JKZONE <span class="sc">==</span> i <span class="sc">&amp;</span> JKREP <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="dv">0</span>,</span>
 <span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> TOTWGT</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    ))}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    ))}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="converting-variable-names-to-lowercase" class="level3" data-number="6.1.3">
 <h3 data-number="6.1.3" class="anchored" data-anchor-id="converting-variable-names-to-lowercase"><span class="header-section-number">6.1.3</span> Converting variable names to lowercase</h3>
-<div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: Convert variable names to lowercase</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(timss_2023) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(timss_2023))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: Convert variable names to lowercase</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(timss_2023) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(timss_2023))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -963,7 +966,7 @@ Important
 </section>
 <section id="example-1-mean-of-mathematics-scores-by-country-and-gender" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="example-1-mean-of-mathematics-scores-by-country-and-gender"><span class="header-section-number">6.2</span> Example 1 – Mean of Mathematics Scores by Country and Gender</h2>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Analysis_01 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>Analysis_01 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> timss_2023,</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TIMSS"</span>,</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cm.weights =</span> <span class="fu">c</span>(<span class="st">"totwgt"</span>, <span class="fu">paste0</span>(<span class="st">"jr"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">250</span>)),</span>
@@ -971,11 +974,11 @@ Important
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="fu">c</span>(<span class="st">"cty"</span>, <span class="st">"itsex"</span>),</span>
 <span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.factor =</span> <span class="dv">125</span></span>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_01)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-2-mean-of-mathematics-scores-by-country-and-gender-using-the-over-parameter-and-showing-the-difference-in-scores-between-genders-boys---girls-in-each-country" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="example-2-mean-of-mathematics-scores-by-country-and-gender-using-the-over-parameter-and-showing-the-difference-in-scores-between-genders-boys---girls-in-each-country"><span class="header-section-number">6.3</span> Example 2 – Mean of Mathematics Scores by Country and Gender, Using the <code>over</code> Parameter and Showing the Difference in Scores Between Genders (Boys - Girls) in Each Country</h2>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Analysis_02 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>Analysis_02 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> timss_2023,</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TIMSS"</span>,</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cm.weights =</span> <span class="fu">c</span>(<span class="st">"totwgt"</span>, <span class="fu">paste0</span>(<span class="st">"jr"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">250</span>)),</span>
@@ -985,11 +988,11 @@ Important
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">test =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.factor =</span> <span class="dv">125</span></span>
 <span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_02, <span class="at">width =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_02, <span class="at">width =</span> <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-3-frequency-table-of-students-gender" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="example-3-frequency-table-of-students-gender"><span class="header-section-number">6.4</span> Example 3 – Frequency Table of Students’ Gender</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Analysis_03 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>Analysis_03 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> timss_2023,</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TIMSS"</span>,</span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cm.weights =</span> <span class="fu">c</span>(<span class="st">"totwgt"</span>, <span class="fu">paste0</span>(<span class="st">"jr"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">250</span>)),</span>
@@ -998,11 +1001,11 @@ Important
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">show_na =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.factor =</span> <span class="dv">125</span></span>
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_03)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_03)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-4-linear-regression-the-effect-of-student-gender-and-lack-of-early-counting-activities-on-students-mathematics-achievement" class="level2" data-number="6.5">
 <h2 data-number="6.5" class="anchored" data-anchor-id="example-4-linear-regression-the-effect-of-student-gender-and-lack-of-early-counting-activities-on-students-mathematics-achievement"><span class="header-section-number">6.5</span> Example 4 – Linear Regression: The Effect of Student Gender and Lack of Early Counting Activities on Students’ Mathematics Achievement</h2>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Analysis_04 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>Analysis_04 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> timss_2023,</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TIMSS"</span>,</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cm.weights =</span> <span class="fu">c</span>(<span class="st">"totwgt"</span>, <span class="fu">paste0</span>(<span class="st">"jr"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">250</span>)),</span>
@@ -1010,12 +1013,12 @@ Important
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="st">"lm"</span>, <span class="at">target =</span> <span class="st">"asmmat0@"</span>, <span class="at">regressor =</span> <span class="fu">c</span>(<span class="st">"itsex"</span>, <span class="st">"asbh01k"</span>)),</span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.factor =</span> <span class="dv">125</span></span>
 <span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_04)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_04)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details>
 <summary>
 An Example Code for Improving the Readability of the Output Table
 </summary>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Table_04 <span class="ot">&lt;-</span> Analysis_04 <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>Table_04 <span class="ot">&lt;-</span> Analysis_04 <span class="sc">%&gt;%</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Country =</span> cty,</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Intercept_Estimate =</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">starts_with</span>(<span class="st">"b.reg_asmmat"</span>) <span class="sc">&amp;</span> </span>
@@ -1062,7 +1065,7 @@ An Example Code for Improving the Readability of the Output Table
 <span id="cb18-45"><a href="#cb18-45" aria-hidden="true" tabindex="-1"></a>                           <span class="cf">function</span>(i) <span class="fu">make_reg_table</span>(Table_04[i, ])),</span>
 <span id="cb18-46"><a href="#cb18-46" aria-hidden="true" tabindex="-1"></a>                           Table_04<span class="sc">$</span>Country)</span>
 <span id="cb18-47"><a href="#cb18-47" aria-hidden="true" tabindex="-1"></a>                           </span>
-<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(final_table_04)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(final_table_04)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </section>
 <section id="analyses-of-mathematics-teachers-data-timss-2023" class="level2" data-number="6.6">
@@ -1070,7 +1073,7 @@ An Example Code for Improving the Readability of the Output Table
 <p>To analyze teacher data, we need to merge files with the prefix ATG (teacher context), containing data from the teacher questionnaire, with files prefixed AST (student-teacher linkage), because this dataset includes variables with main weights assigned to teachers (“TCHWGT” – all teachers, “MATWGT” – mathematics teachers, “SCIWGT” – science teachers).</p>
 <section id="data-preparation-and-construction-of-replicate-weights-for-teachers-in-accordance-with-the-jackknife-repeated-replication-jrr-method-used-in-the-timss-2023-study" class="level3" data-number="6.6.1">
 <h3 data-number="6.6.1" class="anchored" data-anchor-id="data-preparation-and-construction-of-replicate-weights-for-teachers-in-accordance-with-the-jackknife-repeated-replication-jrr-method-used-in-the-timss-2023-study"><span class="header-section-number">6.6.1</span> Data Preparation and Construction of Replicate Weights for Teachers in Accordance with the Jackknife Repeated Replication (JRR) Method Used in the TIMSS 2023 Study</h3>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Create lists of files containing teacher and student-teacher linkage</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Create lists of files containing teacher and student-teacher linkage</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># data for selected countries</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1128,7 +1131,7 @@ An Example Code for Improving the Readability of the Output Table
 <span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>timss_2023_teacher <span class="ot">&lt;-</span> timss_2023_teacher <span class="sc">%&gt;%</span> <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(MATWGT))</span>
 <span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 5: Convert variable names to lowercase</span></span>
-<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(timss_2023_teacher) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(timss_2023_teacher))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(timss_2023_teacher) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(timss_2023_teacher))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1145,7 +1148,7 @@ Important
 </section>
 <section id="example-5-percentage-of-mathematics-teachers-by-age-group" class="level3" data-number="6.6.2">
 <h3 data-number="6.6.2" class="anchored" data-anchor-id="example-5-percentage-of-mathematics-teachers-by-age-group"><span class="header-section-number">6.6.2</span> Example 5 – Percentage of Mathematics Teachers by Age Group</h3>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># recoding age into a categorical variable</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># recoding age into a categorical variable</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>timss_2023_teacher <span class="ot">&lt;-</span> timss_2023_teacher <span class="sc">%&gt;%</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
@@ -1169,11 +1172,11 @@ Important
 <span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.factor =</span> <span class="dv">125</span></span>
 <span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_05)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_05)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-6-mean-years-of-service-for-mathematics-teachers" class="level3" data-number="6.6.3">
 <h3 data-number="6.6.3" class="anchored" data-anchor-id="example-6-mean-years-of-service-for-mathematics-teachers"><span class="header-section-number">6.6.3</span> Example 6 – Mean Years of Service for Mathematics Teachers</h3>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Analysis_06 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>Analysis_06 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> timss_2023_teacher,</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TIMSS"</span>,</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cm.weights =</span> <span class="fu">c</span>(<span class="st">"matwgt"</span>, <span class="fu">paste0</span>(<span class="st">"jr"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">250</span>)),</span>
@@ -1181,7 +1184,7 @@ Important
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"cty"</span>,</span>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.factor =</span> <span class="dv">125</span></span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_06)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_06)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -1203,7 +1206,7 @@ Important
 </div>
 <section id="preparing-the-data-1" class="level2" data-number="7.1">
 <h2 data-number="7.1" class="anchored" data-anchor-id="preparing-the-data-1"><span class="header-section-number">7.1</span> Preparing the Data</h2>
-<div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Specify the folder containing the SPSS files</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Specify the folder containing the SPSS files</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>dir_iccs_2022 <span class="ot">&lt;-</span> <span class="st">"C:/DATA/ICCS 2022/SPSS Data/ICCS_2022_G8"</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 2: Create lists of files for selected countries (Croatia, Poland, </span></span>
@@ -1242,7 +1245,7 @@ Important
 <span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>iccs_2022_isa <span class="ot">&lt;-</span> iccs_isa_files <span class="sc">%&gt;%</span> <span class="fu">map</span>(read_sav) <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()</span>
 <span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>iccs_2022_isg <span class="ot">&lt;-</span> iccs_isg_files <span class="sc">%&gt;%</span> <span class="fu">map</span>(read_sav) <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()</span>
 <span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>iccs_2022_icg <span class="ot">&lt;-</span> iccs_icg_files <span class="sc">%&gt;%</span> <span class="fu">map</span>(read_sav) <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()</span>
-<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>iccs_2022_itg <span class="ot">&lt;-</span> iccs_itg_files <span class="sc">%&gt;%</span> <span class="fu">map</span>(read_sav) <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>iccs_2022_itg <span class="ot">&lt;-</span> iccs_itg_files <span class="sc">%&gt;%</span> <span class="fu">map</span>(read_sav) <span class="sc">%&gt;%</span> <span class="fu">bind_rows</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1256,7 +1259,7 @@ Important
 <p>When merging datasets from the ICCS 2022 study containing student civic competence scores (files prefixed ISA) and student survey results (files prefixed ISG), we include plausible values, the main weight variable, and the student replicate weights) in the <code>by</code> argument of the <code>left_join()</code> function. This is necessary because these variables appear in both datasets.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4:  Merge student datasets (civic competence results and student </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4:  Merge student datasets (civic competence results and student </span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="co"># survey data) with the school questionnaire dataset</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>iccs_2022 <span class="ot">&lt;-</span> <span class="fu">left_join</span>(</span>
@@ -1268,7 +1271,7 @@ Important
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span> <span class="fu">left_join</span>(</span>
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>  iccs_2022_icg,</span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"COUNTRY"</span>, <span class="st">"IDSCHOOL"</span>)</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1282,13 +1285,13 @@ Important
 <p>The ICCS study allows us to treat the teacher dataset as independent from the student dataset and analyze teachers using the teacher weights.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We do not merge the teacher data with other datasets because </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We do not merge the teacher data with other datasets because </span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="co"># it is not needed in our example analyses.</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>iccs_2022_teacher <span class="ot">&lt;-</span> iccs_2022_itg</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Step5: Convert variable names to lowercase</span></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iccs_2022) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(iccs_2022))</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iccs_2022_teacher) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(iccs_2022_teacher))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(iccs_2022_teacher) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(iccs_2022_teacher))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1302,38 +1305,38 @@ Important
 <p>In the case of the ICCS study, the <code>Rrepest()</code> function expects that the replicate weight variables take names without leading zeros for replicates numbered from 1 to 9 (e.g., “srwgt1,…, srwgt9” or “trwgt1,…, trwgt9”). However, in the ICCS 2022 dataset provided by the IEA, the names of the replicate weight variables include leading zeros, appearing as “srwgt01,…, srwgt09”, “trwgt01,…, trwgt09”. These variables must be manually renamed for the function to work correctly.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: Remove leading zeros from replicate weight variable names in the </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 6: Remove leading zeros from replicate weight variable names in the </span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="co"># student and teacher datasets</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(iccs_2022) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"^srwgt0([1-9])$"</span>, <span class="st">"srwgt</span><span class="sc">\\</span><span class="st">1"</span>, <span class="fu">colnames</span>(iccs_2022))</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(iccs_2022_teacher) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(</span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"^trwgt0([1-9])$"</span>, </span>
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"trwgt</span><span class="sc">\\</span><span class="st">1"</span>, </span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">colnames</span>(iccs_2022_teacher))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>                               <span class="fu">colnames</span>(iccs_2022_teacher))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-1-mean-student-scores-in-civic-knowledge-and-understanding-of-civic-issues-broken-down-by-gender" class="level2" data-number="7.2">
 <h2 data-number="7.2" class="anchored" data-anchor-id="example-1-mean-student-scores-in-civic-knowledge-and-understanding-of-civic-issues-broken-down-by-gender"><span class="header-section-number">7.2</span> Example 1 – Mean Student Scores in Civic Knowledge and Understanding of Civic Issues, Broken Down by Gender</h2>
-<div class="sourceCode" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Analysis_01 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>Analysis_01 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> iccs_2022,</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"ICCS"</span>,</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="fu">c</span>(<span class="st">"mean"</span>, <span class="st">"std"</span>), <span class="at">target =</span> <span class="st">"pv@civ"</span>),</span>
 <span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="fu">c</span>(<span class="st">"country"</span>, <span class="st">"std_gender"</span>)</span>
 <span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_01)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-2---linear-regression-the-effect-of-student-gender-on-scores-in-civic-knowledge-and-understanding-of-civic-issues" class="level2" data-number="7.3">
 <h2 data-number="7.3" class="anchored" data-anchor-id="example-2---linear-regression-the-effect-of-student-gender-on-scores-in-civic-knowledge-and-understanding-of-civic-issues"><span class="header-section-number">7.3</span> Example 2 - Linear Regression: The Effect Of Student Gender on Scores in Civic Knowledge and Understanding of Civic Issues</h2>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>Analysis_02 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>Analysis_02 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> iccs_2022,</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"ICCS"</span>,</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"country"</span>,</span>
 <span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="st">"lm"</span>, <span class="at">target =</span> <span class="st">"pv@civ"</span>, <span class="at">regressor =</span> <span class="fu">c</span>(<span class="st">"std_gender"</span>))</span>
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_02, <span class="at">width =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_02, <span class="at">width =</span> <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details>
 <summary>
 An Example Code for Improving the Readability of the Output Table
 </summary>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>Table_02 <span class="ot">&lt;-</span> Analysis_02 <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>Table_02 <span class="ot">&lt;-</span> Analysis_02 <span class="sc">%&gt;%</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    country,</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Intercept_Estimate =</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">starts_with</span>(<span class="st">"b.reg_pv@civ"</span>) <span class="sc">&amp;</span> </span>
@@ -1372,30 +1375,30 @@ An Example Code for Improving the Readability of the Output Table
 <span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>                     <span class="cf">function</span>(i) <span class="fu">make_reg_table</span>(Table_02[i, ])),</span>
 <span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a>                     Table_02<span class="sc">$</span>country)</span>
 <span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Table_02)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Table_02)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </section>
 <section id="example-3-student-participation-in-school-life-according-to-school-principals" class="level2" data-number="7.4">
 <h2 data-number="7.4" class="anchored" data-anchor-id="example-3-student-participation-in-school-life-according-to-school-principals"><span class="header-section-number">7.4</span> Example 3 – Student Participation in School Life According to School Principals</h2>
 <section id="example-3a---how-often-are-students-encouraged-to-contribute-to-activities-planning-percentage-of-students-in-schools-where-principals-responded-in-a-specified-way" class="level3" data-number="7.4.1">
 <h3 data-number="7.4.1" class="anchored" data-anchor-id="example-3a---how-often-are-students-encouraged-to-contribute-to-activities-planning-percentage-of-students-in-schools-where-principals-responded-in-a-specified-way"><span class="header-section-number">7.4.1</span> Example 3A - How Often Are Students Encouraged to Contribute to Activities Planning? Percentage of Students in Schools Where Principals Responded in a Specified Way</h3>
-<div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Analysis_03a <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>Analysis_03a <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> iccs_2022,</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"ICCS"</span>,</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="st">"freq"</span>, <span class="at">target =</span> <span class="st">"ic4g03d"</span>),</span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"country"</span></span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_03a, <span class="at">width =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_03a, <span class="at">width =</span> <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-3b-how-often-are-students-involved-in-creating-rules-and-regulations-percentage-of-students-in-schools-where-principals-responded-in-a-specified-way" class="level3" data-number="7.4.2">
 <h3 data-number="7.4.2" class="anchored" data-anchor-id="example-3b-how-often-are-students-involved-in-creating-rules-and-regulations-percentage-of-students-in-schools-where-principals-responded-in-a-specified-way"><span class="header-section-number">7.4.2</span> Example 3B – How Often Are Students Involved in Creating Rules and Regulations? Percentage of Students in Schools Where Principals Responded in a Specified Way</h3>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>Analysis_03b <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>Analysis_03b <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> iccs_2022,</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"ICCS"</span>,</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="st">"freq"</span>, <span class="at">target =</span> <span class="st">"ic4g03b"</span>),</span>
 <span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"country"</span></span>
 <span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_03b, <span class="at">width =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_03b, <span class="at">width =</span> <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="example-4---teachers-responses-to-the-question-how-important-are-the-following-behaviors-for-being-a-good-citizen-in-adult-life-engaging-in-political-discussions" class="level2" data-number="7.5">
@@ -1413,13 +1416,13 @@ Important
 <p>In order for the <code>Rrepest()</code> function to automatically retrieve the weights assigned to teachers, set the argument <strong>‘svy = “ICCS_T”’</strong>. If we set the argument ‘svy = “ICCS”’, it is <strong>necessary</strong> to specify the custom weights using the argument: <strong><code>cm.weights = c("totwgtt", paste0("trwgt", 1:75))</code></strong>.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Analysis_04 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>Analysis_04 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> iccs_2022_teacher,</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"ICCS_T"</span>,</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="st">"freq"</span>, <span class="at">target =</span> <span class="st">"it4g17e"</span>),</span>
 <span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"country"</span></span>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_04, <span class="at">width =</span> <span class="dv">300</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_04, <span class="at">width =</span> <span class="dv">300</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -1433,7 +1436,7 @@ Important
 <p>In order for the <code>Rrepest()</code> function to use the correct weight variables, it is necessary to set the <code>svy</code> argument correctly: <strong><code>svy = "TALISTCH"</code></strong> for analyses performed on the teachers’ dataset, or <strong><code>svy = "TALISSCH"</code></strong> for analyses performed on the school dataset (data from the school principals’ questionnaire).</p>
 <section id="preparing-the-data-2" class="level2" data-number="8.1">
 <h2 data-number="8.1" class="anchored" data-anchor-id="preparing-the-data-2"><span class="header-section-number">8.1</span> Preparing the Data</h2>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 1: Specify the folder containing the SPSS files</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>dir_talis_2018 <span class="ot">&lt;-</span> <span class="st">"C:/DATA/TALIS 2018/SPSS Data/SPSS_2018_international"</span></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1455,54 +1458,54 @@ Important
 <span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Step 4: Convert variable names to lowercase</span></span>
 <span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(talis_2018_tch) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(talis_2018_tch))</span>
-<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(talis_2018_sch) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(talis_2018_sch))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(talis_2018_sch) <span class="ot">&lt;-</span> <span class="fu">tolower</span>(<span class="fu">names</span>(talis_2018_sch))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="analyses-talistch-teacher-level" class="level2" data-number="8.2">
 <h2 data-number="8.2" class="anchored" data-anchor-id="analyses-talistch-teacher-level"><span class="header-section-number">8.2</span> Analyses (TALISTCH – Teacher Level)</h2>
 <section id="example-1---frequency-table-of-teachers-gender" class="level3" data-number="8.2.1">
 <h3 data-number="8.2.1" class="anchored" data-anchor-id="example-1---frequency-table-of-teachers-gender"><span class="header-section-number">8.2.1</span> Example 1 - Frequency Table of Teachers’ Gender</h3>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>Analysis_01 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>Analysis_01 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> talis_2018_tch,</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TALISTCH"</span>,</span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="st">"freq"</span>, <span class="at">target =</span> <span class="st">"tt3g01"</span>),</span>
 <span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"cntry"</span></span>
 <span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_01)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_01)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-2---mean-number-of-hours-teachers-spend-weekly-on-communication-and-cooperation-with-parents" class="level3" data-number="8.2.2">
 <h3 data-number="8.2.2" class="anchored" data-anchor-id="example-2---mean-number-of-hours-teachers-spend-weekly-on-communication-and-cooperation-with-parents"><span class="header-section-number">8.2.2</span> Example 2 - Mean Number of Hours Teachers Spend Weekly on Communication and Cooperation with Parents</h3>
-<div class="sourceCode" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Analysis_02 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>Analysis_02 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> talis_2018_tch,</span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TALISTCH"</span>,</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="fu">c</span>(<span class="st">"mean"</span>,<span class="st">"std"</span>), <span class="at">target =</span> <span class="st">"tt3g18h"</span>),</span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"cntry"</span></span>
 <span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_02)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_02)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-3---mean-number-of-hours-teachers-spend-weekly-on-professional-development-activities" class="level3" data-number="8.2.3">
 <h3 data-number="8.2.3" class="anchored" data-anchor-id="example-3---mean-number-of-hours-teachers-spend-weekly-on-professional-development-activities"><span class="header-section-number">8.2.3</span> Example 3 - Mean Number of Hours Teachers Spend Weekly on Professional Development Activities</h3>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>Analysis_03 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>Analysis_03 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> talis_2018_tch,</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TALISTCH"</span>,</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="fu">c</span>(<span class="st">"mean"</span>,<span class="st">"std"</span>), <span class="at">target =</span> <span class="st">"tt3g18g"</span>),</span>
 <span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"cntry"</span></span>
 <span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_03)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_03)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-4---linear-regression-the-effect-of-the-opportunity-to-actively-participate-in-school-decisions-on-teachers-overall-job-satisfaction" class="level3" data-number="8.2.4">
 <h3 data-number="8.2.4" class="anchored" data-anchor-id="example-4---linear-regression-the-effect-of-the-opportunity-to-actively-participate-in-school-decisions-on-teachers-overall-job-satisfaction"><span class="header-section-number">8.2.4</span> Example 4 - Linear Regression: The Effect of the Opportunity to Actively Participate in School Decisions on Teachers’ Overall Job Satisfaction</h3>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>Analysis_04 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>Analysis_04 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> talis_2018_tch,</span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TALISTCH"</span>,</span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"cntry"</span>,</span>
 <span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="st">"lm"</span>, <span class="at">target =</span> <span class="st">"t3jobsa"</span>, <span class="at">regressor =</span> <span class="fu">c</span>(<span class="st">"tt3g48a"</span>))</span>
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_04, <span class="at">width =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_04, <span class="at">width =</span> <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <details>
 <summary>
 An Example Code for Improving the Readability of the Output Table
 </summary>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>Table_04 <span class="ot">&lt;-</span> Analysis_04 <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>Table_04 <span class="ot">&lt;-</span> Analysis_04 <span class="sc">%&gt;%</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">Country =</span> cntry,</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Intercept_Estimate =</span> <span class="fu">rowMeans</span>(<span class="fu">select</span>(., <span class="fu">starts_with</span>(<span class="st">"b.reg_t3jobsa"</span>) <span class="sc">&amp;</span> </span>
@@ -1541,7 +1544,7 @@ An Example Code for Improving the Readability of the Output Table
 <span id="cb37-37"><a href="#cb37-37" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">function</span>(i) <span class="fu">make_reg_table</span>(Table_04[i, ])), </span>
 <span id="cb37-38"><a href="#cb37-38" aria-hidden="true" tabindex="-1"></a>                    Table_04<span class="sc">$</span>Country)</span>
 <span id="cb37-39"><a href="#cb37-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Final_04)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-40"><a href="#cb37-40" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Final_04)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </section>
 </section>
@@ -1549,23 +1552,23 @@ An Example Code for Improving the Readability of the Output Table
 <h2 data-number="8.3" class="anchored" data-anchor-id="analyses-talissch-school-level"><span class="header-section-number">8.3</span> Analyses (TALISSCH – School Level)</h2>
 <section id="example-5---mean-number-of-years-of-work-experience-as-a-principal-at-the-current-school" class="level3" data-number="8.3.1">
 <h3 data-number="8.3.1" class="anchored" data-anchor-id="example-5---mean-number-of-years-of-work-experience-as-a-principal-at-the-current-school"><span class="header-section-number">8.3.1</span> Example 5 - Mean Number of Years of Work Experience as a Principal at the Current School</h3>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>Analysis_05 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>Analysis_05 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> talis_2018_sch,</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TALISSCH"</span>,</span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="fu">c</span>(<span class="st">"mean"</span>,<span class="st">"std"</span>), <span class="at">target =</span> <span class="st">"tc3g04a"</span>),</span>
 <span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"cntry"</span></span>
 <span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_05)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_05)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="example-6---percentage-of-school-principals-who-reported-collaborating-with-teachers-to-solve-classroom-discipline-problems" class="level3" data-number="8.3.2">
 <h3 data-number="8.3.2" class="anchored" data-anchor-id="example-6---percentage-of-school-principals-who-reported-collaborating-with-teachers-to-solve-classroom-discipline-problems"><span class="header-section-number">8.3.2</span> Example 6 - Percentage of School Principals Who Reported Collaborating with Teachers to Solve Classroom Discipline Problems</h3>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>Analysis_06 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>Analysis_06 <span class="ot">&lt;-</span> <span class="fu">Rrepest</span>(</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> talis_2018_sch,</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">svy  =</span> <span class="st">"TALISSCH"</span>,</span>
 <span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">est  =</span> <span class="fu">est</span>(<span class="st">"freq"</span>, <span class="at">target =</span> <span class="st">"tc3g22a"</span>),</span>
 <span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">by   =</span> <span class="st">"cntry"</span></span>
 <span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_06, <span class="at">width =</span> <span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(Analysis_06, <span class="at">width =</span> <span class="dv">200</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -1637,13 +1640,14 @@ An Example Code for Improving the Readability of the Output Table
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

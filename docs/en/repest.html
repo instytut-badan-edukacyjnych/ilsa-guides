@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>Analyzing International Research Data in Stata Using the repest Package – ILSA Guides – IBE</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -72,10 +75,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ece42c8223ec2bf36298a08f122c9a68.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -173,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">IDB Analyzer</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../en/spss.qmd">
+    <a class="dropdown-item" href="../en/spss.html">
  <span class="dropdown-text">SPSS</span></a>
   </li>  
     </ul>
@@ -304,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Advantages of the <code>repest</code> package
+<span class="screen-reader-only">Tip</span>Advantages of the <code>repest</code> package
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -324,7 +327,7 @@ Advantages of the <code>repest</code> package
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important limitations
+<span class="screen-reader-only">Warning</span>Important limitations
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -384,8 +387,8 @@ Important limitations
 <section id="package-installation" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="package-installation"><span class="header-section-number">1.2</span> Package installation</h2>
 <p>To get started, you need to install the <code>repest</code> package once. In the Stata command window, type:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install repest, <span class="kw">replace</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install repest, <span class="kw">replace</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -395,8 +398,8 @@ Important limitations
 <section id="repest-command-syntax" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="repest-command-syntax"><span class="header-section-number">2.1</span> <code>repest</code> command syntax</h2>
 <p>The basic syntax of the <code>repest</code> command is as follows:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>repest svyname [<span class="kw">if</span> warunek] [<span class="kw">in</span> zakres] , estimate(cmd [,cmd_options]) [options]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>repest svyname [<span class="kw">if</span> warunek] [<span class="kw">in</span> zakres] , estimate(cmd [,cmd_options]) [options]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong><code>svyname</code></strong>: Must be one of the study names supported by (e,g., <code>PISA</code>, <code>TIMSS</code>, <code>PIRLS</code>).</li>
 <li><strong><code>estimate(cmd)</code></strong>: ey option where you specify the type of analysis.</li>
@@ -410,22 +413,22 @@ Important limitations
 <ul>
 <li><strong><code>means</code></strong>: Calculates means.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="kw">means</span> pv@math) <span class="kw">by</span>(cnt) <span class="bn">over</span>(gender) <span class="kw">display</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="kw">means</span> pv@math) <span class="kw">by</span>(cnt) <span class="bn">over</span>(gender) <span class="kw">display</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong><code>summarize</code></strong>: Calculates descriptive statistics. Requires the <code>stats()</code> option.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="kw">summarize</span> escs, <span class="kw">stats</span>(p5 p25 <span class="kw">median</span> p75 p95))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="kw">summarize</span> escs, <span class="kw">stats</span>(p5 p25 <span class="kw">median</span> p75 p95))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong><code>corr</code></strong>: Calculates correlation matrix.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="fu">corr</span> pv@math pv@read) <span class="kw">by</span>(cnt)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="fu">corr</span> pv@math pv@read) <span class="kw">by</span>(cnt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong><code>quantiletable</code></strong>: Creates quantile tables similar to those in PISA reports.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(quantiletable escs pv@math, nquantiles(5))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(quantiletable escs pv@math, nquantiles(5))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="stata-commands" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="stata-commands"><span class="header-section-number">2.2.2</span> Stata commands</h3>
@@ -433,12 +436,12 @@ Important limitations
 <ul>
 <li><strong>Linear regression (<code>reg</code>)</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(stata: <span class="kw">reg</span> pv@math escs i.gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(stata: <span class="kw">reg</span> pv@math escs i.gender)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong>Logistic regression (<code>logit</code>)</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    repest PIAAC, estimate(stata: <span class="kw">logit</span> zmienna_binarna pvnum@ age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    repest PIAAC, estimate(stata: <span class="kw">logit</span> zmienna_binarna pvnum@ age)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -474,7 +477,7 @@ Important limitations
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Things to remember
+<span class="screen-reader-only">Tip</span>Things to remember
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -520,7 +523,7 @@ Things to remember
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-IEA file naming
+<span class="screen-reader-only">Note</span>IEA file naming
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -540,7 +543,7 @@ IEA file naming
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-PISA file naming
+<span class="screen-reader-only">Note</span>PISA file naming
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -555,15 +558,15 @@ PISA file naming
 <section id="appending-adding-observations-from-other-datasets" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="appending-adding-observations-from-other-datasets"><span class="header-section-number">2.8</span> Appending (adding observations from other datasets)</h2>
 <p>The <code>repest</code> package requires all data to be in one active dataset.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"path/country_A.dta"</span>, <span class="kw">clear</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">append</span> <span class="kw">using</span> <span class="st">"path/country_B.dta"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">append</span> <span class="kw">using</span> <span class="st">"path/country_C.dta"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">append</span> <span class="kw">using</span> <span class="st">"path/country_C.dta"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 <section id="merging-data-adding-variables-from-other-datasets-merge" class="level3" data-number="2.8.1">
 <h3 data-number="2.8.1" class="anchored" data-anchor-id="merging-data-adding-variables-from-other-datasets-merge"><span class="header-section-number">2.8.1</span> Merging data (adding variables from other datasets) (merge)</h3>
 <p>To merge student data with school data (<code>m:1</code>) or parent data(<code>1:1</code>):</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>* Load student <span class="kw">data</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"path/student_data.dta"</span>, <span class="kw">clear</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -575,7 +578,7 @@ PISA file naming
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>* Merge parent <span class="kw">data</span> (one student to one parent)</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">merge</span> 1:1 studid <span class="kw">using</span> <span class="st">"C:/path/parent_data.dta"</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> <span class="dt">_merge</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="dt">_merge</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="dt">_merge</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -631,17 +634,17 @@ PISA file naming
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Case sensitivity in Stata
+<span class="screen-reader-only">Note</span>Case sensitivity in Stata
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>Stata is <strong>case sensitive</strong>. Variable names for PV should have a case consistent with the definition in <code>repest</code>. You can change them with the <code>rename</code> command, e.g.:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>* Changes names <span class="kw">of</span> <span class="ot">all</span> pv*math variables to uppercase</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">rename</span> pv*math, <span class="fu">upper</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>* Changes names <span class="kw">of</span> <span class="ot">all</span> variables to lowercase</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">rename</span> *, <span class="fu">lower</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">rename</span> *, <span class="fu">lower</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -664,12 +667,12 @@ Case sensitivity in Stata
 </section>
 <section id="loading-data-in-stata" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="loading-data-in-stata"><span class="header-section-number">3.2</span> Loading data in Stata</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>* Set the path to our working folder</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>* Set the path to our working folder</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>* Remember to provide your own path here!</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>cd <span class="st">"C:/pisa_data/"</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>* Load PISA 2022 dataset <span class="kw">in</span> SPSS <span class="kw">format</span>.</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>import spss <span class="kw">using</span> CY08MSP_STU_QQQ.SAV, <span class="kw">clear</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>import spss <span class="kw">using</span> CY08MSP_STU_QQQ.SAV, <span class="kw">clear</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The file is large: it contains 1278 variables for 613,744 students.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -677,7 +680,7 @@ Case sensitivity in Stata
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Issue with importing large SPSS files in Stata
+<span class="screen-reader-only">Important</span>Issue with importing large SPSS files in Stata
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -688,7 +691,7 @@ Issue with importing large SPSS files in Stata
 </div>
 </div>
 <p>After loading the file, let’s check if we have the most important variables that <code>repest</code> uses. For simplicity, we’ll ask for the first 3 PV and 5 replicate weights.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>. <span class="kw">describe</span> PV1MATH-PV3MATH W_FSTUWT W_FSTURWT1- W_FSTURWT5 CNT</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>Variable        Storage   Display    Value</span>
@@ -703,7 +706,7 @@ Issue with importing large SPSS files in Stata
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>W_FSTURWT3      <span class="kw">double</span>  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 3</span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>W_FSTURWT4      <span class="kw">double</span>  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 4</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>W_FSTURWT5      <span class="kw">double</span>  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 5</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>CNT             str3    %7s                     Country code 3-character</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>CNT             str3    %7s                     Country code 3-character</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="pisa-analyses-step-by-step---examples" class="level2" data-number="3.3">
@@ -721,10 +724,10 @@ Issue with importing large SPSS files in Stata
 <p>In Stata, variable names are case-sensitive. A common problem with <code>repest</code> is inconsistent variable naming. For PISA data, <code>repest</code> expects key variables to be in lowercase. If <code>repest</code> cannot find a required variable, e.g., cnt, it will display an error message..</p>
 <p>In our case, it is necessary to change the case of key variables defining the study. In this example, these are: <code>CNT (country)</code>, <code>CNTRYID (country id)</code>, <code>CNTSCHID (school id)</code>, and <code>CNTSTUID (student id)</code>.</p>
 <p>:::</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">rename</span> CNT W_FSTUWT W_FSTURWT* CNTSCHID, <span class="fu">lower</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">rename</span> CNT W_FSTUWT W_FSTURWT* CNTSCHID, <span class="fu">lower</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Now we can run the t analyses. Let’s first look at some descriptive statistics for mathematics in Poland.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>. repest PISA <span class="kw">if</span> cnt == <span class="st">"POL"</span>, estimate(<span class="kw">means</span> PV@MATH)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>Survey parameters have been changed to PISA2015</span>
@@ -735,7 +738,7 @@ Issue with importing large SPSS files in Stata
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>            | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]</span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>------------+----------------------------------------------------------------</span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  PV_MATH_m |  488.9601   2.27485   214.94   0.000     484.5014   493.4187</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The results of this command show the estimated mean, its standard error, and 95% confidence interval.</p>
 <p>Note that a comment <code>Survey parameters have been changed to PISA2015 also appears</code>. This indicates that analyses are being conducted for 10<code>pv</code> (since PISA 2015, 10 <code>pv</code> are used in the study – in earlier editions 5 <code>pv</code> were used).</p>
 <hr>
@@ -745,7 +748,7 @@ Issue with importing large SPSS files in Stata
 <p>Are there differences in mathematics scores between boys and girls?</p>
 <p>To check this, we will use the <code>over()</code> option, which. This repeats the analysis for each group defined by the specified variable — in this case, gender: <code>ST004D01T</code>.</p>
 <p>Adding the <code>test</code> option “tells” <code>repest</code> to calculate the difference estimate and test whether the difference between group means is statistically significant.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>. repest PISA <span class="kw">if</span> cnt == <span class="st">"POL"</span>, estimate(<span class="kw">means</span> PV@MATH) <span class="bn">over</span>(ST004D01T, <span class="kw">test</span>) <span class="kw">display</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Survey parameters have been changed to PISA2015</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bn">over</span> ST004D01T = 1 2</span>
@@ -766,13 +769,13 @@ Issue with importing large SPSS files in Stata
 <span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>------------+----------------------------------------------------------------</span>
 <span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>ST004D01T=<span class="kw">d</span> |</span>
 <span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  PV_MATH_m |  5.51646   3.326107     1.66   0.097   -1.002589   12.03551</span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The results show that, the average mathematics results (<code>PV_MATH_m</code>) separately for boys (<code>ST004D01T=1</code>: 486.16) and girls (<code>ST004D01T=2</code>: 491.68). The row <code>ST004D01T=d</code> presents <strong>the difference</strong> between girls’ and boys’ (5.52 points). <code>P&gt;|z|</code> is the p-value, which indicates statistical significance. In this case, the p-value (0.097) is above the chosen threshold of 0.05, which means that the difference in mean results <strong>is not statistically significant</strong>.</p>
 </section>
 <section id="differences-in-percentiles" class="level2" data-number="3.6">
 <h2 data-number="3.6" class="anchored" data-anchor-id="differences-in-percentiles"><span class="header-section-number">3.6</span> Differences in percentiles</h2>
 <p>When interpreting results, means alone don’t tell the whole story. It’s always worth looking at the variation in results. Let’s look at selected percentiles for Poland.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>.</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>. repest PISA <span class="kw">if</span> cnt == <span class="st">"POL"</span>, estimate(<span class="kw">summarize</span> PV@MATH, <span class="kw">stats</span>(p5 p25 p50 p75 p95))</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>Survey parameters have been changed to PISA2015</span>
@@ -822,7 +825,7 @@ Issue with importing large SPSS files in Stata
 <span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a> PV_MATH_p50 |  6.9044   4.563641     1.51   0.130   -2.040172   15.84897</span>
 <span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a> PV_MATH_p75 |  14.4124   4.640495     3.11   0.002   5.317198   23.5076</span>
 <span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a> PV_MATH_p90 |  20.0845   5.090743     3.95   0.000   10.10683   30.06217</span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 <p>The table shows percentiles for each group (boys and girls). For example, <code>PV_MATH_p10</code> for the 10th percentile, <code>PV_MATH_p50</code> for the median and so on. Rows labeled <code>ST004D01T=d</code> show the differences in percentiles between girls and boys. Note the p-values: differences at lower percentiles (p10, p25) are <strong>not statistically significant</strong>, but at higher percentiles (p75, p90) they are. The p-values are <code>0.002</code> and <code>0.000</code> respectively.</p>
 <hr>
@@ -836,7 +839,7 @@ Issue with importing large SPSS files in Stata
 <section id="how-to-compare-results-between-countries-and-test-for-significant-differences" class="level2" data-number="3.7">
 <h2 data-number="3.7" class="anchored" data-anchor-id="how-to-compare-results-between-countries-and-test-for-significant-differences"><span class="header-section-number">3.7</span> How to compare results between countries and test for significant differences?</h2>
 <p>To compare results between countries, we use the <strong><code>by</code></strong> option.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>* Analysis <span class="kw">for</span> Poland and Czech Republic with country breakdown</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>repest PISA, estimate(<span class="kw">means</span> PV@MATH) <span class="kw">by</span>(cnt, <span class="kw">levels</span>(POL CZE))</span>
@@ -857,9 +860,9 @@ Issue with importing large SPSS files in Stata
 <span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>            | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]</span>
 <span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>------------+----------------------------------------------------------------</span>
 <span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>  PV_MATH_m |  486.9992   2.093645   232.61   0.000     482.8957   491.1027</span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Is the mean in Poland higher than in Czech Republic in 2022?</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>* Analysis <span class="kw">for</span> Poland and Czech Republic <span class="kw">by</span> country</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>---------------------------------------------------------------------</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -869,21 +872,21 @@ Issue with importing large SPSS files in Stata
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="bn">over</span> <span class="kw">var</span> is cnt</span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>__00000U <span class="kw">not</span> found</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">r</span>(111);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">r</span>(111);</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Error <code>option over() only allows numeric variables</code>
+<span class="screen-reader-only">Important</span>Error <code>option over() only allows numeric variables</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>In the above command, <code>repest</code> reported an error. The variable used in <code>over</code> cannot be a string variable. You should then use the second identifier available in the dataset, the <code>CNTRYID</code> variable, which is the numerical ISO country code (Poland is 616, and Czech Republic is 203).</p>
 </div>
 </div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>. repest PISA, estimate(<span class="kw">means</span> PV@MATH) <span class="bn">over</span>(CNTRYID , <span class="kw">test</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>. repest PISA, estimate(<span class="kw">means</span> PV@MATH) <span class="bn">over</span>(CNTRYID , <span class="kw">test</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Survey parameters have been changed to PISA2015 over CNTRYID = 203 616</p>
 <p>over var is CNTRYID</p>
 <p>_pooled - CNTRYID = 203 ………. _pooled - CNTRYID = 616 ………. _pooled : _pooled —————————————————————————— | Coefficient Std. err. z P&gt;|z| [95% conf. interval] ————+—————————————————————- =203 | PV_MATH_m | 486.9992 2.093645 232.61 0.000 482.8957 491.1027 ————+—————————————————————- =616 | PV_MATH_m | 488.9601 2.27485 214.94 0.000 484.5014 493.4187 ————+—————————————————————- =d | PV_MATH_m | 1.960846 2.944474 0.67 0.505 -3.810218 7.731909 ——————————————————————————</p>
@@ -946,7 +949,7 @@ label values math`i'level math_level_labels
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Explanation of the PV recoding script
+<span class="screen-reader-only">Note</span>Explanation of the PV recoding script
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -961,7 +964,7 @@ Explanation of the PV recoding script
 </div>
 <p>The above commands recode PV values into all levels, but we can also simplify, e.g., by distinguishing only students below level 2 (value 1) and those at level 2 or above (value 0).</p>
 <p>With these variables, we can calculate the percentages of students at different levels. Let’s compute this for Poland.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>. repest PISA <span class="kw">if</span> cnt==<span class="st">"POL"</span> , estimate(freq math@level)</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>Survey parameters have been changed to PISA2015</span>
@@ -980,14 +983,14 @@ Explanation of the PV recoding script
 <span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>math_level_6 |   18.24058   .6846419    26.64   0.000    16.89871   19.58245</span>
 <span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>math_level_7 |   7.499555   .4674799    16.04   0.000    6.583311   8.415799</span>
 <span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>math_level_8 |   1.915414   .2991674     6.40   0.000    1.329057   2.501771</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 <section id="linear-regression" class="level3" data-number="3.7.1">
 <h3 data-number="3.7.1" class="anchored" data-anchor-id="linear-regression"><span class="header-section-number">3.7.1</span> Linear regression</h3>
 <p>In this example, we’ll analyze the association between students’ socio-economic status (ESCS) and their math scores (<code>PV@MATH</code>).</p>
 <p>The <strong><code>results(add(r2 N))</code></strong> option: This option allows you to add extra statistics to the results table, which Stata stores by default. Here, we add <strong>R-squared</strong> (<code>e_r2</code>) - a measure of model fit, and <strong>number of observations</strong> (<code>e_N</code>).</p>
 <p>We’ll conduct the analyses separately for Poland and the Czech Republic.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>* Linear regression <span class="kw">model</span></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1107,14 +1110,14 @@ Explanation of the PV recoding script
 <span id="cb24-118"><a href="#cb24-118" aria-hidden="true" tabindex="-1"></a><span class="st">       _cons |   495.7264   2.62605   188.77   0.000     490.5794   500.8733</span></span>
 <span id="cb24-119"><a href="#cb24-119" aria-hidden="true" tabindex="-1"></a><span class="st">        e_r2 |   .1627424   .0128378   12.68   0.000     .1375808    .187904</span></span>
 <span id="cb24-120"><a href="#cb24-120" aria-hidden="true" tabindex="-1"></a><span class="st">         e_N |      5875         .        .      .          .           .</span></span>
-<span id="cb24-121"><a href="#cb24-121" aria-hidden="true" tabindex="-1"></a><span class="st">-------------------------------------------------------------------------------</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-121"><a href="#cb24-121" aria-hidden="true" tabindex="-1"></a><span class="st">-------------------------------------------------------------------------------</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Interpretation of linear regression results
+<span class="screen-reader-only">Note</span>Interpretation of linear regression results
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1132,7 +1135,7 @@ Interpretation of linear regression results
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Nonlinear ESCS effect (self-interaction of variable)
+<span class="screen-reader-only">Note</span>Nonlinear ESCS effect (self-interaction of variable)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1172,7 +1175,7 @@ Nonlinear ESCS effect (self-interaction of variable)
 <p>TIMSS data are available from the IEA repository: <a href="https://www.iea.nl/data-tools/repository">https://www.iea.nl/data-tools/repository</a>. Choose the TIMSS section, accept the terms, and you can download the data. TIMSS is conducted in grades 4 and 8. We’re interested in grade 4. Data can be downloaded in three formats: SAS, SPSS, and R. Choose <strong>SPSS</strong>.</p>
 <p>After downloading, copy the files to your working directory, The downloaded package contains multiple data files and documentation in separate folders. This is is very helpful.</p>
 <p>Let’s see what the directory looks like from Stata’s window:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a> cd C:\timss_data\TIMSS2023_IDB_SPSS_G4</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>C:\timss_data\TIMSS2023_IDB_SPSS_G4</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1183,9 +1186,9 @@ Nonlinear ESCS effect (self-interaction of variable)
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot">dir</span>&gt;   6/14/25 13:48  2_Data Files</span>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot">dir</span>&gt;   6/14/25 13:48  3_Supplemental Material</span>
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot">dir</span>&gt;   6/14/25 13:48  4_Reports and Encyclopedia</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  0.1k    6/14/25 13:48  timss2023.org.url</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>  0.1k    6/14/25 13:48  timss2023.org.url</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We’re interested in the Polish data. You’ll find it in the “2_Data Files” folder, with a subfolder “SPSS Data”.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>. cd <span class="st">"C:</span><span class="ch">\t</span><span class="st">imss_data\TIMSS2023_IDB_SPSS_G4\2_Data Files\SPSS Data</span><span class="ch">\"</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="st">C:</span><span class="ch">\t</span><span class="st">imss_data\TIMSS2023_IDB_SPSS_G4\2_Data Files\SPSS Data</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1198,12 +1201,12 @@ Nonlinear ESCS effect (self-interaction of variable)
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="st">3152.6k  6/14/25 13:48  asrpolm8.sav</span></span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="st">7076.1k  6/14/25 13:48  astpolm8.sav</span></span>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="st"> 283.6k  6/14/25 13:48  atgpolm8.sav</span></span>
-<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We’re interested in the datasets starting with <code>asa</code>, which we’ll load and save in Stata format. In this example, we only use Polish data, but it’s worth showing how to convert data for other countries as well.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>usespss asapolm8.sav</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span>    asapolm8.dta, <span class="kw">replace</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="preparing-weights-for-repest-essential-step" class="level2" data-number="4.3">
@@ -1212,7 +1215,7 @@ Nonlinear ESCS effect (self-interaction of variable)
 <p>IEA uses <code>Jackknife Repeated Replication</code> instead of <code>Balanced Repeated Replication</code> because samples in TIMSS and PIRLS have more varied structures across countries. In many education systems, it is not possible to obtain symmetrical, balanced subsamples required by BRR. JRR is simpler and more flexible - each country gets as many replicate weights as actual sampling zones.</p>
 <p>Compared to previous editions, TIMSS 2023 increased the number of zones (from 75 to 125), but the number of zones differs by country. At the time of writing this guide, this is not yet reflected in the <code>repest</code> script.</p>
 <p>First, it’s crucial to use a flexible script for the data structure. The following script must be run only once after loading and joining the files.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>* -----------------------------------------------------------------------------</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>* Generating weights <span class="kw">for</span> <span class="kw">data</span> with different JKZONE</span>
@@ -1246,16 +1249,16 @@ Nonlinear ESCS effect (self-interaction of variable)
 <span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>* How many replicates? — Enter THIS NUMBER manually <span class="kw">in</span> NREP()</span>
 <span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="kw">di</span> <span class="kw">as</span> res <span class="st">"Zones (k): "</span> <span class="ot">`k'</span></span>
 <span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a><span class="kw">di</span> <span class="kw">as</span> res <span class="st">"Replicates (r=2*k): "</span> <span class="ot">`r'</span></span>
-<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a><span class="kw">ds</span> JR*, has(<span class="dv">type</span> <span class="kw">numeric</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a><span class="kw">ds</span> JR*, has(<span class="dv">type</span> <span class="kw">numeric</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This script creates the correct number of replicate weights (e.g., 150 for TIMSS 2019, or an appropriate number for TIMSS 2023) using Jackknife Repeated Replication.</p>
 <p>The inconvenience is that analyses can only be conducted for a specific country, because repest requires precise specification of the number of replicates (omitting this produces incorrect standard errors). The end of the above script displays this information.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a> * How many replicates? — Enter THIS NUMBER manually <span class="kw">in</span> NREP()</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">di</span> <span class="kw">as</span> res <span class="st">"Zones (k): "</span> <span class="ot">`k'</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>Zones (<span class="kw">k</span>): 76</span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">di</span> <span class="kw">as</span> res <span class="st">"Replicates (r=2*k): "</span> <span class="ot">`r'</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>Replicates (<span class="fu">r</span>=2*<span class="kw">k</span>): 152</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>Replicates (<span class="fu">r</span>=2*<span class="kw">k</span>): 152</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>We can see, that for Poland, there are 76 zones, and the script above created 152 replicate weights.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1276,7 +1279,7 @@ Note
 <h2 data-number="4.4" class="anchored" data-anchor-id="timss-step-by-step-analysis-examples"><span class="header-section-number">4.4</span> TIMSS step-by-step analysis – examples</h2>
 <p>The basic commands are very similar to those shown above for PISA data analysis. Differences come down to variable names and the number of replicate weights.</p>
 <p>Let’s first compute mean results.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>. . repest TIMSS , estimate(<span class="kw">means</span> ASMMAT0@ ) svyparms(NREP(152))</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>_pooled.....</span>
@@ -1285,12 +1288,12 @@ Note
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>             | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]</span>
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>-------------+----------------------------------------------------------------</span>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  ASMMAT0__m |   546.0228   2.033083   268.57   0.000     542.038    550.0076</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="gender-differences-in-poland" class="level3" data-number="4.4.1">
 <h3 data-number="4.4.1" class="anchored" data-anchor-id="gender-differences-in-poland"><span class="header-section-number">4.4.1</span> Gender differences in Poland</h3>
 <p>Now, let’s compute the differences between boys and girls in Poland. Computing mean differences is simple and does not differ from previous examples. We’ll use <strong><code>estimate(means ASMMAT0@ ) over(ITSEX , test)</code></strong>, substituting the <code>IDCNTRY</code> variable for the gender variable ITSEX.</p>
 <p>Below, we examine estimates for selected percentiles and differences between boys and girls.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>repest TIMSS , estimate(<span class="kw">summarize</span> ASMMAT0@, <span class="kw">stats</span>(<span class="kw">mean</span> p10 p25 p50 p75 p90)) <span class="bn">over</span>(ITSEX, <span class="kw">test</span>) svyparms(NREP(152))</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a> <span class="bn">over</span> ITSEX = 1 2 </span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>(file C:\Users\IBE-2660\AppData\Local\Temp\ST_2150_000005.tmp <span class="kw">not</span> found)</span>
@@ -1326,7 +1329,7 @@ Note
 <span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a> ASMMAT0__p50 |   11.87034   5.404963     2.20   0.028    1.276807    22.46387</span>
 <span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a> ASMMAT0__p75 |   12.54714    4.43619     2.83   0.005    3.852365    21.24191</span>
 <span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a> ASMMAT0__p90 |   14.03136   6.960439     2.02   0.044    .3891518    27.67357</span>
-<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a>-------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a>-------------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The table shows <strong>math percentile scores for girls (<code>ITSEX=1</code>) and boys (<code>ITSEX=2</code>) in Poland and their differences (<code>ITSEX=d</code>)</strong>.</p>
 <p>The mean difference is 10.6 points and it is statistically significant, with a standard error of 3.2 points, and the 95% confidence interval for this difference is 4.4 to 16.9 points.</p>
 <p>Percentile values suggest that boys’ advantage is more pronounced at the top of the distribution. For example, the boys’ median (p50) is higher by about 12 points and this difference is statistically significant. In the lower part of the distribution (p10, p25), differences are smaller and often not significant.</p>
@@ -1335,7 +1338,7 @@ Note
 <section id="proficiency-levels" class="level3" data-number="4.4.2">
 <h3 data-number="4.4.2" class="anchored" data-anchor-id="proficiency-levels"><span class="header-section-number">4.4.2</span> Proficiency levels</h3>
 <p>The TIMSS dataset contains a variable describing proficiency levels (actually five separate variables calculated for each <code>pv</code>). Using the <code>fre command (ssc install fre)</code>, we inspect the first variable in this group:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>. fre ASMIBM01</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>ASMIBM01 -- INTERN. MATH BENCH REACHED WITH 1ST PV</span>
@@ -1348,9 +1351,9 @@ Note
 <span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        4 At <span class="kw">or</span> above 550 but below 625   |       1695     36.33       36.33       85.64</span>
 <span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        5 At <span class="kw">or</span> above 625                 |        670     14.36       14.36      100.00</span>
 <span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        Total                             |       4666    100.00      100.00</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>-------------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>-------------------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This variable is a recoded <code>pv</code> variable, based on the study’s defined level cutoffs. The above distribution is unweighted. To get a population distribution, we must use weights and average across all <code>pv</code> values. Here, <code>repest</code> helps:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>. repest TIMSS , estimate(freq ASMIBM0@) svyparms(NREP(152))</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>_pooled.....</span>
@@ -1363,11 +1366,11 @@ Note
 <span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a> ASMIBM0__3 |   32.43265   .9518056    34.07   0.000    30.56714    34.29815</span>
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a> ASMIBM0__4 |   36.15421   1.047753    34.51   0.000    34.10065    38.20777</span>
 <span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a> ASMIBM0__5 |   14.37602   .8519447    16.87   0.000    12.70624     16.0458</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>The <strong><code>Coefficient</code></strong> column gives the percent of students at each level; for example, the first row is for those scoring below 400 points on the TIMSS scale. In Poland, that’s about <strong>4% of students</strong> (95% CI: 2.9–4.7%).</p>
 <p>You can also compute more detailed comparisons. Let’s return to the example with gender differences:</p>
 <p>Możemy też wyliczyć bardziej rozbudowane porównania. Wróćmy do przykładu z różnicami ze względu na płeć:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>. repest TIMSS  , estimate(freq ASMIBM0@) <span class="bn">over</span>(ITSEX, <span class="kw">test</span>) svyparms(NREP(152))</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a> <span class="bn">over</span> ITSEX = 1 2 </span>
@@ -1398,7 +1401,7 @@ Note
 <span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a> ASMIBM0__3 |   -4.24911   1.629858    -2.61   0.009   -7.443573   -1.054647</span>
 <span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a> ASMIBM0__4 |   2.018596   2.418225     0.83   0.404   -2.721038     6.75823</span>
 <span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a> ASMIBM0__5 |   4.590739   1.858332     2.47   0.013    .9484761    8.233002</span>
-<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Comparing the percentages of students at different proficiency levels shows that boys more often attain the highest level (625+) and less often the lower levels. For example, 16.7% of boys reach the highest level, compared to 12.1% of girls. This difference is statistically significant.</p>
 <p>The largest differences appear at levels 3 and 5—boys are less often at level 3 (30.3% vs 34.6%) and more often at the highest level (16.7% vs 12.1%). This suggests that there are more high-achieving boys than girls, although differences in means were moderate.</p>
 
@@ -1461,13 +1464,14 @@ Note
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1860,7 +1864,7 @@ Note
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb35" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Analyzing International Research Data in Stata Using the `repest` Package"</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Michał Sitek, IBE PIB, m.sitek@ibe.edu.pl"</span></span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
@@ -3115,7 +3119,7 @@ Note
 <span id="cb35-1253"><a href="#cb35-1253" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-1254"><a href="#cb35-1254" aria-hidden="true" tabindex="-1"></a>Comparing the percentages of students at different proficiency levels shows that boys more often attain the highest level (625+) and less often the lower levels. For example, 16.7% of boys reach the highest level, compared to 12.1% of girls. This difference is statistically significant.</span>
 <span id="cb35-1255"><a href="#cb35-1255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-1256"><a href="#cb35-1256" aria-hidden="true" tabindex="-1"></a>The largest differences appear at levels 3 and 5—boys are less often at level 3 (30.3% vs 34.6%) and more often at the highest level (16.7% vs 12.1%). This suggests that there are more high-achieving boys than girls, although differences in means were moderate.</span></code><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb35-1256"><a href="#cb35-1256" aria-hidden="true" tabindex="-1"></a>The largest differences appear at levels 3 and 5—boys are less often at level 3 (30.3% vs 34.6%) and more often at the highest level (16.7% vs 12.1%). This suggests that there are more high-achieving boys than girls, although differences in means were moderate.</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

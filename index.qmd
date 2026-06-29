@@ -41,6 +41,13 @@ IDB Analyzer is a free tool developed by IEA for working with international larg
 [Open guide →](en/idb.qmd){.btn .btn-outline-primary}
 :::
 
+::: {.g-col-12 .g-col-md-6}
+### 🖥️ SPSS
+SPSS works well as a first tool for working with international large-scale assessment data — reading in files, merging questionnaires, checking variable distributions and preparing data for the actual analyses. Combined with the IDB Analyzer it also supports correct analyses with replicate weights and plausible values. Based on examples from PIRLS 2021.
+
+[Open guide →](en/spss.qmd){.btn .btn-outline-primary}
+:::
+
 :::
 
 ---

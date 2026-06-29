@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="pl" xml:lang="pl"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -10,6 +10,9 @@
 
 <title>Analiza danych z badań międzynarodowych w Stata z użyciem pakietu repest – ILSA Guides – IBE</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -72,10 +75,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ece42c8223ec2bf36298a08f122c9a68.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -173,7 +176,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">IDB Analyzer</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../en/spss.qmd">
+    <a class="dropdown-item" href="../en/spss.html">
  <span class="dropdown-text">SPSS</span></a>
   </li>  
     </ul>
@@ -302,7 +305,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Zalety pakietu <code>repest</code>
+<span class="screen-reader-only">Wskazówka</span>Zalety pakietu <code>repest</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -322,7 +325,7 @@ Zalety pakietu <code>repest</code>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Ważne ograniczenia
+<span class="screen-reader-only">Ostrzeżenie</span>Ważne ograniczenia
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -382,8 +385,8 @@ Ważne ograniczenia
 <section id="instalacja-pakietu" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="instalacja-pakietu"><span class="header-section-number">1.2</span> Instalacja pakietu</h2>
 <p>Aby rozpocząć pracę, należy jednorazowo zainstalować pakiet <code>repest</code>. W oknie komend Stata wpisz:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install repest, <span class="kw">replace</span></span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="kw">ssc</span> install repest, <span class="kw">replace</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -393,8 +396,8 @@ Ważne ograniczenia
 <section id="składnia-komendy-repest" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="składnia-komendy-repest"><span class="header-section-number">2.1</span> Składnia komendy <code>repest</code></h2>
 <p>Podstawowa składnia komendy <code>repest</code> jest następująca:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>repest svyname [<span class="kw">if</span> warunek] [<span class="kw">in</span> zakres] , estimate(cmd [,cmd_options]) [options]</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>repest svyname [<span class="kw">if</span> warunek] [<span class="kw">in</span> zakres] , estimate(cmd [,cmd_options]) [options]</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong><code>svyname</code></strong>: Musi być jedną z obsługiwanych przez <code>repest</code> nazw badań (np. <code>PISA</code>, <code>TIMSS</code>, <code>PIRLS</code>).</li>
 <li><strong><code>estimate(cmd)</code></strong>: Kluczowa opcja, w której określa się rodzaj analizy.</li>
@@ -408,22 +411,22 @@ Ważne ograniczenia
 <ul>
 <li><strong><code>means</code></strong>: Oblicza średnie.</li>
 </ul>
-<div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="kw">means</span> pv@math) <span class="kw">by</span>(cnt) <span class="bn">over</span>(gender) <span class="kw">display</span></span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="kw">means</span> pv@math) <span class="kw">by</span>(cnt) <span class="bn">over</span>(gender) <span class="kw">display</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong><code>summarize</code></strong>: Oblicza statystyki opisowe. Wymaga opcji <code>stats()</code>.</li>
 </ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="kw">summarize</span> escs, <span class="kw">stats</span>(p5 p25 <span class="kw">median</span> p75 p95))</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="kw">summarize</span> escs, <span class="kw">stats</span>(p5 p25 <span class="kw">median</span> p75 p95))</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong><code>corr</code></strong>: Oblicza macierz korelacji.</li>
 </ul>
-<div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="fu">corr</span> pv@math pv@read) <span class="kw">by</span>(cnt)</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(<span class="fu">corr</span> pv@math pv@read) <span class="kw">by</span>(cnt)</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong><code>quantiletable</code></strong>: Tworzy tabele kwantylowe, podobne do tych w raportach PISA.</li>
 </ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(quantiletable escs pv@math, nquantiles(5))</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(quantiletable escs pv@math, nquantiles(5))</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="komendy-stata" class="level3" data-number="2.2.2">
 <h3 data-number="2.2.2" class="anchored" data-anchor-id="komendy-stata"><span class="header-section-number">2.2.2</span> Komendy Stata</h3>
@@ -431,12 +434,12 @@ Ważne ograniczenia
 <ul>
 <li><strong>Regresja liniowa (<code>reg</code>)</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(stata: <span class="kw">reg</span> pv@math escs i.gender)</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    repest PISA, estimate(stata: <span class="kw">reg</span> pv@math escs i.gender)</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <ul>
 <li><strong>Regresja logistyczna (<code>logit</code>)</strong>:</li>
 </ul>
-<div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    repest PIAAC, estimate(stata: <span class="kw">logit</span> zmienna_binarna pvnum@ age)</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    repest PIAAC, estimate(stata: <span class="kw">logit</span> zmienna_binarna pvnum@ age)</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -472,7 +475,7 @@ Ważne ograniczenia
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Warto pamiętać o kilku rzeczach
+<span class="screen-reader-only">Wskazówka</span>Warto pamiętać o kilku rzeczach
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -518,7 +521,7 @@ Warto pamiętać o kilku rzeczach
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Nazwy plików
+<span class="screen-reader-only">Adnotacja</span>Nazwy plików
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -538,7 +541,7 @@ Nazwy plików
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Nazwy plików PISA
+<span class="screen-reader-only">Adnotacja</span>Nazwy plików PISA
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -553,15 +556,15 @@ Nazwy plików PISA
 <section id="łączenie-danych-w-stata" class="level2" data-number="2.8">
 <h2 data-number="2.8" class="anchored" data-anchor-id="łączenie-danych-w-stata"><span class="header-section-number">2.8</span> Łączenie danych w Stata</h2>
 <p>Pakiet <code>repest</code> wymaga, aby wszystkie dane były w jednym, aktywnym zbiorze.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"sciezka/do/pierwszego_kraju.dta"</span>, <span class="kw">clear</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">append</span> <span class="kw">using</span> <span class="st">"sciezka/do/kolejnego_kraju_A.dta"</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">append</span> <span class="kw">using</span> <span class="st">"sciezka/do/kolejnego_kraju_B.dta"</span></span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">append</span> <span class="kw">using</span> <span class="st">"sciezka/do/kolejnego_kraju_B.dta"</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 <section id="dołączanie-dodatkowych-informacji-merge" class="level3" data-number="2.8.1">
 <h3 data-number="2.8.1" class="anchored" data-anchor-id="dołączanie-dodatkowych-informacji-merge"><span class="header-section-number">2.8.1</span> Dołączanie dodatkowych informacji (<code>merge</code>)</h3>
 <p>Aby połączyć dane uczniów z danymi szkół (<code>m:1</code>) lub rodziców (<code>1:1</code>):</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb10"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>* Załaduj dane uczniów</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="kw">use</span> <span class="st">"sciezka/do/danych_uczniow.dta"</span>, <span class="kw">clear</span></span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -573,7 +576,7 @@ Nazwy plików PISA
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>* Przyłącz dane rodziców (jeden uczeń <span class="kw">do</span> jednego rodzica)</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="kw">merge</span> 1:1 studid <span class="kw">using</span> <span class="st">"C:/sciezka/dane_rodzicow.dta"</span></span>
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="kw">tab</span> <span class="dt">_merge</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="dt">_merge</span></span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="kw">drop</span> <span class="dt">_merge</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
@@ -630,17 +633,17 @@ Nazwy plików PISA
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Wielkość liter w Stata
+<span class="screen-reader-only">Adnotacja</span>Wielkość liter w Stata
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>W Stata <strong>wielkość liter ma znaczenie</strong>. Nazwy zmiennych dla PV powinny mieć wielkość zgodną z definicją w <code>repest</code>. Można je zmieniać komendą <code>rename</code>, np.:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>* Zmienia nazwy wszystkich zmiennych pv*math na wielkie litery</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="kw">rename</span> pv*math, <span class="fu">upper</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>* Zmienia nazwy wszystkich zmiennych na małe litery</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">rename</span> *, <span class="fu">lower</span></span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">rename</span> *, <span class="fu">lower</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </section>
@@ -660,12 +663,12 @@ Wielkość liter w Stata
 </section>
 <section id="wczytywanie-danych-w-stata" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="wczytywanie-danych-w-stata"><span class="header-section-number">3.2</span> Wczytywanie danych w Stata</h2>
-<div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>* Ustawiamy ścieżkę <span class="kw">do</span> naszego folderu roboczego</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb12"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>* Ustawiamy ścieżkę <span class="kw">do</span> naszego folderu roboczego</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>* Pamiętaj, aby podać tu własną ścieżkę!</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>cd <span class="st">"C:/pisa_data/"</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>* Wczytujemy zbiór danych PISA 2022 <span class="fu">w</span> formacie SPSS.</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>import spss <span class="kw">using</span> CY08MSP_STU_QQQ.SAV, <span class="kw">clear</span></span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>import spss <span class="kw">using</span> CY08MSP_STU_QQQ.SAV, <span class="kw">clear</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Plik jest duży: zawiera 1278 zmiennych dla 613 744 uczniów.</p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -673,7 +676,7 @@ Wielkość liter w Stata
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Problem z importem dużych plików SPSS w Stata
+<span class="screen-reader-only">Ważne</span>Problem z importem dużych plików SPSS w Stata
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -683,7 +686,7 @@ Problem z importem dużych plików SPSS w Stata
 </div>
 </div>
 <p>Po załadowaniu pliku sprawdźmy, czy mamy najważniejsze zmienne, z których korzysta <code>repest</code>. Dla uproszczenia zapytamy o pierwsze 3 PV i 5 wag replikacyjnych.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb13"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>. <span class="kw">describe</span> PV1MATH-PV3MATH W_FSTUWT W_FSTURWT1- W_FSTURWT5 CNT</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>Variable        Storage   Display    Value</span>
@@ -698,7 +701,7 @@ Problem z importem dużych plików SPSS w Stata
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>W_FSTURWT3      <span class="kw">double</span>  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 3</span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>W_FSTURWT4      <span class="kw">double</span>  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 4</span>
 <span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>W_FSTURWT5      <span class="kw">double</span>  %10.0g                  FINAL TRIMMED NONRESPONSE ADJUSTED STUDENT REPLICATE BRR-FAY WEIGHTS 5</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>CNT             str3    %7s                     Country code 3-character</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>CNT             str3    %7s                     Country code 3-character</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="analizy-pisa-krok-po-kroku---przykłady" class="level2" data-number="3.3">
@@ -714,7 +717,7 @@ Problem z importem dużych plików SPSS w Stata
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Uwaga na wielkość liter
+<span class="screen-reader-only">Ważne</span>Uwaga na wielkość liter
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -722,10 +725,10 @@ Uwaga na wielkość liter
 <p>W naszym przypadku konieczna jest zmiana wielkości liter kluczowych zmiennych definiujących badanie. W analizowanym przypadku tymi zmiennym są: <code>CNT (country)</code>, <code>CNTRYID (country id)</code>, <code>CNTSCHID (school id)</code>, oraz <code>CNTSTUID (student id)</code>.</p>
 </div>
 </div>
-<div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">rename</span> CNT W_FSTUWT W_FSTURWT* CNTSCHID, <span class="fu">lower</span></span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb15"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="kw">rename</span> CNT W_FSTUWT W_FSTURWT* CNTSCHID, <span class="fu">lower</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Teraz możemy przeprowadzić analizy. Na początek spójrzmy na kilka statystyk opisowych wyników z matematyki dla Polski.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb16"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>. repest PISA <span class="kw">if</span> cnt == <span class="st">"POL"</span>, estimate(<span class="kw">means</span> PV@MATH)</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>Survey parameters have been changed to PISA2015</span>
@@ -736,7 +739,7 @@ Uwaga na wielkość liter
 <span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>            | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]</span>
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>------------+----------------------------------------------------------------</span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  PV_MATH_m |  488.9601   2.27485   214.94   0.000     484.5014   493.4187</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Wyniki tej komendy pokazują oszacowaną średnią, jej błąd standardowy i 95% przedział ufności.</p>
 <p>Zauważmy, że pojawia się również komentarz <code>Survey parameters have been changed to PISA2015</code>. Informuje on o tym, że analizy są prowadzone dla 10 <code>pv</code> (od PISA 2015 w badaniu używanych jest 10 <code>pv</code> – we wcześniejszych edycjach było 5).</p>
 <hr>
@@ -745,7 +748,7 @@ Uwaga na wielkość liter
 <h3 data-number="3.3.2" class="anchored" data-anchor-id="różnice-w-wynikach-chłopców-i-dziewcząt-z-testem-istotności-różnicy"><span class="header-section-number">3.3.2</span> Różnice w wynikach chłopców i dziewcząt z testem istotności różnicy</h3>
 <p>Czy w wynikach z matematyki występują różnice między chłopcami a dziewczętami?</p>
 <p>Aby to sprawdzić, wykorzystamy opcję <code>over()</code>, która powtarza analizę dla każdej grupy zdefiniowanej przez podaną zmienną (w tym przypadku jest to płeć: <code>ST004D01T</code>). Dodanie dodatkowej opcji `test’ spowoduje, że repest obliczy też oszacowanie różnicy i przetstuje, czy różnica między średnimi jest istotna statystycznie.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb17"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>. repest PISA <span class="kw">if</span> cnt == <span class="st">"POL"</span>, estimate(<span class="kw">means</span> PV@MATH) <span class="bn">over</span>(ST004D01T, <span class="kw">test</span>) <span class="kw">display</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>Survey parameters have been changed to PISA2015</span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bn">over</span> ST004D01T = 1 2</span>
@@ -766,14 +769,14 @@ Uwaga na wielkość liter
 <span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>------------+----------------------------------------------------------------</span>
 <span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>ST004D01T=<span class="kw">d</span> |</span>
 <span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  PV_MATH_m |  5.51646   3.326107     1.66   0.097   -1.002589   12.03551</span>
-<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>W uzyskanych wynikach widzimy średni wynik z matematyki (<code>PV_MATH_m</code>) osobno dla chłopców (<code>ST004D01T=1</code>: 486.16) i dziewcząt (<code>ST004D01T=2</code>: 491.68). Wiersz <code>ST004D01T=d</code> prezentuje <strong>różnicę</strong> między wynikami dziewcząt a chłopców (5.52 punktu). <code>P&gt;|z|</code> to p-wartość, która wskazuje na istotność statystyczną. W tym przypadku p-wartość (0.097) jest powyżej przyjętego progu 0.05, co oznacza, że różnica w średnich wynikach <strong>nie jest statystycznie istotna</strong>.</p>
 <hr>
 </section>
 <section id="różnice-w-percentylach" class="level3" data-number="3.3.3">
 <h3 data-number="3.3.3" class="anchored" data-anchor-id="różnice-w-percentylach"><span class="header-section-number">3.3.3</span> Różnice w percentylach</h3>
 <p>W interpretacji wyników ważne są nie tylko średnie. Zawsze warto spojrzeć też na zróżnicowanie wyników. Przyjrzyjmy się wartościom wybranych percentyli w Polsce.</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb18"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>.</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>. repest PISA <span class="kw">if</span> cnt == <span class="st">"POL"</span>, estimate(<span class="kw">summarize</span> PV@MATH, <span class="kw">stats</span>(p5 p25 p50 p75 p95))</span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>Survey parameters have been changed to PISA2015</span>
@@ -823,7 +826,7 @@ Uwaga na wielkość liter
 <span id="cb18-48"><a href="#cb18-48" aria-hidden="true" tabindex="-1"></a> PV_MATH_p50 |  6.9044   4.563641     1.51   0.130   -2.040172   15.84897</span>
 <span id="cb18-49"><a href="#cb18-49" aria-hidden="true" tabindex="-1"></a> PV_MATH_p75 |  14.4124   4.640495     3.11   0.002   5.317198   23.5076</span>
 <span id="cb18-50"><a href="#cb18-50" aria-hidden="true" tabindex="-1"></a> PV_MATH_p90 |  20.0845   5.090743     3.95   0.000   10.10683   30.06217</span>
-<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-51"><a href="#cb18-51" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 <p>W uzyskanej tabeli dla każdej grupy (chłopców i dziewcząt) wyświetlono percentyle (np. <code>PV_MATH_p10</code> dla 10. percentyla, <code>PV_MATH_p50</code> dla mediany itd.). W wierszach <code>ST004D01T=d</code> znajdziemy różnice w percentylach między dziewczętami a chłopcami. Warto zwrócić uwagę na p-wartości: podczas gdy różnice na niższych percentylach (np. p10, p25) nie są istotne statystycznie, na wyższych percentylach (p75 i p90) różnice stają się <strong>istotne statystycznie</strong> (p-value odpowiednio 0.002 i 0.000).</p>
 <hr>
@@ -837,7 +840,7 @@ Uwaga na wielkość liter
 <section id="jak-porównywać-wyniki-między-krajami-i-testować-istotność-różnic" class="level3" data-number="3.3.4">
 <h3 data-number="3.3.4" class="anchored" data-anchor-id="jak-porównywać-wyniki-między-krajami-i-testować-istotność-różnic"><span class="header-section-number">3.3.4</span> Jak porównywać wyniki między krajami i testować istotność różnic?</h3>
 <p>Aby porównywać wyniki między krajami, używamy opcji <strong><code>by</code></strong>.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb19"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>* Analiza dla Polski i Czech z podziałem na kraje</span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>repest PISA, estimate(<span class="kw">means</span> PV@MATH) <span class="kw">by</span>(cnt, <span class="kw">levels</span>(POL CZE))</span>
@@ -858,9 +861,9 @@ Uwaga na wielkość liter
 <span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>            | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]</span>
 <span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>------------+----------------------------------------------------------------</span>
 <span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>  PV_MATH_m |  486.9992   2.093645   232.61   0.000     482.8957   491.1027</span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Czy średnia w Polsce była w 2022 r. wyższa niż w Czechach?</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb20"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>* Analiza dla Polski i Czech z podziałem na kraje</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>---------------------------------------------------------------------</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -870,21 +873,21 @@ Uwaga na wielkość liter
 <span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="bn">over</span> <span class="kw">var</span> is cnt</span>
 <span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>__00000U <span class="kw">not</span> found</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">r</span>(111);</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="fu">r</span>(111);</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Błąd <code>option over() only allows numeric variables</code>
+<span class="screen-reader-only">Ważne</span>Błąd <code>option over() only allows numeric variables</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <p>W powyższej komendzie <code>repest</code> zakomunikował błąd. Zmienna użyta w <code>over</code> nie może być zmienną zawierającą znaki (<code>string</code>). Należy wtedy użyć drugiego identyfikatora dostępnego w zbiorze, zmiennej <strong><code>CNTRYID</code></strong>, czyli numerycznego kodu ISO krajów (Polska to 616, a Czechy to 203).</p>
 </div>
 </div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb21"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>. repest PISA, estimate(<span class="kw">means</span> PV@MATH) <span class="bn">over</span>(CNTRYID , <span class="kw">test</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>Survey parameters have been changed to PISA2015</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a> <span class="bn">over</span> CNTRYID  = 203 616</span>
@@ -905,7 +908,7 @@ Błąd <code>option over() only allows numeric variables</code>
 <span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>------------+----------------------------------------------------------------</span>
 <span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>=<span class="kw">d</span>          |</span>
 <span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  PV_MATH_m |  1.960846   2.944474     0.67   0.505    -3.810218   7.731909</span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Średnie wyniki uczniów z Polski i Czech <strong>nie różnią się istotnie statystycznie</strong>. Przedziały ufności (Polska: 483–491, Czechy: 484–493) się pokrywają, a test różnicy (ostatni wiersz) pokazuje, że różnica 2 punktów nie jest istotna (p = 0.505). Ponieważ dane pochodzą z próby, uwzględniamy niepewność estymacji – tu brak podstaw, by uznać, że w populacji istnieje istotna różnica między krajami.</p>
 <hr>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -914,7 +917,7 @@ Błąd <code>option over() only allows numeric variables</code>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Różnice między <code>by</code> a <code>over</code>
+<span class="screen-reader-only">Adnotacja</span>Różnice między <code>by</code> a <code>over</code>
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -932,7 +935,7 @@ Różnice między <code>by</code> a <code>over</code>
 <p>W raportach z badania PISA często przedstawia się dane w postaci poziomów umiejętności - zazwyczaj w postaci odsetków uczniów osiągających kolejne progi, zdefiniowane w punktach PISA. W zbiorze PISA nie ma odpowiedniej zmiennej – musimy ją stworzyć.</p>
 <p>O ile wcześniejsze analizy można było w zasadzie wykonywać, kopiując pojedyncze linie do okna poleceń i klikając Enter, to w praktyce wygodniej jest korzystać z <strong>plików poleceń</strong> (<code>do-file</code>). Jest to plik tekstowy (<code>.do</code>) zawierający sekwencję komend, działający jak skrypt. Jest to niezbędne narzędzie do zapewnienia powtarzalności, transparentności i efektywnej organizacji każdej analizy statystycznej. Umożliwia łatwe uruchamianie kodu, wprowadzanie zmian oraz dokumentowanie wszystkich kroków pracy z danymi.</p>
 <p>Aby wyliczyć proporcje uczniów, musimy przekształcić PV (dla matematyki są to zmienne <code>PV1MATH</code> do <code>PV10MATH</code>) na kategorialną zmienną odpowiadającą poziomom biegłości. Poniżej przekodowano wartości do poziomów zdefiniowanych w raporcie międzynarodowym PISA, gdzie wyróżniono poziomy 1a, 1b, 1c, poziom 2, 3, aż do poziomu 6, co łącznie daje 9 kategorii.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb22"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>* Zdefiniuj etykiety wartości dla nowej zmiennej</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">define</span> math_level_labels 0 <span class="st">"Poniżej 1c"</span> <span class="co">///</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                                1 <span class="st">"Poziom 1c"</span> <span class="co">///</span></span>
@@ -962,14 +965,14 @@ Różnice między <code>by</code> a <code>over</code>
 <span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a><span class="kw">label</span> <span class="kw">values</span> math<span class="ot">`i'</span>level math_level_labels</span>
 <span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Wyjaśnienie skryptu rekodowania PV na poziomy umiejętności
+<span class="screen-reader-only">Adnotacja</span>Wyjaśnienie skryptu rekodowania PV na poziomy umiejętności
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -983,7 +986,7 @@ Wyjaśnienie skryptu rekodowania PV na poziomy umiejętności
 </div>
 <p>Powyżej zrekodowano wartości PV do wszystkich poziomów, ale możemy też uprościć rekodowanie, np. wyróżnić kategorię uczniów, którzy są poniżej 2 poziomu (wartość 1) i na poziomie 2 i wyżej (wartość 0).</p>
 <p>Mając te zmienne, możemy wyliczyć odsetki uczniów na poszczególnych poziomach. Wyliczmy to dla Polski.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb23"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>. repest PISA <span class="kw">if</span> cnt==<span class="st">"POL"</span> , estimate(freq math@level)</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>Survey parameters have been changed to PISA2015</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1001,7 +1004,7 @@ Wyjaśnienie skryptu rekodowania PV na poziomy umiejętności
 <span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>math_level_6 |   18.24058   .6846419    26.64   0.000    16.89871   19.58245</span>
 <span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>math_level_7 |   7.499555   .4674799    16.04   0.000    6.583311   8.415799</span>
 <span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>math_level_8 |   1.915414   .2991674     6.40   0.000    1.329057   2.501771</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 <section id="regresja-liniowa" class="level3" data-number="3.3.6">
@@ -1009,7 +1012,7 @@ Wyjaśnienie skryptu rekodowania PV na poziomy umiejętności
 <p>W tym przykładzie przeanalizujemy związek między statusem społeczno-ekonomicznym (ESCS) uczniów z wynikami z matematyki (<code>PV@MATH</code>).</p>
 <p>Opcja <strong><code>results(add(r2 N))</code></strong>: Ta opcja pozwala na dodanie do tabeli wyników dodatkowych statystyk, które są domyślnie przechowywane przez Stata . W tym przypadku dodajemy <strong>R-kwadrat</strong> (<code>e_r2</code>) – miarę dopasowania modelu, oraz <strong>liczbę obserwacji</strong> (<code>e_N</code>).</p>
 <p>Analizy przeprowadzimy osobno dla Polski i dla Czech.</p>
-<div class="sourceCode" id="cb24"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb24"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>* Model regresji liniowej</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>* Zwykły, liniowy efekt</span>
@@ -1068,14 +1071,14 @@ Wyjaśnienie skryptu rekodowania PV na poziomy umiejętności
 <span id="cb24-57"><a href="#cb24-57" aria-hidden="true" tabindex="-1"></a><span class="st">        _cons |   495.7264   2.62605   188.77   0.000     490.5794   500.8733</span></span>
 <span id="cb24-58"><a href="#cb24-58" aria-hidden="true" tabindex="-1"></a><span class="st">         e_r2 |   .1627424   .0128378    12.68   0.000     .1375808    .187904</span></span>
 <span id="cb24-59"><a href="#cb24-59" aria-hidden="true" tabindex="-1"></a><span class="st">          e_N |      5875         .         .       .           .          .</span></span>
-<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a><span class="st">-------------------------------------------------------------------------------</span></span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-60"><a href="#cb24-60" aria-hidden="true" tabindex="-1"></a><span class="st">-------------------------------------------------------------------------------</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Interpretacja wyników regresji liniowej
+<span class="screen-reader-only">Adnotacja</span>Interpretacja wyników regresji liniowej
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1093,7 +1096,7 @@ Interpretacja wyników regresji liniowej
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Nieliniowy efekt ESCS (interakcja zmiennej ze sobą)
+<span class="screen-reader-only">Adnotacja</span>Nieliniowy efekt ESCS (interakcja zmiennej ze sobą)
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -1127,7 +1130,7 @@ Nieliniowy efekt ESCS (interakcja zmiennej ze sobą)
 <p>Dane TIMSS są dostępne w repozytorium na stronie IEA: <a href="https://www.iea.nl/data-tools/repository">https://www.iea.nl/data-tools/repository</a>. Po wejściu do zakładki TIMSS i zaakceptowaniu warunków korzystania możemy pobrać dane. Badanie TIMSS jest prowadzone w klasach 4 i 8. Nas interesuje klasa 4. Dane możemy pobrać w 3 formatach: SAS, SPSS i R. Wybieramy format <strong>SPSS</strong>.</p>
 <p>Po pobraniu danych i skopiowaniu ich do naszego roboczego folderu możemy zacząć pracę. Pobrany plik zawiera nie tylko liczne pliki z danymi, ale także dokumentację umieszczoną w poszczególnych katalogach, co jest dużym ułatwieniem.</p>
 <p>Spójrzmy, jak wygląda ten katalog z okna Stata:</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a> cd C:\timss_data\TIMSS2023_IDB_SPSS_G4</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>C:\timss_data\TIMSS2023_IDB_SPSS_G4</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1138,9 +1141,9 @@ Nieliniowy efekt ESCS (interakcja zmiennej ze sobą)
 <span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot">dir</span>&gt;   6/14/25 13:48  2_Data Files</span>
 <span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot">dir</span>&gt;   6/14/25 13:48  3_Supplemental Material</span>
 <span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>  &lt;<span class="ot">dir</span>&gt;   6/14/25 13:48  4_Reports and Encyclopedia</span>
-<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>   0.1k   6/14/25 13:48  timss2023.org.url</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>   0.1k   6/14/25 13:48  timss2023.org.url</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Nas interesują dane dla Polski . Znajdziemy je w folderze “2_Data Files”, w którym jest podfolder “SPSS Data”.</p>
-<div class="sourceCode" id="cb26"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb26"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>. cd <span class="st">"C:</span><span class="ch">\t</span><span class="st">imss_data\TIMSS2023_IDB_SPSS_G4\2_Data Files\SPSS Data</span><span class="ch">\"</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="st">C:</span><span class="ch">\t</span><span class="st">imss_data\TIMSS2023_IDB_SPSS_G4\2_Data Files\SPSS Data</span></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -1152,12 +1155,12 @@ Nieliniowy efekt ESCS (interakcja zmiennej ze sobą)
 <span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="st">  12.0M   6/14/25 13:48  asppolm8.sav</span></span>
 <span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="st">3152.6k   6/14/25 13:48  asrpolm8.sav</span></span>
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="st">7076.1k   6/14/25 13:48  astpolm8.sav</span></span>
-<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="st"> 283.6k   6/14/25 13:48  atgpolm8.sav</span></span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="st"> 283.6k   6/14/25 13:48  atgpolm8.sav</span></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Interesują nas zbiory zawierające <code>asa</code>, które wczytamy i zapiszemy w formacie Stata. W tym przykładzie używamy tylko danych dla Polski, ale warto pokazać w jaki sposobów możemy przekonwertować dane dla innych krajów.</p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb27"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>usespss asapolm8.sav</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="kw">save</span>    asapolm8.dta, <span class="kw">replace</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 </section>
 <section id="przygotowanie-wag-dla-repest-kluczowy-etap" class="level2" data-number="4.3">
@@ -1166,7 +1169,7 @@ Nieliniowy efekt ESCS (interakcja zmiennej ze sobą)
 <p>IEA stosuje <code>Jackknife Repeated Replication</code> zamiast `<code>Balanced Repeated Replication</code>, ponieważ próbki w TIMSS i PIRLS mają bardziej zróżnicowaną strukturę losowania między krajami. W wielu systemach edukacyjnych nie da się uzyskać symetrycznych, zbalansowanych podpróbek wymaganych przez BRR. JRR jest prostsze i elastyczne – dla każdego kraju tworzy się tyle wag replikacyjnych, ile odpowiada faktycznej liczbie stref losowania.</p>
 <p>W porównaniu z wcześniejszymi edycjami, w TIMSS 2023 liczbę tych stref zwiększono (z 75 do 125), ale liczba stref różni się między krajami. W czasie, gdy piszemy ten poradnik, nie zostalo jeszcze uwzględnione w skrypcie <code>repest</code>.</p>
 <p>Na początek, konieczne jest użycie kodu, który sam dostosuje się do struktury danych. Poniższy skrypt należy uruchomić tylko raz po załadowaniu i połączeniu zbiorów.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb28"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>* -----------------------------------------------------------------------------</span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>* Generowanie wag dla danych z różnymi JKZONE</span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>* -----------------------------------------------------------------------------</span>
@@ -1199,16 +1202,16 @@ Nieliniowy efekt ESCS (interakcja zmiennej ze sobą)
 <span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>* Ile replik wyszło? — TĘ LICZBĘ wpiszesz ręcznie <span class="kw">do</span> NREP()</span>
 <span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a><span class="kw">di</span> <span class="kw">as</span> res <span class="st">"Stref (k): "</span> <span class="ot">`k'</span></span>
 <span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a><span class="kw">di</span> <span class="kw">as</span> res <span class="st">"Replik (r=2*k): "</span> <span class="ot">`r'</span></span>
-<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a><span class="kw">ds</span> JR*, has(<span class="dv">type</span> <span class="kw">numeric</span>)</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a><span class="kw">ds</span> JR*, has(<span class="dv">type</span> <span class="kw">numeric</span>)</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ten kod tworzy odpowiednią liczbę wag replikacyjnych (np. 150 dla TIMSS 2019, lub odpowiednią ich liczbę dla TIMSS 2023 ) metodą Jackknife Repeated Replication.</p>
 <p>Niedogodnością jest to, że analizy możemy prowadzić dla konkretnego kraju, bo w poleceniu repest musimy doprecyzować ich liczbę (jeśli tego nie zrobimy błędy standardowe będą niepoprawne). Temu służy ostatnia część powyżsego bloku poleceń, która wyświetla nam odpowiednie dane.</p>
-<div class="sourceCode" id="cb29"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb29"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a> </span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a> * Ile replik wyszło? — TĘ LICZBĘ wpiszesz ręcznie <span class="kw">do</span> NREP()</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a> <span class="kw">di</span> <span class="kw">as</span> res <span class="st">"Stref (k): "</span> <span class="ot">`k'</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>Stref (<span class="kw">k</span>): 76</span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a> <span class="kw">di</span> <span class="kw">as</span> res <span class="st">"Replik (r=2*k): "</span> <span class="ot">`r'</span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>Replik (<span class="fu">r</span>=2*<span class="kw">k</span>): 152</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>Replik (<span class="fu">r</span>=2*<span class="kw">k</span>): 152</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Widzimy, że w Polsce jest 76 stref i powyższy skrypt stworzył 152 wag replikacyjnych.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -1229,7 +1232,7 @@ Adnotacja
 <h2 data-number="4.4" class="anchored" data-anchor-id="analizy-timss-krok-po-kroku---przykłady"><span class="header-section-number">4.4</span> Analizy TIMSS krok po kroku - przykłady</h2>
 <p>Podstawowe polecenia są bardzo podobne do tych, które pokazywaliśmy dla analiz danych PISA. Różnice sprowadzają się do różnic w nazwach zmiennych i dodaniu liczby wag replikacyjnych.</p>
 <p>Policzmy najpierw średnie wyniki.</p>
-<div class="sourceCode" id="cb30"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb30"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>. . repest TIMSS , estimate(<span class="kw">means</span> ASMMAT0@ ) svyparms(NREP(152))</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>_pooled.....</span>
@@ -1238,12 +1241,12 @@ Adnotacja
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>             | Coefficient  Std. err.      z    P&gt;|z|     [95% conf. interval]</span>
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>-------------+----------------------------------------------------------------</span>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  ASMMAT0__m |   546.0228   2.033083   268.57   0.000      542.038    550.0076</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <section id="różnice-między-płciami-w-polsce" class="level3" data-number="4.4.1">
 <h3 data-number="4.4.1" class="anchored" data-anchor-id="różnice-między-płciami-w-polsce"><span class="header-section-number">4.4.1</span> Różnice między płciami w Polsce</h3>
 <p>Policzmy teraz różnice między chłopcami i dziewczętami w Polsce. Policzenie różnic w średnich jest proste i nie różni się od przykładów opisanych powyżej. Użyjemy opcji <strong><code>estimate(means ASMMAT0@ ) over(ITSEX , test)</code></strong>, czyli podmienimy zmienną <code>IDCNTRY</code> na zmienną, w której jest informacja o płci, czyli <code>ITSEX</code>.</p>
 <p>Poniżej przyjrzymy się oszacowaniom wybranych percentyli i różnicom tych oszacowań dla chłopców i dziewcząt.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb31"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>repest TIMSS , estimate(<span class="kw">summarize</span> ASMMAT0@, <span class="kw">stats</span>(<span class="kw">mean</span> p10 p25 p50 p75 p90)) <span class="bn">over</span>(ITSEX, <span class="kw">test</span>) svyparms(NREP(152))</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a> <span class="bn">over</span> ITSEX = 1 2 </span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>(file C:\Users\IBE-2660\AppData\Local\Temp\ST_2150_000005.tmp <span class="kw">not</span> found)</span>
@@ -1279,14 +1282,14 @@ Adnotacja
 <span id="cb31-34"><a href="#cb31-34" aria-hidden="true" tabindex="-1"></a> ASMMAT0__p50 |   11.87034   5.404963     2.20   0.028     1.276807    22.46387</span>
 <span id="cb31-35"><a href="#cb31-35" aria-hidden="true" tabindex="-1"></a> ASMMAT0__p75 |   12.54714    4.43619     2.83   0.005     3.852365    21.24191</span>
 <span id="cb31-36"><a href="#cb31-36" aria-hidden="true" tabindex="-1"></a> ASMMAT0__p90 |   14.03136   6.960439     2.02   0.044     .3891518    27.67357</span>
-<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a>-------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-37"><a href="#cb31-37" aria-hidden="true" tabindex="-1"></a>-------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>W tabeli zestawiono <strong>percentyle wyników z matematyki dla dziewcząt (<code>ITSEX=1</code>) i chłopców (<code>ITSEX=2</code>) w Polsce oraz różnice między nimi (<code>ITSEX=d</code>)</strong>. Różnica średnich wynosi 10.6 pkt i jest istotna statystycznie, błąd standardowy to 3,2 pkt, a 95% przedział ufności oszacowania tej różnicy to 4,4-16,9 pkt. Wartości percentyli sugerują, że przewaga chłopców jest wyraźniejsza w górnej części rozkładu – np. mediana (p50) chłopców jest wyższa o około 12 punktów, a różnica ta jest statystycznie istotna. W dolnej części rozkładu (p10, p25) różnice są mniejsze i często nieistotne.</p>
 <hr>
 </section>
 <section id="poziomy-umiejętności" class="level3" data-number="4.4.2">
 <h3 data-number="4.4.2" class="anchored" data-anchor-id="poziomy-umiejętności"><span class="header-section-number">4.4.2</span> Poziomy umiejętności</h3>
 <p>W zbiorze TIMSS mamy zmienną opisującą poziomy umiejętności, a właściwie 5 osobnych zmiennych wyliczonych dla każdej z <code>pv</code>. Korzystając z komendy <code>fre</code> (<code>ssc install fre</code>) przyjrzymy się pierwszej z tej grupy zmiennych:</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb32"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>. fre ASMIBM01</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>ASMIBM01 -- INTERN. MATH BENCH REACHED WITH 1ST PV</span>
@@ -1299,9 +1302,9 @@ Adnotacja
 <span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>        4 At <span class="kw">or</span> above 550 but below 625 |       1695     36.33      36.33      85.64</span>
 <span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>        5 At <span class="kw">or</span> above 625                  |        670     14.36      14.36     100.00</span>
 <span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>        Total                                |       4666    100.00     100.00</span>
-<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>-------------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>-------------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Ta zmienna to przekodowana zmienna <code>pv</code>, według zdefiniowanych w badaniu granic poszczególnych poziomów. Powyższy rozkład jest nieważony. Aby uzyskać rozkład populacyjny, musimy użyć wag i uśrednić je dla wszystkich wartości <code>pv</code>. Tu z pomocą przychodzi <code>repest</code>:</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb33"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>. repest TIMSS , estimate(freq ASMIBM0@) svyparms(NREP(152))</span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>_pooled.....</span>
@@ -1314,10 +1317,10 @@ Adnotacja
 <span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>  ASMIBM0__3 |   32.43265   .9518056    34.07   0.000     30.56714    34.29815</span>
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>  ASMIBM0__4 |   36.15421   1.047753    34.51   0.000     34.10065    38.20777</span>
 <span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>  ASMIBM0__5 |   14.37602   .8519447    16.87   0.000     12.70624     16.0458</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>W kolumnie <strong><code>Coefficient</code></strong> mamy wyliczenia odsetków uczniów na kolejnych poziomach, np. pierwszy wiersz pokazuje oszacowanie odsetka uczniów, których wynik jest niższy niż 400 pkt na skali TIMSS. W Polsce jest to około <strong>4% uczniów</strong> (przedział ufności CI95 to 2.9–4.7% uczniów).</p>
 <p>Możemy też wyliczyć bardziej rozbudowane porównania. Wróćmy do przykładu z różnicami ze względu na płeć:</p>
-<div class="sourceCode" id="cb34"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb34"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>. repest TIMSS  , estimate(freq ASMIBM0@) <span class="bn">over</span>(ITSEX, <span class="kw">test</span>) svyparms(NREP(152))</span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a> <span class="bn">over</span> ITSEX = 1 2 </span>
@@ -1348,7 +1351,7 @@ Adnotacja
 <span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>  ASMIBM0__3 |   -4.24911   1.629858    -2.61   0.009    -7.443573   -1.054647</span>
 <span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>  ASMIBM0__4 |   2.018596   2.418225     0.83   0.404    -2.721038     6.75823</span>
 <span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>  ASMIBM0__5 |   4.590739   1.858332     2.47   0.013     .9484761    8.233002</span>
-<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>------------------------------------------------------------------------------</span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button"><i class="bi"></i></button></div>
 <p>Porównanie odsetków uczniów osiągających różne poziomy umiejętności pokazuje, że chłopcy częściej niż dziewczęta osiągają najwyższy poziom (625+), a rzadziej poziomy niższe. Na przykład 16.7% chłopców osiąga najwyższy poziom wobec 12.1% dziewcząt. Różnica ta jest istotna statystycznie.</p>
 <p>Największe różnice występują na poziomach 3 i 5 — chłopcy rzadziej znajdują się na poziomie 3 (30.3% vs 34.6%), a częściej na poziomie najwyższym (16.7% vs 12.1%). Może to sugerować, że wśród chłopców jest więcej uczniów o bardzo wysokich osiągnięciach, mimo że różnice w średnich wynikach były umiarkowane.</p>
 
@@ -1411,13 +1414,14 @@ Adnotacja
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
@@ -1810,7 +1814,7 @@ Adnotacja
     }
   });
   </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Kod źródłowy</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb35" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb35" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Analiza danych z badań międzynarodowych w Stata z użyciem pakietu `repest`"</span></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Michał Sitek, IBE PIB, m.sitek@ibe.edu.pl"</span></span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
@@ -3000,7 +3004,7 @@ Adnotacja
 <span id="cb35-1188"><a href="#cb35-1188" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-1189"><a href="#cb35-1189" aria-hidden="true" tabindex="-1"></a>Największe różnice występują na poziomach 3 i 5 — chłopcy rzadziej znajdują się na poziomie 3 (30.3% vs 34.6%), a częściej na poziomie najwyższym (16.7% vs 12.1%). Może to sugerować, że wśród chłopców jest więcej uczniów o bardzo wysokich osiągnięciach, mimo że różnice w średnich wynikach były umiarkowane.</span>
 <span id="cb35-1190"><a href="#cb35-1190" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-1191"><a href="#cb35-1191" aria-hidden="true" tabindex="-1"></a></span></code><button title="Kopiuj do schowka" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></pre></div>
+<span id="cb35-1191"><a href="#cb35-1191" aria-hidden="true" tabindex="-1"></a></span></code></pre></div><button title="Kopiuj do schowka" class="code-copy-button" data-in-quarto-modal=""><i class="bi"></i></button></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
