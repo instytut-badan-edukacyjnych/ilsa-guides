@@ -57,3 +57,6 @@ rsconnect/
 /en/*.docx
 # ...ale szablon reference-doc do DOCX trzymamy w repo:
 !/pl/reference-spss.docx
+
+# LaTeX / render logs
+*.log
