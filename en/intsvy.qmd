@@ -35,7 +35,7 @@ The `intsvy` R package was developed for data analysts, scientists, and students
 
 - [Full documentation](https://github.com/eldafani/intsvy)
 - [CRAN documentation](https://cran.r-project.org/package=intsvy)
-- [Video tutorials](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/filmy-instruktazowe)
+- [Video tutorials](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/materialy-do-analizy-danych/filmy-instruktazowe)
 - [Use examples](https://www.daniel-caro.com/intsvy)
 :::
 

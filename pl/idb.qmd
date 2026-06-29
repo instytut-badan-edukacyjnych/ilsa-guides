@@ -48,7 +48,7 @@ IEA IDB Analyzer nie wykonuje analiz samodzielnie – generuje gotowy kod, któr
 
 - Narzędzie jest dostępne do pobrania ze strony [IEA Data and Tools](https://www.iea.nl/data-tools/tools)
 - Szczegółowa dokumentacja, w tym instrukcja obsługi, znajduje się w interfejsie aplikacji pod przyciskiem „Help"
-- Na stronie [Instytutu Badań Edukacyjnych - Państwowego Instytutu Badawczego ](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/filmy-instruktazowe) dostępne są filmy instruktażowe pokaujące jak wykorzystać pakiet IEA IDB Analyzer do analizy danych z badań międzynarodowych.
+- Na stronie [Instytutu Badań Edukacyjnych - Państwowego Instytutu Badawczego ](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/materialy-do-analizy-danych/filmy-instruktazowe) dostępne są filmy instruktażowe pokaujące jak wykorzystać pakiet IEA IDB Analyzer do analizy danych z badań międzynarodowych.
 :::
 ```{=latex}
 \newpage

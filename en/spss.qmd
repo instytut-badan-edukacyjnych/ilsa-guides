@@ -1001,7 +1001,7 @@ have been read in and prepared correctly.
 - **PISA**: [www.oecd.org/pisa/data](https://www.oecd.org/pisa/data){target="_blank"}
 - **TALIS**: [www.oecd.org/en/about/programmes/talis.html#data](https://www.oecd.org/en/about/programmes/talis.html#data){target="_blank"}
 - **PIAAC**: [www.oecd.org/skills/piaac/data](https://www.oecd.org/skills/piaac/data){target="_blank"}
-- **SSES** (*Survey on Social and Emotional Skills*): [www.oecd.org/en/about/programmes/sses.html](https://www.oecd.org/en/about/programmes/sses.html){target="_blank"}
+- **SSES** (*Survey on Social and Emotional Skills*): [www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data](https://www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data){target="_blank"}
 - **Polish national questions and IBE-PIB data**: [www.ibe.edu.pl/en/data](https://www.ibe.edu.pl/en/data){target="_blank"}
 
 ## Technical documentation

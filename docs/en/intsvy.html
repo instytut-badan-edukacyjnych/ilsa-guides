@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.31">
+<meta name="generator" content="quarto-1.9.37">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -11,6 +11,9 @@
 
 <title>Analysis of data from International Educational Studies using the R intsvy package – ILSA Guides – IBE</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -73,10 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-e1a5c8363afafaef2c763b6775fbf3ca.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-991b1886d3c685c7aa2b62b80640c7af.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-ece42c8223ec2bf36298a08f122c9a68.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -174,7 +177,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">IDB Analyzer</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../en/spss.qmd">
+    <a class="dropdown-item" href="../en/spss.html">
  <span class="dropdown-text">SPSS</span></a>
   </li>  
     </ul>
@@ -276,14 +279,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Additional resources
+<span class="screen-reader-only">Note</span>Additional resources
 </div>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
 <li><a href="https://github.com/eldafani/intsvy">Full documentation</a></li>
 <li><a href="https://cran.r-project.org/package=intsvy">CRAN documentation</a></li>
-<li><a href="https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/filmy-instruktazowe">Video tutorials</a></li>
+<li><a href="https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/materialy-do-analizy-danych/filmy-instruktazowe">Video tutorials</a></li>
 <li><a href="https://www.daniel-caro.com/intsvy">Use examples</a></li>
 </ul>
 </div>
@@ -304,7 +307,7 @@ Additional resources
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Important limitations
+<span class="screen-reader-only">Warning</span>Important limitations
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -368,13 +371,13 @@ Important limitations
 <h2 data-number="2" class="anchored" data-anchor-id="package-installation"><span class="header-section-number">2</span> Package installation</h2>
 <p>As with other R packages, you can install and load <code>intsvy</code> using following commands:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"intsvy"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(intsvy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"intsvy"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(intsvy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>You can also install the <code>haven</code> package in case you will need another way to work with <code>.sav</code> files (SPSS):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"haven"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"haven"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(haven)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="downloading-data" class="level2" data-number="3">
@@ -412,7 +415,7 @@ Tip
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-IEA file naming example
+<span class="screen-reader-only">Note</span>IEA file naming example
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -432,7 +435,7 @@ IEA file naming example
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Examples of PISA file naming
+<span class="screen-reader-only">Note</span>Examples of PISA file naming
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -462,13 +465,13 @@ Important
 <section id="data-from-iea-studies" class="level4" data-number="3.2.1">
 <h4 data-number="3.2.1" class="anchored" data-anchor-id="data-from-iea-studies"><span class="header-section-number">3.2.1</span> Data from IEA studies</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>timss23 <span class="ot">&lt;-</span> <span class="fu">timssg4.select.merge</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>timss23 <span class="ot">&lt;-</span> <span class="fu">timssg4.select.merge</span>(</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">folder =</span> <span class="st">"C:/ILSA/TIMSS/T23_Data_SPSS_G4/SPSS Data"</span>,</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">countries =</span> <span class="fu">c</span>(<span class="st">"AUS"</span>, <span class="st">"BHR"</span>, <span class="st">"ARM"</span>, <span class="st">"POL"</span>),</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">student =</span> <span class="fu">c</span>(<span class="st">"ITSEX"</span>, <span class="st">"ASDAGE"</span>, <span class="st">"ASBGSLM"</span>),</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">home =</span> <span class="fu">c</span>(<span class="st">"ASBH01A"</span>, <span class="st">"ASBH01K"</span>),</span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">school =</span> <span class="fu">c</span>(<span class="st">"ACBGDAS"</span>)</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>In the example above, we are merging data from TIMSS 2023. Make sure that the path to the folder with the data (<code>folder</code> argument) leads to the location where the data downloaded from the IEA website has been saved. Remember that in R, backslashes <code>\</code> (used in Windows) should be replaced with forward slashes <code>/</code>.</p>
 <p>Arguments <code>countries</code>, <code>student</code>, <code>home</code>, and <code>school</code> allow you to select specific countries and variables according to the type of survey tool. In the example, Australia, Bahrain, Armenia, and Poland were selected, along with variables from the student, parent, and school questionnaires. The <code>timss23</code> object contains selected data from the TIMSS 2023 study specified in the <code>student</code>, <code>home</code>, and <code>school</code> arguments, as well as default variables such as plausible values.</p>
@@ -486,21 +489,21 @@ Tip
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">timssg4.var.label</span>(<span class="at">folder =</span> <span class="st">"C:/ILSA/TIMSS/T23_Data_SPSS_G4/SPSS Data"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">timssg4.var.label</span>(<span class="at">folder =</span> <span class="st">"C:/ILSA/TIMSS/T23_Data_SPSS_G4/SPSS Data"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="data-from-oecd-studies" class="level4" data-number="3.2.2">
 <h4 data-number="3.2.2" class="anchored" data-anchor-id="data-from-oecd-studies"><span class="header-section-number">3.2.2</span> Data from OECD studies</h4>
 <p>Loading data from a PISA study is similar, but requires specifying the names of the files containing the data.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pisa22 <span class="ot">&lt;-</span> <span class="fu">pisa.select.merge</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>pisa22 <span class="ot">&lt;-</span> <span class="fu">pisa.select.merge</span>(</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">folder =</span> <span class="st">"C:/ILSA/PISA"</span>,</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">school.file =</span> <span class="st">"CY08MSP_SCH_QQQ.SAV"</span>,</span>
 <span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">student.file =</span> <span class="st">"CY08MSP_STU_QQQ.SAV"</span>,</span>
 <span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">student =</span> <span class="fu">c</span>(<span class="st">"ST250Q02JA"</span>, <span class="st">"ESCS"</span>, <span class="st">"ST004D01T"</span>),</span>
 <span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">school =</span> <span class="fu">c</span>(<span class="st">"SC001Q01TA"</span>),</span>
 <span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">countries =</span> <span class="fu">c</span>(<span class="st">"Australia"</span>, <span class="st">"Canada"</span>, <span class="st">"Peru"</span>, <span class="st">"Poland"</span>)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -594,7 +597,7 @@ Note
 <section id="means" class="level3" data-number="5.1">
 <h3 data-number="5.1" class="anchored" data-anchor-id="means"><span class="header-section-number">5.1</span> Means</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean scores in mathematics by country and gender in TIMSS</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Mean scores in mathematics by country and gender in TIMSS</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">timss.mean.pv</span>(</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pvlabel =</span> <span class="fu">paste0</span>(<span class="st">"ASMMAT0"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), </span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"IDCNTRYL"</span>, <span class="st">"ITSEX"</span>), </span>
@@ -606,23 +609,23 @@ Note
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">pvlabel =</span> <span class="fu">paste0</span>(<span class="st">"PV"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="st">"MATH"</span>), </span>
 <span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"CNT"</span>, <span class="st">"ST004D01T"</span>), </span>
 <span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pisa22</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="frequency-tables" class="level3" data-number="5.2">
 <h3 data-number="5.2" class="anchored" data-anchor-id="frequency-tables"><span class="header-section-number">5.2</span> Frequency tables</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency tables of students' gender (TIMSS)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency tables of students' gender (TIMSS)</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">timss.table</span>(<span class="at">variable =</span> <span class="st">"ITSEX"</span>, <span class="at">by =</span> <span class="st">"IDCNTRYL"</span>, <span class="at">data =</span> timss23)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Frequency tables of students' gender (PISA)</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pisa.table</span>(<span class="at">variable =</span> <span class="st">"ST004D01T"</span>, <span class="at">by =</span> <span class="st">"CNT"</span>, <span class="at">data =</span> pisa22)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">pisa.table</span>(<span class="at">variable =</span> <span class="st">"ST004D01T"</span>, <span class="at">by =</span> <span class="st">"CNT"</span>, <span class="at">data =</span> pisa22)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="linear-regression" class="level3" data-number="5.3">
 <h3 data-number="5.3" class="anchored" data-anchor-id="linear-regression"><span class="header-section-number">5.3</span> Linear regression</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The effect of student's gender and early activities relating to counting (ASBH01K) </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The effect of student's gender and early activities relating to counting (ASBH01K) </span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># on mathematics scores in TIMSS</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="fu">timss.reg.pv</span>(</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pvlabel =</span> <span class="fu">paste0</span>(<span class="st">"ASMMAT0"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), </span>
@@ -637,13 +640,13 @@ Note
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="st">"CNT"</span>, </span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">c</span>(<span class="st">"ESCS"</span>), </span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pisa22</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="logistic-regression" class="level3" data-number="5.4">
 <h3 data-number="5.4" class="anchored" data-anchor-id="logistic-regression"><span class="header-section-number">5.4</span> Logistic regression</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability of achieving ≥550 points in mathematics in TIMSS based on</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability of achieving ≥550 points in mathematics in TIMSS based on</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># gender and attitude towards mathematics (ASBGSLM)</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">timss.log.pv</span>(</span>
 <span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pvlabel =</span> <span class="fu">paste0</span>(<span class="st">"ASMMAT0"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), </span>
@@ -654,13 +657,13 @@ Note
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Probability of having a computer at home depending on socioeconomic status (ESCS) in PISA</span></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">pisa.log</span>(<span class="at">y =</span> <span class="st">"ST250Q02JA"</span>, <span class="at">x =</span> <span class="st">"ESCS"</span>, <span class="at">by =</span> <span class="st">"CNT"</span>, <span class="at">data =</span> pisa22)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="fu">pisa.log</span>(<span class="at">y =</span> <span class="st">"ST250Q02JA"</span>, <span class="at">x =</span> <span class="st">"ESCS"</span>, <span class="at">by =</span> <span class="st">"CNT"</span>, <span class="at">data =</span> pisa22)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="percentiles" class="level3" data-number="5.5">
 <h3 data-number="5.5" class="anchored" data-anchor-id="percentiles"><span class="header-section-number">5.5</span> Percentiles</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Percentiles of mathematics achievement in TIMSS (e.g., 5, 25, 50, 75, 95)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Percentiles of mathematics achievement in TIMSS (e.g., 5, 25, 50, 75, 95)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">timss.per.pv</span>(</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">pvlabel =</span> <span class="fu">paste0</span>(<span class="st">"ASMMAT0"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), </span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">per =</span> <span class="fu">c</span>(<span class="dv">5</span>, <span class="dv">25</span>, <span class="dv">50</span>, <span class="dv">75</span>, <span class="dv">95</span>), </span>
@@ -674,13 +677,13 @@ Note
 <span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">per =</span> <span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">25</span>, <span class="dv">75</span>, <span class="dv">90</span>), </span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="st">"CNT"</span>, </span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pisa22</span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="calculating-the-percentage-of-students-at-each-skill-level" class="level3" data-number="5.6">
 <h3 data-number="5.6" class="anchored" data-anchor-id="calculating-the-percentage-of-students-at-each-skill-level"><span class="header-section-number">5.6</span> Calculating the percentage of students at each skill level</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The percentage of students in TIMSS achieving scores equal to or above </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The percentage of students in TIMSS achieving scores equal to or above </span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># the benchmarks: 400, 475, 550, 625 points</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="fu">timss.ben.pv</span>(</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">pvlabel =</span> <span class="fu">paste0</span>(<span class="st">"ASMMAT0"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>), </span>
@@ -696,7 +699,7 @@ Note
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">by =</span> <span class="st">"CNT"</span>, </span>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="at">cutoff =</span> <span class="fu">c</span>(<span class="dv">355</span>, <span class="dv">407</span>, <span class="dv">480</span>, <span class="dv">553</span>, <span class="dv">626</span>, <span class="dv">698</span>), </span>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> pisa22</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -709,7 +712,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Additional export functionalities
+<span class="screen-reader-only">Tip</span>Additional export functionalities
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -720,7 +723,7 @@ Additional export functionalities
 <section id="plotting-means" class="level3" data-number="6.1">
 <h3 data-number="6.1" class="anchored" data-anchor-id="plotting-means"><span class="header-section-number">6.1</span> Plotting means</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A scatter plot with confidence intervals showing mean scores in mathematics</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A scatter plot with confidence intervals showing mean scores in mathematics</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># by country and gender (TIMSS)</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.intsvy.mean</span>(</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(</span>
@@ -730,7 +733,7 @@ Additional export functionalities
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> timss23</span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -741,7 +744,7 @@ Additional export functionalities
 <section id="plotting-regression-results" class="level3" data-number="6.2">
 <h3 data-number="6.2" class="anchored" data-anchor-id="plotting-regression-results"><span class="header-section-number">6.2</span> Plotting regression results</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A plot of the relationship between socioeconomic status (ESCS)</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A plot of the relationship between socioeconomic status (ESCS)</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># and student achievement in mathematics by country (PISA)</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.intsvy.reg</span>(</span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(</span>
@@ -752,7 +755,7 @@ Additional export functionalities
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">data =</span> pisa22</span>
 <span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  )</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -763,7 +766,7 @@ Additional export functionalities
 <section id="plotting-frequencies" class="level3" data-number="6.3">
 <h3 data-number="6.3" class="anchored" data-anchor-id="plotting-frequencies"><span class="header-section-number">6.3</span> Plotting frequencies</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A stacked bar plot showing the distribution of students' gender</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A stacked bar plot showing the distribution of students' gender</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># in each country (TIMSS)</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot.intsvy.table</span>(</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>(</span>
@@ -774,7 +777,7 @@ Additional export functionalities
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  ), </span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">stacked =</span> <span class="cn">TRUE</span></span>
-<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -792,7 +795,7 @@ Additional export functionalities
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Take home messages
+<span class="screen-reader-only">Important</span>Take home messages
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -858,13 +861,14 @@ Take home messages
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

@@ -1400,9 +1400,9 @@ repetitive procedures, ensuring support for multiple studies and
 compliance of the conducted analyses with OECD and IEA research
 methodology. At the same time, it should be noted that the package does
 not cover the full range of analyses available, for example, in the
-[**IEA IDB Analyzer**](https://ibe.edu.pl/pl/dane/instrukcje/idb-analyzer)
+[**IEA IDB Analyzer**](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng)
 or in the [**intsvy**
-package](https://ibe.edu.pl/pl/dane/instrukcje/intsvy).
+package](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/intsvy-eng).
 
 We encourage you to use the package in your own research projects, test
 its functionality in the analysis of data from international educational

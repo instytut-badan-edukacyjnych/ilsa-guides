@@ -35,7 +35,7 @@ Pakiet `intsvy` w R to narzędzie stworzone m.in. dla analityków, naukowców i 
 
 - [Pełna dokumentacja](https://github.com/eldafani/intsvy)
 - [Dokumentacja CRAN](https://cran.r-project.org/package=intsvy)
-- [Filmy instruktażowe](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/filmy-instruktazowe)
+- [Filmy instruktażowe](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/materialy-do-analizy-danych/filmy-instruktazowe)
 - [Przykłady wykorzystania](https://www.daniel-caro.com/intsvy)
 :::
 

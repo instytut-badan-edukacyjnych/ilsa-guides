@@ -1187,7 +1187,7 @@ print(Analysis_06, width = 200)
 
 # Podsumowanie
 
-Pakiet **Rrepest** może być traktowany jako dogodna alternatywa dla programu **IEA IDB Analyzer** w zakresie wykonywania analiz danych z międzynarodowych badań edukacyjnych, szczególnie dla osób pracujących głównie w środowisku R. Rrepest umożliwia automatyzację wielu powtarzalnych procedur, zapewniając obsługę wielu badań edukacyjnych oraz zgodność przeprowadzonych analiz z metodologią badań OECD i IEA. Jednocześnie należy zaznaczyć, że pakiet ten nie obejmuje pełnego zakresu analiz dostępnych np. w [**IEA IDB Analyzer**](https://ibe.edu.pl/pl/dane/instrukcje/idb-analyzer) lub w [**pakiecie intsvy**](https://ibe.edu.pl/pl/dane/instrukcje/intsvy).
+Pakiet **Rrepest** może być traktowany jako dogodna alternatywa dla programu **IEA IDB Analyzer** w zakresie wykonywania analiz danych z międzynarodowych badań edukacyjnych, szczególnie dla osób pracujących głównie w środowisku R. Rrepest umożliwia automatyzację wielu powtarzalnych procedur, zapewniając obsługę wielu badań edukacyjnych oraz zgodność przeprowadzonych analiz z metodologią badań OECD i IEA. Jednocześnie należy zaznaczyć, że pakiet ten nie obejmuje pełnego zakresu analiz dostępnych np. w [**IEA IDB Analyzer**](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer) lub w [**pakiecie intsvy**](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/intsvy).
 
 Zachęcamy do wykorzystywania pakietu we własnych projektach badawczych, testowania jego funkcjonalności w analizie danych z międzynarodowych badań edukacyjnych oraz do zgłaszania uwag i propozycji usprawnień bezpośrednio do autorów pakietu poprzez [**repozytorium GitLab**](https://gitlab.algobank.oecd.org/edu_data/rrepest).
 
