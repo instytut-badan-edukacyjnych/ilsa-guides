@@ -655,7 +655,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="downloading-data-1" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="downloading-data-1"><span class="header-section-number">3.1</span> Downloading data</h2>
 <ul>
-<li>Go to the OECD page with PISA 2022 data: <a href="https://www.oecd.org/pisa/data/2022database/">https://www.oecd.org/pisa/data/2022database/</a></li>
+<li>Go to the OECD page with PISA 2022 data: <a href="https://www.oecd.org/pisa/data/2022database/" target="_blank">https://www.oecd.org/pisa/data/2022database/</a></li>
 <li>After completing a short survey, you’ll see a list of files in SAS and SPSS format. These are data from different study modules. We need the student survey data, which also include test scores.</li>
 <li>Stata has built-in capability to import SAS files (but without the provided label file). SPSS files (.sav) can be imported with <code>import spss</code> command, but this command struggles with very large datasets and doesn’t handle longer variable and value labels well.</li>
 </ul>
@@ -1172,7 +1172,7 @@ label values math`i'level math_level_labels
 <h2 data-number="4.2" class="anchored" data-anchor-id="preparing-timss-data"><span class="header-section-number">4.2</span> Preparing TIMSS data</h2>
 <section id="downloading-and-combining-data" class="level3" data-number="4.2.1">
 <h3 data-number="4.2.1" class="anchored" data-anchor-id="downloading-and-combining-data"><span class="header-section-number">4.2.1</span> Downloading and combining data</h3>
-<p>TIMSS data are available from the IEA repository: <a href="https://www.iea.nl/data-tools/repository">https://www.iea.nl/data-tools/repository</a>. Choose the TIMSS section, accept the terms, and you can download the data. TIMSS is conducted in grades 4 and 8. We’re interested in grade 4. Data can be downloaded in three formats: SAS, SPSS, and R. Choose <strong>SPSS</strong>.</p>
+<p>TIMSS data are available from the IEA repository: <a href="https://www.iea.nl/data-tools/repository" target="_blank">https://www.iea.nl/data-tools/repository</a>. Choose the TIMSS section, accept the terms, and you can download the data. TIMSS is conducted in grades 4 and 8. We’re interested in grade 4. Data can be downloaded in three formats: SAS, SPSS, and R. Choose <strong>SPSS</strong>.</p>
 <p>After downloading, copy the files to your working directory, The downloaded package contains multiple data files and documentation in separate folders. This is is very helpful.</p>
 <p>Let’s see what the directory looks like from Stata’s window:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb25"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a></span>
@@ -2243,7 +2243,7 @@ Note
 <span id="cb35-377"><a href="#cb35-377" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-378"><a href="#cb35-378" aria-hidden="true" tabindex="-1"></a><span class="fu">## Downloading data</span></span>
 <span id="cb35-379"><a href="#cb35-379" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-380"><a href="#cb35-380" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Go to the OECD page with PISA 2022 data: <span class="co">[</span><span class="ot">https://www.oecd.org/pisa/data/2022database/</span><span class="co">](https://www.oecd.org/pisa/data/2022database/)</span></span>
+<span id="cb35-380"><a href="#cb35-380" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Go to the OECD page with PISA 2022 data: <span class="co">[</span><span class="ot">https://www.oecd.org/pisa/data/2022database/</span><span class="co">](https://www.oecd.org/pisa/data/2022database/)</span>{target="_blank"}</span>
 <span id="cb35-381"><a href="#cb35-381" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>After completing a short survey, you’ll see a list of files in SAS and SPSS format. These are data from different study modules. We need the student survey data, which also include test scores.</span>
 <span id="cb35-382"><a href="#cb35-382" aria-hidden="true" tabindex="-1"></a><span class="ss">  * </span>Stata has built-in capability to import SAS files (but without the provided label file). SPSS files (.sav) can be imported with <span class="in">`import spss`</span> command, but this command struggles with very large datasets and doesn't handle longer variable and value labels well.</span>
 <span id="cb35-383"><a href="#cb35-383" aria-hidden="true" tabindex="-1"></a></span>
@@ -2830,7 +2830,7 @@ Note
 <span id="cb35-964"><a href="#cb35-964" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-965"><a href="#cb35-965" aria-hidden="true" tabindex="-1"></a><span class="fu">### Downloading and combining data</span></span>
 <span id="cb35-966"><a href="#cb35-966" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-967"><a href="#cb35-967" aria-hidden="true" tabindex="-1"></a>TIMSS data are available from the IEA repository: <span class="co">[</span><span class="ot">https://www.iea.nl/data-tools/repository</span><span class="co">](https://www.iea.nl/data-tools/repository)</span>. Choose the TIMSS section, accept the terms, and you can download the data. TIMSS is conducted in grades 4 and 8. We're interested in grade 4. Data can be downloaded in three formats: SAS, SPSS, and R. Choose **SPSS**.</span>
+<span id="cb35-967"><a href="#cb35-967" aria-hidden="true" tabindex="-1"></a>TIMSS data are available from the IEA repository: <span class="co">[</span><span class="ot">https://www.iea.nl/data-tools/repository</span><span class="co">](https://www.iea.nl/data-tools/repository)</span>{target="_blank"}. Choose the TIMSS section, accept the terms, and you can download the data. TIMSS is conducted in grades 4 and 8. We're interested in grade 4. Data can be downloaded in three formats: SAS, SPSS, and R. Choose **SPSS**.</span>
 <span id="cb35-968"><a href="#cb35-968" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-969"><a href="#cb35-969" aria-hidden="true" tabindex="-1"></a>After downloading, copy the files to your working directory, The downloaded package contains multiple data files and documentation in separate folders. This is is very helpful.</span>
 <span id="cb35-970"><a href="#cb35-970" aria-hidden="true" tabindex="-1"></a></span>

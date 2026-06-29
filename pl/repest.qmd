@@ -385,7 +385,7 @@ Zaczniemy od badania PISA.
 
 ## Pobieranie danych
 
-  * Wejdź na stronę OECD z danymi PISA 2022: [https://www.oecd.org/pisa/data/2022database/](https://www.oecd.org/pisa/data/2022database/)
+  * Wejdź na stronę OECD z danymi PISA 2022: [https://www.oecd.org/pisa/data/2022database/](https://www.oecd.org/pisa/data/2022database/){target="_blank"}
   * Po wypełnieniu krótkiej ankiety zobaczysz listę plików w formacie SAS i SPSS. Są to dane z różnych modułów badania. Nas interesują dane z ankiety uczniów, w których są też ich wyniki. Stata ma wbudowaną możliwość importowania plików SAS (ale bez udostępnianego pliku z etykietami), możliwe jest też importowanie plików SPSS (.sav) przy pomocy komendy `import spss`, ale komenda ta słabo sobie radzi z bardzo dużymi zbiorami danych i dłuższymi etykietami zmiennych i wartości.
 
 Utwórz na swoim komputerze folder na dane, np. `C:/pisa_data/`.
@@ -904,7 +904,7 @@ Gdzie:
 
 ### Pobieranie i łączenie danych
 
-Dane TIMSS są dostępne w repozytorium na stronie IEA: [https://www.iea.nl/data-tools/repository](https://www.iea.nl/data-tools/repository). Po wejściu do zakładki TIMSS i zaakceptowaniu warunków korzystania możemy pobrać dane. Badanie TIMSS jest prowadzone w klasach 4 i 8. Nas interesuje klasa 4. Dane możemy pobrać w 3 formatach: SAS, SPSS i R. Wybieramy format **SPSS**.
+Dane TIMSS są dostępne w repozytorium na stronie IEA: [https://www.iea.nl/data-tools/repository](https://www.iea.nl/data-tools/repository){target="_blank"}. Po wejściu do zakładki TIMSS i zaakceptowaniu warunków korzystania możemy pobrać dane. Badanie TIMSS jest prowadzone w klasach 4 i 8. Nas interesuje klasa 4. Dane możemy pobrać w 3 formatach: SAS, SPSS i R. Wybieramy format **SPSS**.
 
 Po pobraniu danych i skopiowaniu ich do naszego roboczego folderu możemy zacząć pracę. Pobrany plik zawiera nie tylko liczne pliki z danymi, ale także dokumentację umieszczoną w poszczególnych katalogach, co jest dużym ułatwieniem.
 

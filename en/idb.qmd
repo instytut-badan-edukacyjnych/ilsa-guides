@@ -49,11 +49,11 @@ The IEA IDB Analyzer does not perform analyses independently - it generates read
 ::: {.callout-tip}
 ## Additional Resources
 
-- The IEA IDB Analyzer is available for download from the [IEA Data and Tools](https://www.iea.nl/data-tools/tools) website.
+- The IEA IDB Analyzer is available for download from the [IEA Data and Tools](https://www.iea.nl/data-tools/tools){target="_blank"} website.
 
 - Detailed documentation, including a user manual, can be found in the application interface under the "Help" button.
 
-- The [Educational Research Institute - National Research Institute ](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/materialy-do-analizy-danych/filmy-instruktazowe) website features instructional videos (prepared in Polish) demonstrating how to use the IEA IDB Analyzer package to analyze data from international studies.
+- The [Educational Research Institute - National Research Institute ](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/materialy-do-analizy-danych/filmy-instruktazowe){target="_blank"} website features instructional videos (prepared in Polish) demonstrating how to use the IEA IDB Analyzer package to analyze data from international studies.
 :::
 ```{=latex}
 \newpage
@@ -73,10 +73,10 @@ The IEA IDB Analyzer supports data from a range of international educational stu
 
 Data and documentation (e.g., descriptions of dataset names and variables) from the studies are available on the following websites:
 
-- **PISA**: [www.oecd.org/pisa/data](https://www.oecd.org/pisa/data)
-- **TIMSS, PIRLS, ICCS, ICILS**: [www.iea.nl/data-tools/repository](https://www.iea.nl/data-tools/repository)
-- **PIAAC**: [www.oecd.org/skills/piaac/data](https://www.oecd.org/skills/piaac/data)
-- **TALIS**: [www.oecd.org/en/about/programmes/talis](https://www.oecd.org/en/about/programmes/talis.html#data)
+- **PISA**: [www.oecd.org/pisa/data](https://www.oecd.org/pisa/data){target="_blank"}
+- **TIMSS, PIRLS, ICCS, ICILS**: [www.iea.nl/data-tools/repository](https://www.iea.nl/data-tools/repository){target="_blank"}
+- **PIAAC**: [www.oecd.org/skills/piaac/data](https://www.oecd.org/skills/piaac/data){target="_blank"}
+- **TALIS**: [www.oecd.org/en/about/programmes/talis](https://www.oecd.org/en/about/programmes/talis.html#data){target="_blank"}
 
 ```{=latex}
 \newpage
@@ -344,7 +344,7 @@ The following example is based on the PIRLS 2021 study and presents an analysis 
 ::: {.callout-note}
 ## Context of the Analysis
 
-The results of the analysis correspond to the data presented in Table 5.5 of the [National PIRLS 2021 Report for Poland (p. 65)](https://pirls.ibe.edu.pl/wp-content/uploads/2023/05/PIRLS_2021_Wyniki-miedzynarodowego-badania-osiagniec-czwartoklasistow-w-czytaniu.pdf).
+The results of the analysis correspond to the data presented in Table 5.5 of the [National PIRLS 2021 Report for Poland (p. 65)](https://pirls.ibe.edu.pl/wp-content/uploads/2023/05/PIRLS_2021_Wyniki-miedzynarodowego-badania-osiagniec-czwartoklasistow-w-czytaniu.pdf){target="_blank"}.
 :::
 
 ![](img/Obraz6.png){fig-align="center"}
@@ -353,7 +353,7 @@ The results of the analysis correspond to the data presented in Table 5.5 of the
 ```
 ### Step 1: Downloading and Preparing the Data
 
-1. Download the PIRLS 2021 data from the [IEA Study Data Repository](https://www.iea.nl/data-tools/repository)
+1. Download the PIRLS 2021 data from the [IEA Study Data Repository](https://www.iea.nl/data-tools/repository){target="_blank"}
 
 2. **Combine the data using the Merge Module** in the IEA IDB Analyzer:
    - Launch the program and select the Merge Module

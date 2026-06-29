@@ -33,10 +33,10 @@ Pakiet `intsvy` w R to narzędzie stworzone m.in. dla analityków, naukowców i 
 ::: {.callout-note}
 ## Dodatkowe zasoby
 
-- [Pełna dokumentacja](https://github.com/eldafani/intsvy)
-- [Dokumentacja CRAN](https://cran.r-project.org/package=intsvy)
-- [Filmy instruktażowe](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/materialy-do-analizy-danych/filmy-instruktazowe)
-- [Przykłady wykorzystania](https://www.daniel-caro.com/intsvy)
+- [Pełna dokumentacja](https://github.com/eldafani/intsvy){target="_blank"}
+- [Dokumentacja CRAN](https://cran.r-project.org/package=intsvy){target="_blank"}
+- [Filmy instruktażowe](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/materialy-do-analizy-danych/filmy-instruktazowe){target="_blank"}
+- [Przykłady wykorzystania](https://www.daniel-caro.com/intsvy){target="_blank"}
 :::
 
 ### Dlaczego warto używać pakietu intsvy?
@@ -95,11 +95,11 @@ library(haven)
 
 Dane i dokumentacja (np. opisy nazw zbiorów i zmiennych) z badań dostępne są na poniższych stronach:
 
-- **PISA**: [www.oecd.org/pisa/data](https://www.oecd.org/pisa/data)
-- **TIMSS**: [www.iea.nl/data-tools/repository/timss](https://www.iea.nl/data-tools/repository/timss)
-- **PIRLS**: [www.iea.nl/data-tools/repository/pirls](https://www.iea.nl/data-tools/repository/pirls)
-- **ICILS**: [www.iea.nl/data-tools/repository/icils](https://www.iea.nl/data-tools/repository/icils)
-- **PIAAC**: [www.oecd.org/skills/piaac/data](https://www.oecd.org/skills/piaac/data)
+- **PISA**: [www.oecd.org/pisa/data](https://www.oecd.org/pisa/data){target="_blank"}
+- **TIMSS**: [www.iea.nl/data-tools/repository/timss](https://www.iea.nl/data-tools/repository/timss){target="_blank"}
+- **PIRLS**: [www.iea.nl/data-tools/repository/pirls](https://www.iea.nl/data-tools/repository/pirls){target="_blank"}
+- **ICILS**: [www.iea.nl/data-tools/repository/icils](https://www.iea.nl/data-tools/repository/icils){target="_blank"}
+- **PIAAC**: [www.oecd.org/skills/piaac/data](https://www.oecd.org/skills/piaac/data){target="_blank"}
 
 ::: {.callout-tip}
 Aby korzystać z wszystkich funkcjonalności pakietu `intsvy`, najlepiej pobrać dane <br>w formacie `.sav` (SPSS) ze stron odpowiednich badań.

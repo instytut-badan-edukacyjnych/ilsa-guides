@@ -62,17 +62,17 @@ with OECD and IEA methodological standards.
 ::: callout-note
 ## Additional Resources
 
--   [**Full Documentation**](https://cran.r-project.org/package=Rrepest/Rrepest.pdf) – a
+-   [**Full Documentation**](https://cran.r-project.org/package=Rrepest/Rrepest.pdf){target="_blank"} – a
     PDF file containing detailed descriptions of the package’s functions
     along with practical examples of its use in the analysis of
     international educational survey data.
 
 -   [**README on
-    CRAN**](https://cran.r-project.org/web/packages/Rrepest/readme/README.html) – a brief installation guide and an overview of the package's
+    CRAN**](https://cran.r-project.org/web/packages/Rrepest/readme/README.html){target="_blank"} – a brief installation guide and an overview of the package's
     main features, available on the package's CRAN page.
 
 -   [**Repository/wiki with examples (OECD
-    GitLab)**](https://gitlab.algobank.oecd.org/edu_data/rrepest) – a
+    GitLab)**](https://gitlab.algobank.oecd.org/edu_data/rrepest){target="_blank"} – a
     site maintained by the OECD where you can find package updates and
     additional examples of analyses.
 :::
@@ -333,14 +333,14 @@ study name specified in the `svy` argument.
 Data and documentation (e.g., codebooks, questionnaires and guides) for
 the studies can be accessed through the following websites:
 
--   **PISA**: <https://www.oecd.org/pisa/data/>
+-   **PISA**: [https://www.oecd.org/pisa/data/](https://www.oecd.org/pisa/data/){target="_blank"}
 -   **TIMSS/PIRLS/ICCS/ICILS**:
-    <https://www.iea.nl/data-tools/repository>
--   **PIAAC**: <https://www.oecd.org/skills/piaac/data/>
+    [https://www.iea.nl/data-tools/repository](https://www.iea.nl/data-tools/repository){target="_blank"}
+-   **PIAAC**: [https://www.oecd.org/skills/piaac/data/](https://www.oecd.org/skills/piaac/data/){target="_blank"}
 -   **TALIS**:
-    <https://www.oecd.org/en/about/programmes/talis.html#data>
+    [https://www.oecd.org/en/about/programmes/talis.html#data](https://www.oecd.org/en/about/programmes/talis.html#data){target="_blank"}
 -   **SSES**:
-    <https://www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data>
+    [https://www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data](https://www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data){target="_blank"}
 
 In the case of OECD studies, you may be required to complete a short
 registration form before downloading the datasets.
@@ -1400,15 +1400,15 @@ repetitive procedures, ensuring support for multiple studies and
 compliance of the conducted analyses with OECD and IEA research
 methodology. At the same time, it should be noted that the package does
 not cover the full range of analyses available, for example, in the
-[**IEA IDB Analyzer**](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng)
+[**IEA IDB Analyzer**](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng){target="_blank"}
 or in the [**intsvy**
-package](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/intsvy-eng).
+package](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/intsvy-eng){target="_blank"}.
 
 We encourage you to use the package in your own research projects, test
 its functionality in the analysis of data from international educational
 research, and to submit comments and improvement proposals directly to
 the package authors via the [**GitLab
-repository**](https://gitlab.algobank.oecd.org/edu_data/rrepest).
+repository**](https://gitlab.algobank.oecd.org/edu_data/rrepest){target="_blank"}.
 
 # Bibliography
 

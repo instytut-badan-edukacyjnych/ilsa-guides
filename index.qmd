@@ -95,5 +95,5 @@ SPSS dobrze sprawdza się jako pierwsze narzędzie w pracy z danymi z badań edu
 ---
 
 ::: {.text-muted .small}
-Instytut Badań Edukacyjnych · [GitHub](https://github.com/instytut-badan-edukacyjnych/ilsa-guides)
+Instytut Badań Edukacyjnych · [GitHub](https://github.com/instytut-badan-edukacyjnych/ilsa-guides){target="_blank"}
 :::

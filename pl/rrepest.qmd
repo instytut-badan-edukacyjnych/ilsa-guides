@@ -44,9 +44,9 @@ Pakiet umożliwia poprawną analizę wyników zgodnie z metodologią stosowaną 
 
 ::: {.callout-note}
 ## Dodatkowe zasoby
-- [**Pełna dokumentacja**](https://cran.r-project.org/package=Rrepest/Rrepest.pdf) - plik PDF zawierający opis funkcji pakietu oraz praktyczne przykłady jego zastosowania w analizie danych z międzynarodowych badań edukacyjnych.
-- [**README na CRAN**](https://cran.r-project.org/web/packages/Rrepest/readme/README.html)  - skrócony przewodnik instalacyjny i opis głównych funkcji pakietu, dostępny na stronie pakietu w CRAN.
-- [**Repo/wiki z przykładami (OECD GitLab**)](https://gitlab.algobank.oecd.org/edu_data/rrepest) - strona, na której znajdziemy aktualizacje pakietu publikowane przez OECD oraz dodatkowe przykłady analiz.
+- [**Pełna dokumentacja**](https://cran.r-project.org/package=Rrepest/Rrepest.pdf){target="_blank"} - plik PDF zawierający opis funkcji pakietu oraz praktyczne przykłady jego zastosowania w analizie danych z międzynarodowych badań edukacyjnych.
+- [**README na CRAN**](https://cran.r-project.org/web/packages/Rrepest/readme/README.html){target="_blank"}  - skrócony przewodnik instalacyjny i opis głównych funkcji pakietu, dostępny na stronie pakietu w CRAN.
+- [**Repo/wiki z przykładami (OECD GitLab**)](https://gitlab.algobank.oecd.org/edu_data/rrepest){target="_blank"} - strona, na której znajdziemy aktualizacje pakietu publikowane przez OECD oraz dodatkowe przykłady analiz.
 :::
 
 ---
@@ -225,11 +225,11 @@ Wagi analityczne są drugim rodzajem kluczowych zmiennych w międzynarodowych ba
 
 Dane i dokumentacja (np. opisy nazw zbiorów i zmiennych) z badań dostępne są na poniższych stronach:
 
-* **PISA**: <https://www.oecd.org/pisa/data/>
-* **TIMSS/PIRLS/ICCS/ICILS**: <https://www.iea.nl/data-tools/repository>
-* **PIAAC**: <https://www.oecd.org/skills/piaac/data/>
-* **TALIS**: <https://www.oecd.org/en/about/programmes/talis.html#data>
-* **SSES**: <https://www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data>
+* **PISA**: [https://www.oecd.org/pisa/data/](https://www.oecd.org/pisa/data/){target="_blank"}
+* **TIMSS/PIRLS/ICCS/ICILS**: [https://www.iea.nl/data-tools/repository](https://www.iea.nl/data-tools/repository){target="_blank"}
+* **PIAAC**: [https://www.oecd.org/skills/piaac/data/](https://www.oecd.org/skills/piaac/data/){target="_blank"}
+* **TALIS**: [https://www.oecd.org/en/about/programmes/talis.html#data](https://www.oecd.org/en/about/programmes/talis.html#data){target="_blank"}
+* **SSES**: [https://www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data](https://www.oecd.org/en/about/programmes/oecd-survey-on-social-and-emotional-skills.html#data){target="_blank"}
 
 W przypadku badań OECD przed pobraniem zbioru należy wypełnić krótką ankietę.
 
@@ -1187,9 +1187,9 @@ print(Analysis_06, width = 200)
 
 # Podsumowanie
 
-Pakiet **Rrepest** może być traktowany jako dogodna alternatywa dla programu **IEA IDB Analyzer** w zakresie wykonywania analiz danych z międzynarodowych badań edukacyjnych, szczególnie dla osób pracujących głównie w środowisku R. Rrepest umożliwia automatyzację wielu powtarzalnych procedur, zapewniając obsługę wielu badań edukacyjnych oraz zgodność przeprowadzonych analiz z metodologią badań OECD i IEA. Jednocześnie należy zaznaczyć, że pakiet ten nie obejmuje pełnego zakresu analiz dostępnych np. w [**IEA IDB Analyzer**](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer) lub w [**pakiecie intsvy**](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/intsvy).
+Pakiet **Rrepest** może być traktowany jako dogodna alternatywa dla programu **IEA IDB Analyzer** w zakresie wykonywania analiz danych z międzynarodowych badań edukacyjnych, szczególnie dla osób pracujących głównie w środowisku R. Rrepest umożliwia automatyzację wielu powtarzalnych procedur, zapewniając obsługę wielu badań edukacyjnych oraz zgodność przeprowadzonych analiz z metodologią badań OECD i IEA. Jednocześnie należy zaznaczyć, że pakiet ten nie obejmuje pełnego zakresu analiz dostępnych np. w [**IEA IDB Analyzer**](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer){target="_blank"} lub w [**pakiecie intsvy**](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/intsvy){target="_blank"}.
 
-Zachęcamy do wykorzystywania pakietu we własnych projektach badawczych, testowania jego funkcjonalności w analizie danych z międzynarodowych badań edukacyjnych oraz do zgłaszania uwag i propozycji usprawnień bezpośrednio do autorów pakietu poprzez [**repozytorium GitLab**](https://gitlab.algobank.oecd.org/edu_data/rrepest).
+Zachęcamy do wykorzystywania pakietu we własnych projektach badawczych, testowania jego funkcjonalności w analizie danych z międzynarodowych badań edukacyjnych oraz do zgłaszania uwag i propozycji usprawnień bezpośrednio do autorów pakietu poprzez [**repozytorium GitLab**](https://gitlab.algobank.oecd.org/edu_data/rrepest){target="_blank"}.
 
 # Bibliografia
 

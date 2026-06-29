@@ -377,7 +377,7 @@ For hands-on examples we'll start with the PISA study.
 
 ## Downloading data
 
-  * Go to the OECD page with PISA 2022 data: [https://www.oecd.org/pisa/data/2022database/](https://www.oecd.org/pisa/data/2022database/)
+  * Go to the OECD page with PISA 2022 data: [https://www.oecd.org/pisa/data/2022database/](https://www.oecd.org/pisa/data/2022database/){target="_blank"}
   * After completing a short survey, you’ll see a list of files in SAS and SPSS format. These are data from different study modules. We need the student survey data, which also include test scores.
   * Stata has built-in capability to import SAS files (but without the provided label file). SPSS files (.sav) can be imported with `import spss` command, but this command struggles with very large datasets and doesn't handle longer variable and value labels well.
 
@@ -964,7 +964,7 @@ Gdzie:
 
 ### Downloading and combining data
 
-TIMSS data are available from the IEA repository: [https://www.iea.nl/data-tools/repository](https://www.iea.nl/data-tools/repository). Choose the TIMSS section, accept the terms, and you can download the data. TIMSS is conducted in grades 4 and 8. We're interested in grade 4. Data can be downloaded in three formats: SAS, SPSS, and R. Choose **SPSS**.
+TIMSS data are available from the IEA repository: [https://www.iea.nl/data-tools/repository](https://www.iea.nl/data-tools/repository){target="_blank"}. Choose the TIMSS section, accept the terms, and you can download the data. TIMSS is conducted in grades 4 and 8. We're interested in grade 4. Data can be downloaded in three formats: SAS, SPSS, and R. Choose **SPSS**.
 
 After downloading, copy the files to your working directory, The downloaded package contains multiple data files and documentation in separate folders. This is is very helpful.
 

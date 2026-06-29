@@ -33,10 +33,10 @@ The `intsvy` R package was developed for data analysts, scientists, and students
 
 ## Additional resources
 
-- [Full documentation](https://github.com/eldafani/intsvy)
-- [CRAN documentation](https://cran.r-project.org/package=intsvy)
-- [Video tutorials](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/materialy-do-analizy-danych/filmy-instruktazowe)
-- [Use examples](https://www.daniel-caro.com/intsvy)
+- [Full documentation](https://github.com/eldafani/intsvy){target="_blank"}
+- [CRAN documentation](https://cran.r-project.org/package=intsvy){target="_blank"}
+- [Video tutorials](https://ibe.edu.pl/pl/miedzynarodowe-badania-edukacyjne-zasoby/materialy-do-analizy-danych/filmy-instruktazowe){target="_blank"}
+- [Use examples](https://www.daniel-caro.com/intsvy){target="_blank"}
 :::
 
 ### Why should you consider intsvy?
@@ -96,11 +96,11 @@ library(haven)
 
 Data and documentation (e.g., codebooks with dataset and variable names) are available on the websites of the respective international studies:
 
-- **PISA**: [www.oecd.org/pisa/data](https://www.oecd.org/pisa/data)
-- **TIMSS**: [www.iea.nl/data-tools/repository/timss](https://www.iea.nl/data-tools/repository/timss)
-- **PIRLS**: [www.iea.nl/data-tools/repository/pirls](https://www.iea.nl/data-tools/repository/pirls)
-- **ICILS**: [www.iea.nl/data-tools/repository/icils](https://www.iea.nl/data-tools/repository/icils)
-- **PIAAC**: [www.oecd.org/skills/piaac/data](https://www.oecd.org/skills/piaac/data)
+- **PISA**: [www.oecd.org/pisa/data](https://www.oecd.org/pisa/data){target="_blank"}
+- **TIMSS**: [www.iea.nl/data-tools/repository/timss](https://www.iea.nl/data-tools/repository/timss){target="_blank"}
+- **PIRLS**: [www.iea.nl/data-tools/repository/pirls](https://www.iea.nl/data-tools/repository/pirls){target="_blank"}
+- **ICILS**: [www.iea.nl/data-tools/repository/icils](https://www.iea.nl/data-tools/repository/icils){target="_blank"}
+- **PIAAC**: [www.oecd.org/skills/piaac/data](https://www.oecd.org/skills/piaac/data){target="_blank"}
 
 ::: {.callout-tip}
 To use all functionalities of `intsvy`, you should download data in `.sav` format (SPSS) using the links above.
