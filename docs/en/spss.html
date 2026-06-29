@@ -292,7 +292,7 @@ p code, li code, td code, th code {
 <li>producing preliminary exploratory tables and charts</li>
 <li>preparing an output file for further analysis</li>
 </ul>
-<p>SPSS works well as a first tool when working with these data — it lets you quickly get oriented in the structure of the dataset, assess data quality and prepare variables for the actual analyses. However, once you want to test whether differences between groups of students are statistically significant, the standard SPSS procedures have important limitations that follow from the specific nature of these data. Although OECD provides dedicated SPSS macros that allow correct computation, they are considerably more complex to use than dedicated tools or packages such as <strong>IEA IDB Analyzer</strong>, <strong>Rrepest</strong>, <strong>repest</strong> or <strong>intsvy</strong>. Guides to these tools are available on the IBE-PIB website: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data</a>.</p>
+<p>SPSS works well as a first tool when working with these data — it lets you quickly get oriented in the structure of the dataset, assess data quality and prepare variables for the actual analyses. However, once you want to test whether differences between groups of students are statistically significant, the standard SPSS procedures have important limitations that follow from the specific nature of these data. Although OECD provides dedicated SPSS macros that allow correct computation, they are considerably more complex to use than dedicated tools or packages such as <strong>IEA IDB Analyzer</strong>, <strong>Rrepest</strong>, <strong>repest</strong> or <strong>intsvy</strong>. Guides to these tools are available on the IBE-PIB website: <a href="https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa" target="_blank">ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa</a>.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -379,7 +379,7 @@ p code, li code, td code, th code {
 <li>it automatically accounts for replicate weights and plausible values (PVs) — exactly what the standard SPSS procedures lack.</li>
 </ul>
 <p>In practice you prepare the data in SPSS (merging files, <code>RECODE</code>, <code>COMPUTE</code>, building indices) and hand the final population estimates over to the IDB Analyzer — without leaving the SPSS ecosystem. The IDB Analyzer is therefore a complement to SPSS, not a replacement for it.</p>
-<p>A guide to the IDB Analyzer is available on the IBE-PIB website: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data/idb-analyzer</a></p>
+<p>A guide to the IDB Analyzer is available on the IBE-PIB website: <a href="https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng" target="_blank">ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng</a></p>
 </div>
 </div>
 <p>To use SPSS knowingly and safely, it is worth understanding where these limitations actually come from. The specific nature of international large-scale assessments rests on three methodological pillars that substantially change the approach to statistical analysis.</p>
@@ -451,7 +451,7 @@ p code, li code, td code, th code {
 <h2 data-number="4.1" class="anchored" data-anchor-id="where-to-download-the-data"><span class="header-section-number">4.1</span> Where to download the data</h2>
 <p>PIRLS 2021 data are available free of charge from the IEA repository: <a href="https://www.iea.nl/data-tools/repository/pirls" target="_blank">www.iea.nl/data-tools/repository/pirls</a></p>
 <p>Download the files in SPSS format (<code>.sav</code>). Together with the data, download the technical documentation, especially the <em>User Guide</em> and the <em>codebook</em>, which describe the variable names, response codes and identifiers needed to merge files.</p>
-<p>If you are interested in the Polish data supplemented with national questions, you will find them in the IBE-PIB repository: <a href="https://www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan" target="_blank">www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan</a></p>
+<p>If you are interested in the Polish data supplemented with national questions, you will find them in the IBE-PIB repository: <a href="https://www.ibe.edu.pl/en/data/where-to-find-the-data-and-research-instruments/pirls-data-international-assessments" target="_blank">www.ibe.edu.pl/en/data/where-to-find-the-data-and-research-instruments/pirls-data-international-assessments</a></p>
 </section>
 <section id="folder-structure" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="folder-structure"><span class="header-section-number">4.2</span> Folder structure</h2>
@@ -702,7 +702,7 @@ SAVE OUTFILE='C:\PIRLS2021\working\student_teacher.sav'.</code></pre>
 </section>
 <section id="appending-national-questions" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="appending-national-questions"><span class="header-section-number">6.3</span> Appending national questions</h2>
-<p>Each country participating in PIRLS may ask respondents additional questions that are not part of the international instrument. IBE-PIB provides the Polish national questions as a separate dataset, which we merge with the international database on the <code>IDCNTRY</code> and <code>IDSTUD</code> keys: <a href="https://www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan" target="_blank">www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan</a></p>
+<p>Each country participating in PIRLS may ask respondents additional questions that are not part of the international instrument. IBE-PIB provides the Polish national questions as a separate dataset, which we merge with the international database on the <code>IDCNTRY</code> and <code>IDSTUD</code> keys: <a href="https://www.ibe.edu.pl/en/data/where-to-find-the-data-and-research-instruments/pirls-data-international-assessments" target="_blank">www.ibe.edu.pl/en/data/where-to-find-the-data-and-research-instruments/pirls-data-international-assessments</a></p>
 <pre><code>GET FILE='C:\PIRLS2021\working\student_parent.sav'.
 SORT CASES BY IDCNTRY IDSTUD.
 SAVE OUTFILE='C:\PIRLS2021\working\main_sorted.sav'.
@@ -975,7 +975,7 @@ WEIGHT OFF.</code></pre>
 <li><strong>TALIS</strong>: <a href="https://www.oecd.org/en/about/programmes/talis.html#data" target="_blank">www.oecd.org/en/about/programmes/talis.html#data</a></li>
 <li><strong>PIAAC</strong>: <a href="https://www.oecd.org/skills/piaac/data" target="_blank">www.oecd.org/skills/piaac/data</a></li>
 <li><strong>SSES</strong> (<em>Survey on Social and Emotional Skills</em>): <a href="https://www.oecd.org/en/about/programmes/sses.html" target="_blank">www.oecd.org/en/about/programmes/sses.html</a></li>
-<li><strong>Polish national questions and IBE-PIB data</strong>: <a href="https://www.ibe.edu.pl/pl/dane" target="_blank">www.ibe.edu.pl/pl/dane</a></li>
+<li><strong>Polish national questions and IBE-PIB data</strong>: <a href="https://www.ibe.edu.pl/en/data" target="_blank">www.ibe.edu.pl/en/data</a></li>
 </ul>
 </section>
 <section id="technical-documentation" class="level2" data-number="11.2">
@@ -992,15 +992,15 @@ WEIGHT OFF.</code></pre>
 <ul>
 <li><p><strong>IEA IDB Analyzer</strong> – a graphical, windowed program that generates SPSS, SAS or R syntax; it supports all IEA studies as well as PISA. It requires no programming knowledge.<br>
 Download: <a href="https://www.iea.nl/data-tools/tools" target="_blank">www.iea.nl/data-tools/tools</a><br>
-IBE-PIB guide: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data/idb-analyzer</a></p></li>
+IBE-PIB guide: <a href="https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng" target="_blank">ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng</a></p></li>
 <li><p><strong>Rrepest</strong> – an R package developed by OECD; it supports PISA, PIAAC, TALIS and SSES. It allows flexible analyses of regressions, means and percentiles with full support for PVs and replicate weights.<br>
 CRAN: <a href="https://cran.r-project.org/package=Rrepest" target="_blank">cran.r-project.org/package=Rrepest</a><br>
-IBE-PIB guide: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane/rrepest" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data/rrepest</a></p></li>
+IBE-PIB guide: <a href="https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/r-repest-eng" target="_blank">ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/r-repest-eng</a></p></li>
 <li><p><strong>intsvy</strong> – an R package supporting a wide range of studies (PIRLS, TIMSS, PISA, PIAAC, ICILS and others); it allows the computation of means, percentages, correlations and regression models with replicate weights.<br>
 CRAN: <a href="https://cran.r-project.org/package=intsvy" target="_blank">cran.r-project.org/package=intsvy</a><br>
-IBE-PIB guide: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane/intsvy" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data/intsvy</a></p></li>
+IBE-PIB guide: <a href="https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/intsvy-eng" target="_blank">ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/intsvy-eng</a></p></li>
 <li><p><strong>repest</strong> – a command for Stata developed by OECD; it supports PISA, PIAAC and TALIS. Avvisati, F., &amp; Keslair, F. (2014).<br>
-IBE-PIB guide: <a href="https://ibe.edu.pl/pl/dane/jak-analizowac-dane/stata-repest" target="_blank">ibe.edu.pl/en/data/how-to-analyse-data/stata-repest</a></p></li>
+IBE-PIB guide: <a href="https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/stata-repest-eng" target="_blank">ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/stata-repest-eng</a></p></li>
 </ul>
 
 

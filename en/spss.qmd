@@ -128,7 +128,7 @@ OECD provides dedicated SPSS macros that allow correct computation, they
 are considerably more complex to use than dedicated tools or packages such
 as **IEA IDB Analyzer**, **Rrepest**, **repest** or **intsvy**. Guides to
 these tools are available on the IBE-PIB website:
-[ibe.edu.pl/en/data/how-to-analyse-data](https://ibe.edu.pl/pl/dane/jak-analizowac-dane){target="_blank"}.
+[ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa){target="_blank"}.
 
 ::: {.callout-tip}
 ## When SPSS is not enough
@@ -166,7 +166,7 @@ to the IDB Analyzer — without leaving the SPSS ecosystem. The IDB Analyzer
 is therefore a complement to SPSS, not a replacement for it.
 
 A guide to the IDB Analyzer is available on the IBE-PIB website:
-[ibe.edu.pl/en/data/how-to-analyse-data/idb-analyzer](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer){target="_blank"}
+[ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng){target="_blank"}
 :::
 
 To use SPSS knowingly and safely, it is worth understanding where these
@@ -291,7 +291,7 @@ identifiers needed to merge files.
 
 If you are interested in the Polish data supplemented with national
 questions, you will find them in the IBE-PIB repository:
-[www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan](https://www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan){target="_blank"}
+[www.ibe.edu.pl/en/data/where-to-find-the-data-and-research-instruments/pirls-data-international-assessments](https://www.ibe.edu.pl/en/data/where-to-find-the-data-and-research-instruments/pirls-data-international-assessments){target="_blank"}
 
 
 ## Folder structure
@@ -537,7 +537,7 @@ Each country participating in PIRLS may ask respondents additional
 questions that are not part of the international instrument. IBE-PIB
 provides the Polish national questions as a separate dataset, which we
 merge with the international database on the `IDCNTRY` and `IDSTUD` keys:
-[www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan](https://www.ibe.edu.pl/pl/dane/gdzie-znalezc-dane-i-narzedzia-badawcze/pirls-dane-z-badan){target="_blank"}
+[www.ibe.edu.pl/en/data/where-to-find-the-data-and-research-instruments/pirls-data-international-assessments](https://www.ibe.edu.pl/en/data/where-to-find-the-data-and-research-instruments/pirls-data-international-assessments){target="_blank"}
 
 ```
 GET FILE='C:\PIRLS2021\working\student_parent.sav'.
@@ -1002,7 +1002,7 @@ have been read in and prepared correctly.
 - **TALIS**: [www.oecd.org/en/about/programmes/talis.html#data](https://www.oecd.org/en/about/programmes/talis.html#data){target="_blank"}
 - **PIAAC**: [www.oecd.org/skills/piaac/data](https://www.oecd.org/skills/piaac/data){target="_blank"}
 - **SSES** (*Survey on Social and Emotional Skills*): [www.oecd.org/en/about/programmes/sses.html](https://www.oecd.org/en/about/programmes/sses.html){target="_blank"}
-- **Polish national questions and IBE-PIB data**: [www.ibe.edu.pl/pl/dane](https://www.ibe.edu.pl/pl/dane){target="_blank"}
+- **Polish national questions and IBE-PIB data**: [www.ibe.edu.pl/en/data](https://www.ibe.edu.pl/en/data){target="_blank"}
 
 ## Technical documentation
 
@@ -1025,20 +1025,20 @@ available at the link below.
   SAS or R syntax; it supports all IEA studies as well as PISA. It requires
   no programming knowledge.\
   Download: [www.iea.nl/data-tools/tools](https://www.iea.nl/data-tools/tools){target="_blank"}\
-  IBE-PIB guide: [ibe.edu.pl/en/data/how-to-analyse-data/idb-analyzer](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/idb-analyzer){target="_blank"}
+  IBE-PIB guide: [ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/idb-analyzer-eng){target="_blank"}
 
 - **Rrepest** – an R package developed by OECD; it supports PISA, PIAAC,
   TALIS and SSES. It allows flexible analyses of regressions, means and
   percentiles with full support for PVs and replicate weights.\
   CRAN: [cran.r-project.org/package=Rrepest](https://cran.r-project.org/package=Rrepest){target="_blank"}\
-  IBE-PIB guide: [ibe.edu.pl/en/data/how-to-analyse-data/rrepest](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/rrepest){target="_blank"}
+  IBE-PIB guide: [ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/r-repest-eng](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/r-repest-eng){target="_blank"}
 
 - **intsvy** – an R package supporting a wide range of studies (PIRLS,
   TIMSS, PISA, PIAAC, ICILS and others); it allows the computation of means,
   percentages, correlations and regression models with replicate weights.\
   CRAN: [cran.r-project.org/package=intsvy](https://cran.r-project.org/package=intsvy){target="_blank"}\
-  IBE-PIB guide: [ibe.edu.pl/en/data/how-to-analyse-data/intsvy](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/intsvy){target="_blank"}
+  IBE-PIB guide: [ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/intsvy-eng](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/intsvy-eng){target="_blank"}
 
 - **repest** – a command for Stata developed by OECD; it supports PISA,
   PIAAC and TALIS. Avvisati, F., & Keslair, F. (2014).\
-  IBE-PIB guide: [ibe.edu.pl/en/data/how-to-analyse-data/stata-repest](https://ibe.edu.pl/pl/dane/jak-analizowac-dane/stata-repest){target="_blank"}
+  IBE-PIB guide: [ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/stata-repest-eng](https://ibe.edu.pl/en/data/how-to-analyze-data-from-international-large-scale-assessments-ilsa/stata-repest-eng){target="_blank"}
